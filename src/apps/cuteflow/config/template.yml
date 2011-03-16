@@ -1,0 +1,10 @@
+disabled:
+  module_1:
+    login
+  module_2:
+    installer
+  module_3:
+    namespace
+enableJavaScriptCache:
+  isEnabled:
+    true

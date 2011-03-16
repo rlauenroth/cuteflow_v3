@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.0">
+  <file original="global" source-language="en_US" target-language="de_DE" datatype="plaintext">
+    <body>  
+      <trans-unit id="1">
+        <source>Loading Data...</source>
+        <target>Lade Daten...</target>
+      </trans-unit>
+      <trans-unit id="2">
+        <source>Error</source>
+        <target>Fehler</target>
+      </trans-unit>
+      <trans-unit id="3">
+        <source>Profile changes and editing/creating user at same time is not supported</source>
+        <target>Profil &#196;nderungen/Aktualisierungen von Benutzern zur gleichen Zeit wird nicht unterst&#252;tzt</target>
+      </trans-unit>
+      <trans-unit id="4">
+        <source>Profile Settings</source>
+        <target>Profil Einstellungen</target>
+      </trans-unit> 	  
+		<trans-unit id="5">
+        <source>Store</source>
+        <target>Speichern</target>
+      </trans-unit> 
+	  <trans-unit id="6">
+        <source>Passwords not equal</source>
+        <target>Pa&#223;w&#246;ter sind nicht gleich</target>
+      </trans-unit> 
+	  <trans-unit id="7">
+        <source>Close</source>
+        <target>Schlie&#223;en</target>
+      </trans-unit> 		 
+    </body>
+  </file>
+</xliff>

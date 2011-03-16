@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.0">
+  <file original="global" source-language="en_US" target-language="en_US" datatype="plaintext">
+    <body>  
+      <trans-unit id="1">
+        <source>Firstname</source>
+        <target>Firstname</target>
+      </trans-unit>
+      <trans-unit id="2">
+        <source>Lastname</source>
+        <target>Lastname</target>
+      </trans-unit>
+      <trans-unit id="3">
+        <source>Email</source>
+        <target>Email</target>
+      </trans-unit>
+      <trans-unit id="4">
+        <source>Username</source>
+        <target>Username</target>
+      </trans-unit> 	  
+		<trans-unit id="5">
+        <source>Userrole</source>
+        <target>Userrole</target>
+      </trans-unit> 
+	  <trans-unit id="6">
+        <source>Action</source>
+        <target>Action</target>
+      </trans-unit> 
+	  <trans-unit id="7">
+        <source>Add new user</source>
+        <target>Add new user</target>
+      </trans-unit> 
+	  <trans-unit id="8">
+        <source>No records found</source>
+        <target>No records found</target>
+      </trans-unit> 
+	 <trans-unit id="9">
+        <source>No records found</source>
+        <target>No records found</target>
+     </trans-unit> 
+	 <trans-unit id="10">
+        <source>Searchbar</source>
+        <target>Searchbar</target>
+     </trans-unit>
+	 <trans-unit id="11">
+        <source>User management</source>
+        <target>User management</target>
+     </trans-unit>
+	 <trans-unit id="12">
+        <source>Search</source>
+        <target>Search</target>
+     </trans-unit>
+	 <trans-unit id="13">
+        <source>Delete existing user</source>
+        <target>Delete existing user</target>
+     </trans-unit>
+	 <trans-unit id="14">
+        <source>Displaying topics</source>
+        <target>Displaying topics</target>
+     </trans-unit> 
+	 <trans-unit id="15">
+        <source>of</source>
+        <target>of</target>
+     </trans-unit>
+	 <trans-unit id="16">
+        <source>OK</source>
+        <target>OK</target>
+     </trans-unit>
+	 <trans-unit id="17">
+        <source>Delete Success</source>
+        <target>Delete Success</target>
+     </trans-unit>
+	 <trans-unit id="18">
+        <source>Error</source>
+        <target>Error</target>
+     </trans-unit>
+	 <trans-unit id="19">
+        <source>Deleting own account not working</source>
+        <target>Deleting own account not working</target>
+     </trans-unit>
+	 <trans-unit id="20">
+        <source>Add new user</source>
+        <target>Add new user</target>
+     </trans-unit>
+	 <trans-unit id="21">
+        <source>User overview</source>
+        <target>User overview</target>
+     </trans-unit>	
+	 <trans-unit id="22">
+        <source>Edit user</source>
+        <target>Edit user</target>
+     </trans-unit>		
+	 <trans-unit id="23">
+        <source>Discard</source>
+        <target>Discard</target>
+     </trans-unit>
+	 <trans-unit id="24">
+        <source>Add LDAP User</source>
+        <target>Add LDAP User</target>
+     </trans-unit>		
+	 <trans-unit id="25">
+        <source>Delete user</source>
+        <target>Delete user</target>
+     </trans-unit>
+	 <trans-unit id="26">
+        <source>Userdata</source>
+        <target>Userdata</target>
+     </trans-unit>
+	 <trans-unit id="27">
+        <source>User login data</source>
+        <target>User login data</target>
+     </trans-unit>
+	 <trans-unit id="28">
+        <source>Email Format</source>
+        <target>Email Format</target>
+     </trans-unit>	 
+	 <trans-unit id="29">
+        <source>Loading Data...</source>
+        <target>Loading Data...</target>
+     </trans-unit>
+    <trans-unit id="30">
+        <source>Profile changes and editing/creating user at same time is not supported</source>
+        <target>Profile changes and editing/creating user at same time is not supported</target>
+    </trans-unit>
+	<trans-unit id="31">
+        <source>Useragent Settings</source>
+        <target>Useragent Settings</target>
+    </trans-unit>
+	 <trans-unit id="32">
+        <source>Useragent time</source>
+        <target>Useragent time</target>
+    </trans-unit>
+	 <trans-unit id="33">
+        <source>Set Useragents</source>
+        <target>Set Useragents</target>
+    </trans-unit>
+	<trans-unit id="34">
+        <source>Move right please</source>
+        <target>Move right please</target>
+    </trans-unit>
+	 <trans-unit id="35">
+        <source>Remove user</source>
+        <target>Remove user</target>
+    </trans-unit>
+	 <trans-unit id="36">
+        <source>Clear field</source>
+        <target>Clear field</target>
+    </trans-unit>
+	<trans-unit id="37">
+        <source>Day(s)</source>
+        <target>Day(s)</target>
+    </trans-unit>
+	<trans-unit id="38">
+        <source>Hour(s)</source>
+        <target>Hour(s)</target>
+    </trans-unit>
+    <trans-unit id="39">
+        <source>Minute(s)</source>
+        <target>Minute(s)</target>
+    </trans-unit>
+	<trans-unit id="40">
+        <source>Address</source>
+        <target>Address</target>
+      </trans-unit>
+      <trans-unit id="41">
+        <source>Zip / City</source>
+        <target>Zip / City</target>
+      </trans-unit>
+      <trans-unit id="42">
+        <source>Street</source>
+        <target>Stra&#223;e</target>
+      </trans-unit>
+      <trans-unit id="43">
+        <source>Country</source>
+        <target>Country</target>
+      </trans-unit> 	  
+	  <trans-unit id="44">
+        <source>Phone and Fax</source>
+        <target>Phone and Fax</target>
+      </trans-unit> 
+	  <trans-unit id="45">
+        <source>Phone 1</source>
+        <target>Phone 1</target>
+      </trans-unit> 
+	  <trans-unit id="46">
+        <source>Phone 2</source>
+        <target>Phone 2</target>
+      </trans-unit> 
+	  <trans-unit id="47">
+        <source>Mobile</source>
+        <target>Mobile</target>
+      </trans-unit> 
+	 <trans-unit id="48">
+        <source>Fax</source>
+        <target>Fax</target>
+     </trans-unit> 
+	 <trans-unit id="49">
+        <source>Organisation, Department and Burdence center</source>
+        <target>Organisation, Department and Burdence center</target>
+	</trans-unit> 
+	<trans-unit id="50">
+        <source>Comment</source>
+        <target>Comment</target>
+    </trans-unit> 
+	<trans-unit id="51">
+        <source>Organisation</source>
+        <target>Organisation</target>
+    </trans-unit> 
+	<trans-unit id="52">
+        <source>Department</source>
+        <target>Department</target>
+    </trans-unit>
+	<trans-unit id="53">
+        <source>Burdence center</source>
+        <target>Burdence center</target>
+    </trans-unit>
+	<trans-unit id="54">
+        <source>Useragent</source>
+        <target>Useragent</target>
+    </trans-unit>
+	<trans-unit id="55">
+        <source>Address data</source>
+        <target>Address data</target>
+    </trans-unit>
+	<trans-unit id="56">
+        <source>Additional data</source>
+        <target>Additional data</target>
+    </trans-unit>
+	<trans-unit id="57">
+        <source>GUI Settings</source>
+        <target>GUI Settings</target>
+    </trans-unit>
+	<trans-unit id="58">
+        <source>Name</source>
+        <target>Name</target>
+    </trans-unit>
+	<trans-unit id="59">
+        <source>Station</source>
+        <target>Station</target>
+    </trans-unit>
+	<trans-unit id="60">
+        <source>Days</source>
+        <target>Days</target>
+    </trans-unit>
+	<trans-unit id="61">
+        <source>Start</source>
+        <target>Start</target>
+    </trans-unit>
+	<trans-unit id="62">
+        <source>Sender</source>
+        <target>Sender</target>
+    </trans-unit>
+	<trans-unit id="63">
+        <source>Total time</source>
+        <target>Gesamtzeit</target>
+    </trans-unit>
+	<trans-unit id="64">
+        <source>Mailing list</source>
+        <target>Mailing list</target>
+    </trans-unit>
+	<trans-unit id="65">
+        <source>Template</source>
+        <target>Template</target>
+    </trans-unit>	
+	<trans-unit id="66">
+        <source>Ascending</source>
+        <target>Ascending</target>
+    </trans-unit>	
+	<trans-unit id="67">
+        <source>Descending</source>
+        <target>Descending</target>
+    </trans-unit>
+	<trans-unit id="68">
+        <source>Active Item</source>
+        <target>Active Item</target>
+    </trans-unit>
+	<trans-unit id="69">
+        <source>Column</source>
+        <target>Column</target>
+    </trans-unit>
+	<trans-unit id="70">
+        <source>Activate Item</source>
+        <target>Activate Item</target>
+    </trans-unit>
+	<trans-unit id="71">
+        <source>Workflow Circulation settings</source>
+        <target>Workflow Circulation settings</target>
+    </trans-unit>
+	<trans-unit id="72">
+        <source>Items per page</source>
+        <target>Items per page</target>
+    </trans-unit>
+	<trans-unit id="73">
+        <source>Refreshtime in seconds</source>
+        <target>Refreshtime in seconds</target>
+    </trans-unit>
+	<trans-unit id="74">
+        <source>Circulations default sort</source>
+        <target>Circulations default sort</target>
+    </trans-unit>
+	<trans-unit id="75">
+        <source>Show Circulationdetails in PopUp?</source>
+        <target>Show Circulationdetails in PopUp?</target>
+    </trans-unit>
+	<trans-unit id="76">
+        <source>Change yellow after...days</source>
+        <target>Change yellow after...days</target>
+    </trans-unit>
+	<trans-unit id="77">
+        <source>Change orange after...days</source>
+        <target>Change orange after...days</target>
+    </trans-unit>
+	<trans-unit id="78">
+        <source>Change red after...days</source>
+        <target>Change red after...days</target>
+    </trans-unit>
+	<trans-unit id="79">
+        <source>User added</source>
+        <target>User added</target>
+    </trans-unit>
+	<trans-unit id="80">
+        <source>Username already exists</source>
+        <target>Username already exists</target>
+    </trans-unit>
+	<trans-unit id="81">
+        <source>Plain</source>
+        <target>Plain</target>
+    </trans-unit>
+	<trans-unit id="82">
+        <source>None</source>
+        <target>None</target>
+    </trans-unit>
+	<trans-unit id="83">
+        <source>Only values</source>
+        <target>Only values</target>
+    </trans-unit>
+	<trans-unit id="84">
+        <source>IFrame</source>
+        <target>IFrame</target>
+    </trans-unit>
+	<trans-unit id="85">
+        <source>Password</source>
+        <target>Password</target>
+    </trans-unit>
+	<trans-unit id="86">
+        <source>Password (repeat)</source>
+        <target>Password (repeat)</target>
+    </trans-unit>
+	<trans-unit id="87">
+        <source>Close</source>
+        <target>Close</target>
+    </trans-unit>
+	<trans-unit id="88">
+        <source>Search for Useragent...</source>
+        <target>Search for Useragent..</target>
+    </trans-unit>
+	<trans-unit id="89">
+        <source>Search for User...</source>
+        <target>Search for User...</target>
+    </trans-unit>
+	<trans-unit id="90">
+        <source>Own profile cannot be deleted</source>
+        <target>Own profile cannot be deleted</target>
+    </trans-unit>
+	<trans-unit id="91">
+        <source>User deleted</source>
+        <target>User deleted</target>
+    </trans-unit>
+	<trans-unit id="92">
+        <source>Delete user?</source>
+        <target>Delete user?</target>
+    </trans-unit>
+	<trans-unit id="93">
+        <source>Show deleted User</source>
+        <target>Show deleted User</target>
+    </trans-unit>
+	<trans-unit id="94">
+        <source>Deleted user</source>
+        <target>Deleted user</target>
+    </trans-unit>
+	<trans-unit id="95">
+        <source>Activate user</source>
+        <target>Activate user</target>
+    </trans-unit>
+	<trans-unit id="96">
+        <source>User activated</source>
+        <target>User activated</target>
+    </trans-unit>
+	<trans-unit id="97">
+        <source>User language</source>
+        <target>User language</target>
+    </trans-unit>
+	<trans-unit id="98">
+        <source>User</source>
+        <target>User</target>
+    </trans-unit>
+	<trans-unit id="99">
+        <source>Select Theme</source>
+        <target>Select Theme</target>
+    </trans-unit>
+		<trans-unit id="100">
+        <source>Notice</source>
+        <target>Notice</target>
+    </trans-unit>
+	<trans-unit id="101">
+        <source>For changes in own Profile it is recommended</source>
+        <target>For changes in own Profile it is recommended</target>
+    </trans-unit>
+	<trans-unit id="102">
+        <source>to reload the page. Unsaved data is getting lost. Proceed</source>
+        <target>to reload the page. Unsaved data is getting lost. Proceed</target>
+    </trans-unit>
+	<trans-unit id="103">
+        <source>User Data</source>
+        <target>User Data</target>
+     </trans-unit>
+	  <trans-unit id="104">
+        <source>Workflow Circulation settings</source>
+        <target>Workflow Circulation settings</target>
+     </trans-unit>
+	  <trans-unit id="105">
+        <source>Items per Page</source>
+        <target>Items per Page</target>
+     </trans-unit>
+	  <trans-unit id="106">
+        <source>Login Data</source>
+        <target>Login Data</target>
+     </trans-unit>
+    <trans-unit id="107">
+        <source>Saving Data</source>
+        <target>Saving Data</target>
+     </trans-unit>
+    </body>
+  </file>
+</xliff>

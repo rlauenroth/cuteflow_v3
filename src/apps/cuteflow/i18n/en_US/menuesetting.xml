@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.0">
+  <file original="global" source-language="en_US" target-language="en_US" datatype="plaintext">
+    <body>  
+      <trans-unit id="1">
+        <source>Module</source>
+        <target>Module</target>
+      </trans-unit>
+      <trans-unit id="2">
+        <source>Group</source>
+        <target>Group</target>
+      </trans-unit>
+      <trans-unit id="3">
+        <source>Save order</source>
+        <target>Save order</target>
+      </trans-unit>
+      <trans-unit id="4">
+        <source>Drag Drop to change order</source>
+        <target>Drag Drop to change order</target>
+      </trans-unit> 	  
+		<trans-unit id="5">
+        <source>Change order of module items</source>
+        <target>Change order of module items</target>
+      </trans-unit> 
+	  <trans-unit id="6">
+        <source>Store</source>
+        <target>Store</target>
+      </trans-unit> 
+	  <trans-unit id="7">
+        <source>Close</source>
+        <target>Close</target>
+      </trans-unit> 
+	  <trans-unit id="8">
+        <source>Menue entry</source>
+        <target>Menue entry</target>
+      </trans-unit> 
+	 <trans-unit id="9">
+        <source>Change item order</source>
+        <target>Change item order</target>
+     </trans-unit> 
+	 <trans-unit id="10">
+        <source>Action</source>
+        <target>Action</target>
+     </trans-unit>
+	 <trans-unit id="11">
+        <source>Menue Settings</source>
+        <target>Menue Settings</target>
+     </trans-unit>
+	 <trans-unit id="12">
+        <source>Saving Data</source>
+        <target>Saving Data</target>
+     </trans-unit>		 
+    </body>
+  </file>
+</xliff>

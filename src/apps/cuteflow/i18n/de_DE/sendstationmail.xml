@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.0">
+  <file original="global" source-language="en_US" target-language="en_US" datatype="plaintext">
+    <body>
+		<trans-unit id="1">
+			<source>CuteFlow: values to</source>
+			<target>CuteFlow: values to</target>
+		</trans-unit>
+		<trans-unit id="2">
+			<source>CuteFlow: slot</source>
+			<target>CuteFlow: slot</target>
+		</trans-unit>
+		<trans-unit id="3">
+			<source>Slot</source>
+			<target>Slot</target>
+		</trans-unit>
+		<trans-unit id="4">
+			<source>Yes</source>
+			<target>Yes</target>
+		</trans-unit>
+		<trans-unit id="5">
+			<source>No</source>
+			<target>No</target>
+		</trans-unit>
+		<trans-unit id="6">
+			<source>Field</source>
+			<target>Field</target>
+		</trans-unit>
+		<trans-unit id="7">
+			<source>Value</source>
+			<target>Value</target>
+		</trans-unit>
+		<trans-unit id="8">
+			<source>Direct link to workflow</source>
+			<target>Direkter Link</target>
+		</trans-unit>
+		<trans-unit id="9">
+			<source>You have to fill out the fields in the workflow</source>
+			<target>Sie m&#252;ssen folgende Felder ausf&#252;llen</target>
+		</trans-unit>
+		<trans-unit id="10">
+			<source>File</source>
+			<target>Datei</target>
+		</trans-unit>
+		<trans-unit id="11">
+			<source>Accept Workflow</source>
+			<target>Umlauf annehmen</target>
+		</trans-unit>
+		<trans-unit id="12">
+			<source>Deny Workflow</source>
+			<target>Umlauf ablehnen</target>
+		</trans-unit>
+		<trans-unit id="13">
+			<source>Save</source>
+			<target>Speichern</target>
+		</trans-unit>
+		<trans-unit id="14">
+			<source>You have received values for the workflow</source>
+			<target>Neue Werte f&#252;r den Umlauf</target>
+		</trans-unit>
+		<trans-unit id="15">
+			<source>Worklfow has been saved</source>
+			<target>Umlauf gespeichert</target>
+		</trans-unit>
+		<trans-unit id="16">
+			<source>Some values are not correct</source>
+			<target>Werte sind nicht korrekt</target>
+		</trans-unit>
+		<trans-unit id="17">
+			<source>Your email client does not support iframe</source>
+			<target>Ihr E-Mail Client unterst&#252;tzt kein iframe</target>
+		</trans-unit>
+	</body>
+  </file>
+</xliff>

@@ -1,0 +1,468 @@
+Credential:
+  c1:
+    userModule: administration
+    userGroup: usermanagement
+    userRight: showModule
+  c2:
+    userModule: administration
+    userGroup: usermanagement
+    userRight: editUser
+  c3:
+    userModule: administration
+    userGroup: usermanagement
+    userRight: removeUser
+  c4:
+    userModule: administration
+    userGroup: usermanagement
+    userRight: addUser
+  c5:
+    userModule: administration
+    userGroup: userrolemanagement
+    userRight: showModule
+  c6:
+    userModule: administration
+    userGroup: myprofile
+    userRight: showModule
+  c7:
+    userModule: administration
+    userGroup: myprofile
+    userRight: changeRole
+  c8:
+    userModule: administration
+    userGroup: sendmessage
+    userRight: showModule
+  c9:
+    userModule: administration
+    userGroup: menuesetting
+    userRight: showModule
+  c10:
+    userModule: management
+    userGroup: additionaltext
+    userRight: showModule
+  c11:
+    userModule: administration
+    userGroup: systemsetting
+    userRight: showModule
+  c12:
+    userModule: administration
+    userGroup: myprofile
+    userRight: changeUseragent
+  c13:
+    userModule: management
+    userGroup: field
+    userRight: showModule
+  c14:
+    userModule: administration
+    userGroup: usermanagement
+    userRight: addLdap
+  c15:
+    userModule: management
+    userGroup: documenttemplate
+    userRight: showModule
+  c16:
+    userModule: management
+    userGroup: documenttemplate
+    userRight: addDocumenttemplate
+  c17:
+    userModule: management
+    userGroup: documenttemplate
+    userRight: editDocumenttemplate
+  c18:
+    userModule: management
+    userGroup: documenttemplate
+    userRight: deleteDocumenttemplate
+  c19:
+    userModule: administration
+    userGroup: usermanagement
+    userRight: showDeleted
+  c20:
+    userModule: workflow
+    userGroup: workflowmanagement
+    userRight: showModule
+  c21:
+    userModule: workflow
+    userGroup: workflowmanagement
+    userRight: sendWorkflow
+  c22:
+    userModule: management
+    userGroup: mailinglist
+    userRight: showModule
+  c23:
+    userModule: management
+    userGroup: mailinglist
+    userRight: editMailinglist
+  c24:
+    userModule: management
+    userGroup: mailinglist
+    userRight: deleteMailinglist
+  c25:
+    userModule: management
+    userGroup: mailinglist
+    userRight: addMailinglist
+  c26:
+    userModule: management
+    userGroup: documenttemplate
+    userRight: editVersion
+  c27:
+    userModule: workflow
+    userGroup: todo
+    userRight: showModule
+  c28:
+    userModule: workflow
+    userGroup: archive
+    userRight: showModule
+Role:
+  r1:
+    description: admin
+  r2:
+    description: sender
+  r3:
+    description: receiver
+    
+CredentialRole:
+  rc1:
+    role_id: 1
+    credential_id: 1
+  rc2:
+    role_id: 1
+    credential_id: 2
+  rc3:
+    role_id: 1
+    credential_id: 3
+  rc4:
+    role_id: 1
+    credential_id: 4
+  rc5:
+    role_id: 1
+    credential_id: 5
+  rc6:
+    role_id: 1
+    credential_id: 6
+  rc7:
+    role_id: 1
+    credential_id: 7
+  rc11:
+    role_id: 1
+    credential_id: 8
+  rc12:
+    role_id: 1
+    credential_id: 9
+  rc13:
+    role_id: 1
+    credential_id: 11
+  rc14:
+    role_id: 1
+    credential_id: 10
+  rc15:
+    role_id: 1
+    credential_id: 12
+  rc16:
+    role_id: 1
+    credential_id: 13
+  rc17:
+    role_id: 1
+    credential_id: 14
+  rc18:
+    role_id: 1
+    credential_id: 15
+  rc19:
+    role_id: 1
+    credential_id: 16
+  rc20:
+    role_id: 1
+    credential_id: 17
+  rc21:
+    role_id: 1
+    credential_id: 18
+  rc22:
+    role_id: 1
+    credential_id: 19
+  rc23:
+    role_id: 1
+    credential_id: 20
+  rc24:
+    role_id: 1
+    credential_id: 21
+  rc25:
+    role_id: 1
+    credential_id: 22
+  rc26:
+    role_id: 1
+    credential_id: 23
+  rc27:
+    role_id: 1
+    credential_id: 24
+  rc28:
+    role_id: 1
+    credential_id: 25
+  rc29:
+    role_id: 1
+    credential_id: 26
+  rc30:
+    role_id: 1
+    credential_id: 27
+  rc31:
+    role_id: 1
+    credential_id: 28
+  rc32:
+    role_id: 3
+    credential_id: 27
+  rc33:
+    role_id: 3
+    credential_id: 6
+  rc34:
+    role_id: 3
+    credential_id: 7
+  rc35:
+    role_id: 3
+    credential_id: 10
+  rc36:
+    role_id: 3
+    credential_id: 12
+  rc37:
+    role_id: 3
+    credential_id: 13
+  rc38:
+    role_id: 3
+    credential_id: 15
+  rc39:
+    role_id: 3
+    credential_id: 16
+  rc40:
+    role_id: 3
+    credential_id: 17
+  rc41:
+    role_id: 3
+    credential_id: 18
+  rc42:
+    role_id: 3
+    credential_id: 20
+  rc43:
+    role_id: 3
+    credential_id: 21
+  rc44:
+    role_id: 3
+    credential_id: 22
+  rc45:
+    role_id: 3
+    credential_id: 23
+  rc46:
+    role_id: 3
+    credential_id: 24
+  rc47:
+    role_id: 3
+    credential_id: 25
+  rc48:
+    role_id: 3
+    credential_id: 26
+  rc49:
+    role_id: 3
+    credential_id: 28
+  rc50:
+    role_id: 2
+    credential_id: 27
+
+
+UserLogin:
+  ul1:
+    username: admin
+    password: admin
+    email: cuteflow@cuteflow.de
+    role_id: 1
+
+UserData:
+  ud1:
+    user_id: 1
+    firstname: Admin1 Vorname
+    lastname: Admin1 Nachname
+
+
+UserSetting:
+  us1:
+     user_id: 1
+     language: en_US
+     markyellow: 7
+     markred: 12
+     markorange: 10
+     refreshtime: 180
+     displayeditem: 25
+     durationtype: MINUTES
+     durationlength: 1
+     emailformat: html
+     emailtype: VALUES
+     circulationdefaultsortcolumn: NAME
+     circulationdefaultsortdirection: ASC
+     firstlogin: 1
+     theme: DEFAULT
+
+UserWorkflowConfiguration:
+  uwc1:
+    user_id: 1
+    columntext: NAME
+    isactive: 'true'
+    position: 1
+  uwc2:
+    user_id: 1
+    columntext: STATION
+    isactive: 'true'
+    position: 2
+  uwc3:
+    user_id: 1
+    columntext: DAYS
+    isactive: 'true'
+    position: 3
+  uwc4:
+    user_id: 1
+    columntext: START
+    isactive: 'true'
+    position: 4
+  uwc5:
+    user_id: 1
+    columntext: SENDER
+    isactive: 'false'
+    position: 5
+  uwc6:
+    user_id: 1
+    columntext: TOTALTIME
+    isactive: 'false'
+    position: 6
+  uwc7:
+    user_id: 1
+    columntext: MAILINGLIST
+    isactive: 'false'
+    position: 7
+  uwc8:
+    user_id: 1
+    columntext: USERDEFINED1
+    isactive: 'false'
+    position: 8
+  uwc9:
+    user_id: 1
+    columntext: USERDEFINED2
+    isactive: 'false'
+    position: 9
+
+EmailConfiguration:
+  ec1:
+     activetype: SMTP
+     smtpport: 25
+     smtphost: cuteflow
+     systemreplyaddress: mschaefer1982@gmx.de
+     allowemailtransport: 0
+
+SystemConfiguration:
+   sc1:
+     language: en_US
+     visibleslots: CURRENT
+     showpositioninmail: 1
+     sendreceivermail: 1
+     sendremindermail: 1
+     colorofnorthregion: '#FEF200'
+     individualcronjob: 1
+     setuseragenttype: 1
+     cronjobdays: 31
+     cronjobfrom: '08'
+     cronjobto: '17'
+
+AuthenticationConfiguration:
+  ac:
+    authenticationtype: DBONLY
+    firstlogin: 1
+    allowdirectlogin: 1
+
+
+UserConfiguration:
+  uc:
+    role_id: 1
+    durationtype: DAYS
+    durationlength: 3
+    displayeditem: 25
+    refreshtime: 120
+    markyellow: 7
+    markred: 12
+    language: en_US
+    markorange: 10
+    password: testen
+    emailformat: plain
+    emailtype: VALUES
+    circulationdefaultsortcolumn: START
+    circulationdefaultsortdirection: ASC
+    theme: DEFAULT
+
+WorkflowConfiguration:
+  wc1:
+    columntext: NAME
+    isactive: 'true'
+    position: 1
+  wc2:
+    columntext: STATION
+    isactive: 'true'
+    position: 2
+  wc3:
+    columntext: DAYS
+    isactive: 'true'
+    position: 3
+  wc4:
+    columntext: START
+    isactive: 'true'
+    position: 4
+  wc5:
+    columntext: SENDER
+    isactive: 'false'
+    position: 5
+  wc6:
+    columntext: TOTALTIME
+    isactive: 'false'
+    position: 6
+  wc7:
+    columntext: MAILINGLIST
+    isactive: 'false'
+    position: 7
+  wc8:
+    columntext: USERDEFINED1
+    isactive: 'false'
+    position: 8
+  wc9:
+    columntext: USERDEFINED2
+    isactive: 'false'
+    position: 9
+
+
+AuthorizationConfiguration:
+  ac1:
+    type: admin
+    deleteworkflow: 1
+    archiveworkflow: 1
+    stopneworkflow: 1
+    detailsworkflow: 1
+  ac2:
+    type: thesender
+    deleteworkflow: 0
+    archiveworkflow: 0
+    stopneworkflow: 0
+    detailsworkflow: 0
+
+  ac3:
+    type: sender
+    deleteworkflow: 1
+    archiveworkflow: 0
+    stopneworkflow: 0
+    detailsworkflow: 1
+  ac4:
+    type: senderwithrights
+    deleteworkflow: 1
+    archiveworkflow: 0
+    stopneworkflow: 1
+    detailsworkflow: 1
+  ac5:
+    type: receiver
+    deleteworkflow: 0
+    archiveworkflow: 0
+    stopneworkflow: 0
+    detailsworkflow: 0
+  ac6:
+    type: allroles
+    deleteworkflow: 0
+    archiveworkflow: 1
+    stopneworkflow: 1
+    detailsworkflow: 0

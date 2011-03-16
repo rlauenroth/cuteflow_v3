@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.0">
+  <file original="global" source-language="en_US" target-language="en_US" datatype="plaintext">
+    <body>  
+      <trans-unit id="1">
+        <source>Loading Data...</source>
+        <target>Loading Data...</target>
+      </trans-unit>
+      <trans-unit id="2">
+        <source>CuteFlow Installer</source>
+        <target>CuteFlow Installer</target>
+      </trans-unit>
+      <trans-unit id="3">
+        <source>Building System</source>
+        <target>Building System</target>
+      </trans-unit>
+      <trans-unit id="4">
+        <source>CuteFlow installed</source>
+        <target>CuteFlow installed</target>
+      </trans-unit> 	  
+		<trans-unit id="5">
+        <source>Close</source>
+        <target>Close</target>
+      </trans-unit> 
+	  <trans-unit id="6">
+        <source>Store</source>
+        <target>Install</target>
+      </trans-unit> 
+	  <trans-unit id="7">
+        <source>Database Settings</source>
+        <target>Database Settings</target>
+      </trans-unit> 
+	  <trans-unit id="8">
+        <source>Data to load</source>
+        <target>Data to load</target>
+      </trans-unit> 
+	 <trans-unit id="9">
+        <source>System Data only</source>
+        <target>System Data only</target>
+     </trans-unit> 
+	 <trans-unit id="10">
+        <source>Data with some Examples</source>
+        <target>Data with some Examples</target>
+     </trans-unit>
+	 <trans-unit id="11">
+        <source>Set email adresse of admin</source>
+        <target>Set email adresse of admin</target>
+     </trans-unit>
+	 <trans-unit id="12">
+        <source>Select Database</source>
+        <target>Select Database</target>
+     </trans-unit>
+	 <trans-unit id="13">
+        <source>Host</source>
+        <target>Host</target>
+     </trans-unit>
+	 <trans-unit id="14">
+        <source>Databasename</source>
+        <target>Databasename</target>
+     </trans-unit> 
+	 <trans-unit id="15">
+        <source>Username</source>
+        <target>Username</target>
+     </trans-unit>
+	 <trans-unit id="16">
+        <source>Password</source>
+        <target>Password</target>
+     </trans-unit>
+	 <trans-unit id="17">
+        <source>Installer language</source>
+        <target>Installer language</target>
+     </trans-unit>
+	 <trans-unit id="18">
+        <source>Language</source>
+        <target>Language</target>
+     </trans-unit>
+	 <trans-unit id="19">
+        <source>Email Settings</source>
+        <target>Email Settings</target>
+     </trans-unit>
+	 <trans-unit id="20">
+        <source>Reply Settings</source>
+        <target>Reply Settings</target>
+     </trans-unit>
+	 <trans-unit id="21">
+        <source>Allow System to send emails</source>
+        <target>Allow System to send emails</target>
+     </trans-unit>	
+	 <trans-unit id="22">
+        <source>System reply address</source>
+        <target>System reply address</target>
+     </trans-unit>		
+	 <trans-unit id="23">
+        <source>Remove Text</source>
+        <target>Remove Text</target>
+     </trans-unit>
+	 <trans-unit id="24">
+        <source>Available Additional Textes</source>
+        <target>Available Additional Textes</target>
+     </trans-unit>
+	 <trans-unit id="25">
+        <source>Search for...</source>
+        <target>Search for...</target>
+     </trans-unit>
+	 <trans-unit id="26">
+        <source>Add new Text</source>
+        <target>Add new Text</target>
+     </trans-unit>
+	 <trans-unit id="27">
+        <source>OK</source>
+        <target>OK</target>
+     </trans-unit>
+	 <trans-unit id="28">
+        <source>Text saved</source>
+        <target>Text saved</target>
+     </trans-unit>	
+	 <trans-unit id="29">
+        <source>Delete successful</source>
+        <target>Delete successful</target>
+     </trans-unit>		
+	 <trans-unit id="30">
+        <source>Copy successful</source>
+        <target>Copy successful</target>
+     </trans-unit>
+	 <trans-unit id="31">
+        <source>plain</source>
+        <target>plain</target>
+     </trans-unit>
+	 <trans-unit id="32">
+        <source>html</source>
+        <target>html</target>
+     </trans-unit>
+	 <trans-unit id="33">
+        <source>Saving Data</source>
+        <target>Saving Data</target>
+     </trans-unit>
+	 <trans-unit id="34">
+        <source>Delete text?</source>
+        <target>Delete text?</target>
+     </trans-unit>
+	 <trans-unit id="35">
+        <source>Saving Data</source>
+        <target>Saving Data</target>
+     </trans-unit> 
+	 <trans-unit id="36">
+        <source>Previous Step</source>
+        <target>Previous Step</target>
+     </trans-unit> 
+	 <trans-unit id="37">
+        <source>Next Step</source>
+        <target>Next Step</target>
+     </trans-unit> 
+	 <trans-unit id="38">
+        <source>Welcome to CuteFlow installer</source>
+        <target>Welcome to CuteFlow installer</target>
+     </trans-unit>
+	 <trans-unit id="39">
+        <source>System data</source>
+        <target>System data</target>
+     </trans-unit> 
+	 <trans-unit id="40">
+        <source>Step</source>
+        <target>Step</target>
+     </trans-unit>
+	 <trans-unit id="41">
+        <source>Failure</source>
+        <target>Failure</target>
+     </trans-unit>
+	 <trans-unit id="42">
+        <source>Database connection is not valid</source>
+        <target>Database connection is not valid</target>
+     </trans-unit>
+	 <trans-unit id="43">
+        <source>Checking Settings</source>
+        <target>Checking Settings</target>
+     </trans-unit> 
+	 <trans-unit id="44">
+        <source>Installertext1</source>
+        <target>CuteFlow is a web based document circulation tool. Users are able to define "documents" which are send step by step to every station/user in a list. It s an electronic way for doing (i.e. internal) document circulations.</target>
+     </trans-unit>
+	 <trans-unit id="45">
+        <source>Installertext2</source>
+        <target>A document can consist of different types of input fields and the fields can be filled with values directly in the receivers Browser. After a completed circulation you will have a completely filled document. Also attachments to the document are possible (i.e. for illustration material).</target>
+     </trans-unit>  
+	 <trans-unit id="46">
+        <source>Installertext3</source>
+        <target>All operations like starting a workflow, tracking, workflow-definition, or status observation can be done within a comfortable and easy to use web interface.</target>
+     </trans-unit>    	 
+    </body>
+  </file>
+</xliff>

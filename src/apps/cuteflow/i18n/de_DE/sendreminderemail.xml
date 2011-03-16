@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.0">
+  <file original="global" source-language="en_US" target-language="de_DE" datatype="plaintext">
+    <body>
+		<trans-unit id="1">
+			<source>You need to complete the following workflows</source>
+			<target>Folgende Uml&#228;ufe m&#252;ssen Sie noch bearbeiten</target>
+		</trans-unit>
+		<trans-unit id="2">
+			<source>CuteFlow: open workflows</source>
+			<target>CuteFlow: offene Uml&#228;ufe</target>
+		</trans-unit>
+		<trans-unit id="3">
+			<source>Workflowname</source>
+			<target>Name des Workflows</target>
+		</trans-unit>
+		<trans-unit id="4">
+			<source>Direct link to workflow</source>
+			<target>Direkter Link zum Workflow</target>
+		</trans-unit>
+	</body>
+  </file>
+</xliff>

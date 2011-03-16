@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.0">
+  <file original="global" source-language="en_US" target-language="en_US" datatype="plaintext">
+    <body>  
+      <trans-unit id="1">
+        <source>TEXTFIELD</source>
+        <target>Textfield</target>
+      </trans-unit>
+      <trans-unit id="2">
+        <source>CHECKBOX</source>
+        <target>Checkbox (yes/no)</target>
+      </trans-unit>
+      <trans-unit id="3">
+        <source>NUMBER</source>
+        <target>Number</target>
+      </trans-unit>
+      <trans-unit id="4">
+        <source>DATE</source>
+        <target>Date</target>
+      </trans-unit> 	  
+		<trans-unit id="5">
+        <source>TEXTAREA</source>
+        <target>Textarea</target>
+      </trans-unit> 
+	  <trans-unit id="6">
+        <source>RADIOGROUP</source>
+        <target>Radiogroup</target>
+      </trans-unit> 
+	  <trans-unit id="7">
+        <source>CHECKBOXGROUP</source>
+        <target>Checkboxgroup</target>
+      </trans-unit> 
+	  <trans-unit id="8">
+        <source>COMBOBOX</source>
+        <target>Combobox</target>
+      </trans-unit> 
+	 <trans-unit id="9">
+        <source>FILE</source>
+        <target>File</target>
+     </trans-unit> 
+	 <trans-unit id="10">
+        <source>no</source>
+        <target>no</target>
+     </trans-unit>
+	 <trans-unit id="11">
+        <source>yes</source>
+        <target>yes</target>
+     </trans-unit>
+	 <trans-unit id="12">
+        <source>Set Plain Body</source>
+        <target>Set Plain Body</target>
+     </trans-unit>
+	 <trans-unit id="13">
+        <source>Content</source>
+        <target>Content</target>
+     </trans-unit>
+	 <trans-unit id="14">
+        <source>Set HTML Body</source>
+        <target>Set HTML Body</target>
+     </trans-unit> 
+	 <trans-unit id="15">
+        <source>Set Placeholder</source>
+        <target>Set Placeholder</target>
+     </trans-unit>
+	 <trans-unit id="16">
+        <source>Spaceholder</source>
+        <target>Spaceholder</target>
+     </trans-unit>
+	 <trans-unit id="17">
+        <source>Insert Placeholder</source>
+        <target>Insert Placeholder</target>
+     </trans-unit>
+	 <trans-unit id="18">
+        <source>Action</source>
+        <target>Action</target>
+     </trans-unit>
+	 <trans-unit id="19">
+        <source>Clear field</source>
+        <target>Clear field</target>
+     </trans-unit>
+	 <trans-unit id="20">
+        <source>Standard</source>
+        <target>Standard</target>
+     </trans-unit>
+	 <trans-unit id="21">
+        <source>Copy Text</source>
+        <target>Copy Text</target>
+     </trans-unit>	
+	 <trans-unit id="22">
+        <source>Edit Text</source>
+        <target>Edit Text</target>
+     </trans-unit>		
+	 <trans-unit id="23">
+        <source>Remove Text</source>
+        <target>Remove Text</target>
+     </trans-unit>
+	 <trans-unit id="24">
+        <source>Available Additional Textes</source>
+        <target>Available Additional Textes</target>
+     </trans-unit>
+	 <trans-unit id="25">
+        <source>Search for...</source>
+        <target>Search for...</target>
+     </trans-unit>
+	 <trans-unit id="26">
+        <source>Add new Text</source>
+        <target>Add new Text</target>
+     </trans-unit>
+	 <trans-unit id="27">
+        <source>OK</source>
+        <target>OK</target>
+     </trans-unit>
+	 <trans-unit id="28">
+        <source>Text saved</source>
+        <target>Text saved</target>
+     </trans-unit>	
+	 <trans-unit id="29">
+        <source>Delete successful</source>
+        <target>Delete successful</target>
+     </trans-unit>		
+	 <trans-unit id="30">
+        <source>Copy successful</source>
+        <target>Copy successful</target>
+     </trans-unit>
+	 <trans-unit id="31">
+        <source>plain</source>
+        <target>plain</target>
+     </trans-unit>
+	 <trans-unit id="32">
+        <source>html</source>
+        <target>html</target>
+     </trans-unit>
+	 <trans-unit id="33">
+        <source>Checkboxgroup settings</source>
+        <target>Checkboxgroup settings</target>
+     </trans-unit>	
+	 <trans-unit id="34">
+        <source>Notice: empty records are not saved!</source>
+        <target>Notice: empty records are not saved!</target>
+     </trans-unit>	
+	 <trans-unit id="35">
+        <source>Set Radio checked by default</source>
+        <target>Set Radio checked by default</target>
+     </trans-unit>	
+	 <trans-unit id="36">
+        <source>set Checked</source>
+        <target>set Checked</target>
+     </trans-unit>	
+	 <trans-unit id="37">
+        <source>Action</source>
+        <target>Action</target>
+     </trans-unit>	
+	 <trans-unit id="38">
+        <source>Remove value</source>
+        <target>Remove value</target>
+     </trans-unit>	
+	 <trans-unit id="39">
+        <source>Error</source>
+        <target>Error</target>
+     </trans-unit>	
+	 <trans-unit id="40">
+        <source>Please add some fields</source>
+        <target>Please add some fields</target>
+     </trans-unit>	
+	 <trans-unit id="41">
+        <source>Please add some content to your fields</source>
+        <target>Please add some content to your fields</target>
+     </trans-unit>	
+	 <trans-unit id="42">
+        <source>Combobox settings</source>
+        <target>Combobox settings</target>
+     </trans-unit>	
+	 <trans-unit id="43">
+        <source>Radiogroup settings</source>
+        <target>Radiogroup settings</target>
+     </trans-unit>	
+	 <trans-unit id="44">
+        <source>OK</source>
+        <target>OK</target>
+     </trans-unit>	
+	 <trans-unit id="45">
+        <source>Delete successful</source>
+        <target>Delete successful</target>
+     </trans-unit>	
+	 <trans-unit id="46">
+        <source>Data updated</source>
+        <target>Data updated</target>
+     </trans-unit>		 
+	 <trans-unit id="47">
+        <source>Data saved</source>
+        <target>Data saved</target>
+     </trans-unit>		
+	 <trans-unit id="48">
+        <source>Textfield settings</source>
+        <target>Textfield settings</target>
+     </trans-unit>		
+	 <trans-unit id="49">
+        <source>Input default value or select one</source>
+        <target>Input default value or select one</target>
+     </trans-unit>		
+	 <trans-unit id="50">
+        <source>Default value</source>
+        <target>Default value</target>
+     </trans-unit>		
+	 <trans-unit id="51">
+        <source>Regular expression</source>
+        <target>Regular expression</target>
+     </trans-unit>		
+	 <trans-unit id="52">
+        <source>Input value is no valid date format</source>
+        <target>Input value is no valid date format</target>
+     </trans-unit>		
+	 <trans-unit id="53">
+        <source>During the Circulation you can choose and upload a file</source>
+        <target>During the Circulation you can choose and upload a file</target>
+     </trans-unit>
+	 <trans-unit id="54">
+        <source>File settings</source>
+        <target>File settings</target>
+     </trans-unit>	
+	 <trans-unit id="55">
+        <source>Number settings</source>
+        <target>Number settings</target>
+     </trans-unit>	
+	 <trans-unit id="56">
+        <source>Select regular Expression</source>
+        <target>Select regular Expression</target>
+     </trans-unit>	
+	 <trans-unit id="57">
+        <source>define own regular expression</source>
+        <target>define own regular expression</target>
+     </trans-unit>	
+	 <trans-unit id="58">
+        <source>no restriction</source>
+        <target>no restriction</target>
+     </trans-unit>	
+	 <trans-unit id="59">
+        <source>positive numbers only</source>
+        <target>positive numbers only</target>
+     </trans-unit>	
+	 <trans-unit id="60">
+        <source>negative numbers only</source>
+        <target>negative numbers only</target>
+     </trans-unit>
+	 <trans-unit id="61">
+        <source>Input value is no number</source>
+        <target>Input value is no number</target>
+     </trans-unit>	
+	 <trans-unit id="62">
+        <source>Input value is no number or RegEx is not valid</source>
+        <target>Input value is no number or RegEx is not valid</target>
+     </trans-unit>	
+	 <trans-unit id="63">
+        <source>RegEx is not valid</source>
+        <target>RegEx is not valid</target>
+     </trans-unit>	
+	 <trans-unit id="64">
+        <source>Input does not match to RegEx</source>
+        <target>Input does not match to RegEx</target>
+     </trans-unit>	
+	 <trans-unit id="65">
+        <source>Field Management</source>
+        <target>Field Management</target>
+     </trans-unit>	
+	 <trans-unit id="66">
+        <source>Search for...</source>
+        <target>Search for...</target>
+     </trans-unit>	
+	 <trans-unit id="67">
+        <source>Textfield</source>
+        <target>Textfield</target>
+     </trans-unit>	
+	 <trans-unit id="68">
+        <source>Checkbox (yes/no)</source>
+        <target>Checkbox (yes/no)</target>
+     </trans-unit>	
+	 <trans-unit id="69">
+        <source>Number</source>
+        <target>Number</target>
+     </trans-unit>	
+	 <trans-unit id="70">
+        <source>Textarea</source>
+        <target>Textarea</target>
+     </trans-unit>	
+	 <trans-unit id="71">
+        <source>Radiogroup</source>
+        <target>Radiogroup</target>
+     </trans-unit>
+	 <trans-unit id="72">
+        <source>Checkboxgroup</source>
+        <target>Checkboxgroup</target>
+     </trans-unit>	
+	 <trans-unit id="73">
+        <source>Combobox</source>
+        <target>Combobox</target>
+     </trans-unit>	
+	 <trans-unit id="74">
+        <source>File</source>
+        <target>File</target>
+     </trans-unit>	
+	 <trans-unit id="75">
+        <source>Title</source>
+        <target>Title</target>
+     </trans-unit>	
+	 <trans-unit id="76">
+        <source>Field type</source>
+        <target>Field type</target>
+     </trans-unit>	
+	 <trans-unit id="77">
+        <source>Write protected</source>
+        <target>Write protected</target>
+     </trans-unit>	
+	 <trans-unit id="78">
+        <source>Edit Field</source>
+        <target>Edit Field</target>
+     </trans-unit>	
+	 <trans-unit id="79">
+        <source>Delete field</source>
+        <target>Delete field</target>
+     </trans-unit>
+	 <trans-unit id="80">
+        <source>Add new Field</source>
+        <target>Add new Field</target>
+     </trans-unit>
+	 <trans-unit id="81">
+        <source>Create new field</source>
+        <target>Create new field</target>
+     </trans-unit>
+	 <trans-unit id="82">
+        <source>Loading Data...</source>
+        <target>Loading Data...</target>
+     </trans-unit>
+	 <trans-unit id="83">
+        <source>Store</source>
+        <target>Store</target>
+     </trans-unit>
+	 <trans-unit id="84">
+        <source>Close</source>
+        <target>Close</target>
+     </trans-unit>
+	 <trans-unit id="85">
+        <source>General Field Settings</source>
+        <target>General Field Settings</target>
+     </trans-unit>
+	 <trans-unit id="86">
+        <source>Field name</source>
+        <target>Field name</target>
+     </trans-unit>
+	 <trans-unit id="87">
+        <source>Fieldtype</source>
+        <target>Fieldtype</target>
+     </trans-unit>
+	 <trans-unit id="88">
+        <source>Select color</source>
+        <target>Select color</target>
+     </trans-unit>	 
+	 <trans-unit id="89">
+        <source>Write protected?</source>
+        <target>Write protected?</target>
+     </trans-unit>	 
+	 <trans-unit id="90">
+        <source>Textarea settings</source>
+        <target>Textarea settings</target>
+     </trans-unit>	 
+	 <trans-unit id="91">
+        <source>Input default Text</source>
+        <target>Input default Text</target>
+     </trans-unit>	 
+	 <trans-unit id="92">
+        <source>Input default HTML-Text</source>
+        <target>Input default HTML-Text</target>
+     </trans-unit>	 
+	 <trans-unit id="93">
+        <source>Content Type</source>
+        <target>Content Type</target>
+     </trans-unit>
+	 <trans-unit id="94">
+        <source>Plain</source>
+        <target>Plain</target>
+     </trans-unit>
+	 <trans-unit id="95">
+        <source>HTML</source>
+        <target>HTML</target>
+     </trans-unit>
+	 <trans-unit id="96">
+        <source>Textfield settings</source>
+        <target>Textfield settings</target>
+     </trans-unit>
+	 <trans-unit id="97">
+        <source>Input default value or select one</source>
+        <target>Input default value or select one</target>
+     </trans-unit>
+	 <trans-unit id="98">
+        <source>Input default value</source>
+        <target>Input default value</target>
+     </trans-unit>
+	 <trans-unit id="99">
+        <source>Date</source>
+        <target>Date</target>
+     </trans-unit>
+	 <trans-unit id="100">
+        <source>Date format</source>
+        <target>Date format</target>
+     </trans-unit>
+	 <trans-unit id="101">
+        <source>Add new field</source>
+        <target>Add new field</target>
+     </trans-unit>
+	 <trans-unit id="102">
+        <source>Set Combo checked by default</source>
+        <target>Set Combo checked by default</target>
+     </trans-unit>
+	 <trans-unit id="103">
+        <source>Set Checkbox checked by default</source>
+        <target>Set Checkbox checked by default</target>
+     </trans-unit>
+	 <trans-unit id="104">
+        <source>Saving Data</source>
+        <target>Saving Data</target>
+     </trans-unit>
+	<trans-unit id="105">
+        <source>Delete field?</source>
+        <target>Delete field?</target>
+     </trans-unit>
+	 <trans-unit id="106">
+        <source>NORESTRICTION</source>
+        <target>no restriction</target>
+     </trans-unit>
+	 <trans-unit id="107">
+        <source>POSITIVE</source>
+        <target>only positiv numbers</target>
+     </trans-unit>
+	 <trans-unit id="108">
+        <source>NEGATIVE</source>
+        <target>only negativ numbers</target>
+     </trans-unit>
+	 <trans-unit id="109">
+        <source>File settings</source>
+        <target>File settings</target>
+     </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.0">
+  <file original="global" source-language="en_US" target-language="en_US" datatype="plaintext">
+    <body>  
+      <trans-unit id="1">
+        <source>Role management</source>
+        <target>Role Management</target>
+      </trans-unit>
+      <trans-unit id="2">
+        <source>Role description</source>
+        <target>Role description</target>
+      </trans-unit>
+      <trans-unit id="3">
+        <source>currently used by</source>
+        <target>currently used by</target>
+      </trans-unit>
+      <trans-unit id="4">
+        <source>Action</source>
+        <target>Action</target>
+      </trans-unit> 	  
+		<trans-unit id="5">
+        <source>Add new Userrole</source>
+        <target>Add new Userrole</target>
+      </trans-unit> 
+	  <trans-unit id="6">
+        <source>Delete Role</source>
+        <target>Delete Role</target>
+      </trans-unit> 
+	  <trans-unit id="7">
+        <source>Edit Role</source>
+        <target>Edit Role</target>
+      </trans-unit> 
+	 <trans-unit id="8">
+        <source>Remove Role</source>
+        <target>Remove Role</target>
+     </trans-unit>
+	 <trans-unit id="9">
+        <source>Delete existing user</source>
+        <target>Delete existing user</target>
+     </trans-unit>
+	 <trans-unit id="10">
+        <source>Delete</source>
+        <target>Delete</target>
+     </trans-unit> 
+	 <trans-unit id="11">
+        <source>profiles changed</source>
+        <target>profiles changed</target>
+     </trans-unit>
+	 <trans-unit id="12">
+        <source>OK</source>
+        <target>OK</target>
+     </trans-unit>
+	 <trans-unit id="13">
+        <source>Close</source>
+        <target>Close</target>
+     </trans-unit>
+	 <trans-unit id="14">
+        <source>Error</source>
+        <target>Error</target>
+     </trans-unit>
+	 <trans-unit id="15">
+        <source>Store</source>
+        <target>Store</target>
+     </trans-unit>
+	 <trans-unit id="16">
+        <source>Role is already existing</source>
+        <target>Role is already existing</target>
+     </trans-unit>
+	 <trans-unit id="17">
+        <source>Move all users to</source>
+        <target>Move all users to</target>
+     </trans-unit>	
+	 <trans-unit id="18">
+        <source>Remove role</source>
+        <target>Remove role</target>
+     </trans-unit>
+	 <trans-unit id="19">
+        <source>Edit role</source>
+        <target>Edit role</target>
+     </trans-unit>
+	 <trans-unit id="20">
+        <source>Name</source>
+        <target>Name</target>
+     </trans-unit>
+	 <trans-unit id="21">
+        <source>Edit Userrole</source>
+        <target>Edit Userrole</target>
+     </trans-unit>
+	 <trans-unit id="22">
+        <source>Edit Userrole</source>
+        <target>Edit Userrole</target>
+     </trans-unit>
+	 <trans-unit id="23">
+        <source>Description</source>
+        <target>Description</target>
+     </trans-unit>
+	 <trans-unit id="24">
+        <source>Userrole description</source>
+        <target>Userrole description</target>
+     </trans-unit>
+	 <trans-unit id="25">
+        <source>Add new Userrole</source>
+        <target>Add new Userrole</target>
+     </trans-unit>
+	 <trans-unit id="26">
+        <source>Saving Data</source>
+        <target>Saving Data</target>
+     </trans-unit>
+	 <trans-unit id="27">
+        <source>Delete role?</source>
+        <target>Delete role?</target>
+     </trans-unit>
+    </body>
+  </file>
+</xliff>

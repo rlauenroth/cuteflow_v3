@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.0">
+  <file original="global" source-language="en_US" target-language="en_US" datatype="plaintext">
+    <body>     
+	<trans-unit id="1">
+        <source>Yes</source>
+        <target>Yes</target>
+    </trans-unit>
+	<trans-unit id="2">
+        <source>No</source>
+        <target>No</target>
+    </trans-unit>
+	<trans-unit id="3">
+        <source>Document templates Management</source>
+        <target>Document templates Management</target>
+     </trans-unit>
+     <trans-unit id="4">
+        <source>Loading Data...</source>
+        <target>Loading Data...</target>
+      </trans-unit> 	  
+		<trans-unit id="5">
+        <source>Name</source>
+        <target>Name</target>
+      </trans-unit> 
+	  <trans-unit id="6">
+        <source>mount of slots</source>
+        <target>mount of slots</target>
+      </trans-unit> 
+	  <trans-unit id="7">
+        <source>Edit Document template</source>
+        <target>Edit Document template</target>
+      </trans-unit> 
+	  <trans-unit id="8">
+        <source>Show Document template versions</source>
+        <target>Show Document template versions</target>
+      </trans-unit> 
+	 <trans-unit id="9">
+        <source>Delete Document template</source>
+        <target>Delete Document template</target>
+     </trans-unit> 
+	 <trans-unit id="10">
+        <source>Action</source>
+        <target>Action</target>
+     </trans-unit>
+	 <trans-unit id="11">
+        <source>Search for name</source>
+        <target>Search for name</target>
+     </trans-unit>
+	 <trans-unit id="12">
+        <source>Search</source>
+        <target>Search</target>
+     </trans-unit>
+	 <trans-unit id="13">
+        <source>Clear field</source>
+        <target>Clear field</target>
+     </trans-unit>
+	 <trans-unit id="14">
+        <source>Add new Document template</source>
+        <target>Add new Document template</target>
+     </trans-unit> 
+	 <trans-unit id="15">
+        <source>Displaying topics</source>
+        <target>Displaying topics</target>
+     </trans-unit>
+	 <trans-unit id="16">
+        <source>No records found</source>
+        <target>No records found</target>
+     </trans-unit>
+	 <trans-unit id="17">
+        <source>of</source>
+        <target>of</target>
+     </trans-unit>
+	 <trans-unit id="18">
+        <source>Document templates</source>
+        <target>Document templates</target>
+     </trans-unit>
+	 <trans-unit id="19">
+        <source>Clear field</source>
+        <target>Clear field</target>
+     </trans-unit>
+	 <trans-unit id="20">
+        <source>Data updated</source>
+        <target>Data updated</target>
+     </trans-unit>
+	 <trans-unit id="21">
+        <source>Data saved</source>
+        <target>Data saved</target>
+     </trans-unit>	
+	 <trans-unit id="22">
+        <source>OK</source>
+        <target>OK</target>
+     </trans-unit>		
+	 <trans-unit id="23">
+        <source>Error</source>
+        <target>Error</target>
+     </trans-unit>
+	 <trans-unit id="24">
+        <source>Please add some Slots</source>
+        <target>Please add some Slots</target>
+     </trans-unit>
+	 <trans-unit id="25">
+        <source>Add some Fields to your slots and set slotname</source>
+        <target>Add some Fields to your slots and set slotname</target>
+     </trans-unit>
+	 <trans-unit id="26">
+        <source>Create new document template</source>
+        <target>Create new document template</target>
+     </trans-unit>
+	 <trans-unit id="27">
+        <source>Edit document template</source>
+        <target>Edit document templatetarget>
+     </trans-unit>
+	 <trans-unit id="28">
+        <source>Store</source>
+        <target>Store</target>
+     </trans-unit>	
+	 <trans-unit id="29">
+        <source>Close</source>
+        <target>Close</target>
+     </trans-unit>		
+	 <trans-unit id="30">
+        <source>Description</source>
+        <target>Description</target>
+     </trans-unit>
+	 <trans-unit id="31">
+        <source>Set name of Document template</source>
+        <target>Set name of Document template</target>
+     </trans-unit>
+	 <trans-unit id="32">
+        <source>Set Fields to Template</source>
+        <target>Set Fields to Template</target>
+     </trans-unit>
+	 <trans-unit id="33">
+        <source>Add new slot</source>
+        <target>Add new slot</target>
+     </trans-unit>	
+	 <trans-unit id="34">
+        <source>To all Slot-Receivers at once</source>
+        <target>To all Slot-Receivers at once</target>
+     </trans-unit>	
+	 <trans-unit id="35">
+        <source>Delete slot</source>
+        <target>Delete slot</target>
+     </trans-unit>	
+	 <trans-unit id="36">
+        <source>Notice: empty records are not saved</source>
+        <target>Notice: empty records are not saved</target>
+     </trans-unit>	
+	 <trans-unit id="37">
+        <source>Field</source>
+        <target>Field</target>
+     </trans-unit>	
+	 <trans-unit id="38">
+        <source>Title</source>
+        <target>Title</target>
+     </trans-unit>	
+	 <trans-unit id="39">
+        <source>Field type</source>
+        <target>Field type</target>
+     </trans-unit>	
+	 <trans-unit id="40">
+        <source>Available Fields</source>
+        <target>Available Fields</target>
+     </trans-unit>	
+	 <trans-unit id="41">
+        <source>created at</source>
+        <target>created at</target>
+     </trans-unit>	
+	 <trans-unit id="42">
+        <source>currently active</source>
+        <target>currently active</target>
+     </trans-unit>	
+	 <trans-unit id="43">
+        <source>Activate Document template</source>
+        <target>Activate Document template</target>
+     </trans-unit>	
+	 <trans-unit id="44">
+        <source>Show Document template version</source>
+        <target>Show Document template version</target>
+     </trans-unit>	
+	 <trans-unit id="45">
+        <source>Action</source>
+        <target>Action</target>
+     </trans-unit>	
+	 <trans-unit id="46">
+        <source>Activate Template</source>
+        <target>Activate Template</target>
+     </trans-unit>		 
+	 <trans-unit id="47">
+        <source>Updating Data...</source>
+        <target>Updating Data...</target>
+     </trans-unit>		
+	 <trans-unit id="48">
+        <source>Template activated</source>
+        <target>Template activated</target>
+     </trans-unit>		
+	 <trans-unit id="49">
+        <source>Select Document template</source>
+        <target>Select Document template</target>
+     </trans-unit>		
+	 <trans-unit id="50">
+        <source>Set Documenttemplate to previous version</source>
+        <target>Set Documenttemplate to previous version</target>
+     </trans-unit>		
+	 <trans-unit id="51">
+        <source>Activate Document template</source>
+        <target>Activate Document template</target>
+     </trans-unit>		
+	 <trans-unit id="52">
+        <source>Set Template to active</source>
+        <target>Set Template to active</target>
+     </trans-unit>		
+	 <trans-unit id="53">
+        <source>Activate Template</source>
+        <target>Activate Template</target>
+     </trans-unit>
+	 <trans-unit id="54">
+        <source>To all Slot-Receivers at once</source>
+        <target>To all Slot-Receivers at once</target>
+     </trans-unit>
+	 <trans-unit id="55">
+        <source>Search for...</source>
+        <target>Search for...</target>
+     </trans-unit>
+	 <trans-unit id="56">
+        <source>Delete template</source>
+        <target>Delete template</target>
+     </trans-unit>	 
+	 <trans-unit id="57">
+        <source>Saving Data</source>
+        <target>Saving Data</target>
+     </trans-unit>
+	 <trans-unit id="58">
+        <source>Delete successful</source>
+        <target>Delete successful</target>
+     </trans-unit> 
+	</body>
+  </file>
+</xliff>

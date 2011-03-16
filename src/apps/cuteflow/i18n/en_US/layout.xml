@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.0">
+  <file original="global" source-language="en_US" target-language="en_US" datatype="plaintext">
+    <body> 
+		<trans-unit id="1">
+			<source>Administration</source>
+			<target>Administration</target>
+		</trans-unit>
+		<trans-unit id="2">
+			<source>User management</source>
+			<target>User management</target>
+		</trans-unit>
+		<trans-unit id="3">
+			<source>My Profile</source>
+			<target>My Profile</target>
+		</trans-unit>
+		<trans-unit id="4">
+			<source>System settings</source>
+			<target>System settings</target>
+		</trans-unit>
+		<trans-unit id="5">
+			<source>Send Message</source>
+			<target>Send Message</target>
+		</trans-unit>
+		<trans-unit id="6">
+			<source>Insufficient rights</source>
+			<target>Insufficient rights</target>
+		</trans-unit>
+		<trans-unit id="7">
+			<source>Error</source>
+			<target>Error</target>
+		</trans-unit>
+		<trans-unit id="8">
+			<source>Userrole management</source>
+			<target>Userrole management</target>
+		</trans-unit>
+		<trans-unit id="9">
+			<source>Loading CuteFlow. Please wait...</source>
+			<target>Loading CuteFlow. Please wait...</target>
+		</trans-unit>
+	</body>
+  </file>
+</xliff>

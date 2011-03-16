@@ -1,0 +1,731 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.0">
+  <file original="global" source-language="en_US" target-language="en_US" datatype="plaintext">
+    <body> 
+		<trans-unit id="1">
+			<source>WAITING</source>
+			<target>in progress</target>
+		</trans-unit>
+		<trans-unit id="2">
+			<source>SKIPPED</source>
+			<target>Skipped</target>
+		</trans-unit>
+		<trans-unit id="3">
+			<source>USERAGENTSET</source>
+			<target>Sendet to useragent</target>
+		</trans-unit>
+		<trans-unit id="4">
+			<source>System settings</source>
+			<target>System settings</target>
+		</trans-unit>
+		<trans-unit id="5">
+			<source>Send Message</source>
+			<target>Send Message</target>
+		</trans-unit>
+		<trans-unit id="6">
+			<source>Insufficient rights</source>
+			<target>Insufficient rights</target>
+		</trans-unit>
+		<trans-unit id="7">
+			<source>Error</source>
+			<target>Error</target>
+		</trans-unit>
+		<trans-unit id="8">
+			<source>Userrole management</source>
+			<target>Userrole management</target>
+		</trans-unit>
+		<trans-unit id="9">
+			<source>STOPPEDBYADMIN</source>
+			<target>stopped by administrator</target>
+		</trans-unit>
+		<trans-unit id="10">
+			<source>STOPPEDBYUSER</source>
+			<target>stopped by receiver</target>
+		</trans-unit>
+		<trans-unit id="11">
+			<source>DONE</source>
+			<target>Station completed</target>
+		</trans-unit>
+		<trans-unit id="12">
+			<source>Saving Data</source>
+			<target>Saving Data</target>
+		</trans-unit>
+		<trans-unit id="13">
+			<source>Preparing Data...</source>
+			<target>Preparing Data...</target>
+		</trans-unit>
+		<trans-unit id="14">
+			<source>Workflow created</source>
+			<target>Workflow created</target>
+		</trans-unit>
+		<trans-unit id="15">
+			<source>OK</source>
+			<target>OK</target>
+		</trans-unit>
+		<trans-unit id="16">
+			<source>Error</source>
+			<target>Error</target>
+		</trans-unit>
+		<trans-unit id="17">
+			<source>Please select a Mailinglist</source>
+			<target>Please select a Mailinglist</target>
+		</trans-unit>
+		<trans-unit id="18">
+			<source>Please set a workflow name</source>
+			<target>Please set a workflow name</target>
+		</trans-unit>
+		<trans-unit id="19">
+			<source>Add some Users to your slots</source>
+			<target>Add some Users to your slots</target>
+		</trans-unit>
+		<trans-unit id="20">
+			<source>Numberformat is not correct</source>
+			<target>Numberformat is not correct</target>
+		</trans-unit>
+		<trans-unit id="21">
+			<source>Regular Expression is not correct</source>
+			<target>Regular Expression is not correct</target>
+		</trans-unit>
+		<trans-unit id="22">
+			<source>Textfieldvalue is not correct</source>
+			<target>Textfieldvalue is not correct</target>
+		</trans-unit>
+		<trans-unit id="23">
+			<source>No attachment selected</source>
+			<target>No attachment selected</target>
+		</trans-unit>
+		<trans-unit id="24">
+			<source>Attachment is not correct</source>
+			<target>Attachment is not correct</target>
+		</trans-unit>
+		<trans-unit id="25">
+			<source>Set name, mailinglist, attachments and start date</source>
+			<target>Set name, mailinglist, attachments and start date</target>
+		</trans-unit>
+		<trans-unit id="26">
+			<source>Select Additional text</source>
+			<target>Select Additional text</target>
+		</trans-unit>
+		<trans-unit id="27">
+			<source>Additional Settings</source>
+			<target>Additional Settings</target>
+		</trans-unit>
+		<trans-unit id="28">
+			<source>After succeeded circulation</source>
+			<target>After succeeded circulation</target>
+		</trans-unit>
+		<trans-unit id="29">
+			<source>After succeeded slot end</source>
+			<target>After succeeded slot end</target>
+		</trans-unit>
+		<trans-unit id="30">
+			<source>Archive after succeeded circulation</source>
+			<target>Archive after succeeded circulation</target>
+		</trans-unit>
+		<trans-unit id="31">
+			<source>Delete after succeeded circulation</source>
+			<target>Delete after succeeded circulation</target>
+		</trans-unit>
+		<trans-unit id="32">
+			<source>Show receiver name in workflow</source>
+			<target>Show receiver name in workflow</target>
+		</trans-unit>
+		<trans-unit id="33">
+			<source>Sending notification</source>
+			<target>Sending notification</target>
+		</trans-unit>
+		<trans-unit id="34">
+			<source>Start workflow immediately</source>
+			<target>Start workflow immediately</target>
+		</trans-unit>
+		<trans-unit id="35">
+			<source>Content Type</source>
+			<target>Content Type</target>
+		</trans-unit>
+		<trans-unit id="36">
+			<source>Plain</source>
+			<target>Plain</target>
+		</trans-unit>
+		<trans-unit id="37">
+			<source>HTML</source>
+			<target>HTML</target>
+		</trans-unit>
+		<trans-unit id="38">
+			<source>Spaceholder</source>
+			<target>Spaceholder</target>
+		</trans-unit>
+		<trans-unit id="39">
+			<source>Insert Placeholder</source>
+			<target>Insert Placeholder</target>
+		</trans-unit>
+		<trans-unit id="40">
+			<source>Action</source>
+			<target>Action</target>
+		</trans-unit>
+		<trans-unit id="41">
+			<source>File</source>
+			<target>File</target>
+		</trans-unit>
+		<trans-unit id="42">
+			<source>Remove file</source>
+			<target>Remove file</target>
+		</trans-unit>
+		<trans-unit id="43">
+			<source>Add new attachment</source>
+			<target>Add new attachment</target>
+		</trans-unit>
+		<trans-unit id="44">
+			<source>Add attachments</source>
+			<target>Add attachments</target>
+		</trans-unit>
+		<trans-unit id="45">
+			<source>Select attachment</source>
+			<target>Select attachment</target>
+		</trans-unit>
+		<trans-unit id="46">
+			<source>Select a file</source>
+			<target>Select a file</target>
+		</trans-unit>
+		<trans-unit id="47">
+			<source>Select Additional text</source>
+			<target>Select Additional text</target>
+		</trans-unit>
+		<trans-unit id="48">
+			<source>Datefield is empty</source>
+			<target>Datefield is empty</target>
+		</trans-unit>
+		<trans-unit id="49">
+			<source>Workflow will start immediately</source>
+			<target>Workflow will start immediately</target>
+		</trans-unit>
+		<trans-unit id="50">
+			<source>Datefield is set</source>
+			<target>Datefield is set</target>
+		</trans-unit>
+		<trans-unit id="51">
+			<source>Workflow will start at selected date</source>
+			<target>Workflow will start at selected date</target>
+		</trans-unit>
+		<trans-unit id="52">
+			<source>Startdate of Workflow</source>
+			<target>Startdate of Workflow</target>
+		</trans-unit>
+		<trans-unit id="53">
+			<source>Mailinglist</source>
+			<target>Mailinglist</target>
+		</trans-unit>
+		<trans-unit id="54">
+			<source>General Settings</source>
+			<target>General Settings</target>
+		</trans-unit>
+		<trans-unit id="55">
+			<source>Workflow name</source>
+			<target>Workflow name</target>
+		</trans-unit>
+		<trans-unit id="56">
+			<source>Search for User...</source>
+			<target>Search for User...</target>
+		</trans-unit>
+		<trans-unit id="57">
+			<source>Clear field</source>
+			<target>Clear field</target>
+		</trans-unit>
+		<trans-unit id="58">
+			<source>Sender of circulation</source>
+			<target>Sender of circulation</target>
+		</trans-unit>
+		<trans-unit id="59">
+			<source>Fields</source>
+			<target>Fields</target>
+		</trans-unit>
+		<trans-unit id="60">
+			<source>Select a file</source>
+			<target>Select a file</target>
+		</trans-unit>
+		<trans-unit id="61">
+			<source>Create new workflow</source>
+			<target>Create new workflow</target>
+		</trans-unit>
+		<trans-unit id="62">
+			<source>Mailing list</source>
+			<target>Mailing list</target>
+		</trans-unit>
+		<trans-unit id="63">
+			<source>Workflow details</source>
+			<target>Workflow details</target>
+		</trans-unit>
+		<trans-unit id="64">
+			<source>Attachments</source>
+			<target>Attachments</target>
+		</trans-unit>
+		<trans-unit id="65">
+			<source>Updating Data...</source>
+			<target>Updating Data...</target>
+		</trans-unit>
+		<trans-unit id="66">
+			<source>Station skipped</source>
+			<target>Station skipped</target>
+		</trans-unit>
+		<trans-unit id="67">
+			<source>Useragent set</source>
+			<target>Useragent set</target>
+		</trans-unit>
+		<trans-unit id="68">
+			<source>Station set</source>
+			<target>Station set</target>
+		</trans-unit>
+		<trans-unit id="69">
+			<source>Stations</source>
+			<target>Stations</target>
+		</trans-unit>
+		<trans-unit id="70">
+			<source>Station</source>
+			<target>Station</target>
+		</trans-unit>
+		<trans-unit id="71">
+			<source>Endreason</source>
+			<target>Endreason</target>
+		</trans-unit>
+		<trans-unit id="72">
+			<source>Station</source>
+			<target>Station</target>
+		</trans-unit>
+		<trans-unit id="72">
+			<source>Received at</source>
+			<target>Received at</target>
+		</trans-unit>
+		<trans-unit id="73">
+			<source>Status</source>
+			<target>Status</target>
+		</trans-unit>
+		<trans-unit id="74">
+			<source>In progress since</source>
+			<target>In progress since</target>
+		</trans-unit>
+		<trans-unit id="75">
+			<source>Group</source>
+			<target>Group</target>
+		</trans-unit>
+		<trans-unit id="76">
+			<source>Send again to station</source>
+			<target>Send again to station</target>
+		</trans-unit>
+		<trans-unit id="77">
+			<source>Skip station</source>
+			<target>Skip station</target>
+		</trans-unit>
+		<trans-unit id="78">
+			<source>Select Useragent</source>
+			<target>Select Useragent</target>
+		</trans-unit>
+		<trans-unit id="79">
+			<source>Change current station</source>
+			<target>Change current station</target>
+		</trans-unit>
+		<trans-unit id="80">
+			<source>Mailinglist</source>
+			<target>Mailinglist</target>
+		</trans-unit>
+		<trans-unit id="81">
+			<source>Sender</source>
+			<target>Sender</target>
+		</trans-unit>
+		<trans-unit id="82">
+			<source>Worklfow name</source>
+			<target>Worklfow name</target>
+		</trans-unit>
+		<trans-unit id="83">
+			<source>Description</source>
+			<target>Description</target>
+		</trans-unit>
+		<trans-unit id="84">
+			<source>Revision</source>
+			<target>Revision</target>
+		</trans-unit>
+		<trans-unit id="85">
+			<source>General informations</source>
+			<target>General informations</target>
+		</trans-unit>
+		<trans-unit id="86">
+			<source>Notice</source>
+			<target>Notice</target>
+		</trans-unit>
+		<trans-unit id="87">
+			<source>Same station selected</source>
+			<target>Same station selected</target>
+		</trans-unit>
+		<trans-unit id="88">
+			<source>Available Useragents</source>
+			<target>Available Useragents</target>
+		</trans-unit>
+		<trans-unit id="89">
+			<source>Name</source>
+			<target>Name</target>
+		</trans-unit>
+		<trans-unit id="90">
+			<source>Set as Useragent</source>
+			<target>Set as Useragent</target>
+		</trans-unit>
+		<trans-unit id="91">
+			<source>Select a Useragent</source>
+			<target>Select a Useragent</target>
+		</trans-unit>
+		<trans-unit id="92">
+			<source>Workflow values</source>
+			<target>Workflow values</target>
+		</trans-unit>
+		<trans-unit id="93">
+			<source>Edit workflow</source>
+			<target>Edit workflow</target>
+		</trans-unit>
+		<trans-unit id="94">
+			<source>Accept Workflow</source>
+			<target>Accept Workflow</target>
+		</trans-unit>
+		<trans-unit id="95">
+			<source>Refuse Workflow</source>
+			<target>Refuse Workflow</target>
+		</trans-unit>
+		<trans-unit id="96">
+			<source>End reason</source>
+			<target>End reason</target>
+		</trans-unit>
+		<trans-unit id="97">
+			<source>Attachments</source>
+			<target>Attachments</target>
+		</trans-unit>
+		<trans-unit id="98">
+			<source>Workflow saved</source>
+			<target>Workflow saved</target>
+		</trans-unit>
+		<trans-unit id="99">
+			<source>General informations</source>
+			<target>General informations</target>
+		</trans-unit>
+		<trans-unit id="100">
+			<source>Workflow Details</source>
+			<target>Workflow Details</target>
+		</trans-unit>
+		<trans-unit id="101">
+			<source>Created At</source>
+			<target>Created At</target>
+		</trans-unit>
+		<trans-unit id="102">
+			<source>Available slots to edit</source>
+			<target>Available slots to edit</target>
+		</trans-unit>
+		<trans-unit id="103">
+			<source>Restart workflow</source>
+			<target>Restart workflow</target>
+		</trans-unit>
+		<trans-unit id="104">
+			<source>Restart settings</source>
+			<target>Restart settings</target>
+		</trans-unit>
+		<trans-unit id="105">
+			<source>Use values from current version</source>
+			<target>Use values from current version</target>
+		</trans-unit>
+		<trans-unit id="106">
+			<source>Start at Station</source>
+			<target>Start at Station</target>
+		</trans-unit>
+		<trans-unit id="107">
+			<source>Start at the beginning</source>
+			<target>Start at the beginning</target>
+		</trans-unit>
+		<trans-unit id="108">
+			<source>Start at last station</source>
+			<target>Start at last station</target>
+		</trans-unit>
+		<trans-unit id="109">
+			<source>Select other station</source>
+			<target>Select other station</target>
+		</trans-unit>
+		<trans-unit id="110">
+			<source>Select a station</source>
+			<target>Select a station</target>
+		</trans-unit>
+		<trans-unit id="111">
+			<source>Workflow Management</source>
+			<target>Workflow Management</target>
+		</trans-unit>
+		<trans-unit id="112">
+			<source>Workflow stopped</source>
+			<target>Workflow stopped</target>
+		</trans-unit>
+		<trans-unit id="113">
+			<source>Stopping workflow...</source>
+			<target>Stopping workflow...</target>
+		</trans-unit>
+		<trans-unit id="114">
+			<source>Starting workflow...</source>
+			<target>Starting workflow...</target>
+		</trans-unit>
+		<trans-unit id="115">
+			<source>Workflow has been started</source>
+			<target>Workflow has been started</target>
+		</trans-unit>
+		<trans-unit id="116">
+			<source>Create new Workflow</source>
+			<target>Create new Workflow</target>
+		</trans-unit>
+		<trans-unit id="117">
+			<source>Workflow templates</source>
+			<target>Workflow templates</target>
+		</trans-unit>
+		<trans-unit id="118">
+			<source>Workflow has already been completed</source>
+			<target>Workflow has already been completed</target>
+		</trans-unit>
+		<trans-unit id="119">
+			<source>Workflow is set to send all Slots at once. A station cannot be selected</source>
+			<target>Workflow is set to send all Slots at once. A station cannot be selected</target>
+		</trans-unit>
+				<trans-unit id="120">
+			<source>DELETED</source>
+			<target>Workflow deleted</target>
+		</trans-unit>
+		<trans-unit id="121">
+			<source>ARCHIVED</source>
+			<target>Workflow archived</target>
+		</trans-unit>
+		<trans-unit id="122">
+			<source>Workflow deleted</source>
+			<target>Workflow deleted</target>
+		</trans-unit>
+		<trans-unit id="123">
+			<source>Deleting workflow...</source>
+			<target>Deleting workflow...</target>
+		</trans-unit>
+		<trans-unit id="124">
+			<source>Delete workflow</source>
+			<target>Delete workflow</target>
+		</trans-unit>
+		<trans-unit id="125">
+			<source>Archived workflows</source>
+			<target>Archived workflows</target>
+		</trans-unit>
+		<trans-unit id="126">
+			<source>Archive workflow</source>
+			<target>Archive workflow</target>
+		</trans-unit>
+		<trans-unit id="127">
+			<source>Archive workflow...</source>
+			<target>Archive workflow...</target>
+		</trans-unit>
+		<trans-unit id="128">
+			<source>Workflow archived</source>
+			<target>Workflow archived</target>
+		</trans-unit>
+		<trans-unit id="129">
+			<source>Workflow moved</source>
+			<target>Workflow moved</target>
+		</trans-unit>
+		<trans-unit id="130">
+			<source>Moving workflow...</source>
+			<target>Moving workflow...</target>
+		</trans-unit>
+		<trans-unit id="131">
+			<source>Email send</source>
+			<target>Email send</target>
+		</trans-unit>
+		<trans-unit id="132">
+			<source>Sending Email...</source>
+			<target>Sending Email...</target>
+		</trans-unit>
+		<trans-unit id="133">
+			<source>My Workflows</source>
+			<target>My Workflows</target>
+		</trans-unit>
+		<trans-unit id="134">
+			<source>Day(s)</source>
+			<target>Day(s)</target>
+		</trans-unit>
+		<trans-unit id="135">
+			<source>Delete Workflow</source>
+			<target>Delete Workflow</target>
+		</trans-unit>
+		<trans-unit id="136">
+			<source>Show Details</source>
+			<target>Show Details</target>
+		</trans-unit>
+		<trans-unit id="123">
+			<source>Archive Workflow</source>
+			<target>Archive Workflow</target>
+		</trans-unit>
+		<trans-unit id="124">
+			<source>Stop Workflow</source>
+			<target>Stop Workflow</target>
+		</trans-unit>
+		<trans-unit id="125">
+			<source>Start Workflow</source>
+			<target>Start Workflow</target>
+		</trans-unit>
+			<trans-unit id="126">
+			<source>Edit Workflow</source>
+			<target>Edit Workflow</target>
+		</trans-unit>
+		<trans-unit id="127">
+			<source>Remove from Archive</source>
+			<target>Remove from Archive</target>
+		</trans-unit>
+		<trans-unit id="128">
+			<source>Mailing list</source>
+			<target>Mailing list</target>
+		</trans-unit>
+		<trans-unit id="129">
+			<source>Loading Data...</source>
+			<target>Loading Data...</target>
+		</trans-unit>
+		<trans-unit id="130">
+			<source>already done</source>
+			<target>already done</target>
+		</trans-unit>
+		<trans-unit id="131">
+			<source>Displaying topics</source>
+			<target>Displaying topics</target>
+		</trans-unit>
+		<trans-unit id="132">
+			<source>Current Position</source>
+			<target>Current Position</target>
+		</trans-unit>
+		<trans-unit id="133">
+			<source>Workflow restarted</source>
+			<target>Workflow restarted</target>
+		</trans-unit>
+		<trans-unit id="134">
+			<source>Select a User from Slot</source>
+			<target>Select a User from Slot</target>
+		</trans-unit>
+		<trans-unit id="135">
+			<source>Same station selected</source>
+			<target>Same station selected</target>
+		</trans-unit>
+		<trans-unit id="136">
+			<source>Move right</source>
+			<target>Move right</target>
+		</trans-unit>
+		<trans-unit id="137">
+			<source>Reset Filter</source>
+			<target>Reset Filter</target>
+		</trans-unit>
+		<trans-unit id="138">
+			<source>Saving Data</source>
+			<target>Saving Data</target>
+		</trans-unit>
+		<trans-unit id="139">
+			<source>Please enter Filtername</source>
+			<target>Please enter Filtername</target>
+		</trans-unit>
+		<trans-unit id="140">
+			<source>Enter Filtername</source>
+			<target>Enter Filtername</target>
+		</trans-unit>
+		<trans-unit id="141">
+			<source>Searchbar</source>
+			<target>Searchbar</target>
+		</trans-unit>
+		<trans-unit id="142">
+			<source>Search</source>
+			<target>Search</target>
+		</trans-unit>
+		<trans-unit id="143">
+			<source>Save filter</source>
+			<target>Save filter</target>
+		</trans-unit>
+		<trans-unit id="144">
+			<source>Add new Search item</source>
+			<target>Add new Search item</target>
+		</trans-unit>
+		<trans-unit id="145">
+			<source>Field</source>
+			<target>Field</target>
+		</trans-unit>
+		<trans-unit id="146">
+			<target>Operator</target>
+			<source>Operator</source>
+		</trans-unit>
+		<trans-unit id="147">
+			<source>Value</source>
+			<target>Value</target>
+		</trans-unit>
+		<trans-unit id="148">
+			<source>Fields</source>
+			<target>Fields</target>
+		</trans-unit>
+		<trans-unit id="149">
+			<source>Days from</source>
+			<target>Days from</target>
+		</trans-unit>
+		<trans-unit id="150">
+			<source>to</source>
+			<target>to</target>
+		</trans-unit>
+		<trans-unit id="151">
+			<source>Sendet from</source>
+			<target>Sendet from</target>
+		</trans-unit>
+		<trans-unit id="152">
+			<source>to</source>
+			<target>to</target>
+		</trans-unit>
+		<trans-unit id="153">
+			<source>Name</source>
+			<target>Name</target>
+		</trans-unit>
+		<trans-unit id="154">
+			<source>Mailing list</source>
+			<target>Mailing list</target>
+		</trans-unit>
+		<trans-unit id="155">
+			<source>Documenttemplate</source>
+			<target>Documenttemplate</target>
+		</trans-unit>
+		<trans-unit id="156">
+			<source>Sender</source>
+			<target>Sender</target>
+		</trans-unit>
+		<trans-unit id="157">
+			<source>Active Station</source>
+			<target>Active Station</target>
+		</trans-unit>
+		<trans-unit id="158">
+			<source>Filter Name</source>
+			<target>Filter Name</target>
+		</trans-unit>
+		<trans-unit id="159">
+			<source>Load Filter</source>
+			<target>Load Filter</target>
+		</trans-unit>
+		<trans-unit id="160">
+			<source>Delete Filter</source>
+			<target>Delete Filter</target>
+		</trans-unit>
+		<trans-unit id="161">
+			<source>Loading Filter</source>
+			<target>Loading Filter</target>
+		</trans-unit>
+		<trans-unit id="162">
+			<source>Delete Filter</source>
+			<target>Delete Filter</target>
+		</trans-unit>
+		<trans-unit id="163">
+			<source>Available Filters</source>
+			<target>Available Filters</target>
+		</trans-unit>
+		<trans-unit id="164">
+			<source>Reset</source>
+			<target>Reset</target>
+		</trans-unit>
+		<trans-unit id="165">
+			<source>Yes</source>
+			<target>Yes</target>
+		</trans-unit>
+		<trans-unit id="166">
+			<source>No</source>
+			<target>No</target>
+		</trans-unit>
+	</body>
+  </file>
+</xliff>

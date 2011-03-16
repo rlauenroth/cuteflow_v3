@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.0">
+  <file original="global" source-language="en_US" target-language="de_DE" datatype="plaintext">
+    <body>     
+	<trans-unit id="1">
+        <source>Updating Data...</source>
+        <target>Aktualisiere Daten...</target>
+    </trans-unit>
+	<trans-unit id="2">
+        <source>Update successful</source>
+        <target>Update erfolgreich</target>
+    </trans-unit>
+	<trans-unit id="3">
+        <source>OK</source>
+        <target>OK</target>
+     </trans-unit>
+     <trans-unit id="4">
+        <source>Delete successful</source>
+        <target>L&#246;schen erfolgreich</target>
+      </trans-unit> 	  
+		<trans-unit id="5">
+        <source>Data updated</source>
+        <target>Daten aktualisiert</target>
+      </trans-unit> 
+	  <trans-unit id="6">
+        <source>Data saved</source>
+        <target>Daten gespeichert</target>
+      </trans-unit> 
+	  <trans-unit id="7">
+        <source>Error</source>
+        <target>Fehler</target>
+      </trans-unit> 
+	  <trans-unit id="8">
+        <source>Set Name and select a Template</source>
+        <target>Name angeben und Vorlage ausw&#228;hlen</target>
+      </trans-unit> 
+	 <trans-unit id="9">
+        <source>Saving Data</source>
+        <target>Speichere Daten</target>
+     </trans-unit> 
+	 <trans-unit id="10">
+        <source>Search for User...</source>
+        <target>Suche nach Benutzer...</target>
+     </trans-unit>
+	 <trans-unit id="11">
+        <source>Clear field</source>
+        <target>Suchfeld zur&#252;cksetzen</target>
+     </trans-unit>
+	 <trans-unit id="12">
+        <source>Search for Allowed users...</source>
+        <target>Suche nach berechtigten Benutzer...</target>
+     </trans-unit>
+	 <trans-unit id="13">
+        <source>Clear field</source>
+        <target>Suchfeld zur&#252;cksetzen</target>
+     </trans-unit>
+	 <trans-unit id="14">
+        <source>Action</source>
+        <target>Aktion</target>
+     </trans-unit> 
+	 <trans-unit id="15">
+        <source>delete workflow</source>
+        <target>L&#246;sche Umlauf</target>
+     </trans-unit>
+	 <trans-unit id="16">
+        <source>archive workflow</source>
+        <target>Archiviere Umlauf</target>
+     </trans-unit>
+	 <trans-unit id="17">
+        <source>stop/new workflow</source>
+        <target>stop/neuer Umlauf</target>
+     </trans-unit>
+	 <trans-unit id="18">
+        <source>show workflow details</source>
+        <target>Umlaufdetails</target>
+     </trans-unit>
+	 <trans-unit id="19">
+        <source>Authorization</source>
+        <target>Authorization</target>
+     </trans-unit>
+	 <trans-unit id="20">
+        <source>Available users</source>
+        <target>Verf&#252;gbare Benutzer</target>
+     </trans-unit>
+	 <trans-unit id="21">
+        <source>Move right please</source>
+        <target>Nach rechts bitte</target>
+     </trans-unit>	
+	 <trans-unit id="22">
+        <source>Allowed to send Mailing list</source>
+        <target>Recht Verteiler zu senden</target>
+     </trans-unit>		
+	 <trans-unit id="23">
+        <source>User</source>
+        <target>Benutzer</target>
+     </trans-unit>
+	 <trans-unit id="24">
+        <source>Remove user</source>
+        <target>Benutzer entfernen</target>
+     </trans-unit>
+	 <trans-unit id="25">
+        <source>Set allowed Sender</source>
+        <target>Setze berechtigte Sender</target>
+     </trans-unit>
+	 <trans-unit id="26">
+        <source>General Settings</source>
+        <target>Allgemeine Einstellungen</target>
+     </trans-unit>
+	 <trans-unit id="27">
+        <source>Set name, set Slot sending conditions and select Document Template</source>
+        <target>Setze Name, Sloteinstellungen und Dokumentenvorlage</target>
+     </trans-unit>
+	 <trans-unit id="28">
+        <source>Name</source>
+        <target>Name</target>
+     </trans-unit>	
+	 <trans-unit id="29">
+        <source>Document Template</source>
+        <target>Dokumentenvorlage</target>
+     </trans-unit>		
+	 <trans-unit id="30">
+        <source>Send to all slots at once</source>
+        <target>An alle Slots auf einmal senden</target>
+     </trans-unit>
+	 <trans-unit id="31">
+        <source>Mailing list Management</source>
+        <target>Verteiler verwalten</target>
+     </trans-unit>
+	 <trans-unit id="32">
+        <source>is default</source>
+        <target>ist standart</target>
+     </trans-unit>
+	 <trans-unit id="33">
+        <source>Edit Mailing list template</source>
+        <target>Verteiler bearbeiten</target>
+     </trans-unit>	
+	 <trans-unit id="34">
+        <source>Show Mailinglist template versions</source>
+        <target>Zeige Verteiler Versionen</target>
+     </trans-unit>	
+	 <trans-unit id="35">
+        <source>Delete Mailing List template</source>
+        <target>L&#246;sche Verteiler</target>
+     </trans-unit>	
+	 <trans-unit id="36">
+        <source>Adapt Mailinglist to current Document Template</source>
+        <target>Verteiler an Dokumentenvorlage anpassen</target>
+     </trans-unit>	
+	 <trans-unit id="37">
+        <source>Action</source>
+        <target>Aktion</target>
+     </trans-unit>	
+	 <trans-unit id="38">
+        <source>Search for name</source>
+        <target>Suche nach Name</target>
+     </trans-unit>	
+	 <trans-unit id="39">
+        <source>Search</source>
+        <target>Suche</target>
+     </trans-unit>	
+	 <trans-unit id="40">
+        <source>Add new Mailing List</source>
+        <target>Neuer Verteiler anlegen</target>
+     </trans-unit>	
+	 <trans-unit id="41">
+        <source>Displaying topics</source>
+        <target>Verteiler</target>
+     </trans-unit>	
+	 <trans-unit id="42">
+        <source>of</source>
+        <target>von</target>
+     </trans-unit>	
+	 <trans-unit id="43">
+        <source>No records found</source>
+        <target>keine Verteiler gefunden</target>
+     </trans-unit>	
+	 <trans-unit id="44">
+        <source>Document templates</source>
+        <target>Dokumentenvorlagen</target>
+     </trans-unit>	
+	 <trans-unit id="45">
+        <source>Adapt mailinglist</source>
+        <target>Verteiler anpassen</target>
+     </trans-unit>	
+	 <trans-unit id="46">
+        <source>Adapt mailinglist to current Document Template</source>
+        <target>Verteiler an Dokumentenvorlage anpassen</target>
+     </trans-unit>		 
+	 <trans-unit id="47">
+        <source>Delete mailinglist</source>
+        <target>L&#246;sche Verteiler</target>
+     </trans-unit>		
+	 <trans-unit id="48">
+        <source>Store</source>
+        <target>Speichern</target>
+     </trans-unit>		
+	 <trans-unit id="49">
+        <source>Close</source>
+        <target>Schlie&#223;en</target>
+     </trans-unit>		
+	 <trans-unit id="50">
+        <source>Sender of circulation</source>
+        <target>Sender des Umlaufs</target>
+     </trans-unit>		
+	 <trans-unit id="51">
+        <source>Move left please</source>
+        <target>Nach links bitte</target>
+     </trans-unit>		
+	 <trans-unit id="52">
+        <source>User</source>
+        <target>Benutzer</target>
+     </trans-unit>		
+	 <trans-unit id="53">
+        <source>Mailing list: </source>
+        <target>Verteiler: </target>
+     </trans-unit>
+	 <trans-unit id="54">
+        <source>Slot: </source>
+        <target>Slot: </target>
+     </trans-unit>
+	 <trans-unit id="55">
+        <source>Remove user</source>
+        <target>L&#246;sche Benutzer</target>
+     </trans-unit>
+	 <trans-unit id="56">
+        <source>created at</source>
+        <target>erstellt am</target>
+     </trans-unit>
+	 <trans-unit id="57">
+        <source>currently active</source>
+        <target>aktuell aktiv</target>
+     </trans-unit>	
+	 <trans-unit id="58">
+        <source>Activate Mailinglist template</source>
+        <target>Verteiler aktivieren</target>
+     </trans-unit>	
+	 <trans-unit id="59">
+        <source>Show Mailinglist template version</source>
+        <target>Zeige Verteiler Versionen</target>
+     </trans-unit>		 
+	 <trans-unit id="60">
+        <source>Activate Template</source>
+        <target>Aktiviere Verteiler</target>
+     </trans-unit>		
+	 <trans-unit id="61">
+        <source>Updating Data...</source>
+        <target>Aktualisiere Daten...</target>
+     </trans-unit>		
+	 <trans-unit id="62">
+        <source>Mailinglist activated</source>
+        <target>Verteiler aktiviert</target>
+     </trans-unit>		
+	 <trans-unit id="63">
+        <source>Mailinglist templates</source>
+        <target>Verteilervorlagen</target>
+     </trans-unit>		
+	 <trans-unit id="64">
+        <source>Select Document template</source>
+        <target>Dokumentenvorlage ausw&#228;hlen</target>
+     </trans-unit>		
+	 <trans-unit id="65">
+        <source>Set Mailinglist to previous version</source>
+        <target>Verteiler zu vorherigen Version setzen</target>
+     </trans-unit>		
+	 <trans-unit id="66">
+        <source>Slot settings</source>
+        <target>Slot Einstellungen</target>
+     </trans-unit>
+	 <trans-unit id="67">
+        <source>Set Template to active</source>
+        <target>Verteiler aktivieren</target>
+     </trans-unit>
+	 <trans-unit id="68">
+        <source>Template activated</source>
+        <target>Verteiler aktiviert</target>
+     </trans-unit>
+	 <trans-unit id="69">
+        <source>Field</source>
+        <target>Feld</target>
+     </trans-unit>
+	 <trans-unit id="70">
+        <source>Select Mailinglist template</source>
+        <target>Verteiler w&#228;hlen</target>
+     </trans-unit>
+	 <trans-unit id="71">
+        <source>Loading Data...</source>
+        <target>Lade Daten...</target>
+     </trans-unit>
+	 <trans-unit id="72">
+        <source>Allowed Sender</source>
+        <target>Verf&#252;gbare Sender</target>
+     </trans-unit>
+	 <trans-unit id="73">
+        <source>Authorization settings</source>
+        <target>Authorisierungs Einstellungen</target>
+     </trans-unit>
+	 <trans-unit id="74">
+        <source>Edit existing Mailing list</source>
+        <target>Verteiler bearbeiten</target>
+     </trans-unit>		 
+	 <trans-unit id="75">
+        <source>Create new Mailing list</source>
+        <target>Neuer Verteiler anlegen</target>
+     </trans-unit>		 
+	</body>
+  </file>
+</xliff>

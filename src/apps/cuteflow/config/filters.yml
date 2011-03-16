@@ -1,0 +1,12 @@
+rendering: ~
+security:  ~
+
+useraction:                 # Filters need a unique name
+  class: useractionFilter
+
+
+
+cache:     ~
+common:
+  class: sfCommonFilter
+execution: ~

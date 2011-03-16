@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.0">
+  <file original="global" source-language="en_US" target-language="de_DE" datatype="plaintext">
+    <body>
+		<trans-unit id="1">
+			<source>Workflow</source>
+			<target>Workflow</target>
+		</trans-unit>
+		<trans-unit id="2">
+			<source>CuteFlow: Workflow</source>
+			<target>CuteFlow: Umlauf</target>
+		</trans-unit>
+		<trans-unit id="3">
+			<source>has been completed</source>
+			<target>wurde erfolgreich beendet</target>
+		</trans-unit>
+		<trans-unit id="4">
+			<source>Your Workflow</source>
+			<target>Ihr Umlauf</target>
+		</trans-unit>
+		<trans-unit id="5">
+			<source>has been completed</source>
+			<target>wurde beendet</target>
+		</trans-unit>
+		<trans-unit id="6">
+			<source>Direct link to workflow</source>
+			<target>Direkter Link</target>
+		</trans-unit>
+	</body>
+  </file>
+</xliff>

@@ -1,0 +1,59 @@
+<mockup version="1.0" skin="sketch" measuredW="1474" measuredH="667">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::FieldSet" x="206" y="24" w="915" h="227" measuredW="200" measuredH="170" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Name%20des%20Umlaufs</text>
+      </controlProperties>
+    </control>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::Button" x="228" y="58" w="-1" h="-1" measuredW="142" measuredH="28" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Mailinglisttemplate</text>
+      </controlProperties>
+    </control>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::Button" x="232" y="100" w="-1" h="-1" measuredW="88" measuredH="28" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Versender</text>
+      </controlProperties>
+    </control>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::ComboBox" x="230" y="143" w="-1" h="-1" measuredW="92" measuredH="25" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Versionen</text>
+      </controlProperties>
+    </control>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::StickyNote" x="447" y="0" w="641" h="251" measuredW="109" measuredH="123" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>-%20Mailinglisttemplate%20%0A%20%20-%20Name%20des%20benutzten%20Templates%20anzeigen%0A-%20Versender%0A%20%20-%20Name%20des%20Versenders%20angeben%0A-%20Versionen%0A%20%20-%20aktuelleste%20Version%20anzeigen%2C%20bei%20neuem%20Select%2C%20unteren%20Bereich%20nachladen.%0A%20%20-%20neue%20Version%20des%20Umlaufes%20entsteht%2C%20wenn%20dieser%20gestoppt%20und%20wieder%20angefangen%20wird%0A%20%20%20%20oder%20wenn%20dieser%20abgelehnt%20wird.%20%0A-%20Beschreibung%3A%20EInleitende%20Text</text>
+      </controlProperties>
+    </control>
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::FieldSet" x="206" y="278" w="910" h="105" measuredW="200" measuredH="170" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Durchlaufhistore</text>
+      </controlProperties>
+    </control>
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::DataGrid" x="236" y="301" w="563" h="58" measuredW="459" measuredH="58" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Name%2C%20Erhalten%20am%2C%20Status%2C%20Bearbeitungsdauer%2C%20Aktionen%0AGerd%2C%2030-10-2009%2C%20%FCbersprungen%2C%200%20Tage%2C</text>
+      </controlProperties>
+    </control>
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::StickyNote" x="939" y="251" w="525" h="248" measuredW="109" measuredH="123" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>-%20Grid%20mit%20Collapse%20Funktion%0A%20%20-%20zu%2C%20abh%E4ngig%20ob%20ein%20Umlauf%20bearbeitet%20wird%20oder%20im%20Detail%20angezeigt%20wird%2C%20%0A%20%20%20%20%20dann%20ist%20der%20Umlauf%20bei%20default%20zu%2C%20nur%20der%20Slot%20im%20Bearbeiten%20ist%20offen.%0A%20%0A-%20Tagezahl%20wird%20rot%20gr%FCn%20orange%2C%20abh%E4ngig%20was%20in%20der%20DB%20hinterlegt%20wurde%0A-%20Aktionen%2C%20nur%20da%20wo%20der%20umlauf%20gerade%20h%E4nght%0A%20%20-%20Email%20erneut%20an%20station%20schicken%0A%20%20-%20Station%20%FCberspringen%0A%20%20-%20an%20beliebigen%20Stellvertreter%20schicken%0A%20%20-%20Station%20%E4ndern</text>
+      </controlProperties>
+    </control>
+    <control controlID="8" controlTypeID="com.balsamiq.mockups::FieldSet" x="194" y="487" w="1019" h="170" measuredW="200" measuredH="170" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Eingetragene%20Werte</text>
+      </controlProperties>
+    </control>
+    <control controlID="9" controlTypeID="com.balsamiq.mockups::Button" x="228" y="185" w="-1" h="-1" measuredW="105" measuredH="28" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Beschreibung</text>
+      </controlProperties>
+    </control>
+    <control controlID="11" controlTypeID="com.balsamiq.mockups::StickyNote" x="244" y="527" w="653" h="123" measuredW="109" measuredH="123" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Details%20in%20neuem%20PopUp%20oder%20in%20TabPanel%20anzeigen%3A%0Acf_usersetting-%3Eshowcirculationinpopup%3A%20true%20-%3Epopup%2C%20false%20-%3E%20tabpanel</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

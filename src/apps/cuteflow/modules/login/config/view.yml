@@ -1,0 +1,17 @@
+all:
+  http_metas:
+    content-type: text/html
+
+  metas:
+    #title:        symfony project
+    #description:  symfony project
+    #keywords:     symfony, project
+    #language:     en
+    #robots:       index, follow
+
+  stylesheets:    [main.css]
+
+  javascripts:    [/djs/login/main.js,/djs/login/layout.js,/djs/login/textfield.js,/djs/login/window.js,/djs/login/combobox.js]
+
+  has_layout:     true
+  layout:         layout

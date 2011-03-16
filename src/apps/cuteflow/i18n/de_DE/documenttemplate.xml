@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.0">
+  <file original="global" source-language="en_US" target-language="en_DE" datatype="plaintext">
+    <body>     
+	<trans-unit id="1">
+        <source>Yes</source>
+        <target>Ja</target>
+    </trans-unit>
+	<trans-unit id="2">
+        <source>No</source>
+        <target>Nein</target>
+    </trans-unit>
+	<trans-unit id="3">
+        <source>Document templates Management</source>
+        <target>Dokumentenvorlage verwalten</target>
+     </trans-unit>
+     <trans-unit id="4">
+        <source>Loading Data...</source>
+        <target>Lade Daten...</target>
+      </trans-unit> 	  
+		<trans-unit id="5">
+        <source>Name</source>
+        <target>Name</target>
+      </trans-unit> 
+	  <trans-unit id="6">
+        <source>mount of slots</source>
+        <target>Anzahl Slots</target>
+      </trans-unit> 
+	  <trans-unit id="7">
+        <source>Edit Document template</source>
+        <target>Dokumentenvorlage bearbeiten</target>
+      </trans-unit> 
+	  <trans-unit id="8">
+        <source>Show Document template versions</source>
+        <target>Versionen der Dokumentenvorlage anzeigen</target>
+      </trans-unit> 
+	 <trans-unit id="9">
+        <source>Delete Document template</source>
+        <target>L&#246;sche Dokumentenvorlage</target>
+     </trans-unit> 
+	 <trans-unit id="10">
+        <source>Action</source>
+        <target>Aktion</target>
+     </trans-unit>
+	 <trans-unit id="11">
+        <source>Search for name</source>
+        <target>Suche nach Name</target>
+     </trans-unit>
+	 <trans-unit id="12">
+        <source>Search</source>
+        <target>Suchen</target>
+     </trans-unit>
+	 <trans-unit id="13">
+        <source>Clear field</source>
+        <target>Suchfeld zur&#252;cksetzen</target>
+     </trans-unit>
+	 <trans-unit id="14">
+        <source>Add new Document template</source>
+        <target>Neue Dokumentenvorlage erstellen</target>
+     </trans-unit> 
+	 <trans-unit id="15">
+        <source>Displaying topics</source>
+        <target>Dokumentenvorlagen</target>
+     </trans-unit>
+	 <trans-unit id="16">
+        <source>No records found</source>
+        <target>keine Daten gefunden</target>
+     </trans-unit>
+	 <trans-unit id="17">
+        <source>of</source>
+        <target>von</target>
+     </trans-unit>
+	 <trans-unit id="18">
+        <source>Document templates</source>
+        <target>Dokumentenvorlage</target>
+     </trans-unit>
+	 <trans-unit id="19">
+        <source>Clear field</source>
+        <target>Suchfeld zur&#252;cksetzen</target>
+     </trans-unit>
+	 <trans-unit id="20">
+        <source>Data updated</source>
+        <target>Daten aktualisiert</target>
+     </trans-unit>
+	 <trans-unit id="21">
+        <source>Data saved</source>
+        <target>Daten gespeichert</target>
+     </trans-unit>	
+	 <trans-unit id="22">
+        <source>OK</source>
+        <target>OK</target>
+     </trans-unit>		
+	 <trans-unit id="23">
+        <source>Error</source>
+        <target>Fehler</target>
+     </trans-unit>
+	 <trans-unit id="24">
+        <source>Please add some Slots</source>
+        <target>Bitte Slots hinzuf&#252;gen</target>
+     </trans-unit>
+	 <trans-unit id="25">
+        <source>Add some Fields to your slots and set slotname</source>
+        <target>Felder den Slots zuweisen und Slotnamen angeben</target>
+     </trans-unit>
+	 <trans-unit id="26">
+        <source>Create new document template</source>
+        <target>Neue Dokumentenvorlage erstellen</target>
+     </trans-unit>
+	 <trans-unit id="27">
+        <source>Edit document template</source>
+        <target>Dokumentenvorlage bearbeiten</target>
+     </trans-unit>
+	 <trans-unit id="28">
+        <source>Store</source>
+        <target>Speichern</target>
+     </trans-unit>	
+	 <trans-unit id="29">
+        <source>Close</source>
+        <target>Schlie&#223;en</target>
+     </trans-unit>		
+	 <trans-unit id="30">
+        <source>Description</source>
+        <target>Beschreibung</target>
+     </trans-unit>
+	 <trans-unit id="31">
+        <source>Set name of Document template</source>
+        <target>Namen der Dokumentenvorlage an</target>
+     </trans-unit>
+	 <trans-unit id="32">
+        <source>Set Fields to Template</source>
+        <target>Felder der Vorlage hinzuf&#252;gen</target>
+     </trans-unit>
+	 <trans-unit id="33">
+        <source>Add new slot</source>
+        <target>Neuer Slot hinzuf&#252;gen</target>
+     </trans-unit>	
+	 <trans-unit id="34">
+        <source>To all Slot-Receivers at once</source>
+        <target>An alle Empf&#228;nger zusammen senden</target>
+     </trans-unit>	
+	 <trans-unit id="35">
+        <source>Delete slot</source>
+        <target>Slot l&#246;schen</target>
+     </trans-unit>	
+	 <trans-unit id="36">
+        <source>Notice: empty records are not saved</source>
+        <target>Leere Slots werden nicht gespeichert</target>
+     </trans-unit>	
+	 <trans-unit id="37">
+        <source>Field</source>
+        <target>Feld</target>
+     </trans-unit>	
+	 <trans-unit id="38">
+        <source>Title</source>
+        <target>Titel</target>
+     </trans-unit>	
+	 <trans-unit id="39">
+        <source>Field type</source>
+        <target>Feld Typ</target>
+     </trans-unit>	
+	 <trans-unit id="40">
+        <source>Available Fields</source>
+        <target>Verf&#252;gbare Felder</target>
+     </trans-unit>	
+	 <trans-unit id="41">
+        <source>created at</source>
+        <target>Erstellt am</target>
+     </trans-unit>	
+	 <trans-unit id="42">
+        <source>currently active</source>
+        <target>aktuell aktiv</target>
+     </trans-unit>	
+	 <trans-unit id="43">
+        <source>Activate Document template</source>
+        <target>Dokumentenvorlage aktivieren</target>
+     </trans-unit>	
+	 <trans-unit id="44">
+        <source>Show Document template version</source>
+        <target>Dokumentenvorlage anzeigen</target>
+     </trans-unit>	
+	 <trans-unit id="45">
+        <source>Action</source>
+        <target>Aktion</target>
+     </trans-unit>	
+	 <trans-unit id="46">
+        <source>Activate Template</source>
+        <target>Vorlage aktivieren</target>
+     </trans-unit>		 
+	 <trans-unit id="47">
+        <source>Updating Data...</source>
+        <target>Daten aktualisiert...</target>
+     </trans-unit>		
+	 <trans-unit id="48">
+        <source>Template activated</source>
+        <target>Vorlage aktiviert</target>
+     </trans-unit>		
+	 <trans-unit id="49">
+        <source>Select Document template</source>
+        <target>Dokumentenvorlage ausw&#228;hlen</target>
+     </trans-unit>		
+	 <trans-unit id="50">
+        <source>Set Documenttemplate to previous version</source>
+        <target>Dokumentenvorlage wiederherstellen</target>
+     </trans-unit>		
+	 <trans-unit id="51">
+        <source>Activate Document template</source>
+        <target>Dokumentenvorlage aktivieren</target>
+     </trans-unit>		
+	 <trans-unit id="52">
+        <source>Set Template to active</source>
+        <target>Vorlage aktivieren</target>
+     </trans-unit>		
+	 <trans-unit id="53">
+        <source>Activate Template</source>
+        <target>Vorlage aktivieren</target>
+     </trans-unit>
+	 <trans-unit id="54">
+        <source>To all Slot-Receivers at once</source>
+        <target>An alle Empf&#228;nger zusammen senden</target>
+     </trans-unit>
+	 <trans-unit id="55">
+        <source>Search for...</source>
+        <target>Suche nach...</target>
+     </trans-unit>
+	 <trans-unit id="56">
+        <source>Delete template</source>
+        <target>Vorlage l&#246;schen</target>
+     </trans-unit>
+	 <trans-unit id="57">
+        <source>Saving Data</source>
+        <target>Speichere Daten</target>
+     </trans-unit>
+	 <trans-unit id="58">
+        <source>Delete successful</source>
+        <target>L&#246;schen erfolgreich</target>
+     </trans-unit> 
+	</body>
+  </file>
+</xliff>

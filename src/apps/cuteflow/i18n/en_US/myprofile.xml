@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.0">
+  <file original="global" source-language="en_US" target-language="en_US" datatype="plaintext">
+    <body>  
+      <trans-unit id="1">
+        <source>Loading Data...</source>
+        <target>Loading Data...</target>
+      </trans-unit>
+      <trans-unit id="2">
+        <source>Error</source>
+        <target>Error</target>
+      </trans-unit>
+      <trans-unit id="3">
+        <source>Profile changes and editing/creating user at same time is not supported</source>
+        <target>Profile changes and editing/creating user at same time is not supported</target>
+      </trans-unit>
+      <trans-unit id="4">
+        <source>Profile Settings</source>
+        <target>Profile Settings</target>
+      </trans-unit> 	  
+		<trans-unit id="5">
+        <source>Store</source>
+        <target>Store</target>
+      </trans-unit> 
+	  <trans-unit id="6">
+        <source>Passwords not equal</source>
+        <target>Passwords not equal</target>
+      </trans-unit> 
+	  <trans-unit id="7">
+        <source>Close</source>
+        <target>Close</target>
+      </trans-unit>  
+    </body>
+  </file>
+</xliff>

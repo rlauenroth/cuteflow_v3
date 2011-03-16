@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.0">
+  <file original="global" source-language="en_US" target-language="de_DE" datatype="plaintext">
+    <body>  
+      <trans-unit id="1">
+        <source>Module</source>
+        <target>Modul</target>
+      </trans-unit>
+      <trans-unit id="2">
+        <source>Group</source>
+        <target>Gruppe</target>
+      </trans-unit>
+      <trans-unit id="3">
+        <source>Save order</source>
+        <target>Reihenfolge speichern</target>
+      </trans-unit>
+      <trans-unit id="4">
+        <source>Drag Drop to change order</source>
+        <target>Drag Drop, um Reihenfolge zu &#228;ndern</target>
+      </trans-unit> 	  
+		<trans-unit id="5">
+        <source>Change order of module items</source>
+        <target>Reihenfolge von Elementen im Modul &#228;ndern</target>
+      </trans-unit> 
+	  <trans-unit id="6">
+        <source>Store</source>
+        <target>Speichern</target>
+      </trans-unit> 
+	  <trans-unit id="7">
+        <source>Close</source>
+        <target>Verwerfen</target>
+      </trans-unit> 
+	  <trans-unit id="8">
+        <source>Menue entry</source>
+        <target>Men&#252; Eintrag</target>
+      </trans-unit> 
+	 <trans-unit id="9">
+        <source>Change item order</source>
+        <target>Men&#252; Elemente anpassen</target>
+     </trans-unit> 
+	 <trans-unit id="10">
+        <source>Action</source>
+        <target>Aktion</target>
+     </trans-unit>
+	 <trans-unit id="11">
+        <source>Menue Settings</source>
+        <target>Men&#252; Einstellungen</target>
+     </trans-unit>
+	 <trans-unit id="12">
+        <source>Saving Data</source>
+        <target>Speichere Daten</target>
+     </trans-unit>		 
+    </body>
+  </file>
+</xliff>

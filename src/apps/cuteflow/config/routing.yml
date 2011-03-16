@@ -1,0 +1,14 @@
+dynamic_js:
+  url: /djs/:param/:filename.js
+  param: { module: script, action: load }
+
+homepage:
+  url:   /
+  param: { module: installer, action: checkLogin }
+
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*

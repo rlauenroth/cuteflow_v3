@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.0">
+  <file original="global" source-language="en_US" target-language="de_DE" datatype="plaintext">
+    <body>  
+      <trans-unit id="1">
+        <source>Additional Text</source>
+        <target>Einleitender Text</target>
+      </trans-unit>
+      <trans-unit id="2">
+        <source>Create new additional Text</source>
+        <target>Neuer einleitender Text erstellen</target>
+      </trans-unit>
+      <trans-unit id="3">
+        <source>Edit additional Text</source>
+        <target>Einleitender Text bearbeiten</target>
+      </trans-unit>
+      <trans-unit id="4">
+        <source>Store</source>
+        <target>Speichern</target>
+      </trans-unit> 	  
+		<trans-unit id="5">
+        <source>Close</source>
+        <target>Verwerfen</target>
+      </trans-unit> 
+	  <trans-unit id="6">
+        <source>Set Title</source>
+        <target>Setzen des Titels</target>
+      </trans-unit> 
+	  <trans-unit id="7">
+        <source>Title</source>
+        <target>Titel</target>
+      </trans-unit> 
+	  <trans-unit id="8">
+        <source>Set Content Type</source>
+        <target>Format w&#228;hlen</target>
+      </trans-unit> 
+	 <trans-unit id="9">
+        <source>Content Type</source>
+        <target>Format</target>
+     </trans-unit> 
+	 <trans-unit id="10">
+        <source>Plain</source>
+        <target>Text</target>
+     </trans-unit>
+	 <trans-unit id="11">
+        <source>HTML</source>
+        <target>HTML</target>
+     </trans-unit>
+	 <trans-unit id="12">
+        <source>Set Plain Body</source>
+        <target>Inhalt f&#252;r Plain</target>
+     </trans-unit>
+	 <trans-unit id="13">
+        <source>Content</source>
+        <target>Inhalt</target>
+     </trans-unit>
+	 <trans-unit id="14">
+        <source>Set HTML Body</source>
+        <target>Inhalt f&#252;r HTML</target>
+     </trans-unit> 
+	 <trans-unit id="15">
+        <source>Set Placeholder</source>
+        <target>Platzhalter w&#228;hlen</target>
+     </trans-unit>
+	 <trans-unit id="16">
+        <source>Spaceholder</source>
+        <target>Platzhalter</target>
+     </trans-unit>
+	 <trans-unit id="17">
+        <source>Insert Placeholder</source>
+        <target>Platzhalter einf&#252;gen</target>
+     </trans-unit>
+	 <trans-unit id="18">
+        <source>Action</source>
+        <target>Aktion</target>
+     </trans-unit>
+	 <trans-unit id="19">
+        <source>Clear field</source>
+        <target>Suchfeld zur&#252;cksetzen</target>
+     </trans-unit>
+	 <trans-unit id="20">
+        <source>Standard</source>
+        <target>Standart</target>
+     </trans-unit>
+	 <trans-unit id="21">
+        <source>Copy Text</source>
+        <target>Text kopieren</target>
+     </trans-unit>	
+	 <trans-unit id="22">
+        <source>Edit Text</source>
+        <target>Text bearbeiten</target>
+     </trans-unit>		
+	 <trans-unit id="23">
+        <source>Remove Text</source>
+        <target>Text entfernen</target>
+     </trans-unit>
+	 <trans-unit id="24">
+        <source>Available Additional Textes</source>
+        <target>Verf&#252;gbare einleitende Texte</target>
+     </trans-unit>
+	 <trans-unit id="25">
+        <source>Search for...</source>
+        <target>Suche nach...</target>
+     </trans-unit>
+	 <trans-unit id="26">
+        <source>Add new Text</source>
+        <target>Neuen Text anlegen</target>
+     </trans-unit>
+	 <trans-unit id="27">
+        <source>OK</source>
+        <target>OK</target>
+     </trans-unit>
+	 <trans-unit id="28">
+        <source>Text saved</source>
+        <target>Text gespeichert</target>
+     </trans-unit>	
+	 <trans-unit id="29">
+        <source>Delete successful</source>
+        <target>Text gel&#246;scht</target>
+     </trans-unit>		
+	 <trans-unit id="30">
+        <source>Copy successful</source>
+        <target>Text kopiert</target>
+     </trans-unit>
+	 <trans-unit id="31">
+        <source>plain</source>
+        <target>Text</target>
+     </trans-unit>
+	 <trans-unit id="32">
+        <source>html</source>
+        <target>HTML</target>
+     </trans-unit>
+	 <trans-unit id="33">
+        <source>Saving Data</source>
+        <target>Speichere Daten</target>
+     </trans-unit>
+	 <trans-unit id="34">
+        <source>Delete text?</source>
+        <target>Text l&#246;schen?</target>
+     </trans-unit>
+	 <trans-unit id="35">
+        <source>Saving Data</source>
+        <target>Speichere Daten</target>
+     </trans-unit> 	 
+    </body>
+  </file>
+</xliff>

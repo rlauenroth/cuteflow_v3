@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.0">
+  <file original="global" source-language="en_US" target-language="en_US" datatype="plaintext">
+    <body>     
+	<trans-unit id="1">
+        <source>Updating Data...</source>
+        <target>Updating Data...</target>
+    </trans-unit>
+	<trans-unit id="2">
+        <source>Update successful</source>
+        <target>Update successful</target>
+    </trans-unit>
+	<trans-unit id="3">
+        <source>OK</source>
+        <target>OK</target>
+     </trans-unit>
+     <trans-unit id="4">
+        <source>Delete successful</source>
+        <target>Delete successful</target>
+      </trans-unit> 	  
+		<trans-unit id="5">
+        <source>Data updated</source>
+        <target>Data updated</target>
+      </trans-unit> 
+	  <trans-unit id="6">
+        <source>Data saved</source>
+        <target>Data saved</target>
+      </trans-unit> 
+	  <trans-unit id="7">
+        <source>Error</source>
+        <target>Error</target>
+      </trans-unit> 
+	  <trans-unit id="8">
+        <source>Set Name and select a Template</source>
+        <target>Set Name and select a Template</target>
+      </trans-unit> 
+	 <trans-unit id="9">
+        <source>Saving Data</source>
+        <target>Saving Data</target>
+     </trans-unit> 
+	 <trans-unit id="10">
+        <source>Search for User...</source>
+        <target>Search for User...</target>
+     </trans-unit>
+	 <trans-unit id="11">
+        <source>Clear field</source>
+        <target>Clear field</target>
+     </trans-unit>
+	 <trans-unit id="12">
+        <source>Search for Allowed users...</source>
+        <target>Search for Allowed users...</target>
+     </trans-unit>
+	 <trans-unit id="13">
+        <source>Clear field</source>
+        <target>Clear field</target>
+     </trans-unit>
+	 <trans-unit id="14">
+        <source>Action</source>
+        <target>Action</target>
+     </trans-unit> 
+	 <trans-unit id="15">
+        <source>delete workflow</source>
+        <target>delete workflow</target>
+     </trans-unit>
+	 <trans-unit id="16">
+        <source>archive workflow</source>
+        <target>archive workflow</target>
+     </trans-unit>
+	 <trans-unit id="17">
+        <source>stop/new workflow</source>
+        <target>stop/new workflow</target>
+     </trans-unit>
+	 <trans-unit id="18">
+        <source>show workflow details</source>
+        <target>show workflow details</target>
+     </trans-unit>
+	 <trans-unit id="19">
+        <source>Authorization</source>
+        <target>Authorization</target>
+     </trans-unit>
+	 <trans-unit id="20">
+        <source>Available users</source>
+        <target>Available users</target>
+     </trans-unit>
+	 <trans-unit id="21">
+        <source>Move right please</source>
+        <target>Move right please</target>
+     </trans-unit>	
+	 <trans-unit id="22">
+        <source>Allowed to send Mailing list</source>
+        <target>Allowed to send Mailing list</target>
+     </trans-unit>		
+	 <trans-unit id="23">
+        <source>User</source>
+        <target>User</target>
+     </trans-unit>
+	 <trans-unit id="24">
+        <source>Remove user</source>
+        <target>Remove user</target>
+     </trans-unit>
+	 <trans-unit id="25">
+        <source>Set allowed Sender</source>
+        <target>Set allowed Sender</target>
+     </trans-unit>
+	 <trans-unit id="26">
+        <source>General Settings</source>
+        <target>General Settings</target>
+     </trans-unit>
+	 <trans-unit id="27">
+        <source>Set name, set Slot sending conditions and select Document Template</source>
+        <target>Set name, set Slot sending conditions and select Document Template</target>
+     </trans-unit>
+	 <trans-unit id="28">
+        <source>Name</source>
+        <target>Name</target>
+     </trans-unit>	
+	 <trans-unit id="29">
+        <source>Document Template</source>
+        <target>Document Template</target>
+     </trans-unit>		
+	 <trans-unit id="30">
+        <source>Send to all slots at once</source>
+        <target>Send to all slots at once</target>
+     </trans-unit>
+	 <trans-unit id="31">
+        <source>Mailing list Management</source>
+        <target>Mailing list Management</target>
+     </trans-unit>
+	 <trans-unit id="32">
+        <source>is default</source>
+        <target>is default</target>
+     </trans-unit>
+	 <trans-unit id="33">
+        <source>Edit Mailing list template</source>
+        <target>Edit Mailing list template</target>
+     </trans-unit>	
+	 <trans-unit id="34">
+        <source>Show Mailinglist template versions</source>
+        <target>Show Mailinglist template versions</target>
+     </trans-unit>	
+	 <trans-unit id="35">
+        <source>Delete Mailing List template</source>
+        <target>Delete Mailing List template</target>
+     </trans-unit>	
+	 <trans-unit id="36">
+        <source>Adapt Mailinglist to current Document Template</source>
+        <target>Adapt Mailinglist to current Document Template</target>
+     </trans-unit>	
+	 <trans-unit id="37">
+        <source>Action</source>
+        <target>Action</target>
+     </trans-unit>	
+	 <trans-unit id="38">
+        <source>Search for name</source>
+        <target>Search for name</target>
+     </trans-unit>	
+	 <trans-unit id="39">
+        <source>Search</source>
+        <target>Search</target>
+     </trans-unit>	
+	 <trans-unit id="40">
+        <source>Add new Mailing List</source>
+        <target>Add new Mailing List</target>
+     </trans-unit>	
+	 <trans-unit id="41">
+        <source>Displaying topics</source>
+        <target>Displaying topics</target>
+     </trans-unit>	
+	 <trans-unit id="42">
+        <source>of</source>
+        <target>of</target>
+     </trans-unit>	
+	 <trans-unit id="43">
+        <source>No records found</source>
+        <target>No records found</target>
+     </trans-unit>	
+	 <trans-unit id="44">
+        <source>Document templates</source>
+        <target>Document templates</target>
+     </trans-unit>	
+	 <trans-unit id="45">
+        <source>Adapt mailinglist</source>
+        <target>Adapt mailinglist</target>
+     </trans-unit>	
+	 <trans-unit id="46">
+        <source>Adapt mailinglist to current Document Template</source>
+        <target>Adapt mailinglist to current Document Template</target>
+     </trans-unit>		 
+	 <trans-unit id="47">
+        <source>Delete mailinglist</source>
+        <target>Delete mailinglist</target>
+     </trans-unit>		
+	 <trans-unit id="48">
+        <source>Store</source>
+        <target>Store</target>
+     </trans-unit>		
+	 <trans-unit id="49">
+        <source>Close</source>
+        <target>Close</target>
+     </trans-unit>		
+	 <trans-unit id="50">
+        <source>Sender of circulation</source>
+        <target>Sender of circulation</target>
+     </trans-unit>		
+	 <trans-unit id="51">
+        <source>Move left please</source>
+        <target>Move left please</target>
+     </trans-unit>		
+	 <trans-unit id="52">
+        <source>User</source>
+        <target>User</target>
+     </trans-unit>		
+	 <trans-unit id="53">
+        <source>Mailing list: </source>
+        <target>Mailing list: </target>
+     </trans-unit>
+	 <trans-unit id="54">
+        <source>Slot: </source>
+        <target>Slot: </target>
+     </trans-unit>
+	 <trans-unit id="55">
+        <source>Remove user</source>
+        <target>Remove user</target>
+     </trans-unit>
+	 <trans-unit id="56">
+        <source>created at</source>
+        <target>created at</target>
+     </trans-unit>
+	 <trans-unit id="57">
+        <source>currently active</source>
+        <target>currently active</target>
+     </trans-unit>	
+	 <trans-unit id="58">
+        <source>Activate Mailinglist template</source>
+        <target>Activate Mailinglist template</target>
+     </trans-unit>	
+	 <trans-unit id="59">
+        <source>Show Mailinglist template version</source>
+        <target>Show Mailinglist template version</target>
+     </trans-unit>		 
+	 <trans-unit id="60">
+        <source>Activate Template</source>
+        <target>Activate Template</target>
+     </trans-unit>		
+	 <trans-unit id="61">
+        <source>Updating Data...</source>
+        <target>Updating Data...</target>
+     </trans-unit>		
+	 <trans-unit id="62">
+        <source>Mailinglist activated</source>
+        <target>Mailinglist activated</target>
+     </trans-unit>		
+	 <trans-unit id="63">
+        <source>Mailinglist templates</source>
+        <target>Mailinglist templates</target>
+     </trans-unit>		
+	 <trans-unit id="64">
+        <source>Select Document template</source>
+        <target>Select Document template</target>
+     </trans-unit>		
+	 <trans-unit id="65">
+        <source>Set Mailinglist to previous version</source>
+        <target>Set Mailinglist to previous version</target>
+     </trans-unit>		
+	 <trans-unit id="66">
+        <source>Slot settings</source>
+        <target>Slot settings</target>
+     </trans-unit>
+	 <trans-unit id="67">
+        <source>Set Template to active</source>
+        <target>Set Template to active</target>
+     </trans-unit>
+	 <trans-unit id="68">
+        <source>Template activated</source>
+        <target>Template activated</target>
+     </trans-unit>
+	 <trans-unit id="69">
+        <source>Field</source>
+        <target>Field</target>
+     </trans-unit>
+	 <trans-unit id="70">
+        <source>Select Mailinglist template</source>
+        <target>Select Mailinglist template</target>
+     </trans-unit>
+	 <trans-unit id="71">
+        <source>Loading Data...</source>
+        <target>Loading Data...</target>
+     </trans-unit>		 
+	 <trans-unit id="72">
+        <source>Allowed Sender</source>
+        <target>Allowed Sender</target>
+     </trans-unit>	
+	 <trans-unit id="73">
+        <source>Authorization settings</source>
+        <target>Authorization settings</target>
+     </trans-unit>
+	 <trans-unit id="74">
+        <source>Edit existing Mailing list</source>
+        <target>Edit existing Mailing list</target>
+     </trans-unit>		 
+	 <trans-unit id="75">
+        <source>Create new Mailing list</source>
+        <target>Create new Mailing list</target>
+     </trans-unit>	
+	</body>
+  </file>
+</xliff>

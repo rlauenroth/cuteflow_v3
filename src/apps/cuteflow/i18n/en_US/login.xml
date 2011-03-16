@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.0">
+  <file original="global" source-language="en_US" target-language="en_US" datatype="plaintext">
+    <body>  
+      <trans-unit id="1">
+        <source>Login</source>
+        <target>Login</target>
+      </trans-unit>
+      <trans-unit id="2">
+        <source>Username</source>
+        <target>Username</target>
+      </trans-unit>
+      <trans-unit id="3">
+        <source>Password</source>
+        <target>Password</target>
+      </trans-unit>
+      <trans-unit id="4">
+        <source>Language</source>
+        <target>Language</target>
+      </trans-unit> 	  
+		<trans-unit id="5">
+        <source>Close</source>
+        <target>Close</target>
+      </trans-unit> 
+	  <trans-unit id="6">
+        <source>Error</source>
+        <target>Error</target>
+      </trans-unit> 
+	  <trans-unit id="7">
+        <source>Failure during login process</source>
+        <target>Failure during login process</target>
+      </trans-unit> 
+	  <trans-unit id="8">
+        <source>Logging in, please wait...</source>
+        <target>Logging in, please wait...</target>
+      </trans-unit> 
+    </body>
+  </file>
+</xliff>

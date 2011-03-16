@@ -1,0 +1,39 @@
+<mockup version="1.0" skin="sketch" measuredW="1558" measuredH="689">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::DataGrid" x="89" y="230" w="1459" h="222" measuredW="369" measuredH="58" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%23%2C%20COLUMN1%2C%20COLUMN2%2C%20COLUMNn%2C%20ACTION%0A1%2CVALUE1%2C%20VALUE2%2C%20VALUEn%2C%20</text>
+      </controlProperties>
+    </control>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::Button" x="1118" y="258" w="-1" h="-1" measuredW="73" measuredH="28" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>L%F6schen</text>
+      </controlProperties>
+    </control>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::Button" x="1216" y="258" w="-1" h="-1" measuredW="66" measuredH="28" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Details</text>
+      </controlProperties>
+    </control>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::Button" x="1297" y="258" w="-1" h="-1" measuredW="62" measuredH="28" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Archiv</text>
+      </controlProperties>
+    </control>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::Button" x="1386" y="258" w="-1" h="-1" measuredW="95" measuredH="28" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Stop/Start</text>
+      </controlProperties>
+    </control>
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::StickyNote" x="171" y="15" w="388" h="215" measuredW="109" measuredH="123" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Columns%0A-%20cf_usersetting%3A%0A%20%20-%20Farbe%20laden%2C%20gr%FCn%2C%20rot%2C%20gelb%0A%20%20-%20sortierung%2C%20nach%20welcher%20Spalte%20sortiert%20wird%0A-%20cf_userworkflowconfiguration%0A%20%20-%20welche%20spalte%20sind%20aktiv%0A%20%20-%20reihenfolge%20der%20Spalte%0A%20%20-%20ggf.%20Felder%20darstellen</text>
+      </controlProperties>
+    </control>
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::StickyNote" x="111" y="467" w="624" h="212" measuredW="109" measuredH="123" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>In%20Region%20West%3A%0A-%20Uml%E4ufe%0A%20%20-%20nur%20aktiv%20wenn%20man%20das%20Recht%20hat%2C%20Uml%E4ufe%20zu%20erstellen%0A-%20ToDo%0A%20%20-%20sichtbar%20f%FCr%20jeden%2C%20es%20wird%20die%20selbe%20Maske%20+%20Settings%20wie%20bei%20%22Uml%E4ufe%22%0A%20%20%20%20genutzt.%20Jedoch%20werden%20nur%20zu%20bearbeitende%20Uml%E4ufe%20gezeigt%2C%0A%20%20%20%20Umlauf%20darf%20nur%20der%20L%F6schen%2C%20der%20auch%20das%20n%F6tige%20Recht%20aus%20AllwedSender%20hat</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

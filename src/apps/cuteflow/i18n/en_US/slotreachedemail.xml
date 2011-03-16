@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.0">
+  <file original="global" source-language="en_US" target-language="en_US" datatype="plaintext">
+    <body>
+		<trans-unit id="1">
+			<source>Workflow</source>
+			<target>Workflow</target>
+		</trans-unit>
+		<trans-unit id="2">
+			<source>CuteFlow: slot</source>
+			<target>CuteFlow: slot</target>
+		</trans-unit>
+		<trans-unit id="3">
+			<source>reached</source>
+			<target>reached</target>
+		</trans-unit>
+		<trans-unit id="4">
+			<source>The Slot</source>
+			<target>The Slot</target>
+		</trans-unit>
+		<trans-unit id="5">
+			<source>has been completed</source>
+			<target>has been completed</target>
+		</trans-unit>
+		<trans-unit id="6">
+			<source>The new Slot</source>
+			<target>The new Slot</target>
+		</trans-unit>
+		<trans-unit id="7">
+			<source>has been reached</source>
+			<target>has been reached</target>
+		</trans-unit>
+		<trans-unit id="8">
+			<source>Direct link to workflow</source>
+			<target>Direct link to workflow</target>
+		</trans-unit>
+	</body>
+  </file>
+</xliff>

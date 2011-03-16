@@ -1,0 +1,611 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.0">
+  <file original="global" source-language="en_US" target-language="de_DE" datatype="plaintext">
+    <body>  
+     <trans-unit id="1">
+        <source>NAME</source>
+        <target>Name</target>
+    </trans-unit>
+	<trans-unit id="2">
+        <source>STATION</source>
+        <target>Station</target>
+    </trans-unit>
+	<trans-unit id="3">
+        <source>DAYS</source>
+        <target>Station l&#228;uft seit</target>
+    </trans-unit>
+	<trans-unit id="4">
+        <source>START</source>
+        <target>Umlauf gestartet am</target>
+    </trans-unit>
+	<trans-unit id="5">
+        <source>SENDER</source>
+        <target>Umlaufsender</target>
+    </trans-unit>
+	<trans-unit id="6">
+        <source>TOTALTIME</source>
+        <target>Gesamtlaufzeit</target>
+    </trans-unit>
+	<trans-unit id="7">
+        <source>MAILINGLIST</source>
+        <target>Verteiler</target>
+    </trans-unit>
+	<trans-unit id="8">
+        <source>TEMPLATE</source>
+        <target>Template</target>
+    </trans-unit>
+	<trans-unit id="9">
+        <source>Saving Data</source>
+        <target>Speichere Daten</target>
+    </trans-unit>
+	<trans-unit id="10">
+        <source>admin</source>
+        <target>Admin</target>
+    </trans-unit>
+	<trans-unit id="11">
+        <source>sender</source>
+        <target>Erlaubte Sender</target>
+    </trans-unit>
+	<trans-unit id="12">
+        <source>senderwithrights</source>
+        <target>Alle benutzer mit Senderechten</target>
+    </trans-unit>
+	<trans-unit id="13">
+        <source>receiver</source>
+        <target>Empf&#228;nger</target>
+    </trans-unit>
+	<trans-unit id="14">
+        <source>thesender</source>
+        <target>Sender</target>
+    </trans-unit>
+	<trans-unit id="15">
+        <source>USERDEFINED1</source>
+        <target>Benutzerdefiniertes Feld 1</target>
+    </trans-unit>
+	<trans-unit id="16">
+        <source>USERDEFINED2</source>
+        <target>Benutzerdefiniertes Feld 2</target>
+    </trans-unit>
+	<trans-unit id="17">
+        <source>allroles</source>
+        <target>Jede Rolle</target>
+    </trans-unit>
+	<trans-unit id="18">
+        <source>Default user GUI settings</source>
+        <target>Standart GUI Einstellungen</target>
+    </trans-unit>
+	<trans-unit id="19">
+        <source>Items per page</source>
+        <target>Treffer pro Seite</target>
+    </trans-unit>
+	<trans-unit id="20">
+        <source>Refreshtime in seconds</source>
+        <target>Seite Nachladen in Sekunden</target>
+    </trans-unit>
+	<trans-unit id="21">
+        <source>Circulations default sort</source>
+        <target>Umlauf Sortieren nach</target>
+    </trans-unit>
+	<trans-unit id="22">
+        <source>Ascending</source>
+        <target>Aufsteigend</target>
+    </trans-unit>
+	<trans-unit id="23">
+        <source>Descending</source>
+        <target>Absteigend</target>
+    </trans-unit>
+	<trans-unit id="24">
+        <source>Change yellow after...days</source>
+        <target>Gelb nach...Tagen</target>
+    </trans-unit>
+	<trans-unit id="25">
+        <source>Change orange after...days</source>
+        <target>Orange nach...Tagen</target>
+    </trans-unit>
+	<trans-unit id="26">
+        <source>Change red after...days</source>
+        <target>Rot nach...Tagen</target>
+    </trans-unit>
+	<trans-unit id="27">
+        <source>Default user system settings</source>
+        <target>Standart Benutzer Systemeinstellungen</target>
+    </trans-unit>
+	<trans-unit id="28">
+        <source>Default Password</source>
+        <target>Standart Passwort</target>
+    </trans-unit>
+	<trans-unit id="29">
+        <source>Useragent time</source>
+        <target>Stellvertreterzeit</target>
+    </trans-unit>
+	<trans-unit id="30">
+        <source>Day(s)</source>
+        <target>Tag(e)</target>
+    </trans-unit>
+		<trans-unit id="31">
+        <source>Hour(s)</source>
+        <target>Stunde(n)</target>
+    </trans-unit>
+	<trans-unit id="32">
+        <source>Minute(s)</source>
+        <target>Minute(n)</target>
+    </trans-unit>
+	<trans-unit id="33">
+        <source>Email Format</source>
+        <target>E-Mail Format</target>
+    </trans-unit>
+	<trans-unit id="34">
+        <source>Plain</source>
+        <target>Text</target>
+    </trans-unit>
+	<trans-unit id="35">
+        <source>HTML</source>
+        <target>HTML</target>
+    </trans-unit>
+	<trans-unit id="36">
+        <source>Notice</source>
+        <target>Hinweis</target>
+    </trans-unit>
+	<trans-unit id="37">
+        <source>None</source>
+        <target>keine</target>
+    </trans-unit>
+	<trans-unit id="38">
+        <source>Only values</source>
+        <target>nur Werte</target>
+    </trans-unit>
+	<trans-unit id="39">
+        <source>IFrame</source>
+        <target>IFrame</target>
+    </trans-unit>
+	<trans-unit id="40">
+        <source>Userrole</source>
+        <target>Benutzerrolle</target>
+    </trans-unit>
+	<trans-unit id="41">
+        <source>User language</source>
+        <target>Sprache</target>
+    </trans-unit>
+	<trans-unit id="42">
+        <source>System settings</source>
+        <target>System Einstellungen</target>
+    </trans-unit>
+	<trans-unit id="43">
+        <source>Set Background of Navigation north</source>
+        <target>Hintergrundfarbe des Logo Panels</target>
+    </trans-unit>
+	<trans-unit id="44">
+        <source>Select color</source>
+        <target>Farbe ausw&#228;hlen</target>
+    </trans-unit>
+	<trans-unit id="45">
+        <source>Workflow settings</source>
+        <target>Umlauf Einstellungen</target>
+    </trans-unit>
+	<trans-unit id="46">
+        <source>Show position in Mail</source>
+        <target>Position in Umlauf anzeigen</target>
+    </trans-unit>
+	<trans-unit id="47">
+        <source>Send Mails to circulation receivers</source>
+        <target>Sende E-Mail an Empf&#228;nger</target>
+    </trans-unit>
+	<trans-unit id="48">
+        <source>Send Reminder-EMails with all open circulations</source>
+        <target>Sende Erinnerungs E-Mail mit allen offen Uml&#228;ufen</target>
+    </trans-unit>
+	<trans-unit id="49">
+        <source>Activated Cronjob needed</source>
+        <target>Cronjob muss aktiv sein</target>
+    </trans-unit>
+	<trans-unit id="50">
+        <source>Slot-Visibility</source>
+        <target>Slot-Sichtbarkeit</target>
+    </trans-unit>
+	 <trans-unit id="51">
+        <source>Only current user slot</source>
+        <target>Nur Benutzerslots</target>
+    </trans-unit>
+	<trans-unit id="52">
+        <source>All Slots, order as defined in template</source>
+        <target>Alle Slots, in Template Reihenfolge</target>
+    </trans-unit>
+	<trans-unit id="53">
+        <source>All Slots, current user slot topmost</source>
+        <target>Alle Slots, mit Benutzerslots zuerst</target>
+    </trans-unit>
+	<trans-unit id="54">
+        <source>Default system language</source>
+        <target>Standart Systemsprache</target>
+    </trans-unit>
+	<trans-unit id="55">
+        <source>Select language</source>
+        <target>Sprache w&#228;hlen</target>
+    </trans-unit>
+	<trans-unit id="56">
+        <source>Loading Data...</source>
+        <target>Lade Daten...</target>
+    </trans-unit>
+	<trans-unit id="57">
+        <source>System Settings</source>
+        <target>System Einstellungen</target>
+    </trans-unit>
+	<trans-unit id="58">
+        <source>Store</source>
+        <target>Speichern</target>
+    </trans-unit>
+	<trans-unit id="59">
+        <source>Close</source>
+        <target>Verwerfen</target>
+    </trans-unit>
+	<trans-unit id="60">
+        <source>OK</source>
+        <target>OK</target>
+    </trans-unit>
+	<trans-unit id="61">
+        <source>Settings saved</source>
+        <target>Einstellugnen gespeichert</target>
+    </trans-unit>
+	<trans-unit id="62">
+        <source>Saving Data</source>
+        <target>Speichere Daten</target>
+    </trans-unit>
+	<trans-unit id="63">
+        <source>Select Theme</source>
+        <target>Theme w&#228;hlen</target>
+    </trans-unit>
+	<trans-unit id="64">
+        <source>Set Default Theme</source>
+        <target>Standart Theme</target>
+    </trans-unit>
+		<trans-unit id="65">
+        <source>GUI Settings</source>
+        <target>GUI Einstellungen</target>
+    </trans-unit>
+	<trans-unit id="66">
+        <source>GUI Workflow Settings</source>
+        <target>GUI Umlauf Einstellungen</target>
+    </trans-unit>
+	<trans-unit id="67">
+        <source>Column</source>
+        <target>Spalte</target>
+    </trans-unit>
+	<trans-unit id="68">
+        <source>Activate Item</source>
+        <target>Eintrag aktivieren</target>
+    </trans-unit>
+	<trans-unit id="69">
+        <source>Useragent Settings</source>
+        <target>Stellvertreter Einstellungen</target>
+    </trans-unit>
+	<trans-unit id="70">
+        <source>Cronjob will run on selected days</source>
+        <target>Cronjob wird nur zu gew&#228;hlten Tagen laufen</target>
+    </trans-unit>
+	<trans-unit id="71">
+        <source>Monday</source>
+        <target>Montag</target>
+    </trans-unit>
+	<trans-unit id="72">
+        <source>Tuesday</source>
+        <target>Dienstag</target>
+    </trans-unit>
+	<trans-unit id="73">
+        <source>Wednesday</source>
+        <target>Mittwoch</target>
+    </trans-unit>
+	 <trans-unit id="74">
+        <source>Thursday</source>
+        <target>Donnerstag</target>
+    </trans-unit>
+	<trans-unit id="75">
+        <source>Friday</source>
+        <target>Freitag</target>
+    </trans-unit>
+	<trans-unit id="76">
+        <source>Saturday</source>
+        <target>Samstag</target>
+    </trans-unit>
+	<trans-unit id="77">
+        <source>Sonday</source>
+        <target>Sonntag</target>
+    </trans-unit>
+	<trans-unit id="76">
+        <source>Set Time when cronjob will run</source>
+        <target>Zeit setzen, wann Cronjob laufen darf</target>
+    </trans-unit>
+	<trans-unit id="78">
+        <source>Time from</source>
+        <target>Zeit von</target>
+    </trans-unit>
+	<trans-unit id="79">
+        <source>Time to</source>
+        <target>Zeit bis</target>
+    </trans-unit>
+	<trans-unit id="80">
+        <source>Set Time for UserAgent Cronjob</source>
+        <target>Zeit f&#252;r Stellvertreter Cronjob setzen</target>
+    </trans-unit>
+	<trans-unit id="81">
+        <source>Add useragents when cronjob time is exceeded</source>
+        <target>Stellvertreter einsetzen, wenn Cronjobzeit abgelaufen</target>
+    </trans-unit>
+	<trans-unit id="82">
+        <source>Change red after...days</source>
+        <target>Rot nach...Tagen</target>
+    </trans-unit>
+	<trans-unit id="83">
+        <source>Default user system settings</source>
+        <target>Standart Benutzer Systemeinstellungen</target>
+    </trans-unit>
+	<trans-unit id="84">
+        <source>Default Password</source>
+        <target>Standart Passwort</target>
+    </trans-unit>
+	<trans-unit id="85">
+        <source>Useragent time</source>
+        <target>Stellvertreter Zeit</target>
+    </trans-unit>
+	<trans-unit id="86">
+        <source>Day(s)</source>
+        <target>Tage(e)</target>
+    </trans-unit>
+	<trans-unit id="87">
+        <source>Hour(s)</source>
+        <target>Stunde(n)</target>
+    </trans-unit>
+	<trans-unit id="88">
+        <source>Minute(s)</source>
+        <target>Minute(n)</target>
+    </trans-unit>
+	<trans-unit id="89">
+        <source>Email Format</source>
+        <target>Email Format</target>
+    </trans-unit>
+	 <trans-unit id="90">
+        <source>Plain</source>
+        <target>Text</target>
+    </trans-unit>
+	<trans-unit id="91">
+        <source>HTML</source>
+        <target>HTML</target>
+    </trans-unit>
+	<trans-unit id="92">
+        <source>Notice</source>
+        <target>Hinweus</target>
+    </trans-unit>
+	<trans-unit id="93">
+        <source>None</source>
+        <target>keine</target>
+    </trans-unit>
+	<trans-unit id="94">
+        <source>Only values</source>
+        <target>Nur Werte</target>
+    </trans-unit>
+	<trans-unit id="95">
+        <source>IFrame</source>
+        <target>IFrame</target>
+    </trans-unit>
+	<trans-unit id="96">
+        <source>Userrole</source>
+        <target>Benutzerrolle</target>
+    </trans-unit>
+	<trans-unit id="97">
+        <source>User language</source>
+        <target>Benutzer Sprache</target>
+    </trans-unit>
+	<trans-unit id="98">
+        <source>System settings</source>
+        <target>System Einstellungen</target>
+    </trans-unit>
+	<trans-unit id="99">
+        <source>Settings saved</source>
+        <target>Einstellungen gespeichert</target>
+    </trans-unit>
+	<trans-unit id="100">
+        <source>Saving Data</source>
+        <target>Speichere Daten</target>
+    </trans-unit>
+	<trans-unit id="101">
+        <source>GUI Settings</source>
+        <target>GUI Einstellungen</target>
+    </trans-unit>
+    <trans-unit id="102">
+        <source>System reply address</source>
+        <target>System Antwortadresse</target>
+    </trans-unit>
+	<trans-unit id="103">
+        <source>Email Settings</source>
+        <target>Email Einstellungen</target>
+    </trans-unit>
+	<trans-unit id="104">
+        <source>Action</source>
+        <target>Aktion</target>
+    </trans-unit>
+	<trans-unit id="105">
+        <source>delete workflow</source>
+        <target>Umlauf l&#246;schen</target>
+    </trans-unit>
+	<trans-unit id="106">
+        <source>archive workflow</source>
+        <target>Umlauf archivieren</target>
+    </trans-unit>
+	<trans-unit id="107">
+        <source>stop/new workflow</source>
+        <target>Umlauf starten/beenden</target>
+    </trans-unit>
+	<trans-unit id="108">
+        <source>show workflow details</source>
+        <target>Umlaufdetails</target>
+    </trans-unit>
+	<trans-unit id="109">
+        <source>Authorization Settings</source>
+        <target>Authorisierungs Einstellungen</target>
+    </trans-unit>
+	<trans-unit id="110">
+        <source>Authorization Settings</source>
+        <target>Authorisierungs Einstellungen</target>
+    </trans-unit>
+	<trans-unit id="111">
+        <source>LDAP Settings</source>
+        <target>LDAP Einstellungen</target>
+    </trans-unit>
+	<trans-unit id="112">
+        <source>Add User automatic to Cuteflowdatabase when in LDAP</source>
+        <target>Benutzer automatisch auf der CuteFlow Datenbank anlegen, wenn in LDAP</target>
+    </trans-unit>
+	<trans-unit id="113">
+        <source>LDAP Host</source>
+        <target>LDAP Host</target>
+    </trans-unit>
+	<trans-unit id="114">
+        <source>LDAP Domain</source>
+        <target>LDAP Domain</target>
+    </trans-unit>
+		<trans-unit id="115">
+        <source>LDAP Bind Username and Context</source>
+        <target>LDAP Bind Username and Context</target>
+    </trans-unit>
+		<trans-unit id="116">
+        <source>LDAP Password</source>
+        <target>LDAP Password</target>
+    </trans-unit>
+	<trans-unit id="117">
+        <source>LDAP Root Context</source>
+        <target>LDAP Root Context</target>
+    </trans-unit>
+	<trans-unit id="118">
+        <source>LDAP User Search Attribute</source>
+        <target>LDAP User Search Attribute</target>
+    </trans-unit>
+	     <trans-unit id="119">
+        <source>LDAP Firstname Attribute</source>
+        <target>LDAP Firstname Attribute</target>
+    </trans-unit>
+	<trans-unit id="120">
+        <source>LDAP Lastname Attribute</source>
+        <target>LDAP Lastname Attribute</target>
+    </trans-unit>
+	<trans-unit id="121">
+        <source>LDAP Username Attribute</source>
+        <target>LDAP Username Attribute</target>
+    </trans-unit>
+	<trans-unit id="122">
+        <source>LDAP Email Attribute</source>
+        <target>LDAP Email Attribute</target>
+    </trans-unit>
+	<trans-unit id="123">
+        <source>LDAP Office Attribute</source>
+        <target>LDAP Office Attribute</target>
+    </trans-unit>
+	<trans-unit id="124">
+        <source>LDAP Phone Attribute</source>
+        <target>LDAP Phone Attribute</target>
+    </trans-unit>
+	<trans-unit id="125">
+        <source>LDAP Context</source>
+        <target>LDAP Context</target>
+    </trans-unit>
+	<trans-unit id="126">
+        <source>OpenID Server</source>
+        <target>OpenID Server</target>
+    </trans-unit>
+	<trans-unit id="127">
+        <source>Authentication settings</source>
+        <target>Anmelde Einstellunen</target>
+    </trans-unit>
+	<trans-unit id="128">
+        <source>use only CuteFLow Database</source>
+        <target>nur CuteFlow Datenbank</target>
+    </trans-unit>
+	<trans-unit id="129">
+        <source>Select authentication type</source>
+        <target>Anmeldetyp w&#228;hlen</target>
+    </trans-unit>
+	<trans-unit id="130">
+        <source>Show MyProfile Tab on Users First-Login</source>
+        <target>Mein Profil Tab beim ersten Logn zeigen</target>
+    </trans-unit>
+	<trans-unit id="131">
+        <source>Allow direct Login from Emails</source>
+        <target>Direkter Login aus Emails zulassen</target>
+    </trans-unit>
+	<trans-unit id="132">
+        <source>Reply Settings</source>
+        <target>Antwort Einstellungen</target>
+    </trans-unit>
+	<trans-unit id="133">
+        <source>Select Authentication</source>
+        <target>Authentifizierung w&#228;hlen</target>
+    </trans-unit>
+	<trans-unit id="134">
+        <source>use only CuteFlow Database</source>
+        <target>nur CuteFlow Datenbank</target>
+    </trans-unit>
+	<trans-unit id="135">
+        <source>use CuteFlow Database and LDAP</source>
+        <target>CuteFLow Datenbank und LDAP</target>
+    </trans-unit>
+	<trans-unit id="136">
+        <source>use CuteFlow Database and LDAP</source>
+        <target>CuteFlow Datenbank und LDAP</target>
+    </trans-unit>
+	<trans-unit id="137">
+        <source>User Settings</source>
+        <target>Benutzer Einstellungen</target>
+    </trans-unit>
+    <trans-unit id="138">
+        <source>Workflow Circulation settings</source>
+        <target>Umlauf Einstellungen</target>
+     </trans-unit>
+	 <trans-unit id="139">
+        <source>Allow System to send emails</source>
+		<target>System darf E-Mails versenden</target>
+     </trans-unit>
+	 <trans-unit id="140">
+        <source>Sending type of email</source>
+		<target>Art des E-Mail versandes</target>
+     </trans-unit>
+	 <trans-unit id="141">
+        <source>SMTP Username</source>
+        <target>SMTP Benutzername</target>
+    </trans-unit>
+	     <trans-unit id="142">
+        <source>SMTP Password</source>
+        <target>SMTP Passwort</target>
+    </trans-unit>
+	<trans-unit id="143">
+        <source>SMTP Use authentication</source>
+        <target>SMTP benutze Authentifizierung</target>
+    </trans-unit>
+	<trans-unit id="144">
+        <source>SMTP Used Encryption</source>
+        <target>SMTP Verschl&#252;sselung</target>
+    </trans-unit>
+	<trans-unit id="145">
+        <source>SSL</source>
+        <target>SSL</target>
+    </trans-unit>
+	<trans-unit id="146">
+        <source>TLS</source>
+        <target>TLS</target>
+    </trans-unit>
+	<trans-unit id="147">
+        <source>Absolute path of Sendmail</source>
+        <target>Absoluter Pfad von Sendmail</target>
+    </trans-unit>
+	<trans-unit id="148">
+        <source>e.g.</source>
+        <target>z.b.</target>
+    </trans-unit>
+	<trans-unit id="149">
+        <source>no encryption</source>
+        <target>keine Verschl&#252;sselung</target>
+    </trans-unit>
+		<trans-unit id="150">
+        <source>SMTP Used Encryption</source>
+        <target>SMTP Verschl&#252;sselung</target>
+    </trans-unit>
+    </body>
+  </file>
+</xliff>
