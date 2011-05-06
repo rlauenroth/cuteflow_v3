@@ -18,14 +18,15 @@
             $ccCache->createCache($lastModified, $cacheCreated);
         }
         $dir = array_diff(scandir(sfConfig::get('sf_cache_dir') . '/javaScriptCache'), Array());
-        echo ' <script type="text/javascript" src="/djs/cache/'.$dir[count($dir)-1].'"></script>' . "\n";
+        
+        echo ' <script type="text/javascript" src="/djs/cache/'.substr($dir[count($dir)-1],0,-11).'.js"></script>' . "\n";
     }
     else { // caching is off
         echo '<script type="text/javascript" src="/djs/namespace/main.js"></script>';
         $files = new JavaScriptLoader();
         $jsFiles = $files->getAllFiles();
         foreach($jsFiles['djs'] as $singeFile) {
-            echo '<script type="text/javascript" src="'.$singeFile.'"></script>' . "\n";
+            echo '<script type="text/javascript" src="'.substr($singeFile,0,-11).'.js"></script>' . "\n";
         }
     }
 ?>

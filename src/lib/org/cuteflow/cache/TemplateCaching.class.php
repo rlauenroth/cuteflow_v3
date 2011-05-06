@@ -63,8 +63,8 @@ class TemplateCaching {
         else {
             return '';
         }
-        if(substr_count($lastIndex, '.js') == 1) {
-            return str_replace('.js', '', $lastIndex);
+        if(substr_count($lastIndex, 'Success.php') == 1) {
+            return str_replace('Success.php', '', $lastIndex);
         }
         return '';
     }
@@ -83,7 +83,7 @@ class TemplateCaching {
             $js .= $jsMin;
         }
         $dir = sfConfig::get('sf_cache_dir') . '/javaScriptCache/'; // write file
-        file_put_contents($dir . $lastModified .'.js',$js); // set js cache filename to lastModified filename
+        file_put_contents($dir . $lastModified .'Success.php',$js); // set js cache filename to lastModified filename
         return true;
     }
 }

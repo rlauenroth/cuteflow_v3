@@ -31,6 +31,7 @@ class scriptActions extends sfActions
    */
     public function executeLoad(sfWebRequest $request) {
         $path = $request->getPathInfo();
+
         $path = str_replace('/djs', '', $path);
         $path = str_replace($request->getParameter('filename') . '.js', '', $path);
 
@@ -43,7 +44,9 @@ class scriptActions extends sfActions
         $this->getResponse()->setContentType('text/javascript');
 	$this->setLayout(false);
 	$this->setTemplate($template); // the real path to JS File -.-
-	return '.js' . chr(0);
+
+        return sfView::SUCCESS;
+	//return '.js' . chr(0);
     }
 
 
