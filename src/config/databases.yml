@@ -1,0 +1,4 @@
+all:
+  doctrine:
+    class: sfDoctrineDatabase
+    param:

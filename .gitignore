@@ -1,5 +1,4 @@
 src/cache/*
 nbproject
 src/lib/model/doctrine/base/*
-src/config/databases.yml
 src/config/installed
