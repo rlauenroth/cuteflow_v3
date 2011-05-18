@@ -8,30 +8,30 @@
  * @package    cf
  * @subpackage form
  * @author     Your name here
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24051 2009-11-16 21:08:08Z Kris.Wallsmith $
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 29553 2010-05-20 14:33:00Z Kris.Wallsmith $
  */
 abstract class BaseCredentialForm extends BaseFormDoctrine
 {
   public function setup()
   {
     $this->setWidgets(array(
-      'id'                 => new sfWidgetFormInputHidden(),
-      'usermodule'         => new sfWidgetFormInputText(),
-      'usergroup'          => new sfWidgetFormInputText(),
-      'userright'          => new sfWidgetFormInputText(),
-      'usermoduleposition' => new sfWidgetFormInputText(),
-      'usergroupposition'  => new sfWidgetFormInputText(),
-      'roles_list'         => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Role')),
+      'id'                   => new sfWidgetFormInputHidden(),
+      'user_module'          => new sfWidgetFormInputText(),
+      'user_group'           => new sfWidgetFormInputText(),
+      'user_right'           => new sfWidgetFormInputText(),
+      'user_module_position' => new sfWidgetFormInputText(),
+      'user_group_position'  => new sfWidgetFormInputText(),
+      'roles_list'           => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Role')),
     ));
 
     $this->setValidators(array(
-      'id'                 => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'id', 'required' => false)),
-      'usermodule'         => new sfValidatorString(array('max_length' => 255, 'required' => false)),
-      'usergroup'          => new sfValidatorString(array('max_length' => 255, 'required' => false)),
-      'userright'          => new sfValidatorString(array('max_length' => 255, 'required' => false)),
-      'usermoduleposition' => new sfValidatorInteger(array('required' => false)),
-      'usergroupposition'  => new sfValidatorInteger(array('required' => false)),
-      'roles_list'         => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Role', 'required' => false)),
+      'id'                   => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
+      'user_module'          => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'user_group'           => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'user_right'           => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'user_module_position' => new sfValidatorInteger(array('required' => false)),
+      'user_group_position'  => new sfValidatorInteger(array('required' => false)),
+      'roles_list'           => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Role', 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('credential[%s]');

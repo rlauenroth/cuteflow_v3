@@ -6,46 +6,46 @@
  * @package    cf
  * @subpackage filter
  * @author     Your name here
- * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 24051 2009-11-16 21:08:08Z Kris.Wallsmith $
+ * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 29570 2010-05-21 14:49:47Z Kris.Wallsmith $
  */
 abstract class BaseUserConfigurationFormFilter extends BaseFormFilterDoctrine
 {
   public function setup()
   {
     $this->setWidgets(array(
-      'role_id'                         => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Role'), 'add_empty' => true)),
-      'durationtype'                    => new sfWidgetFormFilterInput(),
-      'durationlength'                  => new sfWidgetFormFilterInput(),
-      'displayeditem'                   => new sfWidgetFormFilterInput(),
-      'refreshtime'                     => new sfWidgetFormFilterInput(),
-      'markyellow'                      => new sfWidgetFormFilterInput(),
-      'markred'                         => new sfWidgetFormFilterInput(),
-      'markorange'                      => new sfWidgetFormFilterInput(),
-      'password'                        => new sfWidgetFormFilterInput(),
-      'language'                        => new sfWidgetFormFilterInput(),
-      'emailformat'                     => new sfWidgetFormFilterInput(),
-      'emailtype'                       => new sfWidgetFormFilterInput(),
-      'theme'                           => new sfWidgetFormFilterInput(),
-      'circulationdefaultsortcolumn'    => new sfWidgetFormFilterInput(),
-      'circulationdefaultsortdirection' => new sfWidgetFormFilterInput(),
+      'role_id'                            => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Role'), 'add_empty' => true)),
+      'duration_type'                      => new sfWidgetFormFilterInput(),
+      'duration_length'                    => new sfWidgetFormFilterInput(),
+      'displayed_item'                     => new sfWidgetFormFilterInput(),
+      'refresh_time'                       => new sfWidgetFormFilterInput(),
+      'mark_yellow'                        => new sfWidgetFormFilterInput(),
+      'mark_red'                           => new sfWidgetFormFilterInput(),
+      'mark_orange'                        => new sfWidgetFormFilterInput(),
+      'password'                           => new sfWidgetFormFilterInput(),
+      'language'                           => new sfWidgetFormFilterInput(),
+      'email_format'                       => new sfWidgetFormFilterInput(),
+      'email_type'                         => new sfWidgetFormFilterInput(),
+      'theme'                              => new sfWidgetFormFilterInput(),
+      'circulation_default_sort_column'    => new sfWidgetFormFilterInput(),
+      'circulation_default_sort_direction' => new sfWidgetFormFilterInput(),
     ));
 
     $this->setValidators(array(
-      'role_id'                         => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Role'), 'column' => 'id')),
-      'durationtype'                    => new sfValidatorPass(array('required' => false)),
-      'durationlength'                  => new sfValidatorPass(array('required' => false)),
-      'displayeditem'                   => new sfValidatorPass(array('required' => false)),
-      'refreshtime'                     => new sfValidatorPass(array('required' => false)),
-      'markyellow'                      => new sfValidatorPass(array('required' => false)),
-      'markred'                         => new sfValidatorPass(array('required' => false)),
-      'markorange'                      => new sfValidatorPass(array('required' => false)),
-      'password'                        => new sfValidatorPass(array('required' => false)),
-      'language'                        => new sfValidatorPass(array('required' => false)),
-      'emailformat'                     => new sfValidatorPass(array('required' => false)),
-      'emailtype'                       => new sfValidatorPass(array('required' => false)),
-      'theme'                           => new sfValidatorPass(array('required' => false)),
-      'circulationdefaultsortcolumn'    => new sfValidatorPass(array('required' => false)),
-      'circulationdefaultsortdirection' => new sfValidatorPass(array('required' => false)),
+      'role_id'                            => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Role'), 'column' => 'id')),
+      'duration_type'                      => new sfValidatorPass(array('required' => false)),
+      'duration_length'                    => new sfValidatorPass(array('required' => false)),
+      'displayed_item'                     => new sfValidatorPass(array('required' => false)),
+      'refresh_time'                       => new sfValidatorPass(array('required' => false)),
+      'mark_yellow'                        => new sfValidatorPass(array('required' => false)),
+      'mark_red'                           => new sfValidatorPass(array('required' => false)),
+      'mark_orange'                        => new sfValidatorPass(array('required' => false)),
+      'password'                           => new sfValidatorPass(array('required' => false)),
+      'language'                           => new sfValidatorPass(array('required' => false)),
+      'email_format'                       => new sfValidatorPass(array('required' => false)),
+      'email_type'                         => new sfValidatorPass(array('required' => false)),
+      'theme'                              => new sfValidatorPass(array('required' => false)),
+      'circulation_default_sort_column'    => new sfValidatorPass(array('required' => false)),
+      'circulation_default_sort_direction' => new sfValidatorPass(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('user_configuration_filters[%s]');
@@ -65,22 +65,22 @@ abstract class BaseUserConfigurationFormFilter extends BaseFormFilterDoctrine
   public function getFields()
   {
     return array(
-      'id'                              => 'Number',
-      'role_id'                         => 'ForeignKey',
-      'durationtype'                    => 'Text',
-      'durationlength'                  => 'Text',
-      'displayeditem'                   => 'Text',
-      'refreshtime'                     => 'Text',
-      'markyellow'                      => 'Text',
-      'markred'                         => 'Text',
-      'markorange'                      => 'Text',
-      'password'                        => 'Text',
-      'language'                        => 'Text',
-      'emailformat'                     => 'Text',
-      'emailtype'                       => 'Text',
-      'theme'                           => 'Text',
-      'circulationdefaultsortcolumn'    => 'Text',
-      'circulationdefaultsortdirection' => 'Text',
+      'id'                                 => 'Number',
+      'role_id'                            => 'ForeignKey',
+      'duration_type'                      => 'Text',
+      'duration_length'                    => 'Text',
+      'displayed_item'                     => 'Text',
+      'refresh_time'                       => 'Text',
+      'mark_yellow'                        => 'Text',
+      'mark_red'                           => 'Text',
+      'mark_orange'                        => 'Text',
+      'password'                           => 'Text',
+      'language'                           => 'Text',
+      'email_format'                       => 'Text',
+      'email_type'                         => 'Text',
+      'theme'                              => 'Text',
+      'circulation_default_sort_column'    => 'Text',
+      'circulation_default_sort_direction' => 'Text',
     );
   }
 }

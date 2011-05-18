@@ -1,31 +1,29 @@
 Role:
-  actAs: [SoftDelete]
   tableName: cf_role
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
     description: { type: string(255) }
+  actAs: [SoftDelete]
 
 Credential:
   tableName: cf_credential
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
-    usermodule: { type: string(255) }
-    usergroup: { type: string(255) }
-    userright: { type: string(255) }
-    usermoduleposition: { type: integer, length: 3 }
-    usergroupposition: { type: integer, length: 3 }
+    user_module: { type: string(255) }
+    user_group: { type: string(255) }
+    user_right: { type: string(255) }
+    user_module_position: { type: integer, length: 3 }
+    user_group_position: { type: integer, length: 3 }
   relations:
     Roles: {class: Role, foreignAlias: Credentials, local: credential_id, refClass: CredentialRole}
       
 CredentialRole:
    actAs: [SoftDelete]
-   tableName: cf_credentialrole
+   tableName: cf_credential_role
    columns:
      role_id: { type: integer, length: 20, primary: true }
      credential_id: { type: integer, length: 20, primary: true }
 
 UserData:
-  tableName: cf_userdata
+  tableName: cf_user_data
   columns:
     user_id: { type: integer, length: 20, primary: true }
     firstname: { type: string(255) }
@@ -42,15 +40,13 @@ UserData:
     department: { type: string(255) }
     burdencenter: { type: string(255) }
     comment: { type: string(1000) }
-    lastaction: { type: string(255) }
+    last_action: { type: string(255) }
   relations:
     UserLogin: { class: UserLogin, local: user_id, foreign: id, foreignType: one, type: one }
 
 UserLogin:
-  actAs: [SoftDelete]
-  tableName: cf_userlogin
+  tableName: cf_user_login
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
     role_id: { type: integer, length: 20}
     username: { type: string(255) }
     password: { type: string(255) }
@@ -64,179 +60,163 @@ UserLogin:
     WorkflowTemplate: { class: WorkflowTemplate, local: id, foreign: archived_by, foreignType: many, type: one }
     WorkflowSlotUser: { class: WorkflowSlotUser, local: id, foreign: user_id, foreignType: many, type: one }
     WorkflowProcessUser: { class: WorkflowProcessUser, local: id, foreign: user_id, foreignType: many, type: one }
-
+  actAs: [SoftDelete]
 
 
 UserWorkflowConfiguration:
-  tableName: cf_userworkflowconfiguration
+  tableName: cf_user_workflow_configuration
   columns:
     id: { type: integer, length: 20, primary: true, autoincrement: true }
     user_id: { type: integer, length: 20 }
     field_id: {type: integer, length: 20 }
-    columntext: { type: string(255)}
-    isactive: { type: string(255)}
+    column_text: { type: string(255)}
+    is_active: { type: string(255)}
     position: { type: integer, length: 3}
   relations:
     UserLogin: { class: UserLogin, local: user_id, foreign: id, foreignType: one, type: many}
     Field: { class: Field, local: field_id, foreign: id, foreignType: one, type: many}
 
 UserSetting:
-  tableName: cf_usersetting
+  tableName: cf_user_setting
   columns:
     user_id: { type: integer, length: 20,  primary: true }
     language: { type: string(255) }
-    markyellow: { type: string(255)}
-    markred: { type: string(255)}
-    markorange: { type: string(255)}
-    refreshtime: { type: integer, length: 20, default: 180}
-    displayeditem: { type: integer, length: 20, default: 25}
-    durationtype: { type: string(255) }
-    durationlength: { type: string(255) }
-    emailformat: { type: string(255) }
-    emailtype: { type: string(255) }
-    circulationdefaultsortcolumn: { type: string(255) }
-    circulationdefaultsortdirection: { type: string(255) }
+    mark_yellow: { type: string(255)}
+    mark_red: { type: string(255)}
+    mark_orange: { type: string(255)}
+    refresh_time: { type: integer, length: 20, default: 180}
+    displayed_item: { type: integer, length: 20, default: 25}
+    duration_type: { type: string(255) }
+    duration_length: { type: string(255) }
+    email_format: { type: string(255) }
+    email_type: { type: string(255) }
+    circulation_default_sort_column: { type: string(255) }
+    circulation_default_sort_direction: { type: string(255) }
     theme: { type: string(255) }
     firstlogin: {type: integer, length: 3}
-
   relations:
     UserLogin: { class: UserLogin, local: user_id, foreign: id, foreignType: one, type: one }
 
 UserAgent:
-  tableName: cf_useragent
+  tableName: cf_user_agent
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
     user_id: { type: integer, length: 20}
-    useragent_id: { type: integer, length: 20 }
+    user_agent_id: { type: integer, length: 20 }
     position: {type: integer, length: 3}
   relations:
     UserData: { class: UserData, local: user_id, foreign: user_id, foreignType: many, type: one }
-    UserData: { class: UserData, local: useragent_id, foreign: user_id, foreignType: many, type: many }
-
-
-
-
+    UserData: { class: UserData, local: user_agent_id, foreign: user_id, foreignType: many, type: many }
 
 EmailConfiguration:
-  tableName: cf_emailconfiguration
+  tableName: cf_email_configuration
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
-    smtphost: { type: string(255)}
-    smtpuseauth: { type: string(255)}
-    smtpport: { type: string(255)}
-    smtpusername: { type: string(255)}
-    smtppassword: { type: string(255)}
-    smtpencryption: { type: string(255)}
-    sendmailpath: { type: string(255)}
-    systemreplyaddress: { type: string(255)}
-    allowemailtransport: { type: integer, length: 3}
-    activetype: { type: string(255)}
+    smtp_host: { type: string(255)}
+    smtp_useauth: { type: string(255)}
+    smtp_port: { type: string(255)}
+    smtp_username: { type: string(255)}
+    smtp_password: { type: string(255)}
+    smtp_encryption: { type: string(255)}
+    send_mailpath: { type: string(255)}
+    system_reply_address: { type: string(255)}
+    allow_email_transport: { type: integer, length: 3}
+    active_type: { type: string(255)}
 
 SystemConfiguration:
-  tableName: cf_systemconfiguration
+  tableName: cf_system_configuration
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
     language: { type: string(255), default: en_US}
-    showpositioninmail: { type: integer, length: 3}
-    sendreceivermail: { type: integer, length: 3}
-    sendremindermail: {type: integer, length: 3}
-    visibleslots: { type: string(255) }
-    colorofnorthregion: { type: string(255) }
-    individualcronjob: {type: integer, length: 3}
-    setuseragenttype: {type: integer, length: 3}
-    cronjobdays: {type: integer, length: 3}
-    cronjobfrom: { type: string(255) }
-    cronjobto: { type: string(255) }
+    show_position_in_mail: { type: integer, length: 3}
+    send_receiver_mail: { type: integer, length: 3}
+    send_reminde_rmail: {type: integer, length: 3}
+    visible_slots: { type: string(255) }
+    color_of_north_region: { type: string(255) }
+    individual_cronjob: {type: integer, length: 3}
+    set_user_agent_type: {type: integer, length: 3}
+    cronjob_days: {type: integer, length: 3}
+    cronjob_from: { type: string(255) }
+    cronjob_to: { type: string(255) }
 
 AuthenticationConfiguration:
-  tableName: cf_authenticationconfiguration
+  tableName: cf_authentication_configuration
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
-    authenticationtype: { type: string(20)}
-    ldaphost: { type: string(255)}
-    ldapdomain: { type: string(255)}
-    ldapbindusernameandcontext: { type: string(255)}
-    ldappassword: { type: string(255)}
-    ldaprootcontext: { type: string(255)}
-    ldapusersearchattribute: { type: string(255)}
-    ldapfirstname: { type: string(255)}
-    ldaphost: { type: string(255)}
-    ldaplastname: { type: string(255)}
-    ldapusername: { type: string(255)}
-    ldapemail: { type: string(255)}
-    ldapoffice: { type: string(255)}
-    ldapphone: { type: string(255)}
-    ldapcontext: { type: string(255)}
-    ldapadduser: {type: integer, length: 3}
-    openidserver: { type: string(255)}
-    firstlogin: {type: integer, length: 3}
-    allowdirectlogin: {type: integer, length: 3}
+    authentication_type: { type: string(20)}
+    ldap_host: { type: string(255)}
+    ldap_domain: { type: string(255)}
+    ldap_bind_username_and_context: { type: string(255)}
+    ldap_password: { type: string(255)}
+    ldap_root_context: { type: string(255)}
+    ldap_user_search_attribute: { type: string(255)}
+    ldap_firstname: { type: string(255)}
+    ldap_host: { type: string(255)}
+    ldap_lastname: { type: string(255)}
+    ldap_username: { type: string(255)}
+    ldap_email: { type: string(255)}
+    ldap_office: { type: string(255)}
+    ldap_phone: { type: string(255)}
+    ldap_context: { type: string(255)}
+    ldap_add_user: {type: integer, length: 3}
+    openid_server: { type: string(255)}
+    first_login: {type: integer, length: 3}
+    allow_direct_login: {type: integer, length: 3}
 
 
 UserConfiguration:
-  tableName: cf_userconfiguration
+  tableName: cf_user_configuration
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
     role_id: { type: integer, length: 20}
-    durationtype: { type: string(255) }
-    durationlength: { type: string(255) }
-    displayeditem: { type: string(255) }
-    refreshtime: { type: string(255) }
-    markyellow: { type: string(255) }
-    markred: { type: string(255) }
-    markorange: { type: string(255) }
+    duration_type: { type: string(255) }
+    duration_length: { type: string(255) }
+    displayed_item: { type: string(255) }
+    refresh_time: { type: string(255) }
+    mark_yellow: { type: string(255) }
+    mark_red: { type: string(255) }
+    mark_orange: { type: string(255) }
     password: { type: string(255) }
     language: { type: string(255) }
-    emailformat: { type: string(255) }
-    emailtype: { type: string(255) }
+    email_format: { type: string(255) }
+    email_type: { type: string(255) }
     theme: { type: string(255) }
-    circulationdefaultsortcolumn: { type: string(255) }
-    circulationdefaultsortdirection: { type: string(255) }
+    circulation_default_sort_column: { type: string(255) }
+    circulation_default_sort_direction: { type: string(255) }
   relations:
     Role: { class: Role, local: role_id, foreign: id, foreignType: many, type: one }
 
 WorkflowConfiguration:
-  tableName: cf_workflowconfiguration
+  tableName: cf_workflow_configuration
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
-    columntext: { type: string(255)}
-    isactive: { type: string(255)}
+    column_text: { type: string(255)}
+    is_active: { type: string(255)}
     position: { type: integer, length: 3}
 
 AuthorizationConfiguration:
-  tableName: cf_authorizationconfiguration
+  tableName: cf_authorization_configuration
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
     type: { type: string(255)}
-    deleteworkflow: { type: integer, length: 3}
-    archiveworkflow: { type: integer, length: 3}
-    stopneworkflow: { type: integer, length: 3}
-    detailsworkflow: { type: integer, length: 3}
-
+    delete_workflow: { type: integer, length: 3}
+    archive_workflow: { type: integer, length: 3}
+    stop_new_orkflow: { type: integer, length: 3}
+    details_workflow: { type: integer, length: 3}
 
 
 AdditionalText:
-  actAs: [SoftDelete]
-  tableName: cf_additionaltext
+  tableName: cf_additional_text
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
     title: { type: string(255)}
     content: { type: string(5000)}
-    contenttype: { type: string(255)}
-    isactive: { type: integer, length: 3 }
+    content_type: { type: string(255)}
+    is_active: { type: integer, length: 3 }
   relations:
-    WorkflowVersion: { class: WorkflowVersion, local: id, foreign: additionaltext_id, foreignType: many, type: one }
-    
+    WorkflowVersion: { class: WorkflowVersion, local: id, foreign: additional_text_id, foreignType: many, type: one }
+  actAs: [SoftDelete]
 
 
 Field:
   actAs: [SoftDelete]
   tableName: cf_field
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
     title: { type: string(255)}
     type: { type: string(255)}
-    writeprotected: { type: integer, length: 3 }
+    write_protected: { type: integer, length: 3 }
     color: { type: string(255)}
   relations:
     DocumenttemplateField: { class: DocumenttemplateField, local: id, foreign: field_id, foreignType: many, type: one }
@@ -244,56 +224,51 @@ Field:
 
 
 FieldTextfield:
-  tableName: cf_fieldtextfield
+  tableName: cf_field_textfield
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
     field_id: { type: integer, length: 20 }
     regex: {type: string(255) }
-    defaultvalue: {type: string(255) }
+    defaul_tvalue: {type: string(255) }
   relations:
     Field: { class: Field, local: field_id, foreign: id, foreignType: many, type: one }
 
 FieldCheckbox:
-  tableName: cf_fieldcheckbox
+  tableName: cf_field_checkbox
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
     field_id: { type: integer, length: 20 }
   relations:
     Field: { class: Field, local: field_id, foreign: id, foreignType: many, type: one }
 
 FieldNumber:
-  tableName: cf_fieldnumber
+  tableName: cf_field_number
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
     field_id: { type: integer, length: 20 }
     regex: {type: string(255) }
-    defaultvalue: {type: string(255) }
-    comboboxvalue: {type: string(255) }
+    default_value: {type: string(255) }
+    combobox_value: {type: string(255) }
   relations:
     Field: { class: Field, local: field_id, foreign: id, foreignType: many, type: one }
 
 FieldDate:
-  tableName: cf_fielddate
+  tableName: cf_field_date
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
     field_id: { type: integer, length: 20 }
     regex: {type: string(255) }
-    defaultvalue: {type: string(255) }
-    dateformat: {type: string(255) }
+    default_value: {type: string(255) }
+    date_format: {type: string(255) }
   relations:
     Field: { class: Field, local: field_id, foreign: id, foreignType: many, type: one }
 
 FieldFile:
-  tableName: cf_fieldfile
+  tableName: cf_field_file
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
     field_id: { type: integer, length: 20 }
     regex: {type: string(255) }
   relations:
     Field: { class: Field, local: field_id, foreign: id, foreignType: many, type: one }
 
 FieldCombobox:
-  tableName: cf_fieldcombobox
+  tableName: cf_field_combobox
   columns:
     id: { type: integer, length: 20, primary: true, autoincrement: true }
     field_id: { type: integer, length: 20 }
@@ -305,381 +280,345 @@ FieldCombobox:
     WorkflowSlotFieldCombobox: { class: WorkflowSlotFieldCombobox, local: id, foreign: fieldcombobox_id, foreignType: many, type: one }
 
 FieldCheckboxgroup:
-  tableName: cf_fieldcheckboxgroup
+  tableName: cf_field_checkbox_group
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
     field_id: { type: integer, length: 20 }
     value: {type: string(255) }
-    isactive: { type: integer, length: 3 }
+    is_active: { type: integer, length: 3 }
     position: { type: integer, length: 3 }
   relations:
     Field: { class: Field, local: field_id, foreign: id, foreignType: many, type: one }
-    WorkflowSlotFieldCheckboxgroup: { class: WorkflowSlotFieldCheckboxgroup, local: id, foreign: fieldcheckboxgroup_id, foreignType: many, type: one }
+    WorkflowSlotFieldCheckboxgroup: { class: WorkflowSlotFieldCheckboxgroup, local: id, foreign: field_checkbox_group_id, foreignType: many, type: one }
 
 FieldRadiogroup:
-  tableName: cf_fieldradiogroup
+  tableName: cf_field_radio_group
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
     field_id: { type: integer, length: 20 }
     value: {type: string(255) }
-    isactive: { type: integer, length: 3 }
+    is_active: { type: integer, length: 3 }
     position: { type: integer, length: 3 }
   relations:
     Field: { class: Field, local: field_id, foreign: id, foreignType: many, type: one }
-    WorkflowSlotFieldRadiogroup: { class: WorkflowSlotFieldRadiogroup, local: id, foreign: fieldradiogroup_id, foreignType: many, type: one }
+    WorkflowSlotFieldRadiogroup: { class: WorkflowSlotFieldRadiogroup, local: id, foreign: field_radiogroup_id, foreignType: many, type: one }
 
 
 FieldTextarea:
-  tableName: cf_fieldtextarea
+  tableName: cf_field_textarea
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
     field_id: { type: integer, length: 20 }
-    contenttype: {type: string(255) }
+    content_type: {type: string(255) }
     content: {type: string(5000) }
   relations:
     Field: { class: Field, local: field_id, foreign: id, foreignType: many, type: one }
 
 
 
-DocumenttemplateTemplate:
+DocumentTemplate:
+  tableName: cf_document_template
+  columns:
+    name: { type: string(255) }
+  relations:
+    DocumenttemplateVersion: { class: DocumentVersion, local: id, foreign: document_template_id, foreignType: many, type: one }
+    MailinglistTemplate: { class: MailinglistTemplate, local: id, foreign: document_template_id, foreignType: many, type: one }
   actAs: [SoftDelete, Timestampable]
-  tableName: cf_documenttemplatetemplate
-  columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
-    name: { type: string(255) }
-  relations:
-    DocumenttemplateVersion: { class: DocumenttemplateVersion, local: id, foreign: documenttemplate_id, foreignType: many, type: one }
-    MailinglistTemplate: { class: MailinglistTemplate, local: id, foreign: documenttemplatetemplate_id, foreignType: many, type: one }
 
-DocumenttemplateVersion:
-  actAs: [Timestampable]
-  tableName: cf_documenttemplateversion
+DocumentTemplateVersion:
+  tableName: cf_document_template_version
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
-    documenttemplate_id: { type: integer, length: 20 }
+    document_template_id: { type: integer, length: 20 }
     version: { type: integer, length: 3 }
-    activeversion: { type: integer, length: 3 }
+    active_version: { type: integer, length: 3 }
   relations:
-    DocumenttemplateSlot: { class: DocumenttemplateSlot, local: id, foreign: documenttemplateversion_id, foreignType: many, type: one }
-    MailinglistVersion: { class: MailinglistVersion, local: id, foreign: documenttemplateversion_id, foreignType: many, type: one }
-    WorkflowTemplate: { class: WorkflowTemplate, local: id, foreign: documenttemplateversion_id, foreignType: many, type: one }
+    DocumenttemplateSlot: { class: DocumenttemplateSlot, local: id, foreign: document_template_version_id, foreignType: many, type: one }
+    MailinglistVersion: { class: MailinglistVersion, local: id, foreign: document_template_version_id, foreignType: many, type: one }
+    WorkflowTemplate: { class: WorkflowTemplate, local: id, foreign: document_template_version_id, foreignType: many, type: one }
+  actAs: [Timestampable]
 
-DocumenttemplateSlot:
-  tableName: cf_documenttemplateslot
+DocumentTemplateSlot:
+  tableName: cf_document_template_slot
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
-    documenttemplateversion_id: { type: integer, length: 20 }
+    document_template_version_id: { type: integer, length: 20 }
     name: { type: string(255) }
-    sendtoallreceivers: { type: integer, length: 3 }
+    send_to_all_receivers: { type: integer, length: 3 }
     position: { type: integer, length: 3 }
   relations:
-    DocumenttemplateField: { class: DocumenttemplateField, local: id, foreign: documenttemplateslot_id, foreignType: many, type: one }
+    DocumenttemplateField: { class: DocumentTemplateField, local: id, foreign: document_template_slot_id, foreignType: many, type: one }
     MailinglistSlot: { class: MailinglistSlot, local: id, foreign: slot_id, foreignType: many, type: one }
     WorkflowSlot: { class: WorkflowSlot, local: id, foreign: slot_id, foreignType: many, type: one }
 
 DocumenttemplateField:
-  tableName: cf_documenttemplatefield
+  tableName: cf_document_template_field
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
-    documenttemplateslot_id: { type: integer, length: 20 }
+    document_template_slot_id: { type: integer, length: 20 }
     field_id: { type: integer, length: 20 }
     position: { type: integer, length: 3 }
 
 
 MailinglistTemplate:
-   actAs: [SoftDelete,Timestampable]
-   tableName: cf_mailinglisttemplate
+   tableName: cf_mailinglist_template
    columns:
-     id: { type: integer, length: 20, primary: true, autoincrement: true }
-     documenttemplatetemplate_id : { type: integer, length: 20}
+     document_template_id : { type: integer, length: 20}
      name: {type: string(255) }
-     isactive: { type: string(255)}
+     is_active: { type: string(255)}
    relations:
-     MailinglistVersion: { class: MailinglistVersion, local: id, foreign: mailinglisttemplate_id, foreignType: many, type: one }
-     WorkflowTemplate: { class: WorkflowTemplate, local: id, foreign: mailinglisttemplate_id, foreignType: many, type: one }
+     MailinglistVersion: { class: MailinglistVersion, local: id, foreign: mailinglist_template_id, foreignType: many, type: one }
+     WorkflowTemplate: { class: WorkflowTemplate, local: id, foreign: mailinglist_template_id, foreignType: many, type: one }
+   actAs: [SoftDelete,Timestampable]
 
 MailinglistVersion:
   actAs: [Timestampable]
-  tableName: cf_mailinglistversion
+  tableName: cf_mailinglist_version
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
-    mailinglisttemplate_id: { type: integer, length: 20 }
-    documenttemplateversion_id: { type: integer, length: 20 }
-    sendtoallslotsatonce: { type: integer, length: 3 }
+    mailinglist_template_id: { type: integer, length: 20 }
+    document_template_version_id: { type: integer, length: 20 }
+    send_to_all_slots_at_once: { type: integer, length: 3 }
     version: { type: integer, length: 3 }
-    activeversion: { type: integer, length: 3 }
+    active_version: { type: integer, length: 3 }
   relations:
-    MailinglistAuthorizationSetting: { class: MailinglistAuthorizationSetting, local: id, foreign: mailinglistversion_id, foreignType: many, type: one }
-    MailinglistAllowedSender: { class: MailinglistAllowedSender, local: id, foreign: mailinglistversion_id, foreignType: many, type: one }
-    WorkflowTemplate: { class: WorkflowTemplate, local: id, foreign: mailinglisttemplateversion_id, foreignType: many, type: one }
+    MailinglistAuthorizationSetting: { class: MailinglistAuthorizationSetting, local: id, foreign: mailinglist_version_id, foreignType: many, type: one }
+    MailinglistAllowedSender: { class: MailinglistAllowedSender, local: id, foreign: mailinglist_version_id, foreignType: many, type: one }
+    WorkflowTemplate: { class: WorkflowTemplate, local: id, foreign: mailinglist_template_version_id, foreignType: many, type: one }
     
 MailinglistAuthorizationSetting:
-  tableName: cf_mailinglistauthorizationsetting
+  tableName: cf_mailinglist_authorization_setting
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
-    mailinglistversion_id: { type: integer, length: 20 }
+    mailinglist_version_id: { type: integer, length: 20 }
     type: { type: string(255)}
-    deleteworkflow: { type: integer, length: 3}
-    archiveworkflow: { type: integer, length: 3}
-    stopneworkflow: { type: integer, length: 3}
-    detailsworkflow: { type: integer, length: 3}
+    delete_workflow: { type: integer, length: 3}
+    archive_workflow: { type: integer, length: 3}
+    stop_new_workflow: { type: integer, length: 3}
+    details_workflow: { type: integer, length: 3}
 
 MailinglistAllowedSender:
-  tableName: cf_mailinglistallowedsender
+  tableName: cf_mailinglist_allowed_sender
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
-    mailinglistversion_id: { type: integer, length: 20 }
+    mailinglist_version_id: { type: integer, length: 20 }
     user_id: { type: integer, length: 20 }
     position: { type: integer, length: 3 }
 
 MailinglistSlot:
-  tableName: cf_mailinglistslot
+  tableName: cf_mailinglist_slot
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
-    mailinglistversion_id: { type: integer, length: 20 }
+    mailinglist_version_id: { type: integer, length: 20 }
     slot_id: { type: integer, length: 20 }
     position: { type: integer, length: 3 }
   relations:
-    MailinglistUser: { class: MailinglistUser, local: id, foreign: mailinglistslot_id, foreignType: many, type: one }
+    MailinglistUser: { class: MailinglistUser, local: id, foreign: mailinglist_slot_id, foreignType: many, type: one }
 
 MailinglistUser:
-  tableName: cf_mailinglistuser
+  tableName: cf_mailinglist_user
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
-    mailinglistslot_id: { type: integer, length: 20 }
+    mailinglist_slot_id: { type: integer, length: 20 }
     user_id: { type: integer, length: 20 }
     position: { type: integer, length: 3 }
 
 WorkflowTemplate:
-  tableName: cf_workflowtemplate
-  actAs: [SoftDelete, Timestampable]
+  tableName: cf_workflow_template
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
-    mailinglisttemplateversion_id: { type: integer, length: 20 }
-    documenttemplateversion_id: { type: integer, length: 20 }
+    mailinglist_template_version_id: { type: integer, length: 20 }
+    document_template_version_id: { type: integer, length: 20 }
     sender_id: { type: integer, length: 20 }
     name: {type: string(255) }
-    isstopped: { type: integer, length: 3 }
+    is_stopped: { type: integer, length: 3 }
     stopped_at: {type: string(255) }
     stopped_by: { type: integer, length: 20 }
     completed_at: {type: string(255) }
-    iscompleted: { type: integer, length: 3 }
-    isarchived: { type: integer, length: 3 }
+    is_completed: { type: integer, length: 3 }
+    is_archived: { type: integer, length: 3 }
     archived_at: {type: string(255) }
     archived_by: { type: integer, length: 20 }
-    endaction: { type: integer, length: 3 }
+    end_action: { type: integer, length: 3 }
   relations:
-    WorkflowVersion: { class: WorkflowVersion, local: id, foreign: workflowtemplate_id, foreignType: many, type: one }
-    WorkflowProcess: { class: WorkflowProcess, local: id, foreign: workflowtemplate_id, foreignType: many, type: one }
-    WorkflowVersionAttachment: { class: WorkflowVersionAttachment, local: id, foreign: workflowtemplate_id, foreignType: many, type: one }
+    WorkflowVersion: { class: WorkflowVersion, local: id, foreign: workflow_template_id, foreignType: many, type: one }
+    WorkflowProcess: { class: WorkflowProcess, local: id, foreign: workflow_template_id, foreignType: many, type: one }
+    WorkflowVersionAttachment: { class: WorkflowVersionAttachment, local: id, foreign: workflow_template_id, foreignType: many, type: one }
+  actAs: [SoftDelete, Timestampable]
 
 WorkflowVersion:
-  actAs: [Timestampable]
-  tableName: cf_workflowversion
+  tableName: cf_workflow_version
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
-    workflowtemplate_id: { type: integer, length: 20 }
-    additionaltext_id: { type: integer, length: 20 }
-    activeversion: { type: integer, length: 3 }
+    workflow_template_id: { type: integer, length: 20 }
+    additional_text_id: { type: integer, length: 20 }
+    active_version: { type: integer, length: 3 }
     version: { type: integer, length: 3 }
-    endreason: {type: string(1000) }
+    end_reason: {type: string(1000) }
     content: {type: string(5000) }
-    contenttype: {type: string(255) }
-    startworkflow_at: {type: string(255) }
-    workflowisstarted: { type: integer, length: 3 }
+    content_type: {type: string(255) }
+    start_workflow_at: {type: string(255) }
+    workflow_is_started: { type: integer, length: 3 }
   relations:
-    WorkflowSlot: { class: WorkflowSlot, local: id, foreign: workflowversion_id, foreignType: many, type: one }
-    WorkflowProcess: { class: WorkflowProcess, local: id, foreign: workflowversion_id, foreignType: many, type: one }
-    WorkflowVersionAttachment: { class: WorkflowVersionAttachment, local: id, foreign: workflowversion_id, foreignType: many, type: one }
+    WorkflowSlot: { class: WorkflowSlot, local: id, foreign: workflow_version_id, foreignType: many, type: one }
+    WorkflowProcess: { class: WorkflowProcess, local: id, foreign: workflow_version_id, foreignType: many, type: one }
+    WorkflowVersionAttachment: { class: WorkflowVersionAttachment, local: id, foreign: workflow_version_id, foreignType: many, type: one }
+  actAs: [Timestampable]
 
 WorkflowVersionAttachment:
-  actAs: [Timestampable]
-  tableName: cf_workflowversionattachment
+  tableName: cf_workflow_version_attachment
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
-    workflowtemplate_id: { type: integer, length: 20 }
-    workflowversion_id: { type: integer, length: 20 }
-    workflowtemplate_id: { type: integer, length: 20 }
+    workflow_template_id: { type: integer, length: 20 }
+    workflow_version_id: { type: integer, length: 20 }
+    workflow_template_id: { type: integer, length: 20 }
     filename: {type: string(255) }
     hashname: {type: string(255) }
-
+  actAs: [Timestampable]
  
 WorkflowSlot:
-  tableName: cf_workflowslot
-  actAs: [Timestampable]
+  tableName: cf_workflow_slot
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
-    workflowversion_id: { type: integer, length: 20 }
+    workflow_version_id: { type: integer, length: 20 }
     slot_id: { type: integer, length: 20 }
     position: { type: integer, length: 3 }
   relations:
-    WorkflowSlotUser: { class: WorkflowSlotUser, local: id, foreign: workflowslot_id, foreignType: many, type: one }
-    WorkflowSlotField: { class: WorkflowSlotField, local: id, foreign: workflowslot_id, foreignType: many, type: one }
-    WorkflowProcess: { class: WorkflowProcess, local: id, foreign: workflowslot_id, foreignType: many, type: one }
-
+    WorkflowSlotUser: { class: WorkflowSlotUser, local: id, foreign: workflow_slot_id, foreignType: many, type: one }
+    WorkflowSlotField: { class: WorkflowSlotField, local: id, foreign: workflow_slot_id, foreignType: many, type: one }
+    WorkflowProcess: { class: WorkflowProcess, local: id, foreign: workflow_slot_id, foreignType: many, type: one }
+  actAs: [Timestampable]
 
 WorkflowSlotUser:
-  tableName: cf_workflowslotuser
+  tableName: cf_workflow_slot_user
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
-    workflowslot_id: { type: integer, length: 20 }
+    workflow_slot_id: { type: integer, length: 20 }
     user_id: { type: integer, length: 20 }
     position: { type: integer, length: 3 }
   relations:
-    WorkflowProcessUser: { class: WorkflowProcessUser, local: id, foreign: workflowslotuser_id, foreignType: many, type: one }
-
+    WorkflowProcessUser: { class: WorkflowProcessUser, local: id, foreign: workflow_slot_user_id, foreignType: many, type: one }
 
 
 WorkflowSlotField:
-  tableName: cf_workflowslotfield
+  tableName: cf_workflow_slot_field
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
-    workflowslot_id: { type: integer, length: 20 }
+    workflow_slot_id: { type: integer, length: 20 }
     field_id: { type: integer, length: 20 }
     position: { type: integer, length: 3 }
   relations:
-    WorkflowSlotFieldTextfield: { class: WorkflowSlotFieldTextfield, local: id, foreign: workflowslotfield_id, foreignType: many, type: one }
-    WorkflowSlotFieldCheckbox: { class: WorkflowSlotFieldCheckbox, local: id, foreign: workflowslotfield_id, foreignType: many, type: one }
-    WorkflowSlotFieldNumber: { class: WorkflowSlotFieldNumber, local: id, foreign: workflowslotfield_id, foreignType: many, type: one }
-    WorkflowSlotFieldDate: { class: WorkflowSlotFieldDate, local: id, foreign: workflowslotfield_id, foreignType: many, type: one }
+    WorkflowSlotFieldTextfield: { class: WorkflowSlotFieldTextfield, local: id, foreign: workflow_slot_field_id, foreignType: many, type: one }
+    WorkflowSlotFieldCheckbox: { class: WorkflowSlotFieldCheckbox, local: id, foreign: workflow_slot_field_id, foreignType: many, type: one }
+    WorkflowSlotFieldNumber: { class: WorkflowSlotFieldNumber, local: id, foreign: workflow_slot_field_id, foreignType: many, type: one }
+    WorkflowSlotFieldDate: { class: WorkflowSlotFieldDate, local: id, foreign: workflow_slot_field_id, foreignType: many, type: one }
     WorkflowSlotFieldTextarea: { class: WorkflowSlotFieldTextarea, local: id, foreign: workflowslotfield_id, foreignType: many, type: one }
-    WorkflowSlotFieldRadiogroup: { class: WorkflowSlotFieldRadiogroup, local: id, foreign: workflowslotfield_id, foreignType: many, type: one }
-    WorkflowSlotFieldCombobox: { class: WorkflowSlotFieldCombobox, local: id, foreign: workflowslotfield_id, foreignType: many, type: one }
-    WorkflowSlotFieldCheckboxgroup: { class: WorkflowSlotFieldCheckboxgroup, local: id, foreign: workflowslotfield_id, foreignType: many, type: one }
-    WorkflowSlotFieldFile: { class: WorkflowSlotFieldFile, local: id, foreign: workflowslotfield_id, foreignType: many, type: one }
+    WorkflowSlotFieldRadiogroup: { class: WorkflowSlotFieldRadiogroup, local: id, foreign: workflow_slot_field_id, foreignType: many, type: one }
+    WorkflowSlotFieldCombobox: { class: WorkflowSlotFieldCombobox, local: id, foreign: workflow_slot_field_id, foreignType: many, type: one }
+    WorkflowSlotFieldCheckboxgroup: { class: WorkflowSlotFieldCheckboxgroup, local: id, foreign: workflow_slot_field_id, foreignType: many, type: one }
+    WorkflowSlotFieldFile: { class: WorkflowSlotFieldFile, local: id, foreign: workflow_slot_field_id, foreignType: many, type: one }
 
 
 
 WorkflowSlotFieldTextfield:
-  tableName: cf_workflowslottextfield
+  tableName: cf_workflow_slot_textfield
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
-    workflowslotfield_id: { type: integer, length: 20 }
+    workflow_slot_field_id: { type: integer, length: 20 }
     value: {type: string(1000) }
 
 WorkflowSlotFieldCheckbox:
-  tableName: cf_workflowslotcheckbox
+  tableName: cf_workflow_slot_checkbox
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
-    workflowslotfield_id: { type: integer, length: 20 }
+    workflow_slot_field_id: { type: integer, length: 20 }
     value: { type: integer, length: 3 }
 
 
 WorkflowSlotFieldNumber:
-  tableName: cf_workflowslotnumber
+  tableName: cf_workflow_slot_number
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
-    workflowslotfield_id: { type: integer, length: 20 }
-    value: {type: string(1000) }
+    workflow_slot_field_id: { type: integer, length: 20 }
+    value: {type: string(1023) }
 
 
 WorkflowSlotFieldDate:
-  tableName: cf_workflowslotdate
+  tableName: cf_workflow_slot_date
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
-    workflowslotfield_id: { type: integer, length: 20 }
+    workflow_slot_field_id: { type: integer, length: 20 }
     value: {type: string(255) }
 
 
 WorkflowSlotFieldTextarea:
-  tableName: cf_workflowslottextarea
+  tableName: cf_workflow_slot_textarea
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
-    workflowslotfield_id: { type: integer, length: 20 }
+    workflow_slot_field_id: { type: integer, length: 20 }
     value: {type: string(5000) }
 
 WorkflowSlotFieldRadiogroup:
-  tableName: cf_workflowslotradiogroup
+  tableName: cf_workflow_slot_radiogroup
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
-    workflowslotfield_id: { type: integer, length: 20 }
-    fieldradiogroup_id: { type: integer, length: 20 }
+    workflow_slot_field_id: { type: integer, length: 20 }
+    field_radiogroup_id: { type: integer, length: 20 }
     value: { type: integer, length: 20 }
     position: { type: integer, length: 3 }
 
 
 WorkflowSlotFieldCombobox:
-  tableName: cf_workflowslotcombobox
+  tableName: cf_workflow_slot_combobox
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
-    workflowslotfield_id: { type: integer, length: 20 }
-    fieldcombobox_id: { type: integer, length: 20 }
+    workflow_slot_field_id: { type: integer, length: 20 }
+    field_combobox_id: { type: integer, length: 20 }
     value: { type: integer, length: 20 }
     position: { type: integer, length: 3 }
 
 
 WorkflowSlotFieldCheckboxgroup:
-  tableName: cf_workflowslotcheckboxgroup
+  tableName: cf_workflow_slot_checkbox_group
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
-    workflowslotfield_id: { type: integer, length: 20 }
-    fieldcheckboxgroup_id: { type: integer, length: 20 }
+    workflow_slot_field_id: { type: integer, length: 20 }
+    field_checkbox_group_id: { type: integer, length: 20 }
     value: { type: integer, length: 20 }
     position: { type: integer, length: 3 }
 
 
 WorkflowSlotFieldFile:
-  tableName: cf_workflowslotfile
+  tableName: cf_workflow_slot_file
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
-    workflowslotfield_id: { type: integer, length: 20 }
+    workflow_slot_field_id: { type: integer, length: 20 }
     filename: {type: string(255) }
     hashname: {type: string(255) }
 
 WorkflowProcess:
-  tableName: cf_workflowprocess
+  tableName: cf_workflow_process
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
-    workflowtemplate_id: { type: integer, length: 20 }
-    workflowversion_id: { type: integer, length: 20 }
-    workflowslot_id: { type: integer, length: 20 }
+    workflow_template_id: { type: integer, length: 20 }
+    workflow_version_id: { type: integer, length: 20 }
+    workflow_slot_id: { type: integer, length: 20 }
   relations:
-    WorkflowProcessUser: { class: WorkflowProcessUser, local: id, foreign: workflowprocess_id, foreignType: many, type: one }
+    WorkflowProcessUser: { class: WorkflowProcessUser, local: id, foreign: workflow_process_id, foreignType: many, type: one }
 
 
 WorkflowProcessUser:
-  actAs: [Timestampable]
-  tableName: cf_workflowprocessuser
+  tableName: cf_workflow_process_user
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
-    workflowprocess_id: { type: integer, length: 20 }
-    workflowslotuser_id: { type: integer, length: 20 }
+    workflow_process_id: { type: integer, length: 20 }
+    workflow_slot_user_id: { type: integer, length: 20 }
     user_id: { type: integer, length: 20 }
-    inprogresssince: {type: string(255) }
-    decissionstate: {type: string(255) }
-    dateofdecission: {type: string(255) }
-    isuseragentof: { type: integer, length: 20 }
-    useragentsetbycronjob: { type: integer, length: 3, default: 0 }
+    in_progress_since: {type: string(255) }
+    decission_state: {type: string(255) }
+    date_of_decission: {type: string(255) }
+    is_user_agent_of: { type: integer, length: 20 }
+    user_agent_set_by_cronjob: { type: integer, length: 3, default: 0 }
     resendet: { type: integer, length: 20 }
   relations:
-    WorkflowProcessUser: { class: WorkflowProcessUser, local: id, foreign: isuseragentof, foreignType: one, type: one }
-
+    WorkflowProcessUser: { class: WorkflowProcessUser, local: id, foreign: is_user_agent_of, foreignType: one, type: one }
+  actAs: [Timestampable]
 
 Filter:
   tableName: cf_filter
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
-    filtername: {type: string(255) }
+    filter_name: {type: string(255) }
     name: {type: string(255) }
     sender_id: { type: integer, length: 20 }
-    daysfrom: {type: string(255) }
-    daysto: {type: string(255) }
-    sendetfrom: {type: string(255) }
-    sendetto: {type: string(255) }
-    workflowprocessuser_id: { type: integer, length: 20 }
-    mailinglistversion_id: { type: integer, length: 20 }
-    documenttemplateversion_id: { type: integer, length: 20 }
+    days_from: {type: string(255) }
+    days_to: {type: string(255) }
+    sendet_from: {type: string(255) }
+    sendet_to: {type: string(255) }
+    workflow_process_user_id: { type: integer, length: 20 }
+    mailinglist_version_id: { type: integer, length: 20 }
+    document_template_version_id: { type: integer, length: 20 }
   relations:
     FilterField: { class: FilterField, local: id, foreign: filter_id, foreignType: many, type: one }
     UserLogin: { class: UserLogin, local: sender_id, foreign: id, foreignType: one, type: many }
-    WorkflowProcessUser: { class: WorkflowProcessUser, local: workflowprocessuser_id, foreign: id, foreignType: one, type: many }
-    MailinglistVersion: { class: MailinglistVersion, local: mailinglistversion_id, foreign: id, foreignType: one, type: many }
-    DocumentTemplateVersion: { class: DocumentTemplateVersion, local: documenttemplateversion_id, foreign: id, foreignType: one, type: many }
+    WorkflowProcessUser: { class: WorkflowProcessUser, local: workflow_process_user_id, foreign: id, foreignType: one, type: many }
+    MailinglistVersion: { class: MailinglistVersion, local: mailinglist_version_id, foreign: id, foreignType: one, type: many }
+    DocumentTemplateVersion: { class: DocumentTemplateVersion, local: document_template_version_id, foreign: id, foreignType: one, type: many }
 
 FilterField:
-  tableName: cf_filterfield
+  tableName: cf_filter_field
   columns:
-    id: { type: integer, length: 20, primary: true, autoincrement: true }
     filter_id:  { type: integer, length: 20 }
     field_id:  { type: integer, length: 20 }
     operator: {type: string(255) }

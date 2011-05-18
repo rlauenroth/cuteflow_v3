@@ -8,40 +8,40 @@
  * @package    cf
  * @subpackage form
  * @author     Your name here
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24051 2009-11-16 21:08:08Z Kris.Wallsmith $
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 29553 2010-05-20 14:33:00Z Kris.Wallsmith $
  */
 abstract class BaseSystemConfigurationForm extends BaseFormDoctrine
 {
   public function setup()
   {
     $this->setWidgets(array(
-      'id'                 => new sfWidgetFormInputHidden(),
-      'language'           => new sfWidgetFormInputText(),
-      'showpositioninmail' => new sfWidgetFormInputText(),
-      'sendreceivermail'   => new sfWidgetFormInputText(),
-      'sendremindermail'   => new sfWidgetFormInputText(),
-      'visibleslots'       => new sfWidgetFormInputText(),
-      'colorofnorthregion' => new sfWidgetFormInputText(),
-      'individualcronjob'  => new sfWidgetFormInputText(),
-      'setuseragenttype'   => new sfWidgetFormInputText(),
-      'cronjobdays'        => new sfWidgetFormInputText(),
-      'cronjobfrom'        => new sfWidgetFormInputText(),
-      'cronjobto'          => new sfWidgetFormInputText(),
+      'id'                    => new sfWidgetFormInputHidden(),
+      'language'              => new sfWidgetFormInputText(),
+      'show_position_in_mail' => new sfWidgetFormInputText(),
+      'send_receiver_mail'    => new sfWidgetFormInputText(),
+      'send_reminde_rmail'    => new sfWidgetFormInputText(),
+      'visible_slots'         => new sfWidgetFormInputText(),
+      'color_of_north_region' => new sfWidgetFormInputText(),
+      'individual_cronjob'    => new sfWidgetFormInputText(),
+      'set_user_agent_type'   => new sfWidgetFormInputText(),
+      'cronjob_days'          => new sfWidgetFormInputText(),
+      'cronjob_from'          => new sfWidgetFormInputText(),
+      'cronjob_to'            => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
-      'id'                 => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'id', 'required' => false)),
-      'language'           => new sfValidatorString(array('max_length' => 255, 'required' => false)),
-      'showpositioninmail' => new sfValidatorInteger(array('required' => false)),
-      'sendreceivermail'   => new sfValidatorInteger(array('required' => false)),
-      'sendremindermail'   => new sfValidatorInteger(array('required' => false)),
-      'visibleslots'       => new sfValidatorString(array('max_length' => 255, 'required' => false)),
-      'colorofnorthregion' => new sfValidatorString(array('max_length' => 255, 'required' => false)),
-      'individualcronjob'  => new sfValidatorInteger(array('required' => false)),
-      'setuseragenttype'   => new sfValidatorInteger(array('required' => false)),
-      'cronjobdays'        => new sfValidatorInteger(array('required' => false)),
-      'cronjobfrom'        => new sfValidatorString(array('max_length' => 255, 'required' => false)),
-      'cronjobto'          => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'id'                    => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
+      'language'              => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'show_position_in_mail' => new sfValidatorInteger(array('required' => false)),
+      'send_receiver_mail'    => new sfValidatorInteger(array('required' => false)),
+      'send_reminde_rmail'    => new sfValidatorInteger(array('required' => false)),
+      'visible_slots'         => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'color_of_north_region' => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'individual_cronjob'    => new sfValidatorInteger(array('required' => false)),
+      'set_user_agent_type'   => new sfValidatorInteger(array('required' => false)),
+      'cronjob_days'          => new sfValidatorInteger(array('required' => false)),
+      'cronjob_from'          => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'cronjob_to'            => new sfValidatorString(array('max_length' => 255, 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('system_configuration[%s]');

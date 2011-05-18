@@ -1,38 +1,38 @@
 <?php
 
 /**
- * DocumenttemplateVersion form base class.
+ * DocumentTemplateVersion form base class.
  *
- * @method DocumenttemplateVersion getObject() Returns the current form's model object
+ * @method DocumentTemplateVersion getObject() Returns the current form's model object
  *
  * @package    cf
  * @subpackage form
  * @author     Your name here
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24051 2009-11-16 21:08:08Z Kris.Wallsmith $
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 29553 2010-05-20 14:33:00Z Kris.Wallsmith $
  */
-abstract class BaseDocumenttemplateVersionForm extends BaseFormDoctrine
+abstract class BaseDocumentTemplateVersionForm extends BaseFormDoctrine
 {
   public function setup()
   {
     $this->setWidgets(array(
-      'id'                  => new sfWidgetFormInputHidden(),
-      'documenttemplate_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('DocumenttemplateTemplate'), 'add_empty' => true)),
-      'version'             => new sfWidgetFormInputText(),
-      'activeversion'       => new sfWidgetFormInputText(),
-      'created_at'          => new sfWidgetFormDateTime(),
-      'updated_at'          => new sfWidgetFormDateTime(),
+      'id'                   => new sfWidgetFormInputHidden(),
+      'document_template_id' => new sfWidgetFormInputText(),
+      'version'              => new sfWidgetFormInputText(),
+      'active_version'       => new sfWidgetFormInputText(),
+      'created_at'           => new sfWidgetFormDateTime(),
+      'updated_at'           => new sfWidgetFormDateTime(),
     ));
 
     $this->setValidators(array(
-      'id'                  => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'id', 'required' => false)),
-      'documenttemplate_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('DocumenttemplateTemplate'), 'required' => false)),
-      'version'             => new sfValidatorInteger(array('required' => false)),
-      'activeversion'       => new sfValidatorInteger(array('required' => false)),
-      'created_at'          => new sfValidatorDateTime(),
-      'updated_at'          => new sfValidatorDateTime(),
+      'id'                   => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
+      'document_template_id' => new sfValidatorInteger(array('required' => false)),
+      'version'              => new sfValidatorInteger(array('required' => false)),
+      'active_version'       => new sfValidatorInteger(array('required' => false)),
+      'created_at'           => new sfValidatorDateTime(),
+      'updated_at'           => new sfValidatorDateTime(),
     ));
 
-    $this->widgetSchema->setNameFormat('documenttemplate_version[%s]');
+    $this->widgetSchema->setNameFormat('document_template_version[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
 
@@ -43,7 +43,7 @@ abstract class BaseDocumenttemplateVersionForm extends BaseFormDoctrine
 
   public function getModelName()
   {
-    return 'DocumenttemplateVersion';
+    return 'DocumentTemplateVersion';
   }
 
 }

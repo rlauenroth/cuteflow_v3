@@ -1,32 +1,32 @@
 <?php
 
 /**
- * DocumenttemplateSlot filter form base class.
+ * DocumentTemplateSlot filter form base class.
  *
  * @package    cf
  * @subpackage filter
  * @author     Your name here
- * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 24051 2009-11-16 21:08:08Z Kris.Wallsmith $
+ * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 29570 2010-05-21 14:49:47Z Kris.Wallsmith $
  */
-abstract class BaseDocumenttemplateSlotFormFilter extends BaseFormFilterDoctrine
+abstract class BaseDocumentTemplateSlotFormFilter extends BaseFormFilterDoctrine
 {
   public function setup()
   {
     $this->setWidgets(array(
-      'documenttemplateversion_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('DocumenttemplateVersion'), 'add_empty' => true)),
-      'name'                       => new sfWidgetFormFilterInput(),
-      'sendtoallreceivers'         => new sfWidgetFormFilterInput(),
-      'position'                   => new sfWidgetFormFilterInput(),
+      'document_template_version_id' => new sfWidgetFormFilterInput(),
+      'name'                         => new sfWidgetFormFilterInput(),
+      'send_to_all_receivers'        => new sfWidgetFormFilterInput(),
+      'position'                     => new sfWidgetFormFilterInput(),
     ));
 
     $this->setValidators(array(
-      'documenttemplateversion_id' => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('DocumenttemplateVersion'), 'column' => 'id')),
-      'name'                       => new sfValidatorPass(array('required' => false)),
-      'sendtoallreceivers'         => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
-      'position'                   => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'document_template_version_id' => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'name'                         => new sfValidatorPass(array('required' => false)),
+      'send_to_all_receivers'        => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'position'                     => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
     ));
 
-    $this->widgetSchema->setNameFormat('documenttemplate_slot_filters[%s]');
+    $this->widgetSchema->setNameFormat('document_template_slot_filters[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
 
@@ -37,17 +37,17 @@ abstract class BaseDocumenttemplateSlotFormFilter extends BaseFormFilterDoctrine
 
   public function getModelName()
   {
-    return 'DocumenttemplateSlot';
+    return 'DocumentTemplateSlot';
   }
 
   public function getFields()
   {
     return array(
-      'id'                         => 'Number',
-      'documenttemplateversion_id' => 'ForeignKey',
-      'name'                       => 'Text',
-      'sendtoallreceivers'         => 'Number',
-      'position'                   => 'Number',
+      'id'                           => 'Number',
+      'document_template_version_id' => 'Number',
+      'name'                         => 'Text',
+      'send_to_all_receivers'        => 'Number',
+      'position'                     => 'Number',
     );
   }
 }

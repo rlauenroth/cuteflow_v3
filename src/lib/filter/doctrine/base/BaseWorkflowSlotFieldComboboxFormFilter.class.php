@@ -6,24 +6,24 @@
  * @package    cf
  * @subpackage filter
  * @author     Your name here
- * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 24051 2009-11-16 21:08:08Z Kris.Wallsmith $
+ * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 29570 2010-05-21 14:49:47Z Kris.Wallsmith $
  */
 abstract class BaseWorkflowSlotFieldComboboxFormFilter extends BaseFormFilterDoctrine
 {
   public function setup()
   {
     $this->setWidgets(array(
-      'workflowslotfield_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('WorkflowSlotField'), 'add_empty' => true)),
-      'fieldcombobox_id'     => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('FieldCombobox'), 'add_empty' => true)),
-      'value'                => new sfWidgetFormFilterInput(),
-      'position'             => new sfWidgetFormFilterInput(),
+      'workflow_slot_field_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('WorkflowSlotField'), 'add_empty' => true)),
+      'field_combobox_id'      => new sfWidgetFormFilterInput(),
+      'value'                  => new sfWidgetFormFilterInput(),
+      'position'               => new sfWidgetFormFilterInput(),
     ));
 
     $this->setValidators(array(
-      'workflowslotfield_id' => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('WorkflowSlotField'), 'column' => 'id')),
-      'fieldcombobox_id'     => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('FieldCombobox'), 'column' => 'id')),
-      'value'                => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
-      'position'             => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'workflow_slot_field_id' => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('WorkflowSlotField'), 'column' => 'id')),
+      'field_combobox_id'      => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'value'                  => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'position'               => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
     ));
 
     $this->widgetSchema->setNameFormat('workflow_slot_field_combobox_filters[%s]');
@@ -43,11 +43,11 @@ abstract class BaseWorkflowSlotFieldComboboxFormFilter extends BaseFormFilterDoc
   public function getFields()
   {
     return array(
-      'id'                   => 'Number',
-      'workflowslotfield_id' => 'ForeignKey',
-      'fieldcombobox_id'     => 'ForeignKey',
-      'value'                => 'Number',
-      'position'             => 'Number',
+      'id'                     => 'Number',
+      'workflow_slot_field_id' => 'ForeignKey',
+      'field_combobox_id'      => 'Number',
+      'value'                  => 'Number',
+      'position'               => 'Number',
     );
   }
 }

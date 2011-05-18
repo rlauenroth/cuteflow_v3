@@ -1,16 +1,16 @@
 <?php
 
 /**
- * DocumenttemplateTemplate form base class.
+ * DocumentTemplateTemplate form base class.
  *
- * @method DocumenttemplateTemplate getObject() Returns the current form's model object
+ * @method DocumentTemplateTemplate getObject() Returns the current form's model object
  *
  * @package    cf
  * @subpackage form
  * @author     Your name here
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24051 2009-11-16 21:08:08Z Kris.Wallsmith $
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 29553 2010-05-20 14:33:00Z Kris.Wallsmith $
  */
-abstract class BaseDocumenttemplateTemplateForm extends BaseFormDoctrine
+abstract class BaseDocumentTemplateTemplateForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -23,14 +23,14 @@ abstract class BaseDocumenttemplateTemplateForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'id'         => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'id', 'required' => false)),
+      'id'         => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'name'       => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'deleted_at' => new sfValidatorDateTime(array('required' => false)),
       'created_at' => new sfValidatorDateTime(),
       'updated_at' => new sfValidatorDateTime(),
     ));
 
-    $this->widgetSchema->setNameFormat('documenttemplate_template[%s]');
+    $this->widgetSchema->setNameFormat('document_template_template[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
 
@@ -41,7 +41,7 @@ abstract class BaseDocumenttemplateTemplateForm extends BaseFormDoctrine
 
   public function getModelName()
   {
-    return 'DocumenttemplateTemplate';
+    return 'DocumentTemplateTemplate';
   }
 
 }

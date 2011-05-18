@@ -6,36 +6,36 @@
  * @package    cf
  * @subpackage filter
  * @author     Your name here
- * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 24051 2009-11-16 21:08:08Z Kris.Wallsmith $
+ * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 29570 2010-05-21 14:49:47Z Kris.Wallsmith $
  */
 abstract class BaseEmailConfigurationFormFilter extends BaseFormFilterDoctrine
 {
   public function setup()
   {
     $this->setWidgets(array(
-      'smtphost'            => new sfWidgetFormFilterInput(),
-      'smtpuseauth'         => new sfWidgetFormFilterInput(),
-      'smtpport'            => new sfWidgetFormFilterInput(),
-      'smtpusername'        => new sfWidgetFormFilterInput(),
-      'smtppassword'        => new sfWidgetFormFilterInput(),
-      'smtpencryption'      => new sfWidgetFormFilterInput(),
-      'sendmailpath'        => new sfWidgetFormFilterInput(),
-      'systemreplyaddress'  => new sfWidgetFormFilterInput(),
-      'allowemailtransport' => new sfWidgetFormFilterInput(),
-      'activetype'          => new sfWidgetFormFilterInput(),
+      'smtp_host'             => new sfWidgetFormFilterInput(),
+      'smtp_useauth'          => new sfWidgetFormFilterInput(),
+      'smtp_port'             => new sfWidgetFormFilterInput(),
+      'smtp_username'         => new sfWidgetFormFilterInput(),
+      'smtp_password'         => new sfWidgetFormFilterInput(),
+      'smtp_encryption'       => new sfWidgetFormFilterInput(),
+      'send_mailpath'         => new sfWidgetFormFilterInput(),
+      'system_reply_address'  => new sfWidgetFormFilterInput(),
+      'allow_email_transport' => new sfWidgetFormFilterInput(),
+      'active_type'           => new sfWidgetFormFilterInput(),
     ));
 
     $this->setValidators(array(
-      'smtphost'            => new sfValidatorPass(array('required' => false)),
-      'smtpuseauth'         => new sfValidatorPass(array('required' => false)),
-      'smtpport'            => new sfValidatorPass(array('required' => false)),
-      'smtpusername'        => new sfValidatorPass(array('required' => false)),
-      'smtppassword'        => new sfValidatorPass(array('required' => false)),
-      'smtpencryption'      => new sfValidatorPass(array('required' => false)),
-      'sendmailpath'        => new sfValidatorPass(array('required' => false)),
-      'systemreplyaddress'  => new sfValidatorPass(array('required' => false)),
-      'allowemailtransport' => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
-      'activetype'          => new sfValidatorPass(array('required' => false)),
+      'smtp_host'             => new sfValidatorPass(array('required' => false)),
+      'smtp_useauth'          => new sfValidatorPass(array('required' => false)),
+      'smtp_port'             => new sfValidatorPass(array('required' => false)),
+      'smtp_username'         => new sfValidatorPass(array('required' => false)),
+      'smtp_password'         => new sfValidatorPass(array('required' => false)),
+      'smtp_encryption'       => new sfValidatorPass(array('required' => false)),
+      'send_mailpath'         => new sfValidatorPass(array('required' => false)),
+      'system_reply_address'  => new sfValidatorPass(array('required' => false)),
+      'allow_email_transport' => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'active_type'           => new sfValidatorPass(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('email_configuration_filters[%s]');
@@ -55,17 +55,17 @@ abstract class BaseEmailConfigurationFormFilter extends BaseFormFilterDoctrine
   public function getFields()
   {
     return array(
-      'id'                  => 'Number',
-      'smtphost'            => 'Text',
-      'smtpuseauth'         => 'Text',
-      'smtpport'            => 'Text',
-      'smtpusername'        => 'Text',
-      'smtppassword'        => 'Text',
-      'smtpencryption'      => 'Text',
-      'sendmailpath'        => 'Text',
-      'systemreplyaddress'  => 'Text',
-      'allowemailtransport' => 'Number',
-      'activetype'          => 'Text',
+      'id'                    => 'Number',
+      'smtp_host'             => 'Text',
+      'smtp_useauth'          => 'Text',
+      'smtp_port'             => 'Text',
+      'smtp_username'         => 'Text',
+      'smtp_password'         => 'Text',
+      'smtp_encryption'       => 'Text',
+      'send_mailpath'         => 'Text',
+      'system_reply_address'  => 'Text',
+      'allow_email_transport' => 'Number',
+      'active_type'           => 'Text',
     );
   }
 }

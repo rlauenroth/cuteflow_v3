@@ -6,20 +6,20 @@
  * @package    cf
  * @subpackage filter
  * @author     Your name here
- * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 24051 2009-11-16 21:08:08Z Kris.Wallsmith $
+ * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 29570 2010-05-21 14:49:47Z Kris.Wallsmith $
  */
 abstract class BaseWorkflowSlotFieldDateFormFilter extends BaseFormFilterDoctrine
 {
   public function setup()
   {
     $this->setWidgets(array(
-      'workflowslotfield_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('WorkflowSlotField'), 'add_empty' => true)),
-      'value'                => new sfWidgetFormFilterInput(),
+      'workflow_slot_field_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('WorkflowSlotField'), 'add_empty' => true)),
+      'value'                  => new sfWidgetFormFilterInput(),
     ));
 
     $this->setValidators(array(
-      'workflowslotfield_id' => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('WorkflowSlotField'), 'column' => 'id')),
-      'value'                => new sfValidatorPass(array('required' => false)),
+      'workflow_slot_field_id' => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('WorkflowSlotField'), 'column' => 'id')),
+      'value'                  => new sfValidatorPass(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('workflow_slot_field_date_filters[%s]');
@@ -39,9 +39,9 @@ abstract class BaseWorkflowSlotFieldDateFormFilter extends BaseFormFilterDoctrin
   public function getFields()
   {
     return array(
-      'id'                   => 'Number',
-      'workflowslotfield_id' => 'ForeignKey',
-      'value'                => 'Text',
+      'id'                     => 'Number',
+      'workflow_slot_field_id' => 'ForeignKey',
+      'value'                  => 'Text',
     );
   }
 }

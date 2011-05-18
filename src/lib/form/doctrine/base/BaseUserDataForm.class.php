@@ -8,7 +8,7 @@
  * @package    cf
  * @subpackage form
  * @author     Your name here
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24051 2009-11-16 21:08:08Z Kris.Wallsmith $
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 29553 2010-05-20 14:33:00Z Kris.Wallsmith $
  */
 abstract class BaseUserDataForm extends BaseFormDoctrine
 {
@@ -30,11 +30,11 @@ abstract class BaseUserDataForm extends BaseFormDoctrine
       'department'   => new sfWidgetFormInputText(),
       'burdencenter' => new sfWidgetFormInputText(),
       'comment'      => new sfWidgetFormTextarea(),
-      'lastaction'   => new sfWidgetFormInputText(),
+      'last_action'  => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
-      'user_id'      => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'user_id', 'required' => false)),
+      'user_id'      => new sfValidatorChoice(array('choices' => array($this->getObject()->get('user_id')), 'empty_value' => $this->getObject()->get('user_id'), 'required' => false)),
       'firstname'    => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'lastname'     => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'street'       => new sfValidatorString(array('max_length' => 255, 'required' => false)),
@@ -49,7 +49,7 @@ abstract class BaseUserDataForm extends BaseFormDoctrine
       'department'   => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'burdencenter' => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'comment'      => new sfValidatorString(array('max_length' => 1000, 'required' => false)),
-      'lastaction'   => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'last_action'  => new sfValidatorString(array('max_length' => 255, 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('user_data[%s]');

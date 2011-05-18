@@ -6,7 +6,7 @@
  * @package    cf
  * @subpackage filter
  * @author     Your name here
- * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 24051 2009-11-16 21:08:08Z Kris.Wallsmith $
+ * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 29570 2010-05-21 14:49:47Z Kris.Wallsmith $
  */
 abstract class BaseUserDataFormFilter extends BaseFormFilterDoctrine
 {
@@ -27,7 +27,7 @@ abstract class BaseUserDataFormFilter extends BaseFormFilterDoctrine
       'department'   => new sfWidgetFormFilterInput(),
       'burdencenter' => new sfWidgetFormFilterInput(),
       'comment'      => new sfWidgetFormFilterInput(),
-      'lastaction'   => new sfWidgetFormFilterInput(),
+      'last_action'  => new sfWidgetFormFilterInput(),
     ));
 
     $this->setValidators(array(
@@ -45,7 +45,7 @@ abstract class BaseUserDataFormFilter extends BaseFormFilterDoctrine
       'department'   => new sfValidatorPass(array('required' => false)),
       'burdencenter' => new sfValidatorPass(array('required' => false)),
       'comment'      => new sfValidatorPass(array('required' => false)),
-      'lastaction'   => new sfValidatorPass(array('required' => false)),
+      'last_action'  => new sfValidatorPass(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('user_data_filters[%s]');
@@ -80,7 +80,7 @@ abstract class BaseUserDataFormFilter extends BaseFormFilterDoctrine
       'department'   => 'Text',
       'burdencenter' => 'Text',
       'comment'      => 'Text',
-      'lastaction'   => 'Text',
+      'last_action'  => 'Text',
     );
   }
 }
