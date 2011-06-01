@@ -156,11 +156,11 @@ cf.systemTab = function(){return {
 	addData: function (data) {
 		cf.systemTab.addLanguage.defer(500, this, [data.language]);
 		
-		Ext.getCmp('systemsetting_showposition').setValue(data.showpositioninmail);
-		Ext.getCmp('systemsetting_sendreceivermail').setValue(data.sendreceivermail);
-		Ext.getCmp('systemsetting_sendremindermail').setValue(data.sendremindermail);
-		Ext.getCmp('systemsetting_slotvisible_id').setValue(data.visibleslots);
-		Ext.getCmp('systemsetting_color').setValue(data.colorofnorthregion);
+		Ext.getCmp('systemsetting_showposition').setValue(data.show_position_in_mail);
+		Ext.getCmp('systemsetting_sendreceivermail').setValue(data.send_receiver_mail);
+		Ext.getCmp('systemsetting_sendremindermail').setValue(data.send_reminder_mail);
+		Ext.getCmp('systemsetting_slotvisible_id').setValue(data.visible_slots);
+		Ext.getCmp('systemsetting_color').setValue(data.color_of_north_region);
 		
 	},
 	

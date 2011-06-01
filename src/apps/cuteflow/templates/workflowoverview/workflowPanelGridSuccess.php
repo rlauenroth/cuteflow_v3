@@ -14,13 +14,13 @@ cf.workflowmanagementPanelGrid = function(){return {
 		this.initCM();
 		this.initTopToolBar();
 		this.initGrid();
-		setTimeout('cf.workflowmanagementPanelGrid.storeReload()',<?php $arr = $sf_user->getAttribute('userSettings'); echo $arr['refreshtime']*1000;?>);
+		setTimeout('cf.workflowmanagementPanelGrid.storeReload()',<?php $arr = $sf_user->getAttribute('userSettings'); echo $arr['refresh_time']*1000;?>);
 	},
 	
 	
 	initBottomToolbar: function () {
 		this.theBottomToolBar =  new Ext.PagingToolbar({
-			pageSize: <?php $arr = $sf_user->getAttribute('userSettings'); echo $arr['displayeditem'];?>,
+			pageSize: <?php $arr = $sf_user->getAttribute('userSettings'); echo $arr['displayed_item'];?>,
 			store: this.theWorkflowStore,
 			displayInfo: true,
 			style: 'margin-bottom:10px;',
@@ -31,7 +31,7 @@ cf.workflowmanagementPanelGrid = function(){return {
 	},
 	
 	storeReload: function () {
-		setTimeout('cf.workflowmanagementPanelGrid.storeReload()',<?php $arr = $sf_user->getAttribute('userSettings'); echo $arr['refreshtime']*1000;?>);
+		setTimeout('cf.workflowmanagementPanelGrid.storeReload()',<?php $arr = $sf_user->getAttribute('userSettings'); echo $arr['refresh_time']*1000;?>);
 		try {
 			cf.workflowmanagementPanelGrid.theWorkflowStore.reload();
 		}
@@ -54,8 +54,6 @@ cf.workflowmanagementPanelGrid = function(){return {
 			{header: "<?php echo $arr[4]['text'];?>", width: <?php echo $arr[4]['width']; ?>, sortable: true, dataIndex: '<?php echo $arr[4]['store']; ?>', css : "text-align : left;font-size:12px;align:center;", hidden: <?php echo $arr[4]['hidden']; ?>},
 			{header: "<?php echo $arr[5]['text'];?>", width: <?php echo $arr[5]['width']; ?>, sortable: true, dataIndex: '<?php echo $arr[5]['store']; ?>', css : "text-align : left;font-size:12px;align:center;", hidden: <?php echo $arr[5]['hidden']; ?>},
 			{header: "<?php echo $arr[6]['text'];?>", width: <?php echo $arr[6]['width']; ?>, sortable: true, dataIndex: '<?php echo $arr[6]['store']; ?>', css : "text-align : left;font-size:12px;align:center;", hidden: <?php echo $arr[6]['hidden']; ?>},
-			{header: "<?php echo $arr[7]['text'];?>", width: <?php echo $arr[7]['width']; ?>, sortable: true, dataIndex: '<?php echo $arr[7]['store']; ?>', css : "text-align : left;font-size:12px;align:center;", hidden: <?php echo $arr[7]['hidden']; ?>},
-			{header: "<?php echo $arr[8]['text'];?>", width: <?php echo $arr[8]['width']; ?>, sortable: true, dataIndex: '<?php echo $arr[8]['store']; ?>', css : "text-align : left;font-size:12px;align:center;", hidden: <?php echo $arr[8]['hidden']; ?>},
 			{header: "<?php echo __('already done',null,'workflowmanagement'); ?>", width: 110, sortable: true, dataIndex: 'process', css : "text-align : left;font-size:12px;align:center;",  hidden: false},
 			{header: "<div ext:qtip=\"<table><tr><td><img src='/images/icons/delete.png' />&nbsp;&nbsp;</td><td><?php echo __('Delete Workflow',null,'workflowmanagement'); ?></td></tr><tr><td><img src='/images/icons/zoom.png' />&nbsp;&nbsp;</td><td><?php echo __('Show Details',null,'workflowmanagement'); ?></td></tr><tr><td><img src='/images/icons/disk.png' />&nbsp;&nbsp;</td><td><?php echo __('Move to Archive',null,'workflowmanagement'); ?></td</tr><tr><td><img src='/images/icons/control_stop_blue.png' />&nbsp;&nbsp;</td><td><?php echo __('Stop Workflow',null,'workflowmanagement'); ?></td></tr><tr><td><img src='/images/icons/control_play.png' />&nbsp;&nbsp;</td><td><?php echo __('Start Workflow',null,'workflowmanagement'); ?></td></tr></table>\" ext:qwidth=\"230\"><?php echo __('Action',null,'documenttemplate'); ?></div>", width: 100, sortable: false, dataIndex: 'action', css : "text-align : left;font-size:12px;align:center;", renderer: this.renderButton}
 		]);
@@ -122,7 +120,7 @@ cf.workflowmanagementPanelGrid = function(){return {
             },{
 				xtype: 'combo', // number of records to display in grid
 				mode: 'local',
-				value: '<?php $arr = $sf_user->getAttribute('userSettings'); echo $arr['displayeditem'];?>',
+				value: '<?php $arr = $sf_user->getAttribute('userSettings'); echo $arr['displayed_item'];?>',
 				editable:false,
 				triggerAction: 'all',
 				foreSelection: true,

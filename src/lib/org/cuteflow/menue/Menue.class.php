@@ -18,7 +18,7 @@ class Menue extends MenueCredential {
      * Store userrights
      * @param array $right_in , set Userrights to an array
      */
-    public function setUserright($right_in) {
+    public function setUserRight($right_in) {
         $this->userright = $right_in;
     }
 
@@ -36,29 +36,29 @@ class Menue extends MenueCredential {
             $module = '';
             $module = $this->checkModule($result,$item->getUserModule());
             if($module != '') {
-                $result[$this->moduleCounter]['usermodule']['title'] = $module;
-                $result[$this->moduleCounter]['usermodule']['id'] = 'usermodule_' . $module;
-                $result[$this->moduleCounter]['usermodule']['server_id'] = $module;
-                $result[$this->moduleCounter]['usermodule']['usermodule'] = $module;
-                $result[$this->moduleCounter]['usermodule']['icon'] = 'usermodule_' . $module . '_Icon';
-                $result[$this->moduleCounter]['usermodule']['position'] = $item->getUsermoduleposition();
-                $result[$this->moduleCounter]['usermodule']['translation'] = $this->context->getI18N()->__($module ,null,'credential');
-                $result[$this->moduleCounter]['usermodule']['usergroup'] = '';
+                $result[$this->moduleCounter]['user_module']['title'] = $module;
+                $result[$this->moduleCounter]['user_module']['id'] = 'user_module_' . $module;
+                $result[$this->moduleCounter]['user_module']['server_id'] = $module;
+                $result[$this->moduleCounter]['user_module']['user_module'] = $module;
+                $result[$this->moduleCounter]['user_module']['icon'] = 'user_module_' . $module . '_Icon';
+                $result[$this->moduleCounter]['user_module']['position'] = $item->getUserModulePosition();
+                $result[$this->moduleCounter]['user_module']['translation'] = $this->context->getI18N()->__($module ,null,'credential');
+                $result[$this->moduleCounter]['user_module']['user_group'] = '';
             }
 
             $group = '';
             $group = $this->checkGroup($result[$this->moduleCounter],$item->getUserGroup());
             if($group != ''){
-                $result[$this->moduleCounter]['usermodule']['usergroup'][$this->groupCounter]['database_id'] = $item->getId();
-                $result[$this->moduleCounter]['usermodule']['usergroup'][$this->groupCounter]['title'] = $group;
-                $result[$this->moduleCounter]['usermodule']['usergroup'][$this->groupCounter]['id'] = $result[$this->moduleCounter]['usermodule']['id'] . '_usergroup_' . $group;
-                $result[$this->moduleCounter]['usermodule']['usergroup'][$this->groupCounter]['icon'] = $result[$this->moduleCounter]['usermodule']['id'] . '_usergroupIcon_' . $group;
-                $result[$this->moduleCounter]['usermodule']['usergroup'][$this->groupCounter]['server_id'] = $group;
-                $result[$this->moduleCounter]['usermodule']['usergroup'][$this->groupCounter]['usergroupe'] = $group;
-                $result[$this->moduleCounter]['usermodule']['usergroup'][$this->groupCounter]['disabled'] = $this->checkRight($result[$this->moduleCounter]['usermodule']['title'] . '_' . $result[$this->moduleCounter]['usermodule']['usergroup'][$this->groupCounter]['title'] . '_showModule');
-                $result[$this->moduleCounter]['usermodule']['usergroup'][$this->groupCounter]['object'] = $result[$this->moduleCounter]['usermodule']['title'] .'_' .$group;
-                $result[$this->moduleCounter]['usermodule']['usergroup'][$this->groupCounter]['translation'] = $this->context->getI18N()->__($group ,null,'credential');
-                $result[$this->moduleCounter]['usermodule']['usergroup'][$this->groupCounter]['position'] = $item->getUsergroupposition();
+                $result[$this->moduleCounter]['user_module']['user_group'][$this->groupCounter]['database_id'] = $item->getId();
+                $result[$this->moduleCounter]['user_module']['user_group'][$this->groupCounter]['title'] = $group;
+                $result[$this->moduleCounter]['user_module']['user_group'][$this->groupCounter]['id'] = $result[$this->moduleCounter]['user_module']['id'] . '_user_group_' . $group;
+                $result[$this->moduleCounter]['user_module']['user_group'][$this->groupCounter]['icon'] = $result[$this->moduleCounter]['user_module']['id'] . '_user_groupIcon_' . $group;
+                $result[$this->moduleCounter]['user_module']['user_group'][$this->groupCounter]['server_id'] = $group;
+                $result[$this->moduleCounter]['user_module']['user_group'][$this->groupCounter]['user_group'] = $group;
+                $result[$this->moduleCounter]['user_module']['user_group'][$this->groupCounter]['disabled'] = $this->checkRight($result[$this->moduleCounter]['user_module']['title'] . '_' . $result[$this->moduleCounter]['user_module']['user_group'][$this->groupCounter]['title'] . '_showModule');
+                $result[$this->moduleCounter]['user_module']['user_group'][$this->groupCounter]['object'] = $result[$this->moduleCounter]['user_module']['title'] .'_' .$group;
+                $result[$this->moduleCounter]['user_module']['user_group'][$this->groupCounter]['translation'] = $this->context->getI18N()->__($group ,null,'credential');
+                $result[$this->moduleCounter]['user_module']['user_group'][$this->groupCounter]['position'] = $item->getUserGroupPosition();
             }
         }
         $result = $this->sortMenue($result);
@@ -77,9 +77,9 @@ class Menue extends MenueCredential {
         $count = 0;
         for($a=0;$a<count($data);$a++) {
             $data = $this->sortArray($data, 'cmpModule');
-            for($b=0;$b<count($data[$a]['usermodule']['usergroup']);$b++) {
-                $sort = $this->sortArray($data[$a]['usermodule']['usergroup'], 'cmpGroup');
-                $data[$a]['usermodule']['usergroup'] = $sort;
+            for($b=0;$b<count($data[$a]['user_module']['user_group']);$b++) {
+                $sort = $this->sortArray($data[$a]['user_module']['user_group'], 'cmpGroup');
+                $data[$a]['user_module']['user_group'] = $sort;
             }
         }
         return $data;
@@ -103,7 +103,7 @@ class Menue extends MenueCredential {
       * @return boolean, true or false, if right is set
       */
      private function checkRight($item) {
-         return  $this->userright[$item];
+         return  $this->user_right[$item];
      }
 
 
@@ -118,7 +118,7 @@ class Menue extends MenueCredential {
  * @return <type>
  */
 function cmpModule($a, $b) {
-    return strcmp($a['usermodule']['position'], $b['usermodule']['position']);
+    return strcmp($a['user_module']['position'], $b['user_module']['position']);
 }
 /**
  * Sort function for Groups

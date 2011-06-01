@@ -56,7 +56,7 @@ class MenueCredential {
     public function checkGroup($result, $item) {
         $flag = false;
         if ($this->firstRun == false OR $this->groupCounter > 0) {
-            foreach($result['usermodule']['usergroup'] as $group) {
+            foreach($result['user_module']['user_group'] as $group) {
                 if($group['server_id'] == $item) {
                     $flag = true;
                 }
@@ -88,7 +88,7 @@ class MenueCredential {
         $flag = false;
         if ($this->firstRun == false OR $this->moduleCounter > 0) {
             foreach($result as $module) {
-                if($module['usermodule']['title'] == $item) {
+                if($module['user_module']['title'] == $item) {
                     $flag = true;
                 }
             }
@@ -138,14 +138,14 @@ class MenueCredential {
         $store_firtsElement = array();
 
         for($a=0;$a<count($data);$a++) {
-            for($b=0;$b<count($data[$a]['usermodule']['usergroup']);$b++) {
-                for($c=0;$c<count($data[$a]['usermodule']['usergroup'][$b]['userright']);$c++) {
-                    if($data[$a]['usermodule']['usergroup'][$b]['userright'][$c]['server_id'] == 'showModule') {
+            for($b=0;$b<count($data[$a]['user_module']['user_group']);$b++) {
+                for($c=0;$c<count($data[$a]['user_module']['user_group'][$b]['user_right']);$c++) {
+                    if($data[$a]['user_module']['user_group'][$b]['user_right'][$c]['server_id'] == 'showModule') {
                         if($c > 0) {
-                            $store_showModule = $data[$a]['usermodule']['usergroup'][$b]['userright'][$c];
-                            $store_firtsElement = $data[$a]['usermodule']['usergroup'][$b]['userright'][0];
-                            $data[$a]['usermodule']['usergroup'][$b]['userright'][$c] = $store_firtsElement;
-                            $data[$a]['usermodule']['usergroup'][$b]['userright'][0] = $store_showModule;
+                            $store_showModule = $data[$a]['user_module']['user_group'][$b]['user_right'][$c];
+                            $store_firtsElement = $data[$a]['user_module']['user_group'][$b]['user_right'][0];
+                            $data[$a]['user_module']['user_group'][$b]['user_right'][$c] = $store_firtsElement;
+                            $data[$a]['user_module']['user_group'][$b]['user_right'][0] = $store_showModule;
                         }
                     }
                 }

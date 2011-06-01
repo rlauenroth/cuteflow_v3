@@ -13,7 +13,7 @@ class useractionFilter extends sfFilter {
         if($user_id != '') {
             Doctrine_Query::create()
                 ->update('UserData ud')
-                ->set('ud.lastaction','?',time())
+                ->set('ud.last_action','?',time())
                 ->where('ud.user_id = ?', $user_id)
                 ->execute();
         }

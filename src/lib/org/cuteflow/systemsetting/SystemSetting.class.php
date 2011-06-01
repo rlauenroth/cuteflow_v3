@@ -22,7 +22,7 @@ class SystemSetting {
     public static function getShowPositionInMail() {
         $data = SystemConfigurationTable::instance()->getSystemConfiguration()->toArray();
         $result = array();
-        if($data[0]['showpositioninmail'] == 1) {
+        if($data[0]['show_position_in_mail'] == 1) {
             $result['hidden'] = 'false';
             $result['collapsible'] = 'true';
         }
@@ -124,7 +124,7 @@ class SystemSetting {
      */
     public static function getFirstLogin() {
         $result = AuthenticationConfigurationTable::instance()->getFirstLogin()->toArray();
-        return $result[0]['firstlogin'];
+        return $result[0]['first_login'];
     }
 
     /**
@@ -163,11 +163,11 @@ class SystemSetting {
      */
     public function buildUserAgent(array $data, sfContext $context) {
         
-        $result['individualcronjob'] = $data[0]['individualcronjob'];
-        $result['setuseragenttype'] = $data[0]['setuseragenttype'];
-        $result['cronjobdays'] = $this->getDays($this->getRunningDays($data[0]['cronjobdays'],7));
-        $result['cronjobfrom'] = $data[0]['cronjobfrom'];
-        $result['cronjobto'] = $data[0]['cronjobto'];
+        $result['individual_cronjob'] = $data[0]['individual_cronjob'];
+        $result['set_user_agent_type'] = $data[0]['set_user_agent_type'];
+        $result['cronjob_days'] = $this->getDays($this->getRunningDays($data[0]['cron_jobdays'],7));
+        $result['cronjob_from'] = $data[0]['cronjob_from'];
+        $result['cronjob_to'] = $data[0]['cronjob_to'];
         $result['datestore'] = $this->getDate($context);
         return $result;
     }

@@ -75,7 +75,7 @@ class CheckSubstitute {
                 $this->openProcesses[$a]['useragents'] = $user;
                 $userSettings = UserSettingTable::instance()->getUserSettingById($this->openProcesses[$a]['user_id'])->toArray();
                 $this->openProcesses[$a]['usersettings'] = $userSettings[0];
-                $this->openProcesses[$a]['useragenttime'] = $this->calculateUserAgentTime($userSettings[0]['durationtype'],$userSettings[0]['durationlength']);
+                $this->openProcesses[$a]['useragenttime'] = $this->calculateUserAgentTime($userSettings[0]['duration_type'],$userSettings[0]['durationlength']);
             }
         } 
     }

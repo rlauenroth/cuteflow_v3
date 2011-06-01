@@ -68,8 +68,8 @@ cf.PopUpRoleTabpanel = function(){return {
 		for(var a=0;a<theJsonTreeData.result.length;a++) {
 			// build tab item here
 			var tabItem = new Ext.Panel({
-				title: theJsonTreeData.result[a].usermodule.translation,
-				id: theJsonTreeData.result[a].usermodule.id,
+				title: theJsonTreeData.result[a].user_module.translation,
+				id: theJsonTreeData.result[a].user_module.id,
 				height: cf.rolePopUpWindow.theRoleWindow.getHeight() - 102,
 				width: 500,
 				autoScroll:true,
@@ -78,8 +78,8 @@ cf.PopUpRoleTabpanel = function(){return {
 			});
 			
 			// build fieldsetes here
-			for (var b=0;b<theJsonTreeData.result[a].usermodule.usergroup.length;b++) {
-				var tabCategory = theJsonTreeData.result[a].usermodule.usergroup[b];
+			for (var b=0;b<theJsonTreeData.result[a].user_module.user_group.length;b++) {
+				var tabCategory = theJsonTreeData.result[a].user_module.user_group[b];
 				tabItem.add({
 					xtype: 'fieldset',
 					title: '<table><tr><td><div class="'+tabCategory.icon+'">&nbsp;</div></td><td><div>' + tabCategory.translation + '</div></td></tr></table>',
@@ -90,8 +90,8 @@ cf.PopUpRoleTabpanel = function(){return {
 				
 				var myFieldset = Ext.getCmp(tabCategory.id);
 				// build checkboxes here
-				for(var c=0;c<theJsonTreeData.result[a].usermodule.usergroup[b].userright.length;c++) {
-					var myCheckbox = theJsonTreeData.result[a].usermodule.usergroup[b].userright[c];
+				for(var c=0;c<theJsonTreeData.result[a].user_module.user_group[b].user_right.length;c++) {
+					var myCheckbox = theJsonTreeData.result[a].user_module.user_group[b].user_right[c];
 					var myFieldset = Ext.getCmp(tabCategory.id);
 					if(myCheckbox.parent == 1) { // parent checkbox
 						myFieldset.add({

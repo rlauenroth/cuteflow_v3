@@ -24,7 +24,7 @@ class usermanagementActions extends sfActions {
 
         $anz = UserLoginTable::instance()->getTotalSumOfUser();
         $limit = $this->getUser()->getAttribute('userSettings');
-        $result = UserLoginTable::instance()->getAllUser($request->getParameter('limit',$limit['displayeditem']),$request->getParameter('start',0));
+        $result = UserLoginTable::instance()->getAllUser($request->getParameter('limit',$limit['displayed_item']),$request->getParameter('start',0));
 
         $json_result = $usermanagement->buildUser($result, $this->getRequestParameter('start',0)+1);
 
@@ -48,7 +48,7 @@ class usermanagementActions extends sfActions {
         $limit = $this->getUser()->getAttribute('userSettings');
         
         $anz = UserLoginTable::instance()->getTotalSumOfUserByFilter($request);
-        $result = UserLoginTable::instance()->getAllUserByFilter($limit['displayeditem'],$request->getParameter('start',0),$request);
+        $result = UserLoginTable::instance()->getAllUserByFilter($limit['displayed_item'],$request->getParameter('start',0),$request);
         
         $json_result = $usermanagement->buildUser($result, $this->getRequestParameter('start',0)+1);
 

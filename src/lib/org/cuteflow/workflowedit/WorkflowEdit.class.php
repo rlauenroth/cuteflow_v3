@@ -130,7 +130,7 @@ class WorkflowEdit {
         $a = 0;
         $b = 0;
 
-        if($systemSettings[0]['visibleslots'] == 'CURRENT') {
+        if($systemSettings[0]['visible_slots'] == 'CURRENT') {
             foreach($result as $slot) {
                 if($slot['isdisabled'] == 0) {
                     $return[$a++] = $slot;
@@ -139,7 +139,7 @@ class WorkflowEdit {
             return $return;
 
         }
-        elseif($systemSettings[0]['visibleslots'] == 'TOPMOST') {
+        elseif($systemSettings[0]['visible_slots'] == 'TOPMOST') {
             foreach($result as $slot) {
                 if($slot['isdisabled'] == 0) {
                     $activeSlot[$a++] = $slot;

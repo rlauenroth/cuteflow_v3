@@ -24,9 +24,9 @@ class MenueSetting extends MenueCredential {
 
         foreach($data as $item) {
             $result[$a]['#'] = $a+1;
-            $result[$a]['id'] = $item->getUsermodule();
-            $result[$a]['group'] = $this->context->getI18N()->__($item->getUsermodule() ,null,'credential');
-            $result[$a++]['module'] = $item->getUsermodule();
+            $result[$a]['id'] = $item->getUserModule();
+            $result[$a]['group'] = $this->context->getI18N()->__($item->getUserModule() ,null,'credential');
+            $result[$a++]['module'] = $item->getUserModule();
         }
        return $result;
     }
@@ -43,10 +43,10 @@ class MenueSetting extends MenueCredential {
         
         foreach($data as $item) {
             $result[$a]['#'] = $a+1;
-            $result[$a]['module_id'] = $item->getUsermodule();
-            $result[$a]['module'] = $this->context->getI18N()->__($item->getUsermodule() ,null,'credential');
-            $result[$a]['group_id'] = $item->getUsergroup();
-            $result[$a++]['group'] = $this->context->getI18N()->__($item->getUsergroup() ,null,'credential');
+            $result[$a]['module_id'] = $item->getUserModule();
+            $result[$a]['module'] = $this->context->getI18N()->__($item->getUserModule() ,null,'credential');
+            $result[$a]['group_id'] = $item->getUserGroup();
+            $result[$a++]['group'] = $this->context->getI18N()->__($item->getUserGroup() ,null,'credential');
         }
         return $result;
     }

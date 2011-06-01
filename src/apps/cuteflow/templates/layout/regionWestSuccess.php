@@ -51,8 +51,8 @@ cf.Navigation = function(){return {
 	initNavigation: function (theJsonTreeData) {
 		for(var a=0;a<theJsonTreeData.result.length;a++) {
 			var panel = new Ext.Panel({
-                title: '<table><tr><td><div id="' + theJsonTreeData.result[a].usermodule.icon + '"></div></td><td style="font-size:15px;">&nbsp;&nbsp;<b>'+theJsonTreeData.result[a].usermodule.translation+'</b></td></tr></table>',
-                id: 'regionWest_' + theJsonTreeData.result[a].usermodule.title,
+                title: '<table><tr><td><div id="' + theJsonTreeData.result[a].user_module.icon + '"></div></td><td style="font-size:15px;">&nbsp;&nbsp;<b>'+theJsonTreeData.result[a].user_module.translation+'</b></td></tr></table>',
+                id: 'regionWest_' + theJsonTreeData.result[a].user_module.title,
 				collapsed: true
             });
             var tree = new Ext.tree.TreePanel({
@@ -72,8 +72,8 @@ cf.Navigation = function(){return {
         	});
 
 
-        	for (var b=0;b<theJsonTreeData.result[a].usermodule.usergroup.length;b++) {
-        		var myTreeItem = theJsonTreeData.result[a].usermodule.usergroup[b];
+        	for (var b=0;b<theJsonTreeData.result[a].user_module.user_group.length;b++) {
+        		var myTreeItem = theJsonTreeData.result[a].user_module.user_group[b];
 				var disabled = myTreeItem.disabled == 'true' ? true : false;
 				root.appendChild(new Ext.tree.TreeNode({
 					leaf: true,

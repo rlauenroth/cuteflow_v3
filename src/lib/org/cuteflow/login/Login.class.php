@@ -11,7 +11,7 @@ class Login {
 
     public static function getBackgroundColor() {
        $config =  SystemConfigurationTable::instance()->getSystemConfiguration()->toArray();
-       return $config[0]['colorofnorthregion'];
+       return $config[0]['color_of_north_region'];
     }
 
     /**
@@ -43,7 +43,7 @@ class Login {
      */
     public function loadUserRight(Doctrine_Collection $credentials, Doctrine_Collection $userright) {
         $credential_arr = $this->buildCredentials($credentials);
-        $user_arr = $this->buildUserright($userright);
+        $user_arr = $this->buildUserRight($userright);
         $result = array();
         for($a=0;$a<count($credential_arr);$a++){
             if(in_array($credential_arr[$a]['id'], $user_arr) == TRUE) {
@@ -68,7 +68,7 @@ class Login {
         $a = 0;
         foreach($credentials as $item) {
             $result[$a]['id'] = $item->getId();
-            $result[$a++]['right'] = $item->getUsermodule() . '_' . $item->getUsergroup() . '_' . $item->getUserright();
+            $result[$a++]['right'] = $item->getUserModule() . '_' . $item->getUserGroup() . '_' . $item->getUserRight();
         }
         return $result;
     }
@@ -80,7 +80,7 @@ class Login {
      * @param Doctrine_Collection $userright, Doctrine Collection with current userrights
      * @return array $result, resultset
      */
-    private function buildUserright(Doctrine_Collection $userright) {
+    private function buildUserRight(Doctrine_Collection $userright) {
         $result = array();
         foreach($userright as $item) {
             $result[] = $item->getCredentialId();
@@ -115,11 +115,11 @@ class Login {
         sfLoader::loadHelpers('I18N');
         $a = 0;
         foreach($data as $item) {
-            $result[$a]['columntext'] = $item['columntext'];
-            $result[$a]['hidden'] = $item['isactive'] == 'true' ? 'false' : 'true';
-            $result[$a]['fieldid'] = -1;
-            $result[$a]['text'] = $context->getI18N()->__($item['columntext'] ,null,'systemsetting');
-            switch($item['columntext']) {
+            $result[$a]['column_text'] = $item['column_text'];
+            $result[$a]['hidden'] = $item['is_active'] == 'true' ? 'false' : 'true';
+            $result[$a]['field_id'] = -1;
+            $result[$a]['text'] = $context->getI18N()->__($item['column_text'] ,null,'system_setting');
+            switch($item['column_text']) {
                 case 'NAME':
                     $result[$a]['store'] = 'name';
                     $result[$a]['width'] = '140';
@@ -149,11 +149,11 @@ class Login {
                     $result[$a]['width'] = '150';
                     break;
                 case 'USERDEFINED1':
-                    if($item['field_id'] != '' AND is_numeric($item['field_id']) == true AND $item['isactive'] == 'true') {
+                    if($item['field_id'] != '' AND is_numeric($item['field_id']) == true AND $item['is_active'] == 'true') {
                         $fieldName = FieldTable::instance()->getFieldById($item['field_id']);
                         $result[$a]['text'] = $fieldName[0]->getTitle();
                         $result[$a]['store'] = 'userdefined1';
-                        $result[$a]['fieldid'] = $item['field_id'];
+                        $result[$a]['field_id'] = $item['field_id'];
                         $result[$a]['width'] = '100';
                     }
                     else {
@@ -162,11 +162,11 @@ class Login {
                     }
                     break;
                 case 'USERDEFINED2':
-                    if($item['field_id'] != '' AND is_numeric($item['field_id']) == true AND $item['isactive'] == 'true') {
+                    if($item['field_id'] != '' AND is_numeric($item['field_id']) == true AND $item['is_active'] == 'true') {
                         $fieldName = FieldTable::instance()->getFieldById($item['field_id']);
                         $result[$a]['text'] = $fieldName[0]->getTitle();
                         $result[$a]['store'] = 'userdefined2';
-                        $result[$a]['fieldid'] = $item['field_id'];
+                        $result[$a]['field_id'] = $item['field_id'];
                         $result[$a]['width'] = '100';
                     }
                     else {
@@ -179,7 +179,7 @@ class Login {
         }
         //unset($result[7]);
         //unset($result[8]);
-        return $result;
+        return @$result;
         
     }
 

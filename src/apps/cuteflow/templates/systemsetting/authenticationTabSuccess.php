@@ -217,29 +217,29 @@ cf.authTab = function(){return {
 		
 		Ext.getCmp('auth_openid_server').setValue(data.openidserver);
 		
-		Ext.getCmp('auth_ladp_adduser').setValue(data.ldapadduser);
-		Ext.getCmp('auth_ladp_host').setValue(data.ldaphost);
-		Ext.getCmp('auth_ladp_domain').setValue(data.ldapdomain);
-		Ext.getCmp('auth_ladp_bindusernameandcontext').setValue(data.ldapbindusernameandcontext);
-		Ext.getCmp('auth_ladp_password').setValue(data.ldappassword);
-		Ext.getCmp('auth_ladp_rootcontext').setValue(data.ldaprootcontext);
-		Ext.getCmp('auth_ladp_usersearchattribute').setValue(data.ldapusersearchattribute);
-		Ext.getCmp('auth_ladp_firstname').setValue(data.ldapfirstname);
-		Ext.getCmp('auth_ladp_lastname').setValue(data.ldaplastname);
-		Ext.getCmp('auth_ladp_username').setValue(data.ldapusername);
-		Ext.getCmp('auth_ladp_email').setValue(data.ldapemail);
-		Ext.getCmp('auth_ladp_office').setValue(data.ldapoffice);
-		Ext.getCmp('auth_ladp_phone').setValue(data.ldapphone);
-		Ext.getCmp('auth_ladp_context').setValue(data.ldapcontext);
-		Ext.getCmp('authentication_firstlogin').setValue(data.firstlogin);
-		Ext.getCmp('authentication_allowdirectlogin').setValue(data.allowdirectlogin);
+		Ext.getCmp('auth_ladp_adduser').setValue(data.ldap_add_user);
+		Ext.getCmp('auth_ladp_host').setValue(data.ldap_host);
+		Ext.getCmp('auth_ladp_domain').setValue(data.ldap_domain);
+		Ext.getCmp('auth_ladp_bindusernameandcontext').setValue(data.ldap_bind_username_and_context);
+		Ext.getCmp('auth_ladp_password').setValue(data.ldap_password);
+		Ext.getCmp('auth_ladp_rootcontext').setValue(data.ldap_root_context);
+		Ext.getCmp('auth_ladp_usersearchattribute').setValue(data.ldap_user_search_attribute);
+		Ext.getCmp('auth_ladp_firstname').setValue(data.ldap_firstname);
+		Ext.getCmp('auth_ladp_lastname').setValue(data.ldap_lastname);
+		Ext.getCmp('auth_ladp_username').setValue(data.ldap_username);
+		Ext.getCmp('auth_ladp_email').setValue(data.ldap_email);
+		Ext.getCmp('auth_ladp_office').setValue(data.ldap_office);
+		Ext.getCmp('auth_ladp_phone').setValue(data.ldap_phone);
+		Ext.getCmp('auth_ladp_context').setValue(data.ldap_context);
+		Ext.getCmp('authentication_firstlogin').setValue(data.first_login);
+		Ext.getCmp('authentication_allowdirectlogin').setValue(data.allow_direct_login);
 		
 		
-		if(data.authenticationtype == 'DBONLY') {
+		if(data.authentication_type == 'DBONLY') {
 			cf.authTab.theOpenIdFieldset.setVisible(false);
 			cf.authTab.theLdapFieldset.setVisible(false);
 		}
-		else if (data.authenticationtype == 'DATABASE_LDAP') {
+		else if (data.authentication_type == 'DATABASE_LDAP') {
 			cf.authTab.theLdapFieldset.setVisible(true);
 			cf.authTab.theOpenIdFieldset.setVisible(false);
 		}
@@ -248,7 +248,7 @@ cf.authTab = function(){return {
 			cf.authTab.theLdapFieldset.setVisible(false);
 		}
 		
-		Ext.getCmp('authentication_type_id').setValue(data.authenticationtype);
+		Ext.getCmp('authentication_type_id').setValue(data.authentication_type);
 		
 		
 	}

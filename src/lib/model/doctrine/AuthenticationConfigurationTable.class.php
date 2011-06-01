@@ -31,8 +31,8 @@ class AuthenticationConfigurationTable extends Doctrine_Table {
     public function updateAuthenticationConfigurationCuteflowDatabase (array $data) {
         Doctrine_Query::create()
                     ->update('AuthenticationConfiguration ac')
-                    ->set('ac.authenticationtype', '?', $data['authentication_type'])
-                    ->set('ac.firstlogin','?',isset($data['authentication_firstlogin']) ? $data['authentication_firstlogin'] : 0)
+                    ->set('ac.authentication_type', '?', $data['authentication_type'])
+                    ->set('ac.first_login','?',isset($data['authentication_firstlogin']) ? $data['authentication_firstlogin'] : 0)
                     ->set('ac.allowdirectlogin','?',isset($data['authentication_allowdirectlogin']) ? $data['authentication_allowdirectlogin'] : 0)
                     ->where ('ac.id = ?',1)
                     ->execute();
@@ -47,22 +47,22 @@ class AuthenticationConfigurationTable extends Doctrine_Table {
     public function updateAuthenticationConfigurationCuteflowDatabaseAndLDAP (array $data) {
         Doctrine_Query::create()
             ->update('AuthenticationConfiguration ac')
-            ->set('ac.authenticationtype', '?', $data['authentication_type'])
-            ->set('ac.ldaphost', '?', $data['auth_ladp_host'])
-            ->set('ac.ldapdomain', '?', $data['auth_ladp_domain'])
-            ->set('ac.ldapbindusernameandcontext', '?', $data['auth_ladp_bindusernameandcontext'])
-            ->set('ac.ldappassword', '?', $data['auth_ladp_password'])
-            ->set('ac.ldaprootcontext', '?', $data['auth_ladp_rootcontext'])
-            ->set('ac.ldapusersearchattribute', '?', $data['auth_ladp_usersearchattribute'])
-            ->set('ac.ldapfirstname', '?', $data['auth_ladp_firstname'])
-            ->set('ac.ldaplastname', '?', $data['auth_ladp_lastname'])
-            ->set('ac.ldapusername', '?', $data['auth_ladp_username'])
-            ->set('ac.ldapemail', '?', $data['auth_ladp_email'])
-            ->set('ac.ldapoffice', '?', $data['auth_ladp_office'])
-            ->set('ac.ldapphone', '?', $data['auth_ladp_phone'])
-            ->set('ac.ldapcontext', '?', $data['auth_ladp_context'])
-            ->set('ac.firstlogin','?',isset($data['authentication_firstlogin']) ? $data['authentication_firstlogin'] : 0)
-            ->set('ac.ldapadduser','?',isset($data['auth_ladp_adduser']) ? $data['auth_ladp_adduser'] : 0)
+            ->set('ac.authentication_type', '?', $data['authentication_type'])
+            ->set('ac.ldap_host', '?', $data['auth_ladp_host'])
+            ->set('ac.ldap_domain', '?', $data['auth_ladp_domain'])
+            ->set('ac.ldap_bind_username_and_context', '?', $data['auth_ladp_bindusernameandcontext'])
+            ->set('ac.ldap_password', '?', $data['auth_ladp_password'])
+            ->set('ac.ldap_rootcontext', '?', $data['auth_ladp_rootcontext'])
+            ->set('ac.ldap_user_search_attribute', '?', $data['auth_ladp_usersearchattribute'])
+            ->set('ac.ldap_firstname', '?', $data['auth_ladp_firstname'])
+            ->set('ac.ldap_lastname', '?', $data['auth_ladp_lastname'])
+            ->set('ac.ldap_username', '?', $data['auth_ladp_username'])
+            ->set('ac.ldap_email', '?', $data['auth_ladp_email'])
+            ->set('ac.ldap_office', '?', $data['auth_ladp_office'])
+            ->set('ac.ldap_phone', '?', $data['auth_ladp_phone'])
+            ->set('ac.ldap_context', '?', $data['auth_ladp_context'])
+            ->set('ac.first_login','?',isset($data['authentication_firstlogin']) ? $data['authentication_firstlogin'] : 0)
+            ->set('ac.ldap_add_user','?',isset($data['auth_ladp_adduser']) ? $data['auth_ladp_adduser'] : 0)
             ->set('ac.allowdirectlogin','?',isset($data['authentication_allowdirectlogin']) ? $data['authentication_allowdirectlogin'] : 0)
             ->where ('ac.id = ?',1)
             ->execute();
@@ -80,8 +80,8 @@ class AuthenticationConfigurationTable extends Doctrine_Table {
         Doctrine_Query::create()
                     ->update('AuthenticationConfiguration ac')
                     ->set('ac.openidserver', '?', $data['auth_openid_server'])
-                    ->set('ac.authenticationtype', '?', $data['authentication_type'])
-                    ->set('ac.firstlogin','?',isset($data['authentication_firstlogin']) ? $data['authentication_firstlogin'] : 0)
+                    ->set('ac.authentication_type', '?', $data['authentication_type'])
+                    ->set('ac.first_login','?',isset($data['authentication_firstlogin']) ? $data['authentication_firstlogin'] : 0)
                     ->set('ac.allowdirectlogin','?',isset($data['authentication_allowdirectlogin']) ? $data['authentication_allowdirectlogin'] : 0)
                     ->where ('ac.id = ?',1)
                     ->execute();
@@ -95,7 +95,7 @@ class AuthenticationConfigurationTable extends Doctrine_Table {
      */
     public function getFirstLogin() {
         return Doctrine_Query::create()
-            ->select('ac.firstlogin')
+            ->select('ac.first_login')
             ->from('AuthenticationConfiguration ac')
             ->execute();
     }
@@ -107,7 +107,7 @@ class AuthenticationConfigurationTable extends Doctrine_Table {
      */
     public function getAuthenticationType() {
         return Doctrine_Query::create()
-            ->select('ac.authenticationtype')
+            ->select('ac.authentication_type')
             ->from('AuthenticationConfiguration ac')
             ->execute();
     }

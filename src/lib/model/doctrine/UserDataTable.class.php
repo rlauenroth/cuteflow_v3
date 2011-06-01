@@ -31,7 +31,7 @@ class UserDataTable extends Doctrine_Table {
         return Doctrine_Query::create()
             ->select('ud.*')
             ->from('UserData ud')
-            ->where('ud.lastaction >= ?', $timestamp)
+            ->where('ud.last_action >= ?', $timestamp)
             ->execute();
     }
 

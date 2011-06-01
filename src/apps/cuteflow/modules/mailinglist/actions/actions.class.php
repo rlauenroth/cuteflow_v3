@@ -20,7 +20,7 @@ class mailinglistActions extends sfActions {
     public function executeLoadAllMailinglists(sfWebRequest $request) {
         $mailinglist = new Mailinglist();
         $limit = $this->getUser()->getAttribute('userSettings');
-        $data = MailinglistTemplateTable::instance()->getAllMailinglistTemplates($request->getParameter('limit',$limit['displayeditem']),$request->getParameter('start',0));
+        $data = MailinglistTemplateTable::instance()->getAllMailinglistTemplates($request->getParameter('limit',$limit['displayed_item']),$request->getParameter('start',0));
         $anz = MailinglistTemplateTable::instance()->getTotalSumOfMailingListTemplates();
         $json_result = $mailinglist->buildAllMailinglists($data);
         $this->renderText('({"total":"'.$anz[0]->getAnzahl().'","result":'.json_encode($json_result).'})');
@@ -36,7 +36,7 @@ class mailinglistActions extends sfActions {
     public function executeLoadAllMailinglistsByFilter(sfWebRequest $request) {
         $mailinglist = new Mailinglist();
         $limit = $this->getUser()->getAttribute('userSettings');
-        $data = MailinglistTemplateTable::instance()->getAllMailinglistTemplatesByFilter($request->getParameter('limit',$limit['displayeditem']),$request->getParameter('start',0),$request->getParameter('name'));
+        $data = MailinglistTemplateTable::instance()->getAllMailinglistTemplatesByFilter($request->getParameter('limit',$limit['displayed_item']),$request->getParameter('start',0),$request->getParameter('name'));
         $anz = MailinglistTemplateTable::instance()->getTotalSumOfMailingListTemplatesByFilter($request->getParameter('name'));
         $json_result = $mailinglist->buildAllMailinglists($data);
         $this->renderText('({"total":"'.$anz[0]->getAnzahl().'","result":'.json_encode($json_result).'})');
@@ -181,7 +181,7 @@ class mailinglistActions extends sfActions {
         $mailinglist = new Mailinglist();
         $limit = $this->getUser()->getAttribute('userSettings');
         $search = $request->getParameter('name');
-        $data = MailinglistTemplateTable::instance()->getAllMailinglistTemplatesByFilter($request->getParameter('limit',$limit['displayeditem']),$request->getParameter('start',0),$search);
+        $data = MailinglistTemplateTable::instance()->getAllMailinglistTemplatesByFilter($request->getParameter('limit',$limit['displayed_item']),$request->getParameter('start',0),$search);
         $anz = MailinglistTemplateTable::instance()->getTotalSumOfMailingListTemplatesByFilter($search);
         $json_result = $mailinglist->buildAllMailinglists($data);
         $this->renderText('({"total":"'.$anz[0]->getAnzahl().'","result":'.json_encode($json_result).'})');

@@ -19,7 +19,7 @@ class menuesettingActions extends sfActions {
     public function executeLoadModule (sfWebRequest $request) {
         $settingObj = new MenueSetting();
 
-        $module = CredentialTable::instance()->getAllUsermodule('c.usermoduleposition asc');
+        $module = CredentialTable::instance()->getAllUserModule('c.user_module_position asc');
 
         $settingObj->setContext($this->getContext());
         $json_result = $settingObj->buildModule($module);
@@ -52,7 +52,7 @@ class menuesettingActions extends sfActions {
      */
     public function executeLoadGroup (sfWebRequest $request) {
         $settingObj = new MenueSetting();
-        $groups = CredentialTable::instance()->getAllGroups($request->getParameter('id'),'c.usergroupposition ASC');
+        $groups = CredentialTable::instance()->getAllGroups($request->getParameter('id'),'c.user_group_position ASC');
         
         $settingObj->setContext($this->getContext());
         $json_result = $settingObj->buildGroup($groups);

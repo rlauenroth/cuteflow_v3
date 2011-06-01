@@ -58,7 +58,7 @@ class Usermanagement {
 
     public static function checkLDAP () {
         $result = AuthenticationConfigurationTable::instance()->getAuthenticationType();
-        if($result[0]->getAuthenticationtype() == 'DATABASE_LDAP') {
+        if($result[0]->getAuthenticationType() == 'DATABASE_LDAP') {
             return 'false';
         }
         else {
@@ -165,15 +165,15 @@ class Usermanagement {
 
 
             $result['language'] = $usersettings->getLanguage();
-            $result['durationlength'] = $usersettings->getDurationlength();
-            $result['durationtype'] = $usersettings->getDurationtype();
-            $result['markyellow'] = $usersettings->getMarkyellow();
-            $result['markred'] = $usersettings->getMarkred();
-            $result['markorange'] = $usersettings->getMarkorange();
-            $result['refreshtime'] = $usersettings->getRefreshtime();
-            $result['displayeditem'] = $usersettings->getDisplayeditem();
-            $result['emailformat'] = $usersettings->getEmailformat();
-            $result['emailtype'] = $usersettings->getEmailtype();
+            $result['duration_length'] = $usersettings->getDurationLength();
+            $result['duration_type'] = $usersettings->getDurationType();
+            $result['mark_yellow'] = $usersettings->getMarkYellow();
+            $result['mark-red'] = $usersettings->getMarkRed();
+            $result['mark_orange'] = $usersettings->getMarkOrange();
+            $result['refresh_time'] = $usersettings->getRefreshTime();
+            $result['displayed_item'] = $usersettings->getDisplayedItem();
+            $result['email_format'] = $usersettings->getEmailFormat();
+            $result['email_type'] = $usersettings->getEmailType();
             $result['circulationdefaultsortcolumn'] = $usersettings->getCirculationdefaultsortcolumn();
             $result['circulationdefaultsortdirection'] = $usersettings->getCirculationdefaultsortdirection();
         }

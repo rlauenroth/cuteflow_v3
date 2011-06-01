@@ -23,7 +23,7 @@ class todooverviewActions extends sfActions {
         $workflow->setUserId($this->getUser()->getAttribute('id'));
         $workflow->setCulture($this->getUser()->getCulture());
         $anz = WorkflowTemplateTable::instance()->getAllToDoWorkflowTemplates(-1,-1,$this->getUser()->getAttribute('id'));
-        $data = WorkflowTemplateTable::instance()->getAllToDoWorkflowTemplates($request->getParameter('limit',$limit['displayeditem']),$request->getParameter('start',0),$this->getUser()->getAttribute('id'));
+        $data = WorkflowTemplateTable::instance()->getAllToDoWorkflowTemplates($request->getParameter('limit',$limit['displayed_item']),$request->getParameter('start',0),$this->getUser()->getAttribute('id'));
         $json_data = $workflow->buildData($data, $request->getParameter('start',0));
         $this->renderText('({"total":"'.count($anz).'","result":'.json_encode($json_data).'})');
         return sfView::NONE;
@@ -44,7 +44,7 @@ class todooverviewActions extends sfActions {
         $filter = new FilterManagement();
         $filterOptions = $filter->checkFilter($request);
         $anz = WorkflowTemplateTable::instance()->getAllToDoWorkflowTemplatesByFilter(-1,-1,$this->getUser()->getAttribute('id'), $filterOptions);
-        $data = WorkflowTemplateTable::instance()->getAllToDoWorkflowTemplatesByFilter($request->getParameter('limit',$limit['displayeditem']),$request->getParameter('start',0),$this->getUser()->getAttribute('id'), $filterOptions);
+        $data = WorkflowTemplateTable::instance()->getAllToDoWorkflowTemplatesByFilter($request->getParameter('limit',$limit['displayed_item']),$request->getParameter('start',0),$this->getUser()->getAttribute('id'), $filterOptions);
 
         $json_data = $workflow->buildData($data, $request->getParameter('start',0));
         $this->renderText('({"total":"'.count($anz).'","result":'.json_encode($json_data).'})');

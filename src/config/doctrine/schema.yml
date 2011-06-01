@@ -127,7 +127,7 @@ SystemConfiguration:
     language: { type: string(255), default: en_US}
     show_position_in_mail: { type: integer, length: 3}
     send_receiver_mail: { type: integer, length: 3}
-    send_reminde_rmail: {type: integer, length: 3}
+    send_reminder_mail: {type: integer, length: 3}
     visible_slots: { type: string(255) }
     color_of_north_region: { type: string(255) }
     individual_cronjob: {type: integer, length: 3}

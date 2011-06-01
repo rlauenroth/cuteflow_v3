@@ -35,44 +35,44 @@ class CredentialRolemanagement extends MenueCredential {
                 $module = '';
                 $module = $this->checkModule($result,$item->getUserModule());
                 if($module != '') {
-                    $result[$this->moduleCounter]['usermodule']['title'] = $module;
-                    $result[$this->moduleCounter]['usermodule']['id'] = 'usermodule_' . $module;
-                    $result[$this->moduleCounter]['usermodule']['server_id'] = $module;
-                    $result[$this->moduleCounter]['usermodule']['usermodule'] = $module;
-                    $result[$this->moduleCounter]['usermodule']['translation'] = $this->context->getI18N()->__($module ,null,'credential');
-                    $result[$this->moduleCounter]['usermodule']['usergroup'] = '';
+                    $result[$this->moduleCounter]['user_module']['title'] = $module;
+                    $result[$this->moduleCounter]['user_module']['id'] = 'user_module_' . $module;
+                    $result[$this->moduleCounter]['user_module']['server_id'] = $module;
+                    $result[$this->moduleCounter]['user_module']['user_module'] = $module;
+                    $result[$this->moduleCounter]['user_module']['translation'] = $this->context->getI18N()->__($module ,null,'credential');
+                    $result[$this->moduleCounter]['user_module']['user_group'] = '';
                 }
 
                 $group = '';
                 $group = $this->checkGroup($result[$this->moduleCounter],$item->getUserGroup());
                 if($group != ''){
-                    $result[$this->moduleCounter]['usermodule']['usergroup'][$this->groupCounter]['title'] = $group;
-                    $result[$this->moduleCounter]['usermodule']['usergroup'][$this->groupCounter]['id'] = $result[$this->moduleCounter]['usermodule']['id'] . '_usergroup_' . $group;
-                    $result[$this->moduleCounter]['usermodule']['usergroup'][$this->groupCounter]['icon'] = $result[$this->moduleCounter]['usermodule']['id'] . '_usergroupIcon_' . $group;
-                    $result[$this->moduleCounter]['usermodule']['usergroup'][$this->groupCounter]['server_id'] = $group;
-                    $result[$this->moduleCounter]['usermodule']['usergroup'][$this->groupCounter]['usergroupe'] = $group;
-                    $result[$this->moduleCounter]['usermodule']['usergroup'][$this->groupCounter]['translation'] = $this->context->getI18N()->__($group ,null,'credential');
-                    $result[$this->moduleCounter]['usermodule']['usergroup'][$this->groupCounter]['userright'] = '';
+                    $result[$this->moduleCounter]['user_module']['user_group'][$this->groupCounter]['title'] = $group;
+                    $result[$this->moduleCounter]['user_module']['user_group'][$this->groupCounter]['id'] = $result[$this->moduleCounter]['user_module']['id'] . '_user_group_' . $group;
+                    $result[$this->moduleCounter]['user_module']['user_group'][$this->groupCounter]['icon'] = $result[$this->moduleCounter]['user_module']['id'] . '_user_groupIcon_' . $group;
+                    $result[$this->moduleCounter]['user_module']['user_group'][$this->groupCounter]['server_id'] = $group;
+                    $result[$this->moduleCounter]['user_module']['user_group'][$this->groupCounter]['user_group'] = $group;
+                    $result[$this->moduleCounter]['user_module']['user_group'][$this->groupCounter]['translation'] = $this->context->getI18N()->__($group ,null,'credential');
+                    $result[$this->moduleCounter]['user_module']['user_group'][$this->groupCounter]['user_right'] = '';
                 }
 
                
                 $right = $item->getUserRight();
                 $id = $item->getId();
-                $result[$this->moduleCounter]['usermodule']['usergroup'][$this->groupCounter]['userright'][$this->rightCounter]['title'] = $right;
-                $result[$this->moduleCounter]['usermodule']['usergroup'][$this->groupCounter]['userright'][$this->rightCounter]['id'] =  $result[$this->moduleCounter]['usermodule']['usergroup'][$this->groupCounter]['id'] . '_userright_' . $right;
-                $result[$this->moduleCounter]['usermodule']['usergroup'][$this->groupCounter]['userright'][$this->rightCounter]['server_id'] = $right;
-                $result[$this->moduleCounter]['usermodule']['usergroup'][$this->groupCounter]['userright'][$this->rightCounter]['userright'] = $right;
-                $result[$this->moduleCounter]['usermodule']['usergroup'][$this->groupCounter]['userright'][$this->rightCounter]['name'] = $result[$this->moduleCounter]['usermodule']['usergroup'][$this->groupCounter]['id'];
-                $result[$this->moduleCounter]['usermodule']['usergroup'][$this->groupCounter]['userright'][$this->rightCounter]['parent'] = $this->checkParent($right);
-                $result[$this->moduleCounter]['usermodule']['usergroup'][$this->groupCounter]['userright'][$this->rightCounter]['translation'] = $this->context->getI18N()->__($right ,null,'credential');
+                $result[$this->moduleCounter]['user_module']['user_group'][$this->groupCounter]['user_right'][$this->rightCounter]['title'] = $right;
+                $result[$this->moduleCounter]['user_module']['user_group'][$this->groupCounter]['user_right'][$this->rightCounter]['id'] =  $result[$this->moduleCounter]['user_module']['user_group'][$this->groupCounter]['id'] . '_user_right_' . $right;
+                $result[$this->moduleCounter]['user_module']['user_group'][$this->groupCounter]['user_right'][$this->rightCounter]['server_id'] = $right;
+                $result[$this->moduleCounter]['user_module']['user_group'][$this->groupCounter]['user_right'][$this->rightCounter]['user_right'] = $right;
+                $result[$this->moduleCounter]['user_module']['user_group'][$this->groupCounter]['user_right'][$this->rightCounter]['name'] = $result[$this->moduleCounter]['user_module']['user_group'][$this->groupCounter]['id'];
+                $result[$this->moduleCounter]['user_module']['user_group'][$this->groupCounter]['user_right'][$this->rightCounter]['parent'] = $this->checkParent($right);
+                $result[$this->moduleCounter]['user_module']['user_group'][$this->groupCounter]['user_right'][$this->rightCounter]['translation'] = $this->context->getI18N()->__($right ,null,'credential');
                 if ($credentials == NULL) {
-                    $result[$this->moduleCounter]['usermodule']['usergroup'][$this->groupCounter]['userright'][$this->rightCounter]['checked'] = 0;
+                    $result[$this->moduleCounter]['user_module']['user_group'][$this->groupCounter]['user_right'][$this->rightCounter]['checked'] = 0;
                 }
                 else {
-                    $result[$this->moduleCounter]['usermodule']['usergroup'][$this->groupCounter]['userright'][$this->rightCounter]['checked'] = $this->checkChecked($id, $credentials);
+                    $result[$this->moduleCounter]['user_module']['user_group'][$this->groupCounter]['user_right'][$this->rightCounter]['checked'] = $this->checkChecked($id, $credentials);
                 }
                 
-                $result[$this->moduleCounter]['usermodule']['usergroup'][$this->groupCounter]['userright'][$this->rightCounter++]['database_id'] = $id;
+                $result[$this->moduleCounter]['user_module']['user_group'][$this->groupCounter]['user_right'][$this->rightCounter++]['database_id'] = $id;
                 
 
             }

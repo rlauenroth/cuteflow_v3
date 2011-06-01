@@ -50,11 +50,11 @@ class UserSettingTable extends Doctrine_Table {
     public function updateUserSetting($data, $user_id) {
         Doctrine_Query::create()
            ->update('UserSetting us')
-           ->set('us.markyellow','?',$data['userFourthTab_markyellow'])
-           ->set('us.markred','?',$data['userFourthTab_markred'])
-           ->set('us.markorange','?',$data['userFourthTab_markorange'])
-           ->set('us.refreshtime','?',$data['userFourthTab_refreshtime'])
-           ->set('us.displayeditem','?',$data['userFourthTab_itemsperpage'])
+           ->set('us.mark_yellow','?',$data['userFourthTab_markyellow'])
+           ->set('us.mark_red','?',$data['userFourthTab_markred'])
+           ->set('us.mark_orange','?',$data['userFourthTab_markorange'])
+           ->set('us.refresh_time','?',$data['userFourthTab_refreshtime'])
+           ->set('us.displayed_item','?',$data['userFourthTab_itemsperpage'])
            ->set('us.circulationdefaultsortcolumn','?',$data['userFourthTab_circulationdefaultsortcolumn'])
            ->set('us.circulationdefaultsortdirection','?',$data['userFourthTab_circulationdefaultsortdirection'])
             ->set('us.theme','?',$data['userFourthTab_theme'])
@@ -72,8 +72,8 @@ class UserSettingTable extends Doctrine_Table {
     public function updateUserSettingDurationtypeAndDurationlength($data, $user_id) {
         Doctrine_Query::create()
            ->update('UserSetting us')
-           ->set('us.durationtype','?',$data['userSecondTab_durationlength_type'])
-           ->set('us.durationlength','?',$data['userSecondTab_durationlength'])
+           ->set('us.duration_type','?',$data['userSecondTab_durationlength_type'])
+           ->set('us.duration_length','?',$data['userSecondTab_durationlength'])
            ->where('us.user_id = ?', $user_id)
            ->execute();
         return true;
@@ -87,7 +87,7 @@ class UserSettingTable extends Doctrine_Table {
     public function setFirstLogin($user_id) {
         Doctrine_Query::create()
            ->update('UserSetting us')
-           ->set('us.firstlogin','?',0)
+           ->set('us.first_login','?',0)
            ->where('us.user_id = ?', $user_id)
            ->execute();
         return true;

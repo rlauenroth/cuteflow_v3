@@ -47,16 +47,16 @@ EOF;
         $serverUrl = $options['setenvironment'] == '' ? $serverUrl = $options['host'] : $serverUrl = $options['host'] . '/' . $options['setenvironment'];
 
         $system = SystemConfigurationTable::instance()->getSystemConfiguration()->toArray();
-        if($system[0]['individualcronjob'] == 1) {
+        if($system[0]['individual_cronjob'] == 1) {
             $systemConifg = new CheckSubstituteRun($context);
-            if($systemConifg->checkRun($system[0]['cronjobdays'],$system[0]['cronjobfrom'],$system[0]['cronjobto']) == true) {
+            if($systemConifg->checkRun($system[0]['cronjob_days'],$system[0]['cronjob_from'],$system[0]['cronjob_to']) == true) {
                 $process = WorkflowProcessUserTable::instance()->getWaitingProcess(); // load all waiting processes
-                $sub = new CheckSubstitute($process, $context, $serverUrl, $system[0]['setuseragenttype']);
+                $sub = new CheckSubstitute($process, $context, $serverUrl, $system[0]['set_user_agent_type']);
             }
         }
         else {
             $process = WorkflowProcessUserTable::instance()->getWaitingProcess(); // load all waiting processes
-            $sub = new CheckSubstitute($process, $context, $serverUrl, $system[0]['setuseragenttype']);
+            $sub = new CheckSubstitute($process, $context, $serverUrl, $system[0]['set_user_agent_type']);
         }
     }
 }

@@ -14,12 +14,12 @@ cf.todoPanelGrid = function(){return {
 		this.initCM();
 		this.initTopToolBar();
 		this.initGrid();
-		setTimeout('cf.todoPanelGrid.storeReload()',<?php $arr = $sf_user->getAttribute('userSettings'); echo $arr['refreshtime']*1000?>);
+		setTimeout('cf.todoPanelGrid.storeReload()',<?php $arr = $sf_user->getAttribute('userSettings'); echo $arr['refresh_time']*1000?>);
 	},
 	
 	initBottomToolbar: function () {
 		this.theBottomToolBar =  new Ext.PagingToolbar({
-			pageSize: <?php $arr = $sf_user->getAttribute('userSettings'); echo $arr['displayeditem'];?>,
+			pageSize: <?php $arr = $sf_user->getAttribute('userSettings'); echo $arr['displayed_item'];?>,
 			store: this.theTodoStore,
 			displayInfo: true,
 			style: 'margin-bottom:10px;',
@@ -30,7 +30,7 @@ cf.todoPanelGrid = function(){return {
 	},
 	
 	storeReload: function () {
-		setTimeout('cf.todoPanelGrid.storeReload()',<?php $arr = $sf_user->getAttribute('userSettings'); echo $arr['refreshtime']*1000?>);
+		setTimeout('cf.todoPanelGrid.storeReload()',<?php $arr = $sf_user->getAttribute('userSettings'); echo $arr['refresh_time']*1000?>);
 		try {
 			cf.todoPanelGrid.theTodoStore.reload();
 		}
@@ -52,8 +52,6 @@ cf.todoPanelGrid = function(){return {
 			{header: "<?php echo $arr[4]['text'];?>", width: <?php echo $arr[4]['width']; ?>, sortable: true, dataIndex: '<?php echo $arr[4]['store']; ?>', css : "text-align : left;font-size:12px;align:center;", hidden: <?php echo $arr[4]['hidden']; ?>},
 			{header: "<?php echo $arr[5]['text'];?>", width: <?php echo $arr[5]['width']; ?>, sortable: true, dataIndex: '<?php echo $arr[5]['store']; ?>', css : "text-align : left;font-size:12px;align:center;", hidden: <?php echo $arr[5]['hidden']; ?>},
 			{header: "<?php echo $arr[6]['text'];?>", width: <?php echo $arr[6]['width']; ?>, sortable: true, dataIndex: '<?php echo $arr[6]['store']; ?>', css : "text-align : left;font-size:12px;align:center;", hidden: <?php echo $arr[6]['hidden']; ?>},
-			{header: "<?php echo $arr[7]['text'];?>", width: <?php echo $arr[7]['width']; ?>, sortable: true, dataIndex: '<?php echo $arr[7]['store']; ?>', css : "text-align : left;font-size:12px;align:center;", hidden: <?php echo $arr[7]['hidden']; ?>},
-			{header: "<?php echo $arr[8]['text'];?>", width: <?php echo $arr[8]['width']; ?>, sortable: true, dataIndex: '<?php echo $arr[8]['store']; ?>', css : "text-align : left;font-size:12px;align:center;", hidden: <?php echo $arr[8]['hidden']; ?>},
 			{header: "<div ext:qtip=\"<table><tr><td><img src='/images/icons/delete.png' />&nbsp;&nbsp;</td><td><?php echo __('Delete Workflow',null,'workflowmanagement'); ?></td></tr><tr><td><img src='/images/icons/zoom.png' />&nbsp;&nbsp;</td><td><?php echo __('Show Details',null,'workflowmanagement'); ?></td></tr><tr><td><img src='/images/icons/pencil.png' />&nbsp;&nbsp;</td><td><?php echo __('Edit Workflow',null,'workflowmanagement'); ?></td></tr></table>\" ext:qwidth=\"230\"><?php echo __('Action',null,'documenttemplate'); ?></div>", width: 80, sortable: false, dataIndex: 'action', css : "text-align : left;font-size:12px;align:center;", renderer: this.renderButton}
 		]);
 	},
@@ -109,7 +107,7 @@ cf.todoPanelGrid = function(){return {
             },{
 				xtype: 'combo', // number of records to display in grid
 				mode: 'local',
-				value: '<?php $arr = $sf_user->getAttribute('userSettings'); echo $arr['displayeditem'];?>',
+				value: '<?php $arr = $sf_user->getAttribute('userSettings'); echo $arr['displayed_item'];?>',
 				editable:false,
 				triggerAction: 'all',
 				foreSelection: true,

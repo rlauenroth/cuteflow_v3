@@ -1,77 +1,77 @@
-.usermodule_administration_usergroupIcon_usermanagement{
+.user_module_administration_user_groupIcon_usermanagement{
 	background-image: url(/images/icons/user.png) !important; 
 	width: 16px;
 	height:16px;
 }
 
-.usermodule_administration_usergroupIcon_userrolemanagement{
+.user_module_administration_user_groupIcon_userrolemanagement{
 	background-image: url(/images/icons/cog.png) !important; 
 	width: 16px;
 	height:16px;
 }
 
-.usermodule_administration_usergroupIcon_myprofile{
+.user_module_administration_user_groupIcon_myprofile{
 	background-image: url(/images/icons/user_edit.png) !important; 
 	width: 16px;
 	height:16px;
 }
 
-.usermodule_administration_usergroupIcon_sendmessage{
+.user_module_administration_user_groupIcon_sendmessage{
 	background-image: url(/images/icons/note.png) !important; 
 	width: 16px;
 	height:16px;
 }
 
-.usermodule_administration_usergroupIcon_menuesetting{
+.user_module_administration_user_groupIcon_menuesetting{
 	background-image: url(/images/icons/layout.png) !important; 
 	width: 16px;
 	height:16px;
 }
 
-.usermodule_administration_usergroupIcon_systemsetting{
+.user_module_administration_user_groupIcon_systemsetting{
 	background-image: url(/images/icons/computer.png) !important; 
 	width: 16px;
 	height:16px;
 }
 
-.usermodule_management_usergroupIcon_additionaltext{
+.usermodule_management_user_groupIcon_additionaltext{
 	background-image: url(/images/icons/script.png) !important; 
 	width: 16px;
 	height:16px;
 }
 
 
-.usermodule_management_usergroupIcon_field{
+.usermodule_management_user_groupIcon_field{
 	background-image: url(/images/icons/application_form.png) !important; 
 	width: 16px;
 	height:16px;
 }
 
-.usermodule_management_usergroupIcon_documenttemplate{
+.usermodule_management_user_groupIcon_documenttemplate{
 	background-image: url(/images/icons/table.png) !important; 
 	width: 16px;
 	height:16px;
 }
 
-.usermodule_workflow_usergroupIcon_workflowmanagement{
+.usermodule_workflow_user_groupIcon_workflowmanagement{
 	background-image: url(/images/icons/report.png) !important; 
 	width: 16px;
 	height:16px;
 }
 
-.usermodule_management_usergroupIcon_mailinglist{
+.usermodule_management_user_groupIcon_mailinglist{
 	background-image: url(/images/icons/group.png) !important; 
 	width: 16px;
 	height:16px;
 }
 
-.usermodule_workflow_usergroupIcon_todo{
+.usermodule_workflow_user_groupIcon_todo{
 	background-image: url(/images/icons/bell.png) !important; 
 	width: 16px;
 	height:16px;
 }
 
-.usermodule_workflow_usergroupIcon_archive{
+.usermodule_workflow_user_groupIcon_archive{
 	background-image: url(/images/icons/disk.png) !important; 
 	width: 16px;
 	height:16px;

@@ -82,7 +82,7 @@ class userrolemanagementActions extends sfActions {
             $roleName = RoleTable::instance()->getRoleById($request->getParameter('role_id'));
         }
 
-        $result = CredentialTable::instance()->getAllCredentials('c.usermodule asc,c.usergroup asc');
+        $result = CredentialTable::instance()->getAllCredentials('c.user_module asc,c.user_group asc');
         $credentialmanagement->setRecords($result);
         $credentialmanagement->setContext($this->getContext());
         $json_result = $credentialmanagement->buildTree($credentials);

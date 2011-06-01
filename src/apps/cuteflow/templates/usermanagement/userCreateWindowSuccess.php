@@ -70,12 +70,12 @@ cf.createUserWindow = function(){return {
 					
 					
 					// second Tab, load Grid here
-					Ext.getCmp('userSecondTab_durationlength').setValue(data.result.durationlength);
-					Ext.getCmp('userSecondTab_durationlength_type_id').setValue(data.result.durationtype);
+					Ext.getCmp('userSecondTab_durationlength').setValue(data.result.duration_length);
+					Ext.getCmp('userSecondTab_durationlength_type_id').setValue(data.result.duration_type);
 	
 					// fourth tab
-					Ext.getCmp('userFourthTab_itemsperpage_id').setValue(data.result.displayeditem);
-					Ext.getCmp('userFourthTab_refreshtime_id').setValue(data.result.refreshtime);
+					Ext.getCmp('userFourthTab_itemsperpage_id').setValue(data.result.displayed_item);
+					Ext.getCmp('userFourthTab_refreshtime_id').setValue(data.result.refresh_time);
 					Ext.getCmp('userFourthTab_circulationdefaultsortcolumn_id').setValue(data.result.circulationdefaultsortcolumn);
 					Ext.getCmp('userFourthTab_circulationdefaultsortdirection_id').setValue(data.result.circulationdefaultsortdirection);
 					

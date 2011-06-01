@@ -72,7 +72,7 @@ class documenttemplateActions extends sfActions {
         $docObj = new Documenttemplate();
         $limit = $this->getUser()->getAttribute('userSettings');
         $anz = DocumenttemplateTemplateTable::instance()->getTotalSumOfDocumentTemplates();
-        $data = DocumenttemplateTemplateTable::instance()->getAllDocumentTemplates($request->getParameter('limit',$limit['displayeditem']),$request->getParameter('start',0))->toArray();
+        $data = DocumenttemplateTemplateTable::instance()->getAllDocumentTemplates($request->getParameter('limit',$limit['displayed_item']),$request->getParameter('start',0))->toArray();
         $json_result = $docObj->buildAllDocumenttemplates($data);
         $this->renderText('({"total":"'.$anz[0]->getAnzahl().'","result":'.json_encode($json_result).'})');
         return sfView::NONE;
@@ -88,7 +88,7 @@ class documenttemplateActions extends sfActions {
         $docObj = new Documenttemplate();
         $limit = $this->getUser()->getAttribute('userSettings');
         $anz = DocumenttemplateTemplateTable::instance()->getTotalSumOfDocumentTemplatesByFilter($request->getParameter('name'));
-        $data = DocumenttemplateTemplateTable::instance()->getAllDocumentTemplatesByFilter($request->getParameter('limit',$limit['displayeditem']),$request->getParameter('start',0),$request->getParameter('name'))->toArray();
+        $data = DocumenttemplateTemplateTable::instance()->getAllDocumentTemplatesByFilter($request->getParameter('limit',$limit['displayed_item']),$request->getParameter('start',0),$request->getParameter('name'))->toArray();
         $json_result = $docObj->buildAllDocumenttemplates($data);
         $this->renderText('({"total":"'.$anz[0]->getAnzahl().'","result":'.json_encode($json_result).'})');
         return sfView::NONE;

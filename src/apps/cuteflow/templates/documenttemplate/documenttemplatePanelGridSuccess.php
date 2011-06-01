@@ -100,7 +100,7 @@ cf.documenttemplatePanelGrid = function(){return {
 			{
 				xtype: 'combo', // number of records to display in grid
 				mode: 'local',
-				value: '<?php $arr = $sf_user->getAttribute('userSettings'); echo $arr['displayeditem'];?>',
+				value: '<?php $arr = $sf_user->getAttribute('userSettings'); echo $arr['displayed_item'];?>',
 				editable:false,
 				triggerAction: 'all',
 				foreSelection: true,
@@ -128,7 +128,7 @@ cf.documenttemplatePanelGrid = function(){return {
 	/** init paging toolbar **/
 	initBottomToolbar: function () {
 		this.theBottomToolBar =  new Ext.PagingToolbar({
-			pageSize: <?php $arr = $sf_user->getAttribute('userSettings'); echo $arr['displayeditem'];?>,
+			pageSize: <?php $arr = $sf_user->getAttribute('userSettings'); echo $arr['displayed_item'];?>,
 			store: this.theDocumenttemplateStore,
 			displayInfo: true,
 			style: 'margin-bottom:10px;',

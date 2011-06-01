@@ -32,11 +32,11 @@ class SystemConfigurationTable extends Doctrine_Table {
         Doctrine_Query::create()
             ->update('SystemConfiguration sc')
             ->set('sc.language','?',$data['systemsetting_language'])
-            ->set('sc.showpositioninmail','?',$data['systemsetting_showposition'])
-            ->set('sc.sendreceivermail','?',$data['systemsetting_sendreceivermail'])
-            ->set('sc.sendremindermail','?',$data['systemsetting_sendremindermail'])
-            ->set('sc.visibleslots','?',$data['systemsetting_slotvisible'])
-            ->set('sc.colorofnorthregion','?',$data['systemsetting_color'])
+            ->set('sc.show_position_in_mail','?',$data['systemsetting_showposition'])
+            ->set('sc.send_receiver_mail','?',$data['systemsetting_sendreceivermail'])
+            ->set('sc.send_reminder_mail','?',$data['systemsetting_sendremindermail'])
+            ->set('sc.visible_slots','?',$data['systemsetting_slotvisible'])
+            ->set('sc.color_of_north_region','?',$data['systemsetting_color'])
             ->where ('sc.id = ?',1)
             ->execute();
         return true;
@@ -46,12 +46,12 @@ class SystemConfigurationTable extends Doctrine_Table {
     public function updateUserAgent(array $data) {
         $query = Doctrine_Query::create()
             ->update('SystemConfiguration sc')
-            ->set('sc.individualcronjob','?',$data['useragent_useragentsettings'])
-            ->set('sc.setuseragenttype','?',$data['useragent_useragentcreation']);
+            ->set('sc.individual_cronjob','?',$data['useragent_useragentsettings'])
+            ->set('sc.set_user_agent_type','?',$data['useragent_useragentcreation']);
         if($data['writeDays'] == 1) {
-            $query->set('sc.cronjobdays','?',$data['counter'])
-                  ->set('sc.cronjobfrom','?',$data['useragent_useragentsettings_from'])
-                  ->set('sc.cronjobto','?',$data['useragent_useragentsettings_to']);
+            $query->set('sc.cronjob_days','?',$data['counter'])
+                  ->set('sc.cronjob_from','?',$data['useragent_useragentsettings_from'])
+                  ->set('sc.cronjob_to','?',$data['useragent_useragentsettings_to']);
         }
             $query->where ('sc.id = ?',1)
                   ->execute();

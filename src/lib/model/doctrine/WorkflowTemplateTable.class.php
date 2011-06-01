@@ -18,8 +18,8 @@ class WorkflowTemplateTable extends Doctrine_Table {
             ->select('DISTINCT wft.sender_id as id')
             ->from('WorkflowTemplate wft')
             ->where('wft.deleted_at IS NULL')
-            ->andWhere('wft.isarchived = ?', 0)
-            ->andWhere('wft.isstopped = ?', 0)
+            ->andWhere('wft.is_archived = ?', 0)
+            ->andWhere('wft.is_stopped = ?', 0)
             ->execute();
     }
 
@@ -27,8 +27,8 @@ class WorkflowTemplateTable extends Doctrine_Table {
     public function archiveWorkflow($id) {
         Doctrine_Query::create()
             ->update('WorkflowTemplate wft')
-            ->set('wft.isarchived','?', 1)
-            ->set('wft.isstopped','?',1)
+            ->set('wft.is_archived','?', 1)
+            ->set('wft.is_stopped','?',1)
             ->set('wft.stopped_at','?', time())
             ->set('wft.archived_at','?', time())
             ->where('wft.id = ?', $id)
@@ -40,7 +40,7 @@ class WorkflowTemplateTable extends Doctrine_Table {
     public function removeFromArchive($id) {
         Doctrine_Query::create()
             ->update('WorkflowTemplate wft')
-            ->set('wft.isarchived','?', 0)
+            ->set('wft.is_archived','?', 0)
             ->set('wft.archived_at', 'null')
             ->set('wft.archived_by', 'null')
             ->where('wft.id = ?', $id)
@@ -52,15 +52,15 @@ class WorkflowTemplateTable extends Doctrine_Table {
     public function getAllWorkflowTemplates($limit, $offset) {
         $query =  Doctrine_Query::create()
             ->from('WorkflowTemplate wft')
-            ->select('wft.*, wfv.id as activeversion_id,wfv.workflowisstarted as workflowisstarted,wfv.startworkflow_at as startworkflow_at, wfv.created_at as versioncreated_at, wft.iscompleted')
+            ->select('wft.*, wfv.id as active_version_id,wfv.workflow_is_started as workflow_is_started,wfv.start_workflow_at as start_workflow_at, wfv.created_at as version_created_at, wft.iscompleted')
             ->leftJoin('wft.WorkflowVersion wfv');
         if($offset != -1 AND $limit != -1) {
             $query->limit($limit)
                   ->offset($offset);
         }
         return $query->where('wft.deleted_at IS NULL')
-                     ->andWhere('wft.isarchived = ?', 0)
-                     ->andWhere('wfv.activeversion = ?', 1)
+                     ->andWhere('wft.is_archived = ?', 0)
+                     ->andWhere('wfv.active_version = ?', 1)
                      ->orderBy('wft.id DESC')
                      ->execute();
     }
@@ -69,7 +69,6 @@ class WorkflowTemplateTable extends Doctrine_Table {
     public function getWorkflowTemplateById($id) {
         return Doctrine_Query::create()
             ->from('WorkflowTemplate wft')
-            ->select('wft.*,')
             ->where('wft.id = ?' ,$id)
             ->execute();
     }
@@ -87,7 +86,6 @@ class WorkflowTemplateTable extends Doctrine_Table {
     public function getWorkflowTemplateByVersionId($id) {
         return Doctrine_Query::create()
             ->from('WorkflowTemplate wft')
-            ->select('wft.*,')
             ->leftJoin('wft.WorkflowVersion wv')
             ->where('wv.id = ?' ,$id)
             ->execute();
@@ -113,7 +111,7 @@ class WorkflowTemplateTable extends Doctrine_Table {
     public function stopWorkflow($id, $user_id) {
         Doctrine_Query::create()
             ->update('WorkflowTemplate wft')
-            ->set('wft.isstopped','?',1)
+            ->set('wft.is_stopped','?',1)
             ->set('wft.stopped_at','?', time())
             ->set('wft.stopped_by','?', $user_id)
             ->where('wft.id = ?', $id)
@@ -131,7 +129,7 @@ class WorkflowTemplateTable extends Doctrine_Table {
         $stamp = $date . ' ' . $time;
         Doctrine_Query::create()
             ->update('WorkflowTemplate wft')
-            ->set('wft.isstopped','?',1)
+            ->set('wft.is_stopped','?',1)
             ->set('wft.stopped_at','?', time())
             ->set('wft.stopped_by','?', $user_id)
             ->set('wft.deleted_at','?', $stamp)
@@ -144,10 +142,10 @@ class WorkflowTemplateTable extends Doctrine_Table {
     public function archiveAndStopWorkflow($id, $user_id) {
          Doctrine_Query::create()
             ->update('WorkflowTemplate wft')
-            ->set('wft.isstopped','?',1)
+            ->set('wft.is_stopped','?',1)
             ->set('wft.stopped_at','?', time())
             ->set('wft.stopped_by','?', $user_id)
-            ->set('wft.isarchived','?', 1)
+            ->set('wft.is_archived','?', 1)
             ->set('wft.archived_at','?', time())
             ->set('wft.archived_by','?', $user_id)
             ->where('wft.id = ?', $id)
@@ -158,7 +156,7 @@ class WorkflowTemplateTable extends Doctrine_Table {
     public function setWorkflowFinished($id) {
         Doctrine_Query::create()
             ->update('WorkflowTemplate wft')
-            ->set('wft.iscompleted','?',1)
+            ->set('wft.isc_ompleted','?',1)
             ->set('wft.completed_at','?', time())
             ->where('wft.id = ?', $id)
             ->execute();
@@ -177,12 +175,12 @@ class WorkflowTemplateTable extends Doctrine_Table {
             ->leftJoin('wfs.WorkflowProcess wfp')
             ->leftJoin('wfp.WorkflowProcessUser wfpu')
             ->where('wft.deleted_at IS NULL')
-            ->andWhere('wft.isarchived = ?', 0)
-            ->andWhere('wft.isstopped = ?', 0)
-            ->andWhere('wfv.activeversion = ?', 1)
-            ->andWhere('wfv.workflowisstarted = ?', 1)
+            ->andWhere('wft.is_archived = ?', 0)
+            ->andWhere('wft.is_stopped = ?', 0)
+            ->andWhere('wfv.active_version = ?', 1)
+            ->andWhere('wfv.workflow_is_started = ?', 1)
             ->andWhere('wfpu.user_id = ?', $user_id)
-            ->andWhere('wfpu.decissionstate = ?', 'WAITING')
+            ->andWhere('wfpu.decission_state = ?', 'WAITING')
             ->orderBy('wft.id DESC')
             ->execute();
     }
@@ -190,7 +188,7 @@ class WorkflowTemplateTable extends Doctrine_Table {
     public function getAllToDoWorkflowTemplates($limit, $offset, $user_id) {
         $query = Doctrine_Query::create()
             ->from('WorkflowTemplate wft')
-            ->select('wft.*, wfv.id as activeversion_id,wfv.workflowisstarted as workflowisstarted,wfv.startworkflow_at as startworkflow_at, wfv.created_at as versioncreated_at, wft.iscompleted')
+            ->select('wft.*, wfv.id as active_version_id,wfv.workflow_is_started as workflow_is_started,wfv.start_workflow_at as start_workflow_at, wfv.created_at as versioncreated_at, wft.iscompleted')
             ->leftJoin('wft.WorkflowVersion wfv')
             ->leftJoin('wfv.WorkflowSlot wfs')
             ->leftJoin('wfs.WorkflowProcess wfp')
@@ -200,12 +198,12 @@ class WorkflowTemplateTable extends Doctrine_Table {
                   ->offset($offset);
         }
         return $query->where('wft.deleted_at IS NULL')
-            ->andWhere('wft.isarchived = ?', 0)
-            ->andWhere('wft.isstopped = ?', 0)
-            ->andWhere('wfv.activeversion = ?', 1)
-            ->andWhere('wfv.workflowisstarted = ?', 1)
+            ->andWhere('wft.is_archived = ?', 0)
+            ->andWhere('wft.is_stopped = ?', 0)
+            ->andWhere('wfv.active_version = ?', 1)
+            ->andWhere('wfv.workflow_is_started = ?', 1)
             ->andWhere('wfpu.user_id = ?', $user_id)
-            ->andWhere('wfpu.decissionstate = ?', 'WAITING')
+            ->andWhere('wfpu.decission_state = ?', 'WAITING')
             ->orderBy('wft.id DESC')
             ->execute();
     }
@@ -215,7 +213,7 @@ class WorkflowTemplateTable extends Doctrine_Table {
     public function getArchivedWorkflowTemplates($limit, $offset) {
         $query =  Doctrine_Query::create()
             ->from('WorkflowTemplate wft')
-            ->select('wft.*, wfv.id as activeversion_id,wfv.workflowisstarted as workflowisstarted,wfv.startworkflow_at as startworkflow_at, wfv.created_at as versioncreated_at, wft.iscompleted')
+            ->select('wft.*, wfv.id as active_version_id,wfv.workflow_is_started as workflow_is_started,wfv.startworkflow_at as startworkflow_at, wfv.created_at as versioncreated_at, wft.iscompleted')
             ->leftJoin('wft.WorkflowVersion wfv')
             ->leftJoin('wfv.WorkflowSlot wfs')
             ->leftJoin('wfs.WorkflowProcess wfp')
@@ -225,10 +223,10 @@ class WorkflowTemplateTable extends Doctrine_Table {
                   ->offset($offset);
         }
         $query->where('wft.deleted_at IS NULL')
-            ->andWhere('wft.isarchived = ?', 1)
-            ->andWhere('wft.isstopped = ?', 1)
-            ->andWhere('wfv.activeversion = ?', 1)
-            ->andWhere('wfv.workflowisstarted = ?', 1)
+            ->andWhere('wft.is_archived = ?', 1)
+            ->andWhere('wft.is_stopped = ?', 1)
+            ->andWhere('wfv.active_version = ?', 1)
+            ->andWhere('wfv.workflow_is_started = ?', 1)
             ->orderBy('wft.id DESC');
             return $query->execute();
     }
@@ -237,7 +235,7 @@ class WorkflowTemplateTable extends Doctrine_Table {
         Doctrine_Query::create()
             ->update('WorkflowTemplate wft')
             ->set('wft.stopped_at','?','')
-            ->set('wft.isstopped','?', 0)
+            ->set('wft.is_stopped','?', 0)
             ->where('wft.id = ?', $id)
             ->execute();
         
@@ -248,11 +246,11 @@ class WorkflowTemplateTable extends Doctrine_Table {
             ->from('WorkflowTemplate wft')
             ->select('wft.*, wfv.id')
             ->leftJoin('wft.WorkflowVersion wfv')
-            ->where('wft.isstopped = ?', 0)
+            ->where('wft.is_stopped = ?', 0)
             ->andWhere('wft.iscompleted = ?', 0)
-            ->andWhere('wft.isarchived = ?', 0)
+            ->andWhere('wft.is_archived = ?', 0)
             ->andWhere('wft.deleted_at IS NULL')
-            ->andWhere('wfv.activeversion = ?', 1)
+            ->andWhere('wfv.active_version = ?', 1)
             ->andWhere('wfv.workflowisstarted = ?', 1)
             ->execute();
     }
@@ -263,7 +261,7 @@ class WorkflowTemplateTable extends Doctrine_Table {
     public function getAllToDoWorkflowTemplatesByFilter($limit, $offset, $user_id, array $filter) {
         $query = Doctrine_Query::create()
             ->from('WorkflowTemplate wft')
-            ->select('wft.*, wfv.id as activeversion_id,wfv.workflowisstarted as workflowisstarted,wfv.startworkflow_at as startworkflow_at, wfv.created_at as versioncreated_at, wft.iscompleted')
+            ->select('wft.*, wfv.id as active_version_id,wfv.workflow_is_started as workflow_is_started,wfv.startworkflow_at as startworkflow_at, wfv.created_at as versioncreated_at, wft.iscompleted')
             ->leftJoin('wft.WorkflowVersion wfv')
             ->leftJoin('wfv.WorkflowSlot wfs')
             ->leftJoin('wfs.WorkflowProcess wfp')
@@ -273,12 +271,12 @@ class WorkflowTemplateTable extends Doctrine_Table {
                   ->offset($offset);
         }
         $query->where('wft.deleted_at IS NULL')
-            ->andWhere('wft.isarchived = ?', 0)
-            ->andWhere('wft.isstopped = ?', 0)
-            ->andWhere('wfv.activeversion = ?', 1)
+            ->andWhere('wft.is_archived = ?', 0)
+            ->andWhere('wft.is_stopped = ?', 0)
+            ->andWhere('wfv.active_version = ?', 1)
             ->andWhere('wfv.workflowisstarted = ?', 1)
             ->andWhere('wfpu.user_id = ?', $user_id)
-            ->andWhere('wfpu.decissionstate = ?', 'WAITING');
+            ->andWhere('wfpu.decission_state = ?', 'WAITING');
 
         if($filter['name'] != -1 AND $filter['name'] != '') {
             $query->andWhere('wft.name LIKE ?','%' . $filter['name'] . '%');
@@ -413,7 +411,7 @@ class WorkflowTemplateTable extends Doctrine_Table {
     public function getAllArchivedWorkflowTemplatesByFilter($limit, $offset, array $filter) {
         $query =  Doctrine_Query::create()
             ->from('WorkflowTemplate wft')
-            ->select('wft.*, wfv.id as activeversion_id,wfv.workflowisstarted as workflowisstarted,wfv.startworkflow_at as startworkflow_at, wfv.created_at as versioncreated_at, wft.iscompleted')
+            ->select('wft.*, wfv.id as active_version_id,wfv.workflowisstarted as workflowisstarted,wfv.startworkflow_at as startworkflow_at, wfv.created_at as versioncreated_at, wft.iscompleted')
             ->leftJoin('wft.WorkflowVersion wfv')
             ->leftJoin('wfv.WorkflowSlot wfs')
             ->leftJoin('wfs.WorkflowProcess wfp')
@@ -423,9 +421,9 @@ class WorkflowTemplateTable extends Doctrine_Table {
                   ->offset($offset);
         }
         $query->where('wft.deleted_at IS NULL')
-            ->andWhere('wft.isarchived = ?', 1)
-            ->andWhere('wft.isstopped = ?', 1)
-            ->andWhere('wfv.activeversion = ?', 1)
+            ->andWhere('wft.is_archived = ?', 1)
+            ->andWhere('wft.is_stopped = ?', 1)
+            ->andWhere('wfv.active_version = ?', 1)
             ->andWhere('wfv.workflowisstarted = ?', 1);
        if($filter['name'] != -1 AND $filter['name'] != '') {
             $query->andWhere('wft.name LIKE ?','%' . $filter['name'] . '%');
@@ -561,7 +559,7 @@ class WorkflowTemplateTable extends Doctrine_Table {
     public function getAllWorkflowTemplatesByFilter($limit, $offset, array $filter){
         $query =  Doctrine_Query::create()
             ->from('WorkflowTemplate wft')
-            ->select('wft.*, wfv.id as activeversion_id,wfv.workflowisstarted as workflowisstarted,wfv.startworkflow_at as startworkflow_at, wfv.created_at as versioncreated_at, wft.iscompleted')
+            ->select('wft.*, wfv.id as active_version_id,wfv.workflowisstarted as workflowisstarted,wfv.startworkflow_at as startworkflow_at, wfv.created_at as versioncreated_at, wft.iscompleted')
             ->leftJoin('wft.WorkflowVersion wfv')
             ->leftJoin('wfv.WorkflowProcess wfp')
             ->leftJoin('wfp.WorkflowProcessUser wfpu');
@@ -570,8 +568,8 @@ class WorkflowTemplateTable extends Doctrine_Table {
                   ->offset($offset);
         }
         $query->where('wft.deleted_at IS NULL')
-              ->andWhere('wft.isarchived = ?', 0)
-               ->andWhere('wfv.activeversion = ?', 1);
+              ->andWhere('wft.is_archived = ?', 0)
+               ->andWhere('wfv.active_version = ?', 1);
 
         if($filter['name'] != -1 AND $filter['name'] != '') {
             $query->andWhere('wft.name LIKE ?','%' . $filter['name'] . '%');

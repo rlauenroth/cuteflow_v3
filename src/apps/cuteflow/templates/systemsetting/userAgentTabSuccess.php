@@ -16,14 +16,14 @@ cf.userAgentSetting = function(){return {
 	
 	
 	addData: function (data) {
-		Ext.getCmp('useragent_useragentsettings').setValue(data.individualcronjob);
-		if(data.individualcronjob == 1){
+		Ext.getCmp('useragent_useragentsettings').setValue(data.individual_cronjob);
+		if(data.individual_cronjob == 1){
 			cf.userAgentSetting.theConfigFieldset.setVisible(true);
 		}
 		else {
 			cf.userAgentSetting.theConfigFieldset.setVisible(false);
 		}
-		Ext.getCmp('useragent_useragentcreation').setValue(data.setuseragenttype);
+		Ext.getCmp('useragent_useragentcreation').setValue(data.set_user_agent_type);
 		for(var a=0;a<data.datestore.length;a++) {
 			var item = data.datestore[a];
 			var Rec = Ext.data.Record.create(
@@ -40,19 +40,19 @@ cf.userAgentSetting = function(){return {
 			}));
 		}
 
-		Ext.getCmp('useragent_useragentsettings_to_id').setValue(data.cronjobto);
-		Ext.getCmp('useragent_useragentsettings_from_id').setValue(data.cronjobfrom);
+		Ext.getCmp('useragent_useragentsettings_to_id').setValue(data.cronjob_to);
+		Ext.getCmp('useragent_useragentsettings_from_id').setValue(data.cronjob_from);
 		
 		
-		Ext.getCmp('useragent_useragentsettings_monday').setValue(data.cronjobdays.mon);
-		Ext.getCmp('useragent_useragentsettings_tuesday').setValue(data.cronjobdays.tue);
-		Ext.getCmp('useragent_useragentsettings_wednesday').setValue(data.cronjobdays.wed);
+		Ext.getCmp('useragent_useragentsettings_monday').setValue(data.cronjob_days.mon);
+		Ext.getCmp('useragent_useragentsettings_tuesday').setValue(data.cronjob_days.tue);
+		Ext.getCmp('useragent_useragentsettings_wednesday').setValue(data.cronjob_days.wed);
 		
-		Ext.getCmp('useragent_useragentsettings_thursday').setValue(data.cronjobdays.thu);
-		Ext.getCmp('useragent_useragentsettings_friday').setValue(data.cronjobdays.fri);
-		Ext.getCmp('useragent_useragentsettings_saturday').setValue(data.cronjobdays.sat);
+		Ext.getCmp('useragent_useragentsettings_thursday').setValue(data.cronjob_days.thu);
+		Ext.getCmp('useragent_useragentsettings_friday').setValue(data.cronjob_days.fri);
+		Ext.getCmp('useragent_useragentsettings_saturday').setValue(data.cronjob_days.sat);
 		
-		Ext.getCmp('useragent_useragentsettings_sunday').setValue(data.cronjobdays.son);
+		Ext.getCmp('useragent_useragentsettings_sunday').setValue(data.cronjob_days.son);
 	},
 	
 	

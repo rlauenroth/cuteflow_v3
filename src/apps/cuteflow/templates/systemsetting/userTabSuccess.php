@@ -359,14 +359,14 @@ cf.userTab = function(){return {
 	
 	addData: function (data) {
 		Ext.getCmp('userTab_defaultpassword').setValue(data.password);
-		Ext.getCmp('userTab_defaultdurationlength').setValue(data.durationlength);
-		Ext.getCmp('userTab_defaultdurationtype_id').setValue(data.durationtype);
-		Ext.getCmp('userTab_emailformat_id').setValue(data.emailformat);
-		Ext.getCmp('userTab_emailtype_id').setValue(data.emailtype);
+		Ext.getCmp('userTab_defaultdurationlength').setValue(data.duration_length);
+		Ext.getCmp('userTab_defaultdurationtype_id').setValue(data.duration_type);
+		Ext.getCmp('userTab_emailformat_id').setValue(data.email_format);
+		Ext.getCmp('userTab_emailtype_id').setValue(data.email_type);
 		Ext.getCmp('userTab_userrole_id').setValue(data.role_id);
 		
-		Ext.getCmp('userTab_itemsperpage_id').setValue(data.displayeditem);
-		Ext.getCmp('userTab_refreshtime_id').setValue(data.refreshtime);
+		Ext.getCmp('userTab_itemsperpage_id').setValue(data.displayed_item);
+		Ext.getCmp('userTab_refreshtime_id').setValue(data.refresh_time);
 		Ext.getCmp('userTab_circulationdefaultsortcolumn_id').setValue(data.circulationdefaultsortcolumn);
 		Ext.getCmp('userTab_circulationdefaultsortdirection_id').setValue(data.circulationdefaultsortdirection);
 		Ext.getCmp('userTab_markyellow').setValue(data.markyellow);
