@@ -8,7 +8,6 @@ class Menue extends MenueCredential {
     private $userright;
     
     public function __construct() {
-        sfLoader::loadHelpers('I18N');
         $this->moduleCounter = 0;
         $this->groupCounter = 0;
         $this->firstRun = true;

@@ -7,12 +7,12 @@ cf.workflowedit = function(){return {
 	theHiddenfield				:false,
 	
 	
-	init: function (workflowtemplate_id, version_id) {
+	init: function (workflow_template_id, version_id) {
 		cf.workflowedit.theLoadingMask = new Ext.LoadMask(Ext.getBody(), {msg:'<?php echo __('Loading Data...',null,'workflowmanagement'); ?>'});					
 		cf.workflowedit.theLoadingMask.show();
 		
 		Ext.Ajax.request({  
-			url : '<?php echo build_dynamic_javascript_url('workflowedit/LoadWorkflowData')?>/versionid/' + version_id + '/workflowtemplateid/' + workflowtemplate_id,
+			url : '<?php echo build_dynamic_javascript_url('workflowedit/LoadWorkflowData')?>/versionid/' + version_id + '/workflowtemplateid/' + workflow_template_id,
 			success: function(objServerResponse){
 				cf.workflowedit.initPanel();
 				var ServerResult = Ext.util.JSON.decode(objServerResponse.responseText);
@@ -21,10 +21,10 @@ cf.workflowedit = function(){return {
 				var attachments = ServerResult.workflowAttachment;
 				var userData = ServerResult.userData;
 				var showNames = ServerResult.showName;
-				cf.workflowedit.initWindow(workflowtemplate_id, version_id);
+				cf.workflowedit.initWindow(workflow_template_id, version_id);
 				cf.workflowedit.initLeftNavi();
 				
-				cf.workfloweditGeneral.init(generalData, workflowtemplate_id);
+				cf.workfloweditGeneral.init(generalData, workflow_template_id);
 				cf.workfloweditSlot.init(slotData);
 				cf.workfloweditAcceptWorkflow.init();
 				cf.workfloweditAttachments.init(attachments);
@@ -77,7 +77,7 @@ cf.workflowedit = function(){return {
 		
 	},
 	
-	initWindow: function (workflowtemplate_id, version_id) {
+	initWindow: function (workflow_template_id, version_id) {
 		this.thePopUpWindow = new Ext.Window({
 			modal: true,
 			closable: true,
@@ -96,7 +96,7 @@ cf.workflowedit = function(){return {
 				text:'<?php echo __('Store',null,'documenttemplate'); ?>', 
 				icon: '/images/icons/accept.png',
 				handler: function () {
-					cf.workfloweditCRUD.createSavePanel(workflowtemplate_id, version_id);
+					cf.workfloweditCRUD.createSavePanel(workflow_template_id, version_id);
 				}
 			},{
 				text:'<?php echo __('Close',null,'documenttemplate'); ?>', 

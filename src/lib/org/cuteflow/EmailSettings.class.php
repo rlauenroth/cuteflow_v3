@@ -15,27 +15,25 @@ class EmailSettings {
     public $transport;
 
     public function __construct() {
-        sfLoader::loadHelpers('I18N');
-        sfLoader::loadHelpers('Partial');
-        sfLoader::loadHelpers('Url');
+
     }
 
 
     public function setMailer() {
-        switch($this->emailConfig['activetype']) {
+        switch($this->emailConfig['active_type']) {
             case 'SMTP':
                 $this->transport = Swift_SmtpTransport::newInstance()
-                                   ->setHost($this->emailConfig['smtphost'])
-                                   ->setPort($this->emailConfig['smtpport'])
+                                   ->setHost($this->emailConfig['smtp_host'])
+                                   ->setPort($this->emailConfig['smtp_port'])
                                    ->setEncryption($this->emailConfig['smtpencryption'])
-                                   ->setUsername($this->emailConfig['smtpusername'])
-                                   ->setPassword($this->emailConfig['smtppassword']);
+                                   ->setUsername($this->emailConfig['smtp_username'])
+                                   ->setPassword($this->emailConfig['smtp_password']);
                 break;
             case 'MAIL':
                 $this->transport = Swift_MailTransport::newInstance();
                 break;
             case 'SENDMAIL';
-                $this->transport = Swift_SendmailTransport::newInstance($this->emailConfig['sendmailpath']);
+                $this->transport = Swift_SendmailTransport::newInstance($this->emailConfig['send_mailpath']);
                 break;
         }
     }
@@ -93,7 +91,7 @@ class EmailSettings {
             }
         }
         try {
-            if($this->emailConfig['allowemailtransport'] == 1) {
+            if($this->emailConfig['allow_email_transport'] == 1) {
                 $mailerObject->send($message);
             }
         }

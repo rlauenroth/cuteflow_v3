@@ -16,13 +16,13 @@ abstract class BaseWorkflowSlotFieldTextareaForm extends BaseFormDoctrine
   {
     $this->setWidgets(array(
       'id'                     => new sfWidgetFormInputHidden(),
-      'workflow_slot_field_id' => new sfWidgetFormInputText(),
+      'workflow_slot_field_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('WorkflowSlotField'), 'add_empty' => true)),
       'value'                  => new sfWidgetFormTextarea(),
     ));
 
     $this->setValidators(array(
       'id'                     => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'workflow_slot_field_id' => new sfValidatorInteger(array('required' => false)),
+      'workflow_slot_field_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('WorkflowSlotField'), 'required' => false)),
       'value'                  => new sfValidatorString(array('max_length' => 5000, 'required' => false)),
     ));
 

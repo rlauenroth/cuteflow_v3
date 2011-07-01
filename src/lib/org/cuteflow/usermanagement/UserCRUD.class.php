@@ -75,8 +75,8 @@ class UserCRUD {
         $data['userFourthTab_markorange'] = $data['userFourthTab_markorange'] == '' ? $defaultdata['markorange'] : $data['userFourthTab_markorange'];
         $data['userFourthTab_markred'] = $data['userFourthTab_markred'] == '' ? $defaultdata['markred'] : $data['userFourthTab_markred'];
 
-        $data['userFourthTab_circulationdefaultsortcolumn'] = isset($data['userFourthTab_circulationdefaultsortcolumn']) ? $data['userFourthTab_circulationdefaultsortcolumn'] : $defaultdata['circulationdefaultsortcolumn'];
-        $data['userFourthTab_circulationdefaultsortdirection'] = isset($data['userFourthTab_circulationdefaultsortdirection']) ? $data['userFourthTab_circulationdefaultsortdirection'] : $defaultdata['circulationdefaultsortdirection'];
+        $data['userFourthTab_circulationdefaultsortcolumn'] = isset($data['userFourthTab_circulationdefaultsortcolumn']) ? $data['userFourthTab_circulationdefaultsortcolumn'] : $defaultdata['circulation_default_sort_column'];
+        $data['userFourthTab_circulationdefaultsortdirection'] = isset($data['userFourthTab_circulationdefaultsortdirection']) ? $data['userFourthTab_circulationdefaultsortdirection'] : $defaultdata['circulation_default_sort_direction'];
         $data['userFourthTab_itemsperpage'] = isset($data['userFourthTab_itemsperpage']) ? $data['userFourthTab_itemsperpage'] : $defaultdata['displayed_item'];
         $data['userFourthTab_refreshtime'] = isset($data['userFourthTab_refreshtime']) ? $data['userFourthTab_refreshtime'] : $defaultdata['refresh_time'];
 
@@ -106,7 +106,7 @@ class UserCRUD {
             $position = 1;
             foreach($agents as $item) {
                 $userAgent = $item['databaseId'] == '' ? new UserAgent() : Doctrine::getTable('UserAgent')->find($item['databaseId']);
-                $userAgent->setUseragentId($item['id']);
+                $userAgent->setUserAgentId($item['id']);
                 $userAgent->setUserId($user_id);
                 $userAgent->setPosition($position++);
                 $userAgent->save();
@@ -138,8 +138,8 @@ class UserCRUD {
 
         $userSetting= new UserSetting();
         $userSetting->setUserId($id);
-        $userSetting->setEmailformat($data['userFirstTab_emailformat']);
-        $userSetting->setEmailtype($data['userFirstTab_emailtype']);
+        $userSetting->setEmailFormat($data['userFirstTab_emailformat']);
+        $userSetting->setEmailType($data['userFirstTab_emailtype']);
         $userSetting->setLanguage($data['userFirstTab_language']);
         $userSetting->setFirstlogin(1);
         $userSetting->save();
@@ -159,19 +159,19 @@ class UserCRUD {
             $workflow->setUserId($user_id);
             if($item == 'userdefined1') {
                 $fieldid = is_numeric($key['fieldid']) ? $key['fieldid'] : -1;
-                $workflow->setColumntext('USERDEFINED1');
-                $workflow->setIsactive($key['isactive']);
+                $workflow->setColumnText('USERDEFINED1');
+                $workflow->setIsActive($key['is_active']);
                 $workflow->setFieldId($fieldid);
             }
             elseif($item == 'userdefined2') {
                 $fieldid = is_numeric($key['fieldid']) ? $key['fieldid'] : -2;
-                $workflow->setColumntext('USERDEFINED2');
-                $workflow->setIsactive($key['isactive']);
+                $workflow->setColumnText('USERDEFINED2');
+                $workflow->setIsActive($key['is_active']);
                 $workflow->setFieldId($fieldid);
             }
             else {
-                $workflow->setColumntext($item);
-                $workflow->setIsactive($key);
+                $workflow->setColumnText($item);
+                $workflow->setIsActive($key);
             }
             
             $workflow->setPosition($position++);

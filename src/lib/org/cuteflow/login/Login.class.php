@@ -112,7 +112,6 @@ class Login {
      * @return array $result
      */
     public function generateUserWorklowView(array $data, sfContext $context) {
-        sfLoader::loadHelpers('I18N');
         $a = 0;
         foreach($data as $item) {
             $result[$a]['column_text'] = $item['column_text'];
@@ -133,7 +132,7 @@ class Login {
                     $result[$a]['width'] = '130';
                     break;
                 case 'START':
-                    $result[$a]['store'] = 'versioncreated_at';
+                    $result[$a]['store'] = 'version_created_at';
                     $result[$a]['width'] = '120';
                     break;
                 case 'SENDER':
@@ -177,8 +176,7 @@ class Login {
             }
             $a++;
         }
-        //unset($result[7]);
-        //unset($result[8]);
+
         return @$result;
         
     }

@@ -17,7 +17,7 @@ abstract class BaseWorkflowSlotFieldComboboxForm extends BaseFormDoctrine
     $this->setWidgets(array(
       'id'                     => new sfWidgetFormInputHidden(),
       'workflow_slot_field_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('WorkflowSlotField'), 'add_empty' => true)),
-      'field_combobox_id'      => new sfWidgetFormInputText(),
+      'field_combobox_id'      => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('FieldCombobox'), 'add_empty' => true)),
       'value'                  => new sfWidgetFormInputText(),
       'position'               => new sfWidgetFormInputText(),
     ));
@@ -25,7 +25,7 @@ abstract class BaseWorkflowSlotFieldComboboxForm extends BaseFormDoctrine
     $this->setValidators(array(
       'id'                     => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'workflow_slot_field_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('WorkflowSlotField'), 'required' => false)),
-      'field_combobox_id'      => new sfValidatorInteger(array('required' => false)),
+      'field_combobox_id'      => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('FieldCombobox'), 'required' => false)),
       'value'                  => new sfValidatorInteger(array('required' => false)),
       'position'               => new sfValidatorInteger(array('required' => false)),
     ));

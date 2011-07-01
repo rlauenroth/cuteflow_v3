@@ -189,7 +189,7 @@ cf.UserGrid = function(){return {
 	createAddButton:function (user_editid) {
 		var btn_edit = new Ext.form.Label({
 			renderTo: 'user_edit' + user_editid,
-			disabled: <?php $arr = $sf_user->getAttribute('credential');echo $arr['administration_usermanagement_editUser'];?>,
+			disabled: <?php $arr = $sf_user->getAttribute('credential');;echo $arr['administration_usermanagement_editUser'];?>,
 			html: '<span style="cursor:pointer;"><img src="/images/icons/user_edit.png" /></span>',
 			listeners: {
 				render: function(c){

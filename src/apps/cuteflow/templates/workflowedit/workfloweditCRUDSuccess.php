@@ -11,18 +11,18 @@ cf.workfloweditCRUD = function(){return {
 	
 	
 	
-	createSavePanel: function (workflowtemplate_id, version_id) {
+	createSavePanel: function (workflow_template_id, version_id) {
 		this.initSavePanel();
 		if (cf.workfloweditAcceptWorkflow.theHiddenField.getValue() == 1) {
 			var check = false;
 			check = this.checkFields();
 			if(check == true) {
 				this.addFieldsToPanel();
-				this.doSubmit(workflowtemplate_id, version_id);
+				this.doSubmit(workflow_template_id, version_id);
 			}
 		}
 		else {
-			cf.workfloweditCRUD.doSubmit(workflowtemplate_id, version_id);
+			cf.workfloweditCRUD.doSubmit(workflow_template_id, version_id);
 		}
 		
 	},
@@ -38,13 +38,13 @@ cf.workfloweditCRUD = function(){return {
 			var columnpanel = fieldset.getComponent(0);
 			
 			if(columnpanel.disabled == false) {
-				var workflowslot_id = fieldset.getId().split('__');
+				var workflow_slot_id = fieldset.getId().split('__');
 
 				var leftPanel = columnpanel.getComponent(0);
 				var rightPanel = columnpanel.getComponent(1);
 				
 				var hiddenfield = new Ext.form.Field({
-					autoCreate : {tag:'input', type: 'hidden', name: 'slot['+slotcounter+'][workflowslot_id]', value:workflowslot_id[1], width: 0}			
+					autoCreate : {tag:'input', type: 'hidden', name: 'slot['+slotcounter+'][workflow_slot_id]', value:workflow_slot_id[1], width: 0}			
 				});
 				slotcounter++;
 				cf.workfloweditCRUD.thePanel.add(hiddenfield);
@@ -306,9 +306,9 @@ cf.workfloweditCRUD = function(){return {
 	
 	
 	
-	doSubmit: function(workflowtemplate_id, version_id) {
+	doSubmit: function(workflow_template_id, version_id) {
 		cf.workflowedit.thePanel.getForm().submit({
-			url: '<?php echo build_dynamic_javascript_url('workflowedit/SaveWorkflow')?>/workflowid/' + workflowtemplate_id + '/versionid/' + version_id,
+			url: '<?php echo build_dynamic_javascript_url('workflowedit/SaveWorkflow')?>/workflowid/' + workflow_template_id + '/versionid/' + version_id,
 			method: 'POST',
 			waitMsg: '<?php echo __('Saving Data',null,'workflowmanagement'); ?>',
 			success: function(objServerResponse){

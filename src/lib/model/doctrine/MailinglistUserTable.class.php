@@ -28,7 +28,7 @@ class MailinglistUserTable extends Doctrine_Table {
            ->from('MailinglistUser mlu')
            ->leftJoin('mlu.UserLogin ul')
            ->leftJoin('ul.UserData ud')
-           ->where('mlu.mailinglistslot_id = ?', $id)
+           ->where('mlu.mailinglist_slot_id = ?', $id)
            ->orderBy('mlu.position asc')
            ->groupBy('mlu.id')
            ->execute();
@@ -58,7 +58,7 @@ class MailinglistUserTable extends Doctrine_Table {
     public function deleteUserBySlotIdInArray(array $ids) {
         Doctrine::getTable('MailinglistUser')
                 ->createQuery('mlu')
-                ->whereIn('mlu.mailinglistslot_id', $ids)
+                ->whereIn('mlu.mailinglist_slot_id', $ids)
                 ->execute()
                 ->delete();
         return true;

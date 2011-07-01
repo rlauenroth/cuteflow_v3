@@ -7,7 +7,6 @@ class Workflow {
     private $context;
 
     public function  __construct() {
-        sfLoader::loadHelpers('I18N');
     }
 
     public function setContext(sfContext $context_in) {
@@ -22,7 +21,7 @@ class Workflow {
      * @return array $result
      */
     public function buildSlots(array $data) {
-        $slots = DocumenttemplateSlotTable::instance()->getSlotByDocumentTemplateId($data[0]['id']);
+        $slots = DocumentTemplateSlotTable::instance()->getSlotByDocumentTemplateId($data[0]['id']);
         $result = array();
         $a = 0;
         $columns = 0;
@@ -55,7 +54,7 @@ class Workflow {
             $result[$a]['id'] = $field->getId();
             $result[$a]['field_name'] = $fieldItem[0]['title'];
             $result[$a]['type'] = $fieldItem[0]['type'];
-            $result[$a]['writeprotected'] = $fieldItem[0]['writeprotected'];
+            $result[$a]['write_protected'] = $fieldItem[0]['write_protected'];
             $result[$a]['color'] = $fieldItem[0]['color'];
             $result[$a]['field_id'] = $fieldItem[0]['id'];
             $result[$a]['assign'] = $assign;
@@ -130,11 +129,11 @@ class Workflow {
     public function getNumber($field_id) {
         $result = array();
         $result = FieldNumberTable::instance()->getNumberByFieldId($field_id)->toArray();
-        if($result[0]['comboboxvalue'] != 'EMPTY') {
-            $result[0]['comboboxtext'] = $this->context->getI18N()->__($result[0]['comboboxvalue'] ,null,'field');
+        if($result[0]['combobox_value'] != 'EMPTY') {
+            $result[0]['comboboxtext'] = $this->context->getI18N()->__($result[0]['combobox_value'] ,null,'field');
         }
         else {
-            $result[0]['comboboxvalue'] = $result[0]['regex'];
+            $result[0]['combobox_value'] = $result[0]['regex'];
         }
         return $result[0];
     }

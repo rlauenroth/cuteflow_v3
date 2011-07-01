@@ -322,7 +322,7 @@ cf.createWorkflowFirstTab = function(){return {
 			store: new Ext.data.SimpleStore({
 				fields: [
 					{name: 'value'},
-					{name: 'contenttype'},
+					{name: 'content_type'},
 					{name: 'content'},
 					{name: 'text'}
 				]
@@ -337,7 +337,7 @@ cf.createWorkflowFirstTab = function(){return {
 				select: {
 					fn:function(combo, value) {
 						var item = combo.store.findExact('value', combo.getValue());
-						if(item.data.contenttype == 'plain') {
+						if(item.data.content_type == 'plain') {
 							cf.createWorkflowFirstTab.theTextarea.setVisible(true);
 							cf.createWorkflowFirstTab.theHtmlarea.setVisible(false);
 							cf.createWorkflowFirstTab.theTextarea.setSize({width: 450});
@@ -360,22 +360,22 @@ cf.createWorkflowFirstTab = function(){return {
 				success: function(objServerResponse){ 
 					theJsonTreeData = Ext.util.JSON.decode(objServerResponse.responseText);
 					var defaultdata = -1;
-					var contenttype;
+					var content_type;
 					var content;
 					var data = theJsonTreeData.result;
 					for(var a=0;a<data.length;a++) {
 						var item = data[a];
-						var Rec = Ext.data.Record.create({name: 'value'},{name: 'contenttype'},{name: 'content'},{name: 'text'});
-						cf.createWorkflowFirstTab.theAdditionaltextCombo.store.add(new Rec({value: item.id, contenttype: item.rawcontenttype,content: item.content, text: item.title}));
-						if(item.isactive == 1) {
-							contenttype = item.rawcontenttype;
+						var Rec = Ext.data.Record.create({name: 'value'},{name: 'content_type'},{name: 'content'},{name: 'text'});
+						cf.createWorkflowFirstTab.theAdditionaltextCombo.store.add(new Rec({value: item.id, content_type: item.rawcontenttype,content: item.content, text: item.title}));
+						if(item.is_active == 1) {
+							content_type = item.rawcontenttype;
 							content = item.content;
 							defaultdata = item.id;
 						}
 					}
 					if(defaultdata != -1) {
 						cf.createWorkflowFirstTab.theAdditionaltextCombo.setValue(defaultdata);
-						if(contenttype == 'plain') {
+						if(content_type == 'plain') {
 							cf.createWorkflowFirstTab.theTextarea.setVisible(true);
 							cf.createWorkflowFirstTab.theHtmlarea.setVisible(false);
 							cf.createWorkflowFirstTab.theTextarea.setValue(content);
@@ -443,7 +443,7 @@ cf.createWorkflowFirstTab = function(){return {
 			store: new Ext.data.SimpleStore({
 				fields: [
 					{name: 'value'},
-					{name: 'activeversionid'},
+					{name: 'active_version_id'},
 					{name: 'text'}
 				]
 			}),
@@ -466,9 +466,9 @@ cf.createWorkflowFirstTab = function(){return {
 						cf.createWorkflowFirstTab.theLoadingMask = new Ext.LoadMask(cf.createWorkflowWindow.theCreateWorkflowWindow.body, {msg:'<?php echo __('Preparing Data...',null,'workflowmanagement'); ?>'});					
 						cf.createWorkflowFirstTab.theLoadingMask.show();
 						var data = combo.store.findExact('value', combo.getValue());
-						cf.createWorkflowSecondTab.init(data.data.activeversionid);
+						cf.createWorkflowSecondTab.init(data.data.active_version_id);
 						cf.createWorkflowWindow.theTabPanel.add(cf.createWorkflowSecondTab.theSecondPanel);
-						cf.createWorkflowThirdTab.init(data.data.activeversionid);
+						cf.createWorkflowThirdTab.init(data.data.active_version_id);
 						cf.createWorkflowWindow.theTabPanel.add(cf.createWorkflowThirdTab.theThirdPanel);
 						cf.createWorkflowFirstTab.showTab.defer(1,this,[2]);
 						cf.createWorkflowFirstTab.showTab.defer(1200,this,[1]);
@@ -496,18 +496,18 @@ cf.createWorkflowFirstTab = function(){return {
 					var data = theJsonTreeData.result;
 					for(var a=0;a<data.length;a++) {
 						var item = data[a];
-						var Rec = Ext.data.Record.create({name: 'value'},{name: 'text'}, {name: 'activeversionid'});
-						combo.store.add(new Rec({value: item.id, text: item.name, activeversionid: item.activeversion}));
-						if(item.isactive == 1) {
+						var Rec = Ext.data.Record.create({name: 'value'},{name: 'text'}, {name: 'active_version_id'});
+						combo.store.add(new Rec({value: item.id, text: item.name, active_version_id: item.active_version}));
+						if(item.is_active == 1) {
 							defaultdata = item.id;
 							var singleData = combo.store.findExact('value', defaultdata);
 						}
 					}
 					if(defaultdata != -1) {
 						combo.setValue(defaultdata);
-						cf.createWorkflowSecondTab.init(singleData.data.activeversionid);
+						cf.createWorkflowSecondTab.init(singleData.data.active_version_id);
 						cf.createWorkflowWindow.theTabPanel.add(cf.createWorkflowSecondTab.theSecondPanel);
-						cf.createWorkflowThirdTab.init(singleData.data.activeversionid);
+						cf.createWorkflowThirdTab.init(singleData.data.active_version_id);
 						cf.createWorkflowWindow.theTabPanel.add(cf.createWorkflowThirdTab.theThirdPanel);
 						cf.createWorkflowFirstTab.showTab.defer(1,this,[2]);
 						cf.createWorkflowFirstTab.showTab.defer(1200,this,[1]);

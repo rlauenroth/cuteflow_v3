@@ -105,8 +105,8 @@ class systemsettingActions extends sfActions {
         $position = 1;
         foreach($worklfow as $item => $key) {
             $workflow = new WorkflowConfiguration();
-            $workflow->setColumntext($item);
-            $workflow->setIsactive($key);
+            $workflow->setColumnText($item);
+            $workflow->setIsActive($key);
             $workflow->setPosition($position++);
             $workflow->save();
         }

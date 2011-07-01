@@ -16,20 +16,20 @@ class SendStartWorkflowEmail extends EmailSettings {
 
         $content['text'] = $controller->getI18N()->__('Your workflow' ,null,'createworkflow') . ' '. $workflowTemplate[0]['name'] . ' ' . $controller->getI18N()->__('has been started' ,null,'createworkflow');
         
-        $this->setSender($userSettings->userSettings['systemreplyaddress']);
+        $this->setSender($userSettings->userSettings['system_reply_address']);
         $this->setReceiver(array ($userSettings->userData['email'] => $userSettings->userData['firstname'] . ' ' . $userSettings->userData['lastname']));
 
         $subject = $controller->getI18N()->__('CuteFlow: workflow started' ,null,'createworkflow');
         $this->setSubject($subject);
         $linkTo = $controller->getI18N()->__('Direct link to workflow' ,null,'createworkflow');
-        $this->setContentType('text/' . $userSettings->userSettings['emailformat']);
+        $this->setContentType('text/' . $userSettings->userSettings['email_format']);
         $bodyData = array('text' => $content['text'],
                           'userid' => $userSettings->userData['user_id'],
                           'workflow' => $workflowVersion,
                           'serverPath' => $serverUrl,
                           'linkto'  => $linkTo
                           );
-        $this->setBody(get_partial('createworkflow/' . $userSettings->userSettings['emailformat'] . 'StartWorkflowInFuture', $bodyData));
+        $this->setBody(get_partial('createworkflow/' . $userSettings->userSettings['email_format'] . 'StartWorkflowInFuture', $bodyData));
         $this->sendEmail();
     }
 

@@ -35,11 +35,10 @@ class MailinglistSlotTable extends Doctrine_Table {
      */
     public function getSlotsByVersionId($id) {
         return Doctrine_Query::create()
-            ->select('mls.*')
             ->from('MailinglistSlot mls')
             ->leftJoin('mls.MailinglistUser mlu')
-            ->leftJoin('mls.DocumenttemplateSlot dts')
-            ->where('mls.mailinglistversion_id = ?', $id)
+            ->leftJoin('mls.DocumentTemplateSlot dts')
+            ->where('mls.mailinglist_version_id = ?', $id)
             ->execute();
         
     }

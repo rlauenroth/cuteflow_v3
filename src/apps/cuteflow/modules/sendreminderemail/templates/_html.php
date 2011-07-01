@@ -30,7 +30,7 @@
 
                     echo '<tr>';
                     echo '<td style="background-color:'.$colorFlag.';font-size:14px;font-family:Tahoma, Geneva, sans-serif;">'.$wf['name'].'</td>';
-                    echo '<td style="background-color:'.$colorFlag.';font-size:14px;font-family:Tahoma, Geneva, sans-serif;"><a href="'.$serverPath.'/layout/linklogin/versionid/'.$wf['workflowversion_id'].'/workflowid/'.$wf['workflow_id'].'/userid/'.$userid.'/window/edit" target="_blank">'.$linkto.'</a></td>';
+                    echo '<td style="background-color:'.$colorFlag.';font-size:14px;font-family:Tahoma, Geneva, sans-serif;"><a href="'.$serverPath.'/layout/linklogin/versionid/'.$wf['workflow_version_id'].'/workflowid/'.$wf['workflow_id'].'/userid/'.$userid.'/window/edit" target="_blank">'.$linkto.'</a></td>';
                     echo '</tr>';
                 }
 

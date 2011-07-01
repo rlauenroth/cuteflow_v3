@@ -7,14 +7,14 @@ cf.workfloweditGeneral = function(){return {
 	theContentLabel				:false,
 	theLabel					:false,
 	
-	init:function(data,workflowtemplate_id) {
+	init:function(data,workflow_template_id) {
 		this.initFieldset(data.workflow);
-		this.initLabel(data.workflow, data.mailinglist, data.sender, data.content, data.version,workflowtemplate_id, data.created_at)
+		this.initLabel(data.workflow, data.mailinglist, data.sender, data.content, data.version,workflow_template_id, data.created_at)
 		this.theFieldset.add(this.theLabel);
 	},
 	
 	
-	initLabel: function (workflow, mailinglist, sender, content, version, workflowtemplate_id, created_at) {
+	initLabel: function (workflow, mailinglist, sender, content, version, workflow_template_id, created_at) {
 		this.theLabel = new Ext.form.Label({
 			html: '<table><tr height="25"><td><img src="/images/icons/user.png" /></td><td width="150"><?php echo __('Sender',null,'workflowmanagement'); ?>:</td><td>'+sender+'</td></tr><tr height="25"><td><img src="/images/icons/report.png" /></td><td width="150"><?php echo __('Worklfow name',null,'workflowmanagement'); ?>:</td><td>'+workflow+'</td></tr><tr height="25"><td><img src="/images/icons/clock.png" /></td><td width="150"><?php echo __('Created At',null,'workflowmanagement'); ?>:</td><td>'+created_at+'</td></tr><tr height="25"><td><img src="/images/icons/script.png" /></td><td width="150"><?php echo __('Description',null,'workflowmanagement'); ?>:</td><td>'+content+'</td></tr></table>',
 			style: 'font-size:12px;'

@@ -4,13 +4,13 @@ cf.workflowdetails = function(){return {
 	thePanel					:false,
 	thePanelToShow				:false,
 	
-	init: function (workflowtemplate_id, version_id, showAction, workflowAdmin) {
+	init: function (workflow_template_id, version_id, showAction, workflowAdmin) {
 		cf.workflowdetails.theLoadingMask = new Ext.LoadMask(Ext.getBody(), {msg:'<?php echo __('Loading Data...',null,'workflowmanagement'); ?>'});					
 		cf.workflowdetails.theLoadingMask.show();
 		
 		
 		Ext.Ajax.request({  
-			url : '<?php echo build_dynamic_javascript_url('workflowdetail/LoadWorkflowDetails')?>/versionid/' + version_id + '/workflowtemplateid/' + workflowtemplate_id,
+			url : '<?php echo build_dynamic_javascript_url('workflowdetail/LoadWorkflowDetails')?>/versionid/' + version_id + '/workflowtemplateid/' + workflow_template_id,
 			success: function(objServerResponse){
 				cf.workflowdetails.theLoadingMask.hide();
 				var ServerResult = Ext.util.JSON.decode(objServerResponse.responseText);
@@ -21,7 +21,7 @@ cf.workflowdetails = function(){return {
 				
 				
 				cf.workflowdetails.initWindow();
-				cf.workflowdetailsGeneral.init(generalData, workflowtemplate_id);
+				cf.workflowdetailsGeneral.init(generalData, workflow_template_id);
 				cf.workflowdetailsDetails.init(detailData, workflowAdmin);
 				cf.workflowdetailsAttachments.init(attachments);
 				cf.workflowdetails.initPanel();

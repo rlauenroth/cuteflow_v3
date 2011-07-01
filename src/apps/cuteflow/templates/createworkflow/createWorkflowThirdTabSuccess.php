@@ -138,7 +138,7 @@ cf.createWorkflowThirdTab = function(){return {
 			var item = data.items[a];
 			var Rec = Ext.data.Record.create({name: 'value'},{name: 'text'});
 			combo.store.add(new Rec({value: item.id, text: item.value}));
-			if(item.isactive == 1) {
+			if(item.is_active == 1) {
 				activeId = item.id;
 			}
 		}
@@ -190,7 +190,7 @@ cf.createWorkflowThirdTab = function(){return {
 		var id = cf.createWorkflowThirdTab.theUniqueFieldId++;
 		for(var a=0;a<data.items.length;a++){
 			var item = data.items[a];
-			var activeitem = item.isactive == 1 ? true : false;
+			var activeitem = item.is_active == 1 ? true : false;
 			var check = new Ext.form.Checkbox({
 				 boxLabel: item.value, 
 				 checked: activeitem,
@@ -216,7 +216,7 @@ cf.createWorkflowThirdTab = function(){return {
 		var id = cf.createWorkflowThirdTab.theUniqueFieldId++;
 		for(var a=0;a<data.items.length;a++){
 			var item = data.items[a];
-			var activeitem = item.isactive == 1 ? true : false;
+			var activeitem = item.is_active == 1 ? true : false;
 			var radio = new Ext.form.Radio({
 				 boxLabel: item.value, 
 				 checked: activeitem,
@@ -237,7 +237,7 @@ cf.createWorkflowThirdTab = function(){return {
 	},
 	
 	createTextarea: function (data, editable) {
-		if(data.items.contenttype == 'plain') {
+		if(data.items.content_type == 'plain') {
 			var textarea = new Ext.form.TextArea({
 				fieldLabel: data.field_name,
 				width: ((cf.Layout.theRegionWest.getWidth() +  cf.Layout.theRegionCenter.getWidth() - 180) / 2)-200,
@@ -264,12 +264,12 @@ cf.createWorkflowThirdTab = function(){return {
 	createDatefield: function (data, editable) {
 		var textfield = new Ext.form.DateField({
 			allowBlank:true,
-			format: data.items.dateformat,
+			format: data.items.date_format,
 			id: 'DATE_' + data.field_id + '_' + cf.createWorkflowThirdTab.theUniqueFieldId++,
 			fieldLabel: data.field_name,
 			disabled: false,
 			editable: false,
-			value: data.items.defaultvalue,
+			value: data.items.default_value,
 			width:200
 		});	
 		return textfield;
@@ -284,7 +284,7 @@ cf.createWorkflowThirdTab = function(){return {
 			disabled: editable,
 			name: 'REGEX_' + data.items.regex,
 			emptyText: data.items.comboboxtext,
-			value: data.items.defaultvalue,
+			value: data.items.default_value,
 			width: 200
 		});
 		return textfield;
@@ -309,7 +309,7 @@ cf.createWorkflowThirdTab = function(){return {
 			allowBlank: true,
 			disabled: editable,
 			name: 'REGEX_' + data.items.regex,
-			value: data.items.defaultvalue,
+			value: data.items.default_value,
 			width: 200
 		});
 		return textfield;

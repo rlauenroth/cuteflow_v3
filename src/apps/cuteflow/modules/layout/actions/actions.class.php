@@ -8,8 +8,7 @@
  * @author     Your name here
  * @version    SVN: $Id: actions.class.php 12479 2008-10-31 10:54:40Z fabien $
  */
-class layoutActions extends sfActions
-{
+class layoutActions extends sfActions {
 
     /**
      *
@@ -17,8 +16,7 @@ class layoutActions extends sfActions
      *
      * @param sfRequest $request A request object
      */
-    public function executeIndex(sfWebRequest $request)
-    {
+    public function executeIndex(sfWebRequest $request) {
         $loginObject = new Login();
 
         /*
@@ -52,8 +50,7 @@ class layoutActions extends sfActions
      * @param sfWebRequest $request
      * @return <type>
      */
-    public function executeChangeFirstLogin(sfWebRequest $request)
-    {
+    public function executeChangeFirstLogin(sfWebRequest $request) {
         UserSettingTable::instance()->setFirstLogin($this->getUser()->getAttribute('id'));
         return sfView::NONE;
     }
@@ -63,8 +60,7 @@ class layoutActions extends sfActions
      * @param sfWebRequest $request
      * @return <type>
      */
-    public function executeCheckSession(sfWebRequest $request)
-    {
+    public function executeCheckSession(sfWebRequest $request) {
         if ($this->getUser()->hasAttribute('id')) {
             $result = 1;
         } else {
@@ -83,8 +79,7 @@ class layoutActions extends sfActions
      * @param sfWebRequest $request
      * @return <type>
      */
-    public function executeLinklogin(sfWebRequest $request)
-    {
+    public function executeLinklogin(sfWebRequest $request) {
 
         $settings = AuthenticationConfigurationTable::instance()->getAuthenticationConfiguration()->toArray();
         $user_id = $request->getParameter('userid');

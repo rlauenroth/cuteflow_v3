@@ -7,7 +7,7 @@ class SendMessage extends EmailSettings {
     }
 
     public function sendSystemMail(UserMailSettings $userData, $subject, $content, $contenttype) {
-        $this->setSender($userData->userSettings['systemreplyaddress']);
+        $this->setSender($userData->userSettings['system_reply_address']);
         $this->setReceiver(array ($userData->userData['email'] => $userData->userData['firstname'] . ' ' . $userData->userData['lastname']));
         $this->setSubject($subject);
         $this->setContentType('text/' . $contenttype);

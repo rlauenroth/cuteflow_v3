@@ -8,17 +8,26 @@
  * @author     Your name here
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class installerActions extends sfActions
-{
- /**
-  * Executes index action
-  *
-  * @param sfRequest $request A request object
-  */
+class installerActions extends sfActions {
+
+    public function preExecute() {
+        parent::preExecute();
+        
+        $loginObj = new Login();
+        if ($loginObj->checkInstaller() == true) {
+            $this->redirect('login/index');
+        }
+    }
+    
+    
+    /**
+     * Executes index action
+     *
+     * @param sfRequest $request A request object
+     */
     public function executeIndex(sfWebRequest $request) {
         return sfView::SUCCESS;
     }
-
 
     /**
      * check if the current database settings are correct and can be used to install CF
@@ -29,21 +38,19 @@ class installerActions extends sfActions
     public function executeCheckConnection(sfWebRequest $request) {
         $data = $request->getPostParameters();
 
-        $dsn = $data['productive_database'] . ':dbname='.$data['productive_databasename'].';host='.$data['productive_host'];
+        $dsn = $data['productive_database'] . ':dbname=' . $data['productive_databasename'] . ';host=' . $data['productive_host'];
         $user = $data['productive_username'];
         $password = $data['productive_password'];
-        
+
         try {
             $dbh = new PDO($dsn, $user, $password);
             $conn = Doctrine_Manager::connection($dbh);
             $this->renderText('{success:true}');
-        }
-        catch(Exception $e) {
+        } catch (Exception $e) {
             $this->renderText('{success:false}');
         }
         return sfView::NONE;
     }
-
 
     /**
      * Change the culture of the user
@@ -55,7 +62,6 @@ class installerActions extends sfActions
         return sfView::NONE;
     }
 
-
     /**
      * check if cuteflow is already installed or not
      * 
@@ -66,8 +72,7 @@ class installerActions extends sfActions
         $loginObj = new Login();
         if ($loginObj->checkInstaller() == false) {
             $this->redirect('installer/index');
-        }
-        else {
+        } else {
             $this->redirect('login/index');
         }
         return sfView::NONE;
@@ -87,7 +92,7 @@ class installerActions extends sfActions
         // create DB
         $task = new sfDoctrineBuildAllReLoadTask(sfContext::getInstance()->getEventDispatcher(), new sfFormatter());
         chdir(sfConfig::get('sf_root_dir'));
-        $task->run(array(),array('--no-confirmation', '--env=all', '--dir='.sfConfig::get('sf_root_dir').'/data/fixtures/'.$data['productive_data'].''));
+        $task->run(array(), array('--no-confirmation', '--env=all', '--dir=' . sfConfig::get('sf_root_dir') . '/data/fixtures/' . $data['productive_data'] . ''));
         $data = $sysObj->buildEmailSetting($data);
         UserLoginTable::instance()->updateEmail($data['productive_emailadresse']);
         EmailConfigurationTable::instance()->updateEmailConfiguration($data);
@@ -101,8 +106,8 @@ class installerActions extends sfActions
         $lastModified = $ccCache->getLastModifiedFile();
         $cacheCreated = $ccCache->getCurrentCacheStamp();
 
-        if($lastModified > $cacheCreated OR $cacheCreated == '') {
-            if($cacheCreated == '') {
+        if ($lastModified > $cacheCreated OR $cacheCreated == '') {
+            if ($cacheCreated == '') {
                 $cacheCreated = $lastModified;
             }
             $ccCache->createCache($lastModified, $cacheCreated);
@@ -111,4 +116,5 @@ class installerActions extends sfActions
         $this->renderText('{success:true}');
         return sfView::NONE;
     }
+
 }

@@ -10,7 +10,7 @@ class DocumentTemplateVersionTable extends Doctrine_Table {
      * @return object FormTemplate
      */
     public static function instance() {
-        return Doctrine::getTable('DocumenttemplateVersion');
+        return Doctrine::getTable('DocumentTemplateVersion');
     }
 
     /**
@@ -20,8 +20,8 @@ class DocumentTemplateVersionTable extends Doctrine_Table {
      */
     public function setTemplateInactiveById($id) {
         Doctrine_Query::create()
-            ->update('DocumenttemplateVersion dtv')
-            ->set('dtv.activeversion','?',0)
+            ->update('DocumentTemplateVersion dtv')
+            ->set('dtv.active_version','?',0)
             ->where('dtv.id = ?', $id)
             ->execute();
         return true;
@@ -35,8 +35,8 @@ class DocumentTemplateVersionTable extends Doctrine_Table {
      */
     public function setTemplateActiveById($id) {
         Doctrine_Query::create()
-            ->update('DocumenttemplateVersion dtv')
-            ->set('dtv.activeversion','?',1)
+            ->update('DocumentTemplateVersion dtv')
+            ->set('dtv.active_version','?',1)
             ->where('dtv.id = ?', $id)
             ->execute();
         return true;
@@ -49,9 +49,9 @@ class DocumentTemplateVersionTable extends Doctrine_Table {
      */
     public function setAllTemplateInactiveByTemplateId($id) {
         Doctrine_Query::create()
-            ->update('DocumenttemplateVersion dtv')
-            ->set('dtv.activeversion','?',0)
-            ->where('dtv.documenttemplate_id = ?', $id)
+            ->update('DocumentTemplateVersion dtv')
+            ->set('dtv.active_version','?',0)
+            ->where('dtv.document_template_id = ?', $id)
             ->execute();
         return true;
     }
@@ -62,8 +62,8 @@ class DocumentTemplateVersionTable extends Doctrine_Table {
      */
     public function getDocumentTemplateId($id) {
         return Doctrine_Query::create()
-            ->select('dtv.documenttemplate_id, dtv.version')
-            ->from('DocumenttemplateVersion dtv')
+            ->select('dtv.document_template_id, dtv.version')
+            ->from('DocumentTemplateVersion dtv')
             ->where('dtv.id = ?', $id)
             ->execute();
     }
@@ -76,9 +76,8 @@ class DocumentTemplateVersionTable extends Doctrine_Table {
      */
     public function getAllVersionByTemplateId($id) {
         return Doctrine_Query::create()
-            ->select('dtv.*')
-            ->from('DocumenttemplateVersion dtv')
-            ->where('dtv.documenttemplate_id = ?', $id)
+            ->from('DocumentTemplateVersion dtv')
+            ->where('dtv.document_template_id = ?', $id)
             ->orderBy('dtv.created_at DESC')
             ->execute();
     }
@@ -92,9 +91,9 @@ class DocumentTemplateVersionTable extends Doctrine_Table {
     public function getActiveVersionById($id) {
         return Doctrine_Query::create()
             ->select('dtv.*')
-            ->from('DocumenttemplateVersion dtv')
-            ->where('dtv.documenttemplate_id = ?', $id)
-            ->andWhere('dtv.activeversion = ?', 1)
+            ->from('DocumentTemplateVersion dtv')
+            ->where('dtv.document_template_id = ?', $id)
+            ->andWhere('dtv.active_version = ?', 1)
             ->execute();
     }
 
@@ -107,8 +106,7 @@ class DocumentTemplateVersionTable extends Doctrine_Table {
      */
     public function getVersionById($id) {
         return Doctrine_Query::create()
-            ->select('dtv.*')
-            ->from('DocumenttemplateVersion dtv')
+            ->from('DocumentTemplateVersion dtv')
             ->where('dtv.id = ?', $id)
             ->execute();
     }

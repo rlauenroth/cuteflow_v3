@@ -48,13 +48,13 @@ cf.workflowdetailsDetails = function(){return {
 					{name: 'id'},
 					{name: 'decission_id'},
 					{name: 'senttoallatonce'},
-					{name: 'sendtoallreceivers'},
+					{name: 'send_to_all_receivers'},
 					{name: 'station'},
 					{name: 'receivedat'},
 					{name: 'statusinwords'},
-					{name: 'workflowslot_id'},
+					{name: 'workflow_slot_id'},
 					{name: 'status'},
-					{name: 'isuseragentof'},
+					{name: 'is_user_agent_of'},
 					{name: 'user_id'},
 					{name: 'duration'},
 					{name: 'slotgroup'},
@@ -62,24 +62,24 @@ cf.workflowdetailsDetails = function(){return {
 					{name: 'action'}	
 				);	
 				
-				if(user.decissionstate == 'STOPPEDBYUSER') {
+				if(user.decission_state == 'STOPPEDBYUSER') {
 					user.decissioninwords = user.decissioninwords.replace('<table><tr>','<table><tr><td><img ext:qtip="<table><tr><td><?php echo __('Endreason',null,'workflowmanagement'); ?></td><td>'+user.endreasion+'</td></tr></table>" ext:qwidth="350" src="/images/icons/information.png" /></td>');
 				}
 				
 				grid.store.add(new Rec({
 					id: user.id,
 					senttoallatonce: slot.senttoallatonce, 
-					sendtoallreceivers: slot.sendtoallreceivers, 
+					send_to_all_receivers: slot.send_to_all_receivers, 
 					decission_id: user.decission_id,
 					version_id: user.templateversion_id, 
 					station: user.username, 
-					isuseragentof: user.isuseragentof, 
-					status:user.decissionstate, 
-					workflowslot_id:slot.workflowslot_id,
+					is_user_agent_of: user.is_user_agent_of, 
+					status:user.decission_state, 
+					workflow_slot_id:slot.workflow_slot_id,
 					receivedat:user.received,
 					user_id:user.user_id,
 					statusinwords:user.decissioninwords,
-					duration: user.received == null ? '' : user.inprogresssince ,
+					duration: user.received == null ? '' : user.in_progress_since ,
 					slotgroup: user.slotgroup
 				}));	
 			}
@@ -94,17 +94,17 @@ cf.workflowdetailsDetails = function(){return {
 			else {
 				var id = row.data.decission_id;
 				var templateversion_id = row.data.version_id;
-				var isuseragentof = row.data.isuseragentof;
-				var workflowslot_id = row.data.workflowslot_id;
+				var is_user_agent_of = row.data.is_user_agent_of;
+				var workflow_slot_id = row.data.workflow_slot_id;
 				var workflowuser_id = row.data.id;
 				var sendtoallatonce = row.data.senttoallatonce;
 				var workflowuserid = row.data.id;
-				var sendtoallreceivers = row.data.sendtoallreceivers;
+				var send_to_all_receivers = row.data.send_to_all_receivers;
 				var userid = row.data.user_id;
 				row.data.action =  '<center><table><tr><td width="16"><div id="workflowdetailresend'+ id +'"></div></td><td width="16"><div id="workflowdetailskip'+ id +'"></div></td><td width="16"><div id="workflowdetailuseragent'+ id +'"></div></td><td width="16"><div id="workflowdetailselectstation'+ id +'"></div></td></tr></table></center>';
 				var btnDetails = cf.workflowdetailsDetails.createResendButton.defer(1,this, [id,templateversion_id, userid]);
-				var btnDetails = cf.workflowdetailsDetails.createSkipButton.defer(1,this, [id, templateversion_id, workflowslot_id, workflowuser_id]);
-				var btnDetails = cf.workflowdetailsDetails.createUserAgentButton.defer(1,this, [id, isuseragentof, templateversion_id]);
+				var btnDetails = cf.workflowdetailsDetails.createSkipButton.defer(1,this, [id, templateversion_id, workflow_slot_id, workflowuser_id]);
+				var btnDetails = cf.workflowdetailsDetails.createUserAgentButton.defer(1,this, [id, is_user_agent_of, templateversion_id]);
 				var btnDetails = cf.workflowdetailsDetails.createSelectStationButton.defer(1,this, [id,templateversion_id,sendtoallatonce, workflowuserid]);
 			}
 		}
@@ -116,11 +116,11 @@ cf.workflowdetailsDetails = function(){return {
 			{name: 'station'},
 			{name: 'receivedat'},
 			{name: 'decission_id'},
-			{name: 'workflowslot_id'},
+			{name: 'workflow_slot_id'},
 			{name: 'statusinwords'},
 			{name: 'senttoallatonce'},
-			{name: 'sendtoallreceivers'},
-			{name: 'isuseragentof'},
+			{name: 'send_to_all_receivers'},
+			{name: 'is_user_agent_of'},
 			{name: 'status'},
 			{name: 'duration'},
 			{name: 'slotgroup'},
@@ -173,7 +173,7 @@ cf.workflowdetailsDetails = function(){return {
 		});
 	}, 
 	
-	createSkipButton: function (id, templateversion_id, workflowslot_id, workflowuser_id) {
+	createSkipButton: function (id, templateversion_id, workflow_slot_id, workflowuser_id) {
 		var btn_copy = new Ext.form.Label({
 			renderTo: 'workflowdetailskip' + id,
 			html: '<span style="cursor:pointer;"><img src="/images/icons/state_skip.png" /></span>',
@@ -182,7 +182,7 @@ cf.workflowdetailsDetails = function(){return {
 					c.getEl().on({
 						click: function(el){
 							if (c.disabled == false) {
-								cf.workflowdetailsCRUD.skipStation(id, templateversion_id, workflowslot_id, workflowuser_id);
+								cf.workflowdetailsCRUD.skipStation(id, templateversion_id, workflow_slot_id, workflowuser_id);
 							}
 							else {
 								
@@ -194,8 +194,8 @@ cf.workflowdetailsDetails = function(){return {
 			}
 		});
 	}, 
-	createUserAgentButton: function (id, isuseragentof, templateversion_id) {
-		if(isuseragentof == null || isuseragentof == '') {
+	createUserAgentButton: function (id, is_user_agent_of, templateversion_id) {
+		if(is_user_agent_of == null || is_user_agent_of == '') {
 			var disabled = false;
 		}
 		else {

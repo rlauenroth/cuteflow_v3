@@ -46,10 +46,10 @@ class CreateWorkflowAuthorizationRights {
         $allowedSenderCheck = $this->checkAllowedSender($mailinglistVersionId);
         $sendingRight = $this->checkSendingRight($mailinglistVersionId);
         $receiver = $this->checkReceiver($workflowversionid, $mailinglistVersionId);
-        $result['deleteworkflow'] = $this->mergeRights($roleCheck, $allowedSenderCheck, $sendingRight, $receiver, 'deleteworkflow');
-        $result['archiveworkflow'] = $this->mergeRights($roleCheck, $allowedSenderCheck, $sendingRight, $receiver, 'archiveworkflow');
-        $result['stopneworkflow'] = $this->mergeRights($roleCheck, $allowedSenderCheck, $sendingRight, $receiver, 'stopneworkflow');
-        $result['detailsworkflow'] = $this->mergeRights($roleCheck, $allowedSenderCheck, $sendingRight, $receiver, 'detailsworkflow');
+        $result['delete_workflow'] = $this->mergeRights($roleCheck, $allowedSenderCheck, $sendingRight, $receiver, 'delete_workflow');
+        $result['archive_workflow'] = $this->mergeRights($roleCheck, $allowedSenderCheck, $sendingRight, $receiver, 'archive_workflow');
+        $result['stop_new_workflow'] = $this->mergeRights($roleCheck, $allowedSenderCheck, $sendingRight, $receiver, 'stop_new_workflow');
+        $result['details_workflow'] = $this->mergeRights($roleCheck, $allowedSenderCheck, $sendingRight, $receiver, 'details_workflow');
         return $result;
     }
 

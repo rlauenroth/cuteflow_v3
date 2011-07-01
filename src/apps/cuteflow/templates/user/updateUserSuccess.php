@@ -36,7 +36,7 @@ cf.updateUser = function(){return {
 				cf.updateUser.theHiddenPanel.add(hiddenfield);
 				
 				var hiddenfield = new Ext.form.Field({
-					autoCreate : {tag:'input', type: 'hidden', name: 'worklfow[userdefined1][isactive]', value:row.data.isactive, width: 0}			
+					autoCreate : {tag:'input', type: 'hidden', name: 'worklfow[userdefined1][is_active]', value:row.data.is_active, width: 0}			
 				});
 				cf.updateUser.theHiddenPanel.add(hiddenfield);
 			}
@@ -48,13 +48,13 @@ cf.updateUser = function(){return {
 				cf.updateUser.theHiddenPanel.add(hiddenfield);
 				
 				var hiddenfield = new Ext.form.Field({
-					autoCreate : {tag:'input', type: 'hidden', name: 'worklfow[userdefined2][isactive]', value:row.data.isactive, width: 0}			
+					autoCreate : {tag:'input', type: 'hidden', name: 'worklfow[userdefined2][is_active]', value:row.data.is_active, width: 0}			
 				});
 				cf.updateUser.theHiddenPanel.add(hiddenfield);
 			}
 			else {
 				var hiddenfield = new Ext.form.Field({
-					autoCreate : {tag:'input', type: 'hidden', name: 'worklfow['+row.data.column+']', value:row.data.isactive, width: 0}			
+					autoCreate : {tag:'input', type: 'hidden', name: 'worklfow['+row.data.column+']', value:row.data.is_active, width: 0}			
 				});
 				cf.updateUser.theHiddenPanel.add(hiddenfield);
 			}

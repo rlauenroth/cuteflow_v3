@@ -185,27 +185,27 @@ cf.emailTab = function(){return {
 	
 	/** add data for email tab to the combo and textfields **/
 	addData: function (data) {
-			Ext.getCmp('emailtab_systemreplyaddress').setValue(data.systemreplyaddress);
-			Ext.getCmp('emailtab_allowsendingemails').setValue(data.allowemailtransport);
+			Ext.getCmp('emailtab_systemreplyaddress').setValue(data.system_reply_address);
+			Ext.getCmp('emailtab_allowsendingemails').setValue(data.allow_email_transport);
 			
 			
-			Ext.getCmp('email_sendmail').setValue(data.sendmailpath);
-			Ext.getCmp('email_smtp_server').setValue(data.smtphost);
-			Ext.getCmp('email_smtp_port').setValue(data.smtpport);
-			Ext.getCmp('email_smtp_username').setValue(data.smtpusername);
-			Ext.getCmp('email_smtp_password').setValue(data.smtppassword);
+			Ext.getCmp('email_sendmail').setValue(data.send_mailpath);
+			Ext.getCmp('email_smtp_server').setValue(data.smtp_host);
+			Ext.getCmp('email_smtp_port').setValue(data.smtp_port);
+			Ext.getCmp('email_smtp_username').setValue(data.smtp_username);
+			Ext.getCmp('email_smtp_password').setValue(data.smtp_password);
 			
 			//Ext.getCmp('email_smtp_auth').setValue(data.smtpuseauth);
 			Ext.getCmp('emailtab_encryption_id').setValue(data.smtpencryption);
-			Ext.getCmp('emailtab_emailtype_id').setValue(data.activetype);
-			Ext.getCmp('emailtab_systemreplyaddress').setValue(data.systemreplyaddress);
+			Ext.getCmp('emailtab_emailtype_id').setValue(data.active_type);
+			Ext.getCmp('emailtab_systemreplyaddress').setValue(data.system_reply_address);
 			
-			if (data.activetype == 'SMTP'){
+			if (data.active_type == 'SMTP'){
 				Ext.getCmp('email_sendmail').hide();
 				//cf.emailTab.theEmailSendingType.setHeight(250);
 				cf.emailTab.theEmailSendingType.setWidth(600);
 			}
-			else if(data.activetype == 'SENDMAIL') {
+			else if(data.active_type == 'SENDMAIL') {
 				Ext.getCmp('email_smtp_server').hide();
 				Ext.getCmp('email_smtp_port').hide();
 				Ext.getCmp('email_smtp_username').hide();

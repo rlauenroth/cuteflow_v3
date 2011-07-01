@@ -91,12 +91,12 @@ cf.todoFilterFilter = function(){return {
 										cf.todoFilterPanel.theCurrentStation.setValue(data.workflowprocessuser_id);
 									}
 									
-									if(data.documenttemplateversion_id != 0 && data.documenttemplateversion_id != '' && data.documenttemplateversion_id != -1) {
-										cf.todoFilterPanel.theDocumenttemplateCombo.setValue(data.documenttemplateversion_id);
+									if(data.document_template_version_id != 0 && data.document_template_version_id != '' && data.document_template_version_id != -1) {
+										cf.todoFilterPanel.theDocumenttemplateCombo.setValue(data.document_template_version_id);
 									}
 									
-									if(data.mailinglistversion_id != 0 && data.mailinglistversion_id != '' && data.mailinglistversion_id != -1) {
-										cf.todoFilterPanel.theMailinglistCombo.setValue(data.mailinglistversion_id);
+									if(data.mailinglist_version_id != 0 && data.mailinglist_version_id != '' && data.mailinglist_version_id != -1) {
+										cf.todoFilterPanel.theMailinglistCombo.setValue(data.mailinglist_version_id);
 									}
 									
 									try{

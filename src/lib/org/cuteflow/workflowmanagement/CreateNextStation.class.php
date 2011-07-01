@@ -9,12 +9,12 @@ class CreateNextStation extends WorkflowCreation{
 
 
     public $version_id;
-    public $workflowslot_id;
-    public $workflowslotuser_id;
+    public $workflow_slot_id;
+    public $workflow_slot_user_id;
     public $userPosition;
     public $sendToAllReceivers;
     public $sendToAllAtOnce;
-    public $workflowtemplate_id;
+    public $workflow_template_id;
     public $workflow;
     public $workflowversion;
     public $saveWorkflowObject;
@@ -22,14 +22,14 @@ class CreateNextStation extends WorkflowCreation{
     /**
      *
      * @param int $version_id, current version
-     * @param int $workflowslot_id, current workflowslot id
-     * @param int $workflowslotuser_id, current workflowslotuser id
+     * @param int $workflow_slot_id, current workflowslot id
+     * @param int $workflow_slot_user_id, current workflowslotuser id
      */
-    public function __construct($version_id, $workflowslot_id, $workflowslotuser_id, SaveWorkflow $saveWfObj) {
+    public function __construct($version_id, $workflow_slot_id, $workflow_slot_user_id, SaveWorkflow $saveWfObj) {
         $this->saveWorkflowObject = $saveWfObj;
         $this->version_id = $version_id;
-        $this->workflowslot_id = $workflowslot_id;
-        $this->workflowslotuser_id = $workflowslotuser_id;
+        $this->workflow_slot_id = workflow_slot_idd;
+        $this->workflow_slot_user_id = $workflow_slot_user_id;
         $this->setWorkflowUserPosition();
         $this->setSendToAllReceivers();
         $this->setSendToAllAtOnce();
@@ -40,9 +40,9 @@ class CreateNextStation extends WorkflowCreation{
      * Function sets the flag SendToAllReceivers of the current workflowslot
      */
     public function setSendToAllReceivers() {
-        $slot = WorkflowSlotTable::instance()->getSlotById($this->workflowslot_id);
-        $documentSlot = $slot[0]->getDocumenttemplateSlot()->toArray();
-        $this->sendToAllReceivers = $documentSlot[0]['sendtoallreceivers'];
+        $slot = WorkflowSlotTable::instance()->getSlotById($this->workflow_slot_id);
+        $documentSlot = $slot[0]->getDocumentTemplateSlot()->toArray();
+        $this->sendToAllReceivers = $documentSlot[0]['send_to_all_receivers'];
     }
     
     /**
@@ -53,9 +53,9 @@ class CreateNextStation extends WorkflowCreation{
         $workflowVersion = WorkflowTemplateTable::instance()->getWorkflowTemplateByVersionId($this->version_id);
         $this->workflow = $workflow->toArray();
         $this->workflowversion = $workflowVersion->toArray();
-        $template = MailinglistVersionTable::instance()->getSingleVersionById($workflowVersion[0]->getMailinglisttemplateversionId())->toArray();
-        $this->sendToAllAtOnce = $template[0]['sendtoallslotsatonce'];
-        $this->workflowtemplate_id = $workflow[0]->getWorkflowtemplateId();
+        $template = MailinglistVersionTable::instance()->getSingleVersionById($workflowVersion[0]->getMailinglistTemplateVersionId())->toArray();
+        $this->sendToAllAtOnce = $template[0]['send_to_all_slots_at_once'];
+        $this->workflow_template_id = $workflow[0]->getWorkflowTemplateId();
     }
 
 
@@ -64,7 +64,7 @@ class CreateNextStation extends WorkflowCreation{
      * This is needed to caclulate the next user in the workflow
      */
     public function setWorkflowUserPosition() {
-        $pos = WorkflowSlotUserTable::instance()->getUserById($this->workflowslotuser_id);
+        $pos = WorkflowSlotUserTable::instance()->getUserById($this->workflow_slot_user_id);
         $this->userPosition = $pos[0]->getPosition();
     }
 
@@ -88,16 +88,16 @@ class CreateNextStation extends WorkflowCreation{
             $erg->checkSlotWriting();
         }
         else {
-            $nextUser = WorkflowSlotUserTable::instance()->getUserBySlotIdAndPosition($this->workflowslot_id, $this->userPosition+1)->toArray();
+            $nextUser = WorkflowSlotUserTable::instance()->getUserBySlotIdAndPosition($this->workflow_slot_id, $this->userPosition+1)->toArray();
             if(empty($nextUser) == true) {
                 $createSlot = new CheckSlot($this);
-                $createSlot->checkForNewSlot($this->workflowslot_id);
+                $createSlot->checkForNewSlot($this->workflow_slot_id);
                 $this->checkSendToAllAtOnce();
             }
             else {
-                $processId = $this->addProcess($this->workflowtemplate_id, $this->version_id, $this->workflowslot_id);
+                $processId = $this->addProcess($this->workflow_template_id, $this->version_id, $this->workflow_slot_id);
                 $this->addProcessUser($nextUser[0]['id'], $nextUser[0]['user_id'], $processId);
-                $mail = new PrepareStationEmail($this->version_id,$this->workflowtemplate_id, $nextUser[0]['user_id'], $this->saveWorkflowObject->context,$this->saveWorkflowObject->serverUrl );
+                $mail = new PrepareStationEmail($this->version_id,$this->workflow_template_id, $nextUser[0]['user_id'], $this->saveWorkflowObject->context,$this->saveWorkflowObject->serverUrl );
 
                 $this->checkSendToAllAtOnce();
             }
@@ -121,14 +121,14 @@ class CreateNextStation extends WorkflowCreation{
                     $processUsers = WorkflowProcessUserTable::instance()->getProcessUserByWorkflowSlotUserId($user->getId());
                     foreach($processUsers as $singleUser) {
                         $userArray = $singleUser->toArray();
-                        if($userArray['decissionstate'] == 'WAITING') {
+                        if($userArray['decission_state'] == 'WAITING') {
                             $isCompleted = false;
                         }
                     }
                 }
             }
             if($isCompleted == true) {
-                WorkflowTemplateTable::instance()->setWorkflowFinished($this->workflowtemplate_id);
+                WorkflowTemplateTable::instance()->setWorkflowFinished($this->workflow_template_id);
                 $this->checkEndAction();
             }
         }
@@ -136,8 +136,7 @@ class CreateNextStation extends WorkflowCreation{
 
 
     public function checkEndAction() {
-        sfLoader::loadHelpers('EndAction');
-        $data = getEndAction($this->workflowversion[0]['endaction']);
+        $data = getEndAction($this->workflowversion[0]['end_action']);
         if($data[0] == 1) { // send notification when workflow is completed
             $email = new SendWorkflowCompleted($this->workflowversion[0], $this->workflow[0]['id']);
         }

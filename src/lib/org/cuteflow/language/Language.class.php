@@ -7,7 +7,7 @@
 class Language {
 
 	public function __construct() {
-            sfLoader::loadHelpers('I18N');
+            require_once sfConfig::get('sf_root_dir') . '/lib/vendor/symfony/helper/I18NHelper.php';            
 	}
 
         /**
@@ -35,8 +35,11 @@ class Language {
          *
          * @param array $languages
          * @return array $result, with value de_DE and Text German
+         * 
+         * TODO: refactor rela
          */
         public function buildLanguages(array $languages){
+            
             $result = array();
             $b=0;
             $c=0;
@@ -55,7 +58,6 @@ class Language {
          * @return String, formated in correct language, e.g. English, German
          */
         public static function buildDefaultLanguage($language) {
-            sfLoader::loadHelpers('I18N');
             $result = array();
             $result = explode('_', $language);
             return format_language($result[0]);

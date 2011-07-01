@@ -8,8 +8,6 @@ class SystemSetting {
 
 
     public function __construct() {
-        sfLoader::loadHelpers('I18N');
-        sfLoader::loadHelpers('EndAction');
     }
 
 
@@ -68,8 +66,8 @@ class SystemSetting {
      */
     public function buildColumns(array $data, sfContext $context) {
         for($a = 0;$a<count($data);$a++) {
-            $data[$a]['column'] = $data[$a]['columntext'];
-            $data[$a]['columntext'] = $context->getI18N()->__($data[$a]['columntext'],null,'systemsetting');
+            $data[$a]['column'] = $data[$a]['column_text'];
+            $data[$a]['column_text'] = $context->getI18N()->__($data[$a]['column_text'],null,'systemsetting');
 
         }
         return $data;
@@ -145,10 +143,10 @@ class SystemSetting {
             $result[$a]['id'] = $item['id'];
             $result[$a]['isRole'] = false;
             $result[$a]['roleId'] = -1;
-            $result[$a]['deleteworkflow'] = $item['deleteworkflow'];
-            $result[$a]['archiveworkflow'] = $item['archiveworkflow'];
-            $result[$a]['stopneworkflow'] = $item['stopneworkflow'];
-            $result[$a++]['detailsworkflow'] = $item['detailsworkflow'];
+            $result[$a]['delete_workflow'] = $item['delete_workflow'];
+            $result[$a]['archive_workflow'] = $item['archive_workflow'];
+            $result[$a]['stop_new_workflow'] = $item['stop_new_workflow'];
+            $result[$a++]['details_workflow'] = $item['details_workflow'];
         }
         return $result;
     }

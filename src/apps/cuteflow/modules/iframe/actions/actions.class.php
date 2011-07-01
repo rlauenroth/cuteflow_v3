@@ -19,7 +19,6 @@ class iframeActions extends sfActions {
      */
 
     public function executeGetIFrame(sfWebRequest $request) {
-        sfLoader::loadHelpers('Url', 'I18N');
         $serverUrl  = str_replace('/layout', '', url_for('layout/index', true));
         $versionId = $request->getParameter('versionid');
         $templateId = $request->getParameter('workflowid');

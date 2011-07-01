@@ -18,8 +18,8 @@ class PrepareWorkflowData {
     public function createStartDate($date, $time) {
         $result = array();
         if($date == '') {
-            $result['startworkflowat'] = time();
-            $result['workflowisstarted'] = 1;
+            $result['start_workflow_at'] = time();
+            $result['workflow_is_started'] = 1;
         }
         else {
             $dateStamp = array();
@@ -30,8 +30,8 @@ class PrepareWorkflowData {
             $dateStamp = explode('-', $date);
             $timeStamp = explode(':', $time);
 
-            $result['startworkflowat'] = mktime($timeStamp[0],$timeStamp[1],0,$dateStamp[1],$dateStamp[0],$dateStamp[2]);
-            $result['workflowisstarted'] = 0;
+            $result['start_workflow_at'] = mktime($timeStamp[0],$timeStamp[1],0,$dateStamp[1],$dateStamp[0],$dateStamp[2]);
+            $result['workflow_is_started'] = 0;
         }
         return $result;
     }

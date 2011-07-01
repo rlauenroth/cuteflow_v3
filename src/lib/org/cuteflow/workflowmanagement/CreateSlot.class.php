@@ -35,7 +35,7 @@ class CreateSlot {
      * set workflowid
      */
     public function setWorkflowSlotId() {
-        $this->slotSettings['workflowslot_id'] = $this->slot->getId();
+        $this->slotSettings['workflow_slot_id'] = $this->slot->getId();
 
     }
     /**
@@ -46,11 +46,11 @@ class CreateSlot {
     }
 
     /**
-     * set sendtoallreceivers
+     * set send_to_all_receivers
      */
     public function setSendToAll() {
-        $slotdata = $this->slot->getDocumenttemplateSlot()->toArray();
-        $this->slotSettings['sendtoallreceivers'] = $slotdata[0]['sendtoallreceivers'];
+        $slotdata = $this->slot->getDocumentTemplateSlot()->toArray();
+        $this->slotSettings['send_to_all_receivers'] = $slotdata[0]['send_to_all_receivers'];
     }
 
 

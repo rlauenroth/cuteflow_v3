@@ -65,7 +65,7 @@ class mailinglistActions extends sfActions {
      * @return <type>
      */
     public function executeLoadAllDocuments(sfWebRequest $request) {
-        $result = DocumenttemplateTemplateTable::instance()->getAllDocumentTemplates(-1,-1)->toArray();
+        $result = DocumentTemplateTable::instance()->getAllDocumentTemplates(-1,-1)->toArray();
         $this->renderText('{"result":'.json_encode($result).'}');
         return sfView::NONE;
     }
@@ -92,8 +92,8 @@ class mailinglistActions extends sfActions {
      */
     public function executeLoadFormWithoutUser(sfWebRequest $request) {
         $docObj = new Documenttemplate();
-        $id = DocumenttemplateVersionTable::instance()->getActiveVersionById($request->getParameter('id'))->toArray();
-        $data = DocumenttemplateTemplateTable::instance()->getDocumentTemplateById($id[0]['id']);
+        $id = DocumentTemplateVersionTable::instance()->getActiveVersionById($request->getParameter('id'))->toArray();
+        $data = DocumentTemplateTable::instance()->getDocumentTemplateById($id[0]['id']);
         $result = $docObj->buildSingleDocumenttemplates($data, $id[0]['id'], 'SLOTSONLY');
         $this->renderText('{"result":'.json_encode($result).'}');
         return sfView::NONE;
@@ -111,19 +111,19 @@ class mailinglistActions extends sfActions {
         $mailinglist = new Mailinglist();
         $data = $request->getPostParameters();
         $sendToAll = isset($data['mailinglistFirstTab_sendtoallslots'])  ? 1 : 0;
-        $activeVersion = DocumenttemplateVersionTable::instance()->getActiveVersionById($data['mailinglistFirstTab_documenttemplate'])->toArray();
+        $activeVersion = DocumentTemplateVersionTable::instance()->getActiveVersionById($data['mailinglistFirstTab_documenttemplate'])->toArray();
         $mailinglisttemplate = new MailinglistTemplate();
         $mailinglisttemplate->setName($data['mailinglistFirstTab_nametextfield']);
-        $mailinglisttemplate->setIsactive(0);
-        $mailinglisttemplate->setDocumenttemplatetemplateId($data['mailinglistFirstTab_documenttemplate']);
+        $mailinglisttemplate->setIsActive(0);
+        $mailinglisttemplate->setDocumentTemplateId($data['mailinglistFirstTab_documenttemplate']);
         $mailinglisttemplate->save();
-        $mailinglisttemplate_id = $mailinglisttemplate->getId();
-        $mailinglistversion_id = $mailinglist->storeVersion($mailinglisttemplate_id, 1, $activeVersion[0]['id'], $sendToAll); // store the list
+        $mailinglist_template_id = $mailinglisttemplate->getId();
+        $mailinglist_version_id = $mailinglist->storeVersion($mailinglist_template_id, 1, $activeVersion[0]['id'], $sendToAll); // store the list
         
-        $mailinglist->saveAuthorization($mailinglistversion_id, $data['auth']); // save auth settings
-        $mailinglist->saveUser($mailinglistversion_id, isset($data['user']) ? $data['user'] : array()); // save allowed user
+        $mailinglist->saveAuthorization($mailinglist_version_id, $data['auth']); // save auth settings
+        $mailinglist->saveUser($mailinglist_version_id, isset($data['user']) ? $data['user'] : array()); // save allowed user
         $slots = $data['slot'];
-        $mailinglist->storeMailinglist($slots, $mailinglistversion_id); // save the users for the slots
+        $mailinglist->storeMailinglist($slots, $mailinglist_version_id); // save the users for the slots
         $this->renderText('{success:true}');
         return sfView::NONE;
     }
@@ -141,11 +141,11 @@ class mailinglistActions extends sfActions {
         $mailingsdata = MailinglistVersionTable::instance()->getVersionById($request->getParameter('id'))->toArray();
         MailinglistVersionTable::instance()->setMailinglistInactiveById($request->getParameter('id'));
         // save mailinglist
-        $mailinglistversion_id = $mailinglist->storeVersion($mailingsdata[0]['mailinglisttemplate_id'],$mailingsdata[0]['version']+1, $mailingsdata[0]['documenttemplateversion_id'], $sendToAll);
-        $mailinglist->saveAuthorization($mailinglistversion_id, $data['auth']); // save auth settings
-        $mailinglist->saveUser($mailinglistversion_id, isset($data['user']) ? $data['user'] : array()); // save allowed user
+        $mailinglist_version_id = $mailinglist->storeVersion($mailingsdata[0]['mailinglist_template_id'],$mailingsdata[0]['version']+1, $mailingsdata[0]['document_template_version_id'], $sendToAll);
+        $mailinglist->saveAuthorization($mailinglist_version_id, $data['auth']); // save auth settings
+        $mailinglist->saveUser($mailinglist_version_id, isset($data['user']) ? $data['user'] : array()); // save allowed user
         $slots = $data['slot'];
-        $mailinglist->storeMailinglist($slots, $mailinglistversion_id); // save the users for the slot
+        $mailinglist->storeMailinglist($slots, $mailinglist_version_id); // save the users for the slot
         $this->renderText('{success:true}');
         return sfView::NONE;
     }
@@ -313,17 +313,17 @@ class mailinglistActions extends sfActions {
         $mailinglist = new Mailinglist();
         $docuObj = new Documenttemplate();
         $mailinglistdata = MailinglistTemplateTable::instance()->getMailinglistByVersionTemplateId($request->getParameter('id'))->toArray();
-        $currentdocumenttemplateversion = DocumenttemplateVersionTable::instance()->getActiveVersionById($mailinglistdata[0]['documenttemplatetemplate_id'])->toArray();
+        $currentdocumenttemplateversion = DocumentTemplateVersionTable::instance()->getActiveVersionById($mailinglistdata[0]['documenttemplatetemplate_id'])->toArray();
         $slots = $docuObj->buildSlots($currentdocumenttemplateversion[0]['id'], 'SLOTSONLY');
         $mailinglistversiondata = MailinglistVersionTable::instance()->getActiveVersionById($request->getParameter('id'))->toArray();
-        MailinglistVersionTable::instance()->setMailinglistInactiveById($mailinglistversiondata[0]['mailinglisttemplate_id']);
-        $mailinglistversion_id = $mailinglist->storeVersion($mailinglistversiondata[0]['mailinglisttemplate_id'],$mailinglistversiondata[0]['version']+1, $currentdocumenttemplateversion[0]['id']);
+        MailinglistVersionTable::instance()->setMailinglistInactiveById($mailinglistversiondata[0]['mailinglist_template_id']);
+        $mailinglist_version_id = $mailinglist->storeVersion($mailinglistversiondata[0]['mailinglist_template_id'],$mailinglistversiondata[0]['version']+1, $currentdocumenttemplateversion[0]['id']);
         $userdata = MailinglistAllowedSenderTable::instance()->getAllowedSenderById($mailinglistversiondata[0]['id']);
         $users = $mailinglist->buildAllowedUser($userdata);
-        $mailinglist->saveUser($mailinglistversion_id, isset($users) ? $users: array());
+        $mailinglist->saveUser($mailinglist_version_id, isset($users) ? $users: array());
         $authdata = MailinglistAuthorizationSettingTable::instance()->getAuthorizationById($mailinglistversiondata[0]['id'])->toArray();
-        $mailinglist->adaptAuthorizationEntry($authdata, $mailinglistversion_id);
-        $mailinglist->storeMailinglist($slots, $mailinglistversion_id);
+        $mailinglist->adaptAuthorizationEntry($authdata, $mailinglist_version_id);
+        $mailinglist->storeMailinglist($slots, $mailinglist_version_id);
         return sfView::NONE;
     }
 

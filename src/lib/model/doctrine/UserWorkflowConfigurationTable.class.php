@@ -20,7 +20,6 @@ class UserWorkflowConfigurationTable extends Doctrine_Table {
      */
     public function getSingleUserWorkflowConfigurattion($id) {
       return Doctrine_Query::create()
-            ->select('uwc.*')
             ->from('UserWorkflowConfiguration uwc')
             ->where('uwc.user_id = ?', $id)
             ->orderBy('uwc.position ASC')

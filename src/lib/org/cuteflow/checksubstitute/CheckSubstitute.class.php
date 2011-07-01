@@ -38,8 +38,8 @@ class CheckSubstitute {
         $result = array();
         $b = 0;
         foreach($openProcesses as $process) {
-            if($process['isuseragentof'] != '' AND is_numeric($process['isuseragentof']) == true) {
-                $processAndSubstitutes = WorkflowProcessUserTable::instance()->getProcessAndSubstituteProcessByProcessId($process->getIsuseragentof())->toArray();
+            if($process['is_user_agent_of'] != '' AND is_numeric($process['is_user_agent_of']) == true) {
+                $processAndSubstitutes = WorkflowProcessUserTable::instance()->getProcessAndSubstituteProcessByProcessId($process->getIsUserAgentOf())->toArray();
                 $theProcessWithSubstitute = array();
                 $theProcessWithSubstitute = $processAndSubstitutes[0];
                 // add substitutes to the Process

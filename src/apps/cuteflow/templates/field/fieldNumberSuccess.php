@@ -179,10 +179,10 @@ cf.fieldNumber = function(){return {
 	
 	/** add data to componentes when in edit mode **/
 	addData: function (data) {
-		Ext.getCmp('fieldNumber_standard').setValue(data.defaultvalue);
-		Ext.getCmp('fieldNumber_regularexpressioncombo_id').setValue(data.comboboxvalue);
+		Ext.getCmp('fieldNumber_standard').setValue(data.default_value);
+		Ext.getCmp('fieldNumber_regularexpressioncombo_id').setValue(data.combobox_value);
 		Ext.getCmp('fieldNumber_regularexpression').setValue(data.regex);
-		if(data.comboboxvalue == 'POSITIVE' || data.comboboxvalue == 'NEGATIVE' || data.comboboxvalue == 'NORESTRICTION') {
+		if(data.combobox_value == 'POSITIVE' || data.combobox_value == 'NEGATIVE' || data.combobox_value == 'NORESTRICTION') {
 			Ext.getCmp('fieldNumber_regularexpression').setDisabled(true);
 		}
 		

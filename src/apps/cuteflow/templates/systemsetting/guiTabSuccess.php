@@ -182,9 +182,9 @@ cf.guiTab = function(){return {
 				url: '<?php echo build_dynamic_javascript_url('systemsetting/LoadCirculationColumns')?>',
 				fields: [
 					{name: 'id'},
-					{name: 'columntext'},
+					{name: 'column_text'},
 					{name: 'column'},
-					{name: 'isactive',type: 'bool'}
+					{name: 'is_active',type: 'bool'}
 				]
 		});
 		cf.guiTab.theGuiStore.load();
@@ -194,7 +194,7 @@ cf.guiTab = function(){return {
 	initCM : function () {
 		this.theGuiCM  =  new Ext.grid.ColumnModel([
 			{header: "<?php echo __('Activate Item',null,'systemsetting'); ?>",  width: 90, sortable: false, dataIndex: 'id', css : "text-align :left; font-size:12px;", renderer: cf.guiTab.renderAction},
-			{header: "<?php echo __('Column',null,'systemsetting'); ?>",  width: 200, sortable: false, dataIndex: 'columntext', css : "text-align :left; font-size:12px;"}
+			{header: "<?php echo __('Column',null,'systemsetting'); ?>",  width: 200, sortable: false, dataIndex: 'column_text', css : "text-align :left; font-size:12px;"}
 		]);	
 		
 	},
@@ -202,7 +202,7 @@ cf.guiTab = function(){return {
 	/** render checkbox to grid **/
 	renderAction: function (data, cell, record, rowIndex, columnIndex, store, grid) {
 		var id = record.data['id'];
-		cf.guiTab.createCheckbox.defer(500,this, [id,  record.data['isactive']]);
+		cf.guiTab.createCheckbox.defer(500,this, [id,  record.data['is_active']]);
 		return '<center><table><tr><td><div id="guiTabCheckbox_'+ id +'"></div></td></tr></table></center>';
 	},
 	
@@ -212,7 +212,7 @@ cf.guiTab = function(){return {
 			renderTo: 'guiTabCheckbox_' + id,
 			checked: check_value,
 			handler: function (checkbox) {
-				cf.guiTab.theGuiGrid.store.findExact('id', id ).data.isactive = checkbox.checked;
+				cf.guiTab.theGuiGrid.store.findExact('id', id ).data.is_active = checkbox.checked;
             }
 		});
 	}

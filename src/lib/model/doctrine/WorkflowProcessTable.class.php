@@ -19,8 +19,8 @@ class WorkflowProcessTable extends Doctrine_Table {
             ->from('WorkflowProcess wfp')
             ->select('wfp.*')
             ->leftJoin('wfp.WorkflowProcessUser wfpu')
-            ->where('wfp.workflowversion_id = ?' ,$version_id)
-            ->andWhere('wfpu.decissionstate = ?', 'WAITING')
+            ->where('wfp.workflow_version_id = ?' ,$version_id)
+            ->andWhere('wfpu.decission_state = ?', 'WAITING')
             ->execute();
         
     }
@@ -39,7 +39,7 @@ class WorkflowProcessTable extends Doctrine_Table {
         Doctrine_Query::create()
             ->delete('WorkflowProcess')
             ->from('WorkflowProcess wfp')
-            ->where('wfp.workflowslot_id = ?', $slot_id)
+            ->where('wfp.workflow_slot_id = ?', $slot_id)
             ->execute();
         return true;
     }
@@ -48,8 +48,7 @@ class WorkflowProcessTable extends Doctrine_Table {
     public function getWorkflowProcessByVersionId($version_id) {
         return Doctrine_Query::create()
             ->from('WorkflowProcess wfp')
-            ->select('wfp.*')
-            ->where('wfp.workflowversion_id = ?' ,$version_id)
+            ->where('wfp.workflow_version_id = ?' ,$version_id)
             ->execute();
 
     }
@@ -57,7 +56,6 @@ class WorkflowProcessTable extends Doctrine_Table {
     public function getWorkflowProcessById($id) {
         return Doctrine_Query::create()
             ->from('WorkflowProcess wfp')
-            ->select('wfp.*')
             ->where('wfp.id = ?' ,$id)
             ->execute();
     }
@@ -65,8 +63,7 @@ class WorkflowProcessTable extends Doctrine_Table {
     public function getWorkflowProcessBySlotId($slot_id) {
         return Doctrine_Query::create()
             ->from('WorkflowProcess wfp')
-            ->select('wfp.*')
-            ->where('wfp.workflowslot_id = ?' ,$slot_id)
+            ->where('wfp.workflow_slot_id = ?' ,$slot_id)
             ->execute();
 
     }
@@ -80,7 +77,7 @@ class WorkflowProcessTable extends Doctrine_Table {
             ->select('wp.*, wpu.user_id, wpu.id')
             ->from('WorkflowProcess wp')
             ->leftJoin('wp.WorkflowProcessUser wpu')
-            ->where('wpu.decissionstate = ?','WAITING')
+            ->where('wpu.decission_state = ?','WAITING')
             ->orderBy('wpu.user_id ASC')
             ->execute();
     }

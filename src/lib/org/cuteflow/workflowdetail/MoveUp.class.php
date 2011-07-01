@@ -1,15 +1,13 @@
 <?php
 
-
-class MoveUp extends WorkflowSetStation{
-
+class MoveUp extends WorkflowSetStation {
 
     public $station;
 
-    public function  __construct(SetStation $station) {
+    public function __construct(SetStation $station) {
         $this->station = $station;
         $this->setStationInactive($this->station->currentWorkflowSlotUser->getId());
-        $this->calculateStation($this->station->currentWorkflowSlotUser->getWorkflowslotId(),$this->station->currentWorkflowSlotUser->getPosition()+1);
+        $this->calculateStation($this->station->currentWorkflowSlotUser->getWorkflowSlotId(), $this->station->currentWorkflowSlotUser->getPosition() + 1);
         $this->checkSendToAllReceiverAtOnce($this->station->currentSlotSendToAllReceiver, $this->station->currentWorkflowSlotUser, 'SKIPPED');
         $this->checkSendToAllReceiverAtOnce($this->station->newSlotSendToAllReceiver, $this->station->newWorkflowSlotUser, 'WAITING');
     }
@@ -22,112 +20,95 @@ class MoveUp extends WorkflowSetStation{
      * @param String $decission, skipped or waiting
      */
     public function checkSendToAllReceiverAtOnce($sendToAllReceiverFlag, $workflowslotUser, $decission) {
-        if($sendToAllReceiverFlag == 1) {
-            $station = WorkflowSlotUserTable::instance()->getUserBySlotId($workflowslotUser->getWorkflowslotId())->toArray();
-            foreach($station as $item) {
+        if ($sendToAllReceiverFlag == 1) {
+            $station = WorkflowSlotUserTable::instance()->getUserBySlotId($workflowslotUser->getWorkflowSlotId())->toArray();
+            foreach ($station as $item) {
                 WorkflowProcessUserTable::instance()->deleteWorkflowProcessUserByWorkfloSlotUserId($item['id']);
             }
-            WorkflowProcessTable::instance()->deleteWorkflowProcessByWorkflowSlotId($workflowslotUser->getWorkflowslotId());
-            foreach($station as $item) {
-                 $wfp = new WorkflowProcess();
-                 $wfp->setWorkflowtemplateId($this->station->workflowtemplate_id);
-                 $wfp->setWorkflowversionId($this->station->version_id);
-                 $wfp->setWorkflowslotId($workflowslotUser->getWorkflowslotId());
-                 $wfp->save();
-                 $wfoId = $wfp->getId();
+            WorkflowProcessTable::instance()->deleteWorkflowProcessByWorkflowSlotId($workflowslotUser->getWorkflowSlotId());
+            foreach ($station as $item) {
+                $wfp = new WorkflowProcess();
+                $wfp->setWorkflowTemplateId($this->station->workflow_template_id);
+                $wfp->setWorkflowVersionId($this->station->version_id);
+                $wfp->setWorkflowSlotId($workflowslotUser->getWorkflowSlotId());
+                $wfp->save();
+                $wfoId = $wfp->getId();
 
-                 $wfpu = new WorkflowProcessUser();
-                 $wfpu->setWorkflowprocessId($wfoId);
-                 $wfpu->setWorkflowslotuserId($item['id']);
-                 $wfpu->setUserId($item['user_id']);
-                 $wfpu->setInprogresssince(time());
-                 $wfpu->setDecissionstate($decission);
-                 $wfpu->setResendet(0);
-                 $wfpu->save();
-                 if($decission == 'WAITING') {
-                     $mail = new PrepareStationEmail($this->station->version_id, $this->station->workflowtemplate_id, $item['user_id'], $this->station->context, $this->station->serverUrl);
-                 }
+                $wfpu = new WorkflowProcessUser();
+                $wfpu->setWorkflowProcessId($wfoId);
+                $wfpu->setWorkflowSlotUserId($item['id']);
+                $wfpu->setUserId($item['user_id']);
+                $wfpu->setInProgressSince(time());
+                $wfpu->setDecissionState($decission);
+                $wfpu->setResendet(0);
+                $wfpu->save();
+                if ($decission == 'WAITING') {
+                    $mail = new PrepareStationEmail($this->station->version_id, $this->station->workflow_template_id, $item['user_id'], $this->station->context, $this->station->serverUrl);
+                }
             }
         }
-        
     }
+
     /**
      * Set current station inactive
      *
-     * @param int $workflowslotuser_id, Workflowslot userid
+     * @param int $workflow_slot_user_id, Workflowslot userid
      */
-    public function setStationInactive($workflowslotuser_id) {
-        WorkflowProcessUserTable::instance()->skipAllStation($workflowslotuser_id);
+    public function setStationInactive($workflow_slot_user_id) {
+        WorkflowProcessUserTable::instance()->skipAllStation($workflow_slot_user_id);
     }
-
 
     /**
      * Calculate the next stations and set them to inactive
      *
-     * @param int $workflowslot_id, id of the slot
+     * @param int $workflow_slot_id, id of the slot
      * @param int $position, position
      * @return <type>
      */
-    public function calculateStation($workflowslot_id, $position) {
-        $nextUser = $this->getNextUser($workflowslot_id, $position);
-         if(!empty($nextUser)) {
-             if($nextUser[0]['id'] != $this->station->newWorkflowSlotUser_id) {
-                 $wfp = new WorkflowProcess();
-                 $wfp->setWorkflowtemplateId($this->station->workflowtemplate_id);
-                 $wfp->setWorkflowversionId($this->station->version_id);
-                 $wfp->setWorkflowslotId($nextUser[0]['workflowslot_id']);
-                 $wfp->save();
-                 $wfoId = $wfp->getId();
+    public function calculateStation($workflow_slot_id, $position) {
+        $nextUser = $this->getNextUser(workflow_slot_id, $position);
+        if (!empty($nextUser)) {
+            if ($nextUser[0]['id'] != $this->station->newWorkflowSlotUser_id) {
+                $wfp = new WorkflowProcess();
+                $wfp->setWorkflowTemplateId($this->station->workflow_template_id);
+                $wfp->setWorkflowVersionId($this->station->version_id);
+                $wfp->setWorkflowSlotId($nextUser[0]['workflow_slot_id']);
+                $wfp->save();
+                $wfoId = $wfp->getId();
 
-                 $wfpu = new WorkflowProcessUser();
-                 $wfpu->setWorkflowprocessId($wfoId);
-                 $wfpu->setWorkflowslotuserId($nextUser[0]['id']);
-                 $wfpu->setUserId($nextUser[0]['user_id']);
-                 $wfpu->setInprogresssince(time());
-                 $wfpu->setDecissionstate('SKIPPED');
-                 $wfpu->setResendet(0);
-                 $wfpu->save();
-                 $this->calculateStation($nextUser[0]['workflowslot_id'], $nextUser[0]['position']+1);
-             }
-             else {
-                 $wfp = new WorkflowProcess();
-                 $wfp->setWorkflowtemplateId($this->station->workflowtemplate_id);
-                 $wfp->setWorkflowversionId($this->station->version_id);
-                 $wfp->setWorkflowslotId($nextUser[0]['workflowslot_id']);
-                 $wfp->save();
-                 $wfoId = $wfp->getId();
+                $wfpu = new WorkflowProcessUser();
+                $wfpu->setWorkflowProcessId($wfoId);
+                $wfpu->setWorkflowSlotUserId($nextUser[0]['id']);
+                $wfpu->setUserId($nextUser[0]['user_id']);
+                $wfpu->setInProgressSince(time());
+                $wfpu->setDecissionState('SKIPPED');
+                $wfpu->setResendet(0);
+                $wfpu->save();
+                $this->calculateStation($nextUser[0]['workflow_slot_id'], $nextUser[0]['position'] + 1);
+            } else {
+                $wfp = new WorkflowProcess();
+                $wfp->setWorkflowTemplateId($this->station->workflow_template_id);
+                $wfp->setWorkflowVersionId($this->station->version_id);
+                $wfp->setWorkflowSlotId($nextUser[0]['workflow_slot_id']);
+                $wfp->save();
+                $wfoId = $wfp->getId();
 
-                 $wfpu = new WorkflowProcessUser();
-                 $wfpu->setWorkflowprocessId($wfoId);
-                 $wfpu->setWorkflowslotuserId($nextUser[0]['id']);
-                 $wfpu->setUserId($nextUser[0]['user_id']);
-                 $wfpu->setInprogresssince(time());
-                 $wfpu->setDecissionstate('WAITING');
-                 $wfpu->setResendet(0);
-                 $wfpu->save();
-                 $mail = new PrepareStationEmail($this->station->version_id, $this->station->workflowtemplate_id, $nextUser[0]['user_id'], $this->station->context, $this->station->serverUrl);
-                 return true;
-             }
-         }
-         else {
-            $this->calculateSlot($workflowslot_id);
-         }
+                $wfpu = new WorkflowProcessUser();
+                $wfpu->setWorkflowProcessId($wfoId);
+                $wfpu->setWorkflowSlotUserId($nextUser[0]['id']);
+                $wfpu->setUserId($nextUser[0]['user_id']);
+                $wfpu->setInProgressSince(time());
+                $wfpu->setDecissionState('WAITING');
+                $wfpu->setResendet(0);
+                $wfpu->save();
+                $mail = new PrepareStationEmail($this->station->version_id, $this->station->workflow_template_id, $nextUser[0]['user_id'], $this->station->context, $this->station->serverUrl);
+                return true;
+            }
+            
+        } else {
+            $this->calculateSlot($workflow_slot_id);
+        }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
 }
-?>
+    

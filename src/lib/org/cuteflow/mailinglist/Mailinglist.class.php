@@ -6,8 +6,7 @@ class Mailinglist {
     private $context;
 
     public function  __construct() {
-       sfLoader::loadHelpers('Date');
-       sfLoader::loadHelpers('i18n');
+
     }
 
     public function setContext(sfContext $context) {
@@ -43,12 +42,12 @@ class Mailinglist {
         $setting = array('admin','thesender','sender','senderwithrights','receiver');
         foreach($setting as $item) {
             $mailingauth = new MailinglistAuthorizationSetting();
-            $mailingauth->setMailinglistversionId($id);
+            $mailingauth->setMailinglistVersionId($id);
             $mailingauth->setType($item);
-            $mailingauth->setDeleteworkflow(0);
-            $mailingauth->setArchiveworkflow(0);
-            $mailingauth->setStopneworkflow(0);
-            $mailingauth->setDetailsworkflow(0);
+            $mailingauth->setDeleteWorkflow(0);
+            $mailingauth->setArchiveWorkflow(0);
+            $mailingauth->setStopNewWorkflow(0);
+            $mailingauth->setDetailsWorkflow(0);
             $mailingauth->save();
         }
         return true;
@@ -62,8 +61,8 @@ class Mailinglist {
      * @return array $result
      */
     public function addNameToTemplateVersion(array $result, Doctrine_Collection $data) {
-        $result['documenttemplate_name'] = $data[0]->getName();
-        $result['documenttemplate_id'] = $data[0]->getId();
+        $result['document_template_name'] = $data[0]->getName();
+        $result['document_template_id'] = $data[0]->getId();
         return $result;
     }
 
@@ -76,11 +75,11 @@ class Mailinglist {
         foreach($data as $singleAuth) {
            $asObj = new MailinglistAuthorizationSetting();
            $asObj->setType($singleAuth['type']);
-           $asObj->setMailinglistversionId($id);
-           $asObj->setDeleteworkflow($singleAuth['deleteworkflow']);
-           $asObj->setArchiveworkflow($singleAuth['archiveworkflow']);
-           $asObj->setStopneworkflow($singleAuth['stopneworkflow']);
-           $asObj->setDetailsworkflow($singleAuth['detailsworkflow']);
+           $asObj->setMailinglistVersionId($id);
+           $asObj->setDeleteWorkflow($singleAuth['delete_workflow']);
+           $asObj->setArchiveWorkflow($singleAuth['archive_workflow']);
+           $asObj->setStopNewWorkflow($singleAuth['stop_new_workflow']);
+           $asObj->setDetailsWorkflow($singleAuth['details_workflow']);
            $asObj->save();
         }
 
@@ -96,7 +95,7 @@ class Mailinglist {
         $position = 1;
         foreach($data as $item) {
             $mailuser = new MailinglistAllowedSender();
-            $mailuser->setMailinglistversionId($id);
+            $mailuser->setMailinglistVersionId($id);
             $mailuser->setUserId($item['id']);
             $mailuser->setPosition($position++);
             $mailuser->save();
@@ -114,12 +113,12 @@ class Mailinglist {
         $result = array();
         $a = 0;
         foreach($data as $item) {
-            $documenttemplate = $item->getDocumenttemplateTemplate()->toArray();
-            $activeversion = MailinglistVersionTable::instance()->getActiveVersionById($item->getId())->toArray();
+            $documenttemplate = $item->getDocumentTemplate()->toArray();
+            $active_version = MailinglistVersionTable::instance()->getActiveVersionById($item->getId())->toArray();
             $result[$a]['#'] = $a+1;
             $result[$a]['id'] = $item->getId();
-            $result[$a]['activeversion'] = $activeversion[0]['id'];
-            $result[$a]['isactive'] = $item->getIsactive();
+            $result[$a]['active_version'] = $active_version[0]['id'];
+            $result[$a]['is_active'] = $item->getIsActive();
             $result[$a]['name'] = $item->getName();
             $result[$a++]['formtemplate_name'] = $documenttemplate[0]['name'];
         }
@@ -154,11 +153,11 @@ class Mailinglist {
         $a = 0;
 
         foreach($data as $item) {
-            $documenttemplate = $item->getDocumenttemplateTemplate()->toArray();
+            $documenttemplate = $item->getDocumentTemplate()->toArray();
             $versionData = $item->toArray();
-            $result['documenttemplate_id'] = $documenttemplate[0]['id'];
-            $result['documenttemplate_name'] = $documenttemplate[0]['name'];
-            $result['sendtoallslotsatonce'] = $versionData['MailinglistVersion']['sendtoallslotsatonce'];
+            $result['document_template_id'] = $documenttemplate[0]['id'];
+            $result['document_template_name'] = $documenttemplate[0]['name'];
+            $result['send_to_all_slots_at_once'] = $versionData['MailinglistVersion']['send_to_all_slots_at_once'];
             $result['id'] = $item->getId();
             $result['name'] = $item->getName();
             $result['slots'] = $this->buildSlot($id);
@@ -178,7 +177,7 @@ class Mailinglist {
         $a = 0;
         $slots = MailinglistSlotTable::instance()->getSlotsByVersionId($mailinglist_id);
         foreach($slots as $slot) {
-            $slotname = $slot->getDocumenttemplateSlot()->toArray();
+            $slotname = $slot->getDocumentTemplateSlot()->toArray();
             $result[$a]['slot_id'] = $slotname[0]['id'];
             $result[$a]['name'] = $slotname[0]['name'];
             $result[$a++]['users'] = $this->buildUser($slot->getId());
@@ -219,10 +218,10 @@ class Mailinglist {
             $template = $item->getMailinglistTemplate();
             $result[$a]['#'] = $a+1;
             $result[$a]['id'] = $item->getId();
-            $result[$a]['activeversion'] = $item->getActiveversion() == 1 ? '<font color="green">' . $this->context->getI18N()->__('Yes' ,null,'documenttemplate') . '</font>' : '<font color="red">' . $this->context->getI18N()->__('No',null,'documenttemplate') . '</font>';
+            $result[$a]['active_version'] = $item->getActiveVersion() == 1 ? '<font color="green">' . $this->context->getI18N()->__('Yes' ,null,'documenttemplate') . '</font>' : '<font color="red">' . $this->context->getI18N()->__('No',null,'documenttemplate') . '</font>';
             $result[$a]['created_at'] = format_date($item->getCreatedAt(), 'g', $culture);
             $result[$a]['name'] = $template[0]->getName();
-            $result[$a++]['mailinglisttemplate_id'] = $item->getMailinglisttemplateId();
+            $result[$a++]['mailinglist_template_id'] = $item->getMailinglistTemplateId();
         }
         return $result;
     }
@@ -231,44 +230,44 @@ class Mailinglist {
     /**
      * Save a new Version of an record
      *
-     * @param int $mailinglisttemplate_id, id of the template
+     * @param int $mailinglist_template_id, id of the template
      * @param int $version, current version to save
      * @param int $activeMailinglistId, current id of the active version
-     * @return int $mailinglistversion_id, version id
+     * @return int $mailinglist_version_id, version id
      */
-    public function storeVersion($mailinglisttemplate_id, $version, $activeMailinglistId, $sendToAll) {
+    public function storeVersion($mailinglist_template_id, $version, $activeMailinglistId, $sendToAll) {
         $mailinglistversion = new MailinglistVersion();
-        $mailinglistversion->setMailinglisttemplateId($mailinglisttemplate_id);
+        $mailinglistversion->setMailinglistTemplateId($mailinglist_template_id);
         $mailinglistversion->setVersion($version);
-        $mailinglistversion->setDocumenttemplateversionId($activeMailinglistId);
-        $mailinglistversion->setSendtoallslotsatonce($sendToAll);
-        $mailinglistversion->setActiveversion(1);
+        $mailinglistversion->setDocumentTemplateVersionId($activeMailinglistId);
+        $mailinglistversion->setSendToAllSlotsAtOnce($sendToAll);
+        $mailinglistversion->setActiveVersion(1);
         $mailinglistversion->save();
-        $mailinglistversion_id = $mailinglistversion->getId();
-        return $mailinglistversion_id;
+        $mailinglist_version_id = $mailinglistversion->getId();
+        return $mailinglist_version_id;
     }
 
     /**
      * Save Slots and Users to database
      *
      * @param array $slots, array with slots and users
-     * @param int $mailinglistversion_id, mailinglistversion id
+     * @param int mailinglist_version_id, mailinglistversion id
      * @return true;
      */
-    public function storeMailinglist(array $slots,$mailinglistversion_id) {
+    public function storeMailinglist(array $slots,$mailinglist_version_id) {
         $slotposition = 1;
         foreach ($slots as $slot) {
             $mailinglistslot = new MailinglistSlot();
-            $mailinglistslot->setMailinglistversionId($mailinglistversion_id);
+            $mailinglistslot->setMailinglistVersionId($mailinglist_version_id);
             $mailinglistslot->setSlotId($slot['slot_id']);
             $mailinglistslot->setPosition($slotposition++);
             $mailinglistslot->save();
-            $mailinglistslot_id = $mailinglistslot->getId();
+            $mailinglist_slot_id = $mailinglistslot->getId();
             $records = isset($slot['grid']) ? $slot['grid'] : array();
             $userposition = 1;
             foreach($records as $row) {
                 $mailinglistuser = new MailinglistUser();
-                $mailinglistuser->setMailinglistslotId($mailinglistslot_id);
+                $mailinglistuser->setMailinglistSlotId($mailinglist_slot_id);
                 $mailinglistuser->setUserId($row['id']);
                 $mailinglistuser->setPosition($userposition++);
                 $mailinglistuser->save();
@@ -300,18 +299,18 @@ class Mailinglist {
      * Adapt the Auth settings of active entry
      *
      * @param array $data, data to store
-     * @param int $mailinglistversion_id, version id
+     * @param int $mailinglist_version_id, version id
      * @return true
      */
-    public function adaptAuthorizationEntry(array $data, $mailinglistversion_id) {
+    public function adaptAuthorizationEntry(array $data, $mailinglist_version_id) {
         foreach($data as $item) {
             $auth = new MailinglistAuthorizationSetting();
-            $auth->setMailinglistversionId($mailinglistversion_id);
+            $auth->setMailinglistVersionId($mailinglist_version_id);
             $auth->setType($item['type']);
-            $auth->setDeleteworkflow($item['deleteworkflow']);
-            $auth->setArchiveworkflow($item['archiveworkflow']);
-            $auth->setStopneworkflow($item['stopneworkflow']);
-            $auth->setDetailsworkflow($item['detailsworkflow']);
+            $auth->setDeleteWorkflow($item['delete_workflow']);
+            $auth->setArchiveWorkflow($item['archive_workflow']);
+            $auth->setStopNewWorkflow($item['stop_new_workflow']);
+            $auth->setDetailsWorkflow($item['details_workflow']);
             $auth->save();
         }
         return true;

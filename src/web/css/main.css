@@ -34,44 +34,44 @@
 	height:16px;
 }
 
-.usermodule_management_user_groupIcon_additionaltext{
+.user_module_management_user_groupIcon_additionaltext{
 	background-image: url(/images/icons/script.png) !important; 
 	width: 16px;
 	height:16px;
 }
 
 
-.usermodule_management_user_groupIcon_field{
+.user_module_management_user_groupIcon_field{
 	background-image: url(/images/icons/application_form.png) !important; 
 	width: 16px;
 	height:16px;
 }
 
-.usermodule_management_user_groupIcon_documenttemplate{
+.user_module_management_user_groupIcon_documenttemplate{
 	background-image: url(/images/icons/table.png) !important; 
 	width: 16px;
 	height:16px;
 }
 
-.usermodule_workflow_user_groupIcon_workflowmanagement{
+.user_module_workflow_user_groupIcon_workflowmanagement{
 	background-image: url(/images/icons/report.png) !important; 
 	width: 16px;
 	height:16px;
 }
 
-.usermodule_management_user_groupIcon_mailinglist{
+.user_module_management_user_groupIcon_mailinglist{
 	background-image: url(/images/icons/group.png) !important; 
 	width: 16px;
 	height:16px;
 }
 
-.usermodule_workflow_user_groupIcon_todo{
+.user_module_workflow_user_groupIcon_todo{
 	background-image: url(/images/icons/bell.png) !important; 
 	width: 16px;
 	height:16px;
 }
 
-.usermodule_workflow_user_groupIcon_archive{
+.user_module_workflow_user_groupIcon_archive{
 	background-image: url(/images/icons/disk.png) !important; 
 	width: 16px;
 	height:16px;
@@ -89,19 +89,19 @@
 }
 
 
-#usermodule_administration_Icon {
+#user_module_administration_Icon {
 	background-image: url(/images/icons/tux.png); 
 	width: 17px;
 	height:17px;
 }
 
-#usermodule_management_Icon {
+#user_module_management_Icon {
 	background-image: url(/images/icons/world.png); 
 	width: 17px;
 	height:17px;
 }
 
-#usermodule_workflow_Icon {
+#user_module_workflow_Icon {
 	background-image: url(/images/icons/house.png); 
 	width: 17px;
 	height:17px;

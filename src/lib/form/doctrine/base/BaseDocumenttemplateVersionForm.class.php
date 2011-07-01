@@ -16,7 +16,7 @@ abstract class BaseDocumentTemplateVersionForm extends BaseFormDoctrine
   {
     $this->setWidgets(array(
       'id'                   => new sfWidgetFormInputHidden(),
-      'document_template_id' => new sfWidgetFormInputText(),
+      'document_template_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('DocumentTemplate'), 'add_empty' => true)),
       'version'              => new sfWidgetFormInputText(),
       'active_version'       => new sfWidgetFormInputText(),
       'created_at'           => new sfWidgetFormDateTime(),
@@ -25,7 +25,7 @@ abstract class BaseDocumentTemplateVersionForm extends BaseFormDoctrine
 
     $this->setValidators(array(
       'id'                   => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'document_template_id' => new sfValidatorInteger(array('required' => false)),
+      'document_template_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('DocumentTemplate'), 'required' => false)),
       'version'              => new sfValidatorInteger(array('required' => false)),
       'active_version'       => new sfValidatorInteger(array('required' => false)),
       'created_at'           => new sfValidatorDateTime(),

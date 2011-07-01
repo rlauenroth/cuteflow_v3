@@ -15,13 +15,13 @@ abstract class BaseFieldTextfieldFormFilter extends BaseFormFilterDoctrine
     $this->setWidgets(array(
       'field_id'      => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Field'), 'add_empty' => true)),
       'regex'         => new sfWidgetFormFilterInput(),
-      'defaul_tvalue' => new sfWidgetFormFilterInput(),
+      'default_value' => new sfWidgetFormFilterInput(),
     ));
 
     $this->setValidators(array(
       'field_id'      => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Field'), 'column' => 'id')),
       'regex'         => new sfValidatorPass(array('required' => false)),
-      'defaul_tvalue' => new sfValidatorPass(array('required' => false)),
+      'default_value' => new sfValidatorPass(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('field_textfield_filters[%s]');
@@ -44,7 +44,7 @@ abstract class BaseFieldTextfieldFormFilter extends BaseFormFilterDoctrine
       'id'            => 'Number',
       'field_id'      => 'ForeignKey',
       'regex'         => 'Text',
-      'defaul_tvalue' => 'Text',
+      'default_value' => 'Text',
     );
   }
 }

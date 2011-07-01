@@ -19,7 +19,7 @@ class UserMailSettings {
         $userLogin = UserLoginTable::instance()->findActiveUserById($this->user_id);
         $userData = UserDataTable::instance()->getUserDataByUserId($this->user_id)->toArray();
         $this->userSettings = $userSettings[0];
-        $this->userSettings['systemreplyaddress'] = $replayAdress[0]['systemreplyaddress'];
+        $this->userSettings['system_reply_address'] = $replayAdress[0]['system_reply_address'];
         $this->userData['username'] = $userLogin[0]->getUsername();
         $this->userData['user_id'] = $userLogin[0]->getId();
         $this->userData['email'] = $userLogin[0]->getEmail();

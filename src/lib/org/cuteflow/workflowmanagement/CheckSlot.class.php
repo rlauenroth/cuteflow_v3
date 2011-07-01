@@ -24,7 +24,7 @@ class CheckSlot {
      * Set all receivers for a workflowslot
      */
     public function setWorkflowSlotUser() {
-        $this->workflowSlotUser = WorkflowSlotUserTable::instance()->getUserBySlotId($this->nextStation->workflowslot_id);#
+        $this->workflowSlotUser = WorkflowSlotUserTable::instance()->getUserBySlotId($this->nextStation->workflow_slot_id);#
     }
 
 
@@ -49,7 +49,7 @@ class CheckSlot {
     public function checkProcessState(array $processUser) {
         $flag = 1;
         foreach($processUser as $user) {
-            if($user['decissionstate'] == 'WAITING') {
+            if($user['decission_state'] == 'WAITING') {
                 $flag =  0;
             }
         }
@@ -70,7 +70,7 @@ class CheckSlot {
             }
         }
         if($writeSlot == 1 AND $this->nextStation->sendToAllAtOnce == 0) {
-            $this->checkForNewSlot($this->nextStation->workflowslot_id);
+            $this->checkForNewSlot($this->nextStation->workflow_slot_id);
         }
         else {
             $this->nextStation->checkSendToAllAtOnce();
@@ -90,10 +90,10 @@ class CheckSlot {
      */
     public function checkForNewSlot($currentWorkflowSlotId) {
         $currentSlot = WorkflowSlotTable::instance()->getSlotById($currentWorkflowSlotId)->toArray();
-        $nextSlot = WorkflowSlotTable::instance()->getSlotByWorkflowversionAndPosition($currentSlot[0]['workflowversion_id'],$currentSlot[0]['position']+1);
+        $nextSlot = WorkflowSlotTable::instance()->getSlotByWorkflowversionAndPosition($currentSlot[0]['workflow_version_id'],$currentSlot[0]['position']+1);
         $slotArray = $nextSlot->toArray();
         if(empty($slotArray) == true AND $this->nextStation->sendToAllAtOnce != 1) { // workflow has finifshed
-            WorkflowTemplateTable::instance()->setWorkflowFinished($this->nextStation->workflowtemplate_id);
+            WorkflowTemplateTable::instance()->setWorkflowFinished($this->nextStation->workflow_template_id);
             $this->nextStation->checkEndAction();
         }
         else {
@@ -114,18 +114,18 @@ class CheckSlot {
      * @param Doctrine_Collection $slot, WorkflowSlot Object that contains the next slot which is needed to be added.
      */
     public function addNewSlot(Doctrine_Collection $slot) {
-        $mail = new SendSlotReachedEmail($this->nextStation->workflowslot_id, $slot[0]->getId(), $this->nextStation->workflowtemplate_id, $this->nextStation->version_id);
-        $documenttemplateSlot = $slot[0]->getDocumenttemplateSlot()->toArray();
+        $mail = new SendSlotReachedEmail($this->nextStation->workflow_slot_id, $slot[0]->getId(), $this->nextStation->workflow_template_id, $this->nextStation->version_id);
+        $documenttemplateSlot = $slot[0]->getDocumentTemplateSlot()->toArray();
         $slotUser = WorkflowSlotUserTable::instance()->getUserBySlotId($slot[0]->getId())->toArray();
-        if($documenttemplateSlot[0]['sendtoallreceivers'] == 1) {
-            $processId = $this->nextStation->addProcess($this->nextStation->workflowtemplate_id, $this->nextStation->version_id, $slot[0]->getId());
+        if($documenttemplateSlot[0]['send_to_all_receivers'] == 1) {
+            $processId = $this->nextStation->addProcess($this->nextStation->workflow_template_id, $this->nextStation->version_id, $slot[0]->getId());
             foreach($slotUser as $item) {
                 $this->nextStation->addProcessUser($item['id'], $item['user_id'], $processId);
                 $this->nextStation->checkSendToAllAtOnce();
             }
         }
         else {            
-            $processId = $this->nextStation->addProcess($this->nextStation->workflowtemplate_id, $this->nextStation->version_id, $slot[0]->getId());
+            $processId = $this->nextStation->addProcess($this->nextStation->workflow_template_id, $this->nextStation->version_id, $slot[0]->getId());
             $this->nextStation->addProcessUser($slotUser[0]['id'], $slotUser[0]['user_id'], $processId);
             $this->nextStation->checkSendToAllAtOnce();
         }

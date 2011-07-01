@@ -13,7 +13,7 @@ class WorkflowSlotFieldCheckboxTable extends Doctrine_Table {
         return Doctrine_Query::create()
             ->from('WorkflowSlotFieldCheckbox wsfcb')
             ->select('wsfcb.*,')
-            ->where('wsfcb.workflowslotfield_id = ?' ,$id)
+            ->where('wsfcb.workflow_slot_field_id = ?' ,$id)
             ->execute();
     }
 
@@ -23,7 +23,7 @@ class WorkflowSlotFieldCheckboxTable extends Doctrine_Table {
         Doctrine_Query::create()
             ->update('WorkflowSlotFieldCheckbox wsfcb')
             ->set('wsfcb.value','?',$value)
-            ->where ('wsfcb.workflowslotfield_id = ?',$id)
+            ->where ('wsfcb.workflow_slot_field_id = ?',$id)
             ->execute();
     }
 

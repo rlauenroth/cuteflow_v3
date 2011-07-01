@@ -10,11 +10,9 @@ class WorkflowOverview {
     private $user;
 
     public function  __construct(sfContext $context_in, myUser $user) {
-        sfLoader::loadHelpers('I18N');
-        sfLoader::loadHelpers('Date');
-        sfLoader::loadHelpers('Url');
-        sfLoader::loadHelpers('CalculateDate');
-        sfLoader::loadHelpers('ColorBuilder');
+        require_once sfConfig::get('sf_root_dir') . '/lib/helper/CalculateDateHelper.php';  
+        require_once sfConfig::get('sf_root_dir') . '/lib/helper/ColorBuilderHelper.php';  
+        require_once sfConfig::get('sf_root_dir') . '/lib/vendor/symfony/helper/DateHelper.php';  
         $this->context = $context_in;
         $this->user = $user;
     }
@@ -38,51 +36,51 @@ class WorkflowOverview {
         $userSettings = $this->user->getAttribute('userSettings');
         foreach($data as $item) {
             $sender = UserLoginTable::instance()->findActiveUserById($item->getSenderId());
-            $mailinglist = MailinglistTemplateTable::instance()->getMailinglistByVersionId($item->getMailinglisttemplateversionId());
-            $inProgress = createDayOutOfDateSince($item->getVersioncreatedAt());
+            $mailinglist = MailinglistTemplateTable::instance()->getMailinglistByVersionId($item->getMailinglistTemplateVersionId());
+            $inProgress = createDayOutOfDateSince($item->getVersionCreatedAt());
             $inProgress = addColor($inProgress, $userSettings['markred'],$userSettings['markorange'],$userSettings['markyellow']);
             $userdata = $sender[0]->getUserData()->toArray();
             $username = $sender[0]->getUsername() . ' (' . $userdata['firstname'] . ' ' . $userdata['lastname'] . ')';
             $result[$a]['#'] = $counter++;;
             $result[$a]['id'] = $item->getId();
-            $result[$a]['mailinglisttemplate_id'] = $item->getMailinglisttemplateversionId();
+            $result[$a]['mailinglist_template_id'] = $item->getMailinglistTemplateVersionId();
             $result[$a]['mailinglisttemplate'] = $mailinglist[0]->getName();
             $result[$a]['sender_id'] = $item->getSenderId();
             $result[$a]['sendername'] = $username;
             
             $result[$a]['name'] = $item->getName();
-            $result[$a]['isstopped'] = $item->getIsstopped();
-            $result[$a]['process'] = $this->getProcess($item->getActiveversionId());
-            $result[$a]['auth'] = $authSettings->getRights($item->getMailinglisttemplateversionId(), $item->getActiveversionId());
-            if($item->getIscompleted() == 0 OR $item->getIscompleted() == '') {
-                 $result[$a]['iscompleted'] = 0;
+            $result[$a]['isstopped'] = $item->getIsStopped();
+            $result[$a]['process'] = $this->getProcess($item->getActiveVersionId());
+            $result[$a]['auth'] = $authSettings->getRights($item->getMailinglistTemplateVersionId(), $item->getActiveVersionId());
+            if($item->getIsCompleted() == 0 OR $item->getIsCompleted() == '') {
+                 $result[$a]['is_completed'] = 0;
             }
             else {
-                $result[$a]['iscompleted'] = 1;
+                $result[$a]['is_completed'] = 1;
                 $result[$a]['process'] = '<div style="background-color:#00FF00; width:100px;">100 %'.'</div>';
             }
 
-            $result[$a]['workflowisstarted'] = $item->getWorkflowisstarted();
-            if($item->getIsstopped() == 1) {
+            $result[$a]['workflow_is_started'] = $item->getWorkflowIsStarted();
+            if($item->getIsStopped() == 1) {
                 $result[$a]['currentstation'] = '<table><tr><td width="16"><img src="/images/icons/circ_stop.gif" /></td><td>'.$this->context->getI18N()->__('Workflow stopped' ,null,'workflowmanagement').'</td></tr></table>';
                 $result[$a]['currentlyrunning'] = '-';
                 $result[$a]['stationrunning'] = '-';
                // $result[$a]['process'] = '-';
             }
-            elseif($item->getIscompleted() == 1) {
+            elseif($item->getIsCompleted() == 1) {
                 $result[$a]['currentstation'] = '<table><tr><td width="16"><img src="/images/icons/circ_done.gif" /></td><td>'.$this->context->getI18N()->__('Workflow completed' ,null,'workflowmanagement').'</td></tr></table>';
                 $result[$a]['currentlyrunning'] = '-';
                 $result[$a]['stationrunning'] = '-';
             }
-            elseif($item->getWorkflowisstarted() == 0) {
-                $startdateofWorkflow = date('Y-m-d',$item->getStartworkflowAt());
+            elseif($item->getWorkflowIsStarted() == 0) {
+                $startdateofWorkflow = date('Y-m-d',$item->getStartWorkflowAt());
                 $startdateofWorkflow = format_date($startdateofWorkflow, 'p', $this->culture);
                 $result[$a]['currentstation'] = '<table><tr><td width="16"><img src="/images/icons/circ_waiting.gif" /></td><td>'.$this->context->getI18N()->__('Startdate' ,null,'workflowmanagement').': '.$startdateofWorkflow.'</td></tr></table>';
                 $result[$a]['currentlyrunning'] = '-';
                 $result[$a]['stationrunning'] = '-';
             }
             else {
-                $stationSettings =  $this->getCurrentStation($item->getActiveversionId(), $item->getSenderId());
+                $stationSettings =  $this->getCurrentStation($item->getActiveVersionId(), $item->getSenderId());
                 if(!empty($stationSettings)) {
                     $result[$a]['currentstation'] = $stationSettings[0];
                     $result[$a]['currentlyrunning'] = '<table><tr><td width="20">' . $inProgress . ' </td><td>' . $this->context->getI18N()->__('Day(s)' ,null,'workflowmanagement') . '</td></tr></table>';
@@ -97,18 +95,18 @@ class WorkflowOverview {
                 }
             }
 
-            if($item->getIsarchived() == 1) {
+            if($item->getIsArchived() == 1) {
                 $result[$a]['currentstation'] = '<table><tr><td width="16"><img src="/images/icons/circ_archived.gif" /></td><td>'.$this->context->getI18N()->__('Workflow archived' ,null,'workflowmanagement').'</td></tr></table>';
                 $result[$a]['currentlyrunning'] = '-';
                 $result[$a]['stationrunning'] = '-';
             }
 
 
-            $result[$a]['userdefined1'] = $this->getFields('userdefined1',$item->getActiveversionId());
-            $result[$a]['userdefined2'] = $this->getFields('userdefined2',$item->getActiveversionId());
+            $result[$a]['userdefined1'] = $this->getFields('userdefined1',$item->getActiveVersionId());
+            $result[$a]['userdefined2'] = $this->getFields('userdefined2',$item->getActiveVersionId());
 
-            $result[$a]['versioncreated_at'] = format_date($item->getVersioncreatedAt(), 'g', $this->culture);   
-            $result[$a++]['activeversion_id'] = $item->getActiveversionId();
+            $result[$a]['version_created_at'] = format_date($item->getVersionCreatedAt(), 'g', $this->culture);   
+            $result[$a++]['active_version_id'] = $item->getActiveVersionId();
         }
         #print_r ($result);die;
         return $result;
@@ -126,7 +124,7 @@ class WorkflowOverview {
         $result = '';
         foreach($view as $singleView) {
             if($singleView['store'] == $type AND $singleView['fieldid'] > -1) {
-                $wfItem = WorkflowVersionTable::instance()->getFieldByWorkflowversionIdAndFieldId($singleView['fieldid'], $versionId)->toArray();
+                $wfItem = WorkflowVersionTable::instance()->getFieldByWorkflowVersionIdAndFieldId($singleView['fieldid'], $versionId)->toArray();
                 if(empty($wfItem) == true) {
                     return '';
                 }
@@ -180,7 +178,7 @@ class WorkflowOverview {
                                 $value = WorkflowSlotFieldFileTable::instance()->getAllItemsByWorkflowFieldId($fields[0]['id'])->toArray();
                                 $url = (url_for('layout/index',true));
                                 $url = str_replace('/layout', '', $url);
-                                $result['filepath'] = $url . '/file/showAttachment/workflowid/' . $wfItem[0]['workflowtemplate_id'] . '/versionid/' . $wfItem[0]['id'] . '/attachmentid/' . $value[0]['id'] . '/file/1';
+                                $result['filepath'] = $url . '/file/showAttachment/workflowid/' . $wfItem[0]['workflow_template_id'] . '/versionid/' . $wfItem[0]['id'] . '/attachmentid/' . $value[0]['id'] . '/file/1';
                                 $fileUrl = '<a href="'.$result['filepath'].'">'.$value[0]['filename'].'</a>';
                                 return $fileUrl;
                                 break;
@@ -209,11 +207,11 @@ class WorkflowOverview {
                 if(!empty($processUser)) {
                     $waiting = true;
                     foreach($processUser as $process) {
-                        if(count($processUser) == 1 AND $process['decissionstate'] != 'WAITING') {
+                        if(count($processUser) == 1 AND $process['decission_state'] != 'WAITING') {
                             $alreadyCompleted++;
                         }
                         else {
-                            if($process['decissionstate'] != 'WAITING') {
+                            if($process['decission_state'] != 'WAITING') {
                                 $waiting = false;
                             }
                             else {
@@ -259,13 +257,13 @@ class WorkflowOverview {
     }
 
 
-    public function getCurrentStation($activeversion_id, $sender_id) {
+    public function getCurrentStation($active_version_id, $sender_id) {
         $result = array();
-        $activeVersion = WorkflowProcessTable::instance()->getCurrentStation($activeversion_id);
+        $activeVersion = WorkflowProcessTable::instance()->getCurrentStation($active_version_id);
         $user = $activeVersion[0]->getWorkflowProcessUser()->toArray();
         $workflowslot = $activeVersion[0]->getWorkflowSlot()->toArray();
         if(!empty($workflowslot)) {
-            $slot = DocumenttemplateSlotTable::instance()->getSlotById($workflowslot[0]['slot_id'])->toArray();
+            $slot = DocumentTemplateSlotTable::instance()->getSlotById($workflowslot[0]['slot_id'])->toArray();
             $currentStation = $slot[0]['name'];
             $userdata = UserLoginTable::instance()->findActiveUserById($user['user_id'])->toArray();
             $username = $userdata[0]['username'];

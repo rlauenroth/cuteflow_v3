@@ -4,7 +4,7 @@ class Installer {
 
 
     public function  __construct() {
-        
+        require_once sfConfig::get('sf_root_dir') . '/lib/vendor/symfony/helper/I18NHelper.php';   
     }
 
     /**
@@ -43,7 +43,6 @@ class Installer {
         $file = sfConfig::get('sf_app_dir') . '/config/i18n.yml';
         $array = sfYAML::Load($file);
         $ymlCulture = $array['all']['default_culture'];
-        sfLoader::loadHelpers('I18N');
         $result = array();
         $result = explode('_', $ymlCulture);
         return format_language($result[0]);
@@ -57,7 +56,6 @@ class Installer {
      * @return String en, de
      */
     public static function getLanguage($language) {
-        sfLoader::loadHelpers('I18N');
         $result = array();
         $result = explode('_', $language);
         return format_language($result[0]);

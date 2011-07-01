@@ -35,7 +35,7 @@ class filterActions extends sfActions
      */
     public function executeLoadDocumenttemplate(sfWebRequest $request) {
         $docObj = new Documenttemplate();
-        $data = DocumenttemplateTemplateTable::instance()->getAllDocumentTemplates(-1,-1)->toArray();
+        $data = DocumentTemplateTable::instance()->getAllDocumentTemplates(-1,-1)->toArray();
         $json_result = $docObj->buildAllDocumenttemplates($data);
         $this->renderText('({"result":'.json_encode($json_result).'})');
         return sfView::NONE;
@@ -103,8 +103,8 @@ class filterActions extends sfActions
         $filter->setSendetfrom($request->getPostParameter('filter_sendet_from',''));
         $filter->setSendetto($request->getPostParameter('filter_sendet_to',''));
         $filter->setWorkflowprocessuserId($currentStation_id);
-        $filter->setMailinglistversionId($mailingList);
-        $filter->setDocumenttemplateversionId($documentTemplate);
+        $filter->setMailinglistVersionId($mailingList);
+        $filter->setDocumentTemplateVersionId($documentTemplate);
         $filter->save();
         $filterId = $filter->getId();
         // save the field grid

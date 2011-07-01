@@ -29,10 +29,10 @@ class PlainHtmlWithValues extends EmailSettings {
 
 
 
-        $this->setSender($this->data->userSettings->userSettings['systemreplyaddress']);
+        $this->setSender($this->data->userSettings->userSettings['system_reply_address']);
         $this->setReceiver(array ($this->data->userSettings->userData['email'] => $this->data->userSettings->userData['firstname'] . ' ' . $this->data->userSettings->userData['lastname']));
         $this->setSubject($subject);
-        $this->setContentType('text/' . $this->data->userSettings->userSettings['emailformat']);
+        $this->setContentType('text/' . $this->data->userSettings->userSettings['email_format']);
         $bodyData = array('text' => $content,
                           'userid' => $this->data->userSettings->userData['user_id'],
                           'workflowverion' => $this->data->versionId,
@@ -43,7 +43,7 @@ class PlainHtmlWithValues extends EmailSettings {
                   );
         
         
-        $this->setBody(get_partial('sendreminderemail/' . $this->data->userSettings->userSettings['emailformat'] . 'SendValuesToStation', $bodyData));
+        $this->setBody(get_partial('sendreminderemail/' . $this->data->userSettings->userSettings['email_format'] . 'SendValuesToStation', $bodyData));
         $this->setAttachments($this->data->attachments);
         $this->sendEmail();
     }

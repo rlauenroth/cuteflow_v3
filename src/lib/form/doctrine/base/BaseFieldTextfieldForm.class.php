@@ -18,14 +18,14 @@ abstract class BaseFieldTextfieldForm extends BaseFormDoctrine
       'id'            => new sfWidgetFormInputHidden(),
       'field_id'      => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Field'), 'add_empty' => true)),
       'regex'         => new sfWidgetFormInputText(),
-      'defaul_tvalue' => new sfWidgetFormInputText(),
+      'default_value' => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
       'id'            => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'field_id'      => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Field'), 'required' => false)),
       'regex'         => new sfValidatorString(array('max_length' => 255, 'required' => false)),
-      'defaul_tvalue' => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'default_value' => new sfValidatorString(array('max_length' => 255, 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('field_textfield[%s]');

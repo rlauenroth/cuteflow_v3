@@ -60,7 +60,7 @@ cf.mailinglistCRUD = function(){return {
 		var readyToSend = cf.mailinglistCRUD.buildPanel(); // build panel to save
 		if(readyToSend == true)	{
 			Ext.getCmp('mailinglistFirstTab_nametextfield').setDisabled(false);
-			Ext.getCmp('mailinglistFirstTab_documenttemplate_id').setDisabled(false);
+			Ext.getCmp('mailinglistFirstTab_document_template_id').setDisabled(false);
 			cf.mailinglistPopUpWindow.theTabPanel.setActiveTab(0);
 			cf.mailinglistCRUD.doSubmit(url, title);	
 		}
@@ -70,7 +70,7 @@ cf.mailinglistCRUD = function(){return {
 	
 	/** build panel to save **/
 	buildPanel:function () {
-		if(Ext.getCmp('mailinglistFirstTab_nametextfield').getValue() == '' || Ext.getCmp('mailinglistFirstTab_documenttemplate_id').getValue() == '' ) {
+		if(Ext.getCmp('mailinglistFirstTab_nametextfield').getValue() == '' || Ext.getCmp('mailinglistFirstTab_document_template_id').getValue() == '' ) {
 			cf.mailinglistPopUpWindow.theTabPanel.setActiveTab(0);
 			Ext.Msg.minWidth = 300;
 			Ext.MessageBox.alert('<?php echo __('Error',null,'mailinglist'); ?>','<?php echo __('Set Name and select a Template',null,'mailinglist'); ?>');
@@ -92,6 +92,7 @@ cf.mailinglistCRUD = function(){return {
 		
 		var panel = cf.mailinglistSecondTab.theLeftPanel;
 		var counter = 0;
+
 		for(var a=0;a<panel.items.length;a++) {
 			var fieldset  = panel.getComponent(a);
 			var grid = fieldset.getComponent(0);
@@ -122,35 +123,35 @@ cf.mailinglistCRUD = function(){return {
 			});
 			cf.mailinglistFirstTab.theFormPanel.add(hiddenfield);
 		
-			var theRealId = row.data.raw_type + '_mailinglistthirdtab_deleteworkflow';
+			var theRealId = row.data.raw_type + '_mailinglistthirdtab_delete_workflow';
 			var theValue = Ext.getCmp(theRealId).getValue() == true ? 1 : 0;
 			
 			var hiddenfield = new Ext.form.Field({
-				autoCreate : {tag:'input', type: 'hidden', name: 'auth['+authCounter+'][deleteworkflow]', value:theValue, width: 0}			
+				autoCreate : {tag:'input', type: 'hidden', name: 'auth['+authCounter+'][delete_workflow]', value:theValue, width: 0}			
 			});
 			cf.mailinglistFirstTab.theFormPanel.add(hiddenfield);
 			
-			var theRealId = row.data.raw_type + '_mailinglistthirdtab_archiveworkflow';
+			var theRealId = row.data.raw_type + '_mailinglistthirdtab_archive_workflow';
 			var theValue = Ext.getCmp(theRealId).getValue() == true ? 1 : 0;
 			
 			var hiddenfield = new Ext.form.Field({
-				autoCreate : {tag:'input', type: 'hidden', name: 'auth['+authCounter+'][archiveworkflow]', value:theValue, width: 0}			
+				autoCreate : {tag:'input', type: 'hidden', name: 'auth['+authCounter+'][archive_workflow]', value:theValue, width: 0}			
 			});
 			cf.mailinglistFirstTab.theFormPanel.add(hiddenfield);
 			
-			var theRealId = row.data.raw_type + '_mailinglistthirdtab_stopneworkflow';
+			var theRealId = row.data.raw_type + '_mailinglistthirdtab_stop_new_workflow';
 			var theValue = Ext.getCmp(theRealId).getValue() == true ? 1 : 0;
 			
 			var hiddenfield = new Ext.form.Field({
-				autoCreate : {tag:'input', type: 'hidden', name: 'auth['+authCounter+'][stopneworkflow]', value:theValue, width: 0}			
+				autoCreate : {tag:'input', type: 'hidden', name: 'auth['+authCounter+'][stop_new_workflow]', value:theValue, width: 0}			
 			});
 			cf.mailinglistFirstTab.theFormPanel.add(hiddenfield);
 		
-			var theRealId = row.data.raw_type + '_mailinglistthirdtab_detailsworkflow';
+			var theRealId = row.data.raw_type + '_mailinglistthirdtab_details_workflow';
 			var theValue = Ext.getCmp(theRealId).getValue() == true ? 1 : 0;	
 			
 			var hiddenfield = new Ext.form.Field({
-				autoCreate : {tag:'input', type: 'hidden', name: 'auth['+authCounter+'][detailsworkflow]', value:theValue, width: 0}			
+				autoCreate : {tag:'input', type: 'hidden', name: 'auth['+authCounter+'][details_workflow]', value:theValue, width: 0}			
 			});
 			cf.mailinglistFirstTab.theFormPanel.add(hiddenfield);
 			authCounter++;

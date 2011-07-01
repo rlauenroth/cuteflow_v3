@@ -25,7 +25,6 @@ class workfloweditActions extends sfActions {
      * @return <type>
      */
     public function executeLoadWorkflowData(sfWebRequest $request) {
-        sfLoader::loadHelpers('EndAction');
         $detailsObj = new WorkflowDetail();
         $detailsObj->setUser($this->getUser());
         $detailsObj->setCulture($this->getUser()->getCulture());
@@ -34,8 +33,8 @@ class workfloweditActions extends sfActions {
         $generalData = $detailsObj->buildHeadLine($workflowsettings);
         $attachments = $detailsObj->buildAttachments($workflowsettings, $request->getParameter('versionid'));
         $userData = $detailsObj->buildUserData($workflowsettings, $request->getParameter('versionid'));
-        $workflowDecission = WorkflowTemplateTable::instance()->getWorkflowTemplateById($workflowsettings[0]->getWorkflowtemplateId())->toArray();        
-        $endAction = getEndAction($workflowDecission[0]['endaction']);
+        $workflowDecission = WorkflowTemplateTable::instance()->getWorkflowTemplateById($workflowsettings[0]->getWorkflowTemplateId())->toArray();        
+        $endAction = getEndAction($workflowDecission[0]['end_action']);
 
         $slotObj = new WorkflowEdit();
         $slotObj->setUser($this->getUser());
@@ -55,7 +54,6 @@ class workfloweditActions extends sfActions {
      * @return <type>
      */
     public function executeSaveIFrame (sfWebRequest $request) {
-        sfLoader::loadHelpers('Url');
         $failure = array();
         $workflowSaveObj = new SaveWorkflow();
         $data = $request->getPostParameters();
@@ -87,14 +85,14 @@ class workfloweditActions extends sfActions {
                                     break;
                                 case 'RADIOGROUP':
                                     $radioGroupId = WorkflowSlotFieldRadiogroupTable::instance()->getRadiogroupById($field['field_id'])->toArray();
-                                    WorkflowSlotFieldRadiogroupTable::instance()->setToNullByFieldId($radioGroupId[0]['workflowslotfield_id']);
+                                    WorkflowSlotFieldRadiogroupTable::instance()->setToNullByFieldId($radioGroupId[0]['workflow_slot_field_id']);
                                     if(isset($field['id'])) {
                                         WorkflowSlotFieldRadiogroupTable::instance()->updateRadiogroupById($field['id'],1);
                                     }
                                     break;
                                 case 'CHECKBOXGROUP':
                                     $checkGroupId = WorkflowSlotFieldCheckboxgroupTable::instance()->getCheckboxgroupById($field['field_id'])->toArray();
-                                    WorkflowSlotFieldCheckboxgroupTable::instance()->setToNullByFieldId($checkGroupId[0]['workflowslotfield_id']);
+                                    WorkflowSlotFieldCheckboxgroupTable::instance()->setToNullByFieldId($checkGroupId[0]['workflow_slot_field_id']);
                                     if(isset($field['items']) == true) {
                                         foreach($field['items'] as $singleItem) {
                                             WorkflowSlotFieldCheckboxgroupTable::instance()->updateCheckboxgroupById($singleItem['id'],1);
@@ -104,7 +102,7 @@ class workfloweditActions extends sfActions {
                                 case 'COMBOBOX':
                                     if($field['id'] != '') {
                                         $comboboxGroupId = WorkflowSlotFieldComboboxTable::instance()->getComboboxById($field['id'])->toArray();
-                                        WorkflowSlotFieldComboboxTable::instance()->setToNullByFieldId($comboboxGroupId[0]['workflowslotfield_id']);
+                                        WorkflowSlotFieldComboboxTable::instance()->setToNullByFieldId($comboboxGroupId[0]['workflow_slot_field_id']);
                                         WorkflowSlotFieldComboboxTable::instance()->updateComboboxById($field['id'],1);
                                     }
                                     break;
@@ -154,7 +152,6 @@ class workfloweditActions extends sfActions {
      * @return <type>
      */
     public function executeSaveWorkflow(sfWebRequest $request) {
-        sfLoader::loadHelpers('Url');
         $data = $request->getPostParameters();
         $workflowSaveObj = new SaveWorkflow();
         if($data['workfloweditAcceptWorkflow_decission'] == 1) { // user accepted Workflow

@@ -24,7 +24,7 @@ class MailinglistVersionTable extends Doctrine_Table {
         return Doctrine_Query::create()
                     ->select('mlv.*')
                     ->from('MailinglistVersion mlv')
-                    ->where('mlv.mailinglisttemplate_id = ?', $id)
+                    ->where('mlv.mailinglist_template_id = ?', $id)
                     ->orderBy('mlv.version DESC')
                     ->execute();
     }
@@ -38,8 +38,8 @@ class MailinglistVersionTable extends Doctrine_Table {
     public function setMailinglistInactiveById($id) {
         Doctrine_Query::create()
             ->update('MailinglistVersion mlv')
-            ->set('mlv.activeversion','?', 0)
-            ->where('mlv.mailinglisttemplate_id = ?', $id)
+            ->set('mlv.active_version','?', 0)
+            ->where('mlv.mailinglist_template_id = ?', $id)
             ->execute();
         return true;
     }
@@ -52,10 +52,9 @@ class MailinglistVersionTable extends Doctrine_Table {
      */
     public function getActiveVersionById($id) {
         return Doctrine_Query::create()
-            ->select('mlv.*')
             ->from('MailinglistVersion mlv')
-            ->where('mlv.mailinglisttemplate_id = ?', $id)
-            ->andWhere('mlv.activeversion = ?', 1)
+            ->where('mlv.mailinglist_template_id = ?', $id)
+            ->andWhere('mlv.active_version = ?', 1)
             ->execute();
 
     }
@@ -67,7 +66,6 @@ class MailinglistVersionTable extends Doctrine_Table {
      */
     public function getSingleVersionById($id) {
         return Doctrine_Query::create()
-            ->select('mlv.*')
             ->from('MailinglistVersion mlv')
             ->where('mlv.id = ?', $id)
             ->execute();
@@ -81,9 +79,8 @@ class MailinglistVersionTable extends Doctrine_Table {
      */
     public function getAllVersionsById($id) {
         return Doctrine_Query::create()
-            ->select('mlv.*')
             ->from('MailinglistVersion mlv')
-            ->where('mlv.mailinglisttemplate_id = ?', $id)
+            ->where('mlv.mailinglist_template_id = ?', $id)
             ->orderBy('mlv.created_at DESC')
             ->execute();
 
@@ -92,7 +89,7 @@ class MailinglistVersionTable extends Doctrine_Table {
     public function setMailinglistActiveById($id) {
         Doctrine_Query::create()
             ->update('MailinglistVersion mlv')
-            ->set('mlv.activeversion','?', 1)
+            ->set('mlv.active_version','?', 1)
             ->where('mlv.id = ?', $id)
             ->execute();
         return true;

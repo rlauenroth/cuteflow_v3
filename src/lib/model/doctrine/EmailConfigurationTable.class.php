@@ -18,7 +18,6 @@ class EmailConfigurationTable extends Doctrine_Table {
      */
     public function getEmailConfiguration() {
         return Doctrine_Query::create()
-                ->select('ec.*')
                 ->from('EmailConfiguration ec')
                 ->execute();
     }
@@ -31,16 +30,16 @@ class EmailConfigurationTable extends Doctrine_Table {
     public function updateEmailConfiguration(array $data) {
        Doctrine_Query::create()
             ->update('EmailConfiguration ec')
-            ->set('ec.systemreplyaddress', '?', $data['emailtab_systemreplyaddress'])
-            ->set('ec.activetype', '?', $data['emailtab_emailtype'])
-            ->set('ec.smtphost', '?', $data['email_smtp_server'])
-            ->set('ec.smtpport', '?', $data['email_smtp_port'])
-            ->set('ec.smtpusername', '?', $data['email_smtp_username'])
-            ->set('ec.smtppassword', '?', $data['email_smtp_password'])
-            ->set('ec.smtpencryption', '?', $data['emailtab_encryption'])
+            ->set('ec.system_reply_address', '?', $data['emailtab_systemreplyaddress'])
+            ->set('ec.active_type', '?', $data['emailtab_emailtype'])
+            ->set('ec.smtp_host', '?', $data['email_smtp_server'])
+            ->set('ec.smtp_port', '?', $data['email_smtp_port'])
+            ->set('ec.smtp_username', '?', $data['email_smtp_username'])
+            ->set('ec.smtp_password', '?', $data['email_smtp_password'])
+            ->set('ec.smtp_encryption', '?', $data['emailtab_encryption'])
             //->set('ec.smtpuseauth', '?', $data['email_smtp_auth'])
-            ->set('ec.sendmailpath', '?', $data['email_sendmail'])
-	    ->set('allowemailtransport','?', $data['email_allowsendingemails'] )
+            ->set('ec.send_mailpath', '?', $data['email_sendmail'])
+	    ->set('allow_email_transport','?', $data['email_allowsendingemails'] )
             ->where('ec.id = ?',1)
             ->execute();
         return true;

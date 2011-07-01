@@ -23,8 +23,8 @@ class FileUpload {
             $hashString = time() . md5($hashFileArray[0]) . '.' . $hashFileArray[count($hashFileArray)-1];
             move_uploaded_file($file['tmp_name'], sfConfig::get('sf_upload_dir') . '/' . $templateid . '/' . $versionid . '/' . $hashString);
             $newFile = new WorkflowVersionAttachment();
-            $newFile->setWorkflowversionId($versionid);
-            $newFile->setWorkflowtemplateId($templateid);
+            $newFile->setWorkflowVersionId($versionid);
+            $newFile->setWorkflowTemplateId($templateid);
             $newFile->setFilename($file['name']);
             $newFile->setHashname($hashString);
             $newFile->save();
@@ -68,7 +68,7 @@ class FileUpload {
         $hashString = time() . md5($hashFileArray[0]) . '.' . $hashFileArray[count($hashFileArray)-1];
         move_uploaded_file($file['tmp_name'], sfConfig::get('sf_upload_dir') . '/' . $templateid . '/' . $versionid . '/' . $hashString);
         $wfs = new WorkflowSlotFieldFile();
-        $wfs->setWorkflowslotfieldId($field_id);
+        $wfs->setWorkflowSlotFieldId($field_id);
         $wfs->setFilename($file['name']);
         $wfs->setHashname($hashString);
         $wfs->save();

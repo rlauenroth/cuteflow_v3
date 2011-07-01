@@ -7,7 +7,7 @@
 class SetStation {
 
     public $version_id;
-    public $workflowtemplate_id;
+    public $workflow_template_id;
     public $newWorkflowSlotUser_id;
     public $currentWorkflowSlotUser_id;
     public $move;
@@ -61,20 +61,20 @@ class SetStation {
     }
 
     public function setCurrentSlotSendToAllReceiver() {
-        $slot = $this->currentWorkflowSlot->getDocumenttemplateSlot()->toArray();
-        $this->currentSlotSendToAllReceiver = $slot[0]['sendtoallreceivers'];
+        $slot = $this->currentWorkflowSlot->getDocumentTemplateSlot()->toArray();
+        $this->currentSlotSendToAllReceiver = $slot[0]['send_to_all_receivers'];
     }
 
     public function setNewSlotSendToAllReceiver() {
-        $slot = $this->newWorkflowSlot->getDocumenttemplateSlot()->toArray();
-        $this->newSlotSendToAllReceiver = $slot[0]['sendtoallreceivers'];
+        $slot = $this->newWorkflowSlot->getDocumentTemplateSlot()->toArray();
+        $this->newSlotSendToAllReceiver = $slot[0]['send_to_all_receivers'];
 
     }
 
     
     public function setWorkflowTemplateId() {
         $template = WorkflowVersionTable::instance()->getWorkflowVersionById($this->version_id);
-        $this->workflowtemplate_id = $template[0]->getWorkflowtemplateId();
+        $this->workflow_template_id = $template[0]->getWorkflowTemplateId();
     }
 
     public function setNewWorkflowslotUser() {
@@ -83,7 +83,7 @@ class SetStation {
     }
 
     public function setNewSlot() {
-        $slot = WorkflowSlotTable::instance()->getSlotById($this->newWorkflowSlotUser->getWorkflowslotId());
+        $slot = WorkflowSlotTable::instance()->getSlotById($this->newWorkflowSlotUser->getWorkflowSlotId());
         $this->newWorkflowSlot = $slot[0];
     }
 
@@ -95,7 +95,7 @@ class SetStation {
 
 
     public function setCurrentWorkflowSlot() {
-        $slot = WorkflowSlotTable::instance()->getSlotById($this->currentWorkflowSlotUser->getWorkflowslotId());
+        $slot = WorkflowSlotTable::instance()->getSlotById($this->currentWorkflowSlotUser->getWorkflowSlotId());
         $this->currentWorkflowSlot = $slot[0];
     }
 

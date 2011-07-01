@@ -21,9 +21,9 @@ class FieldNumberTable extends Doctrine_Table {
     public function updateFieldNumberById($id, $data) {
         Doctrine_Query::create()
             ->update('FieldNumber fn')
-            ->set('fn.defaultvalue','?', $data['fieldNumber_standard'])
+            ->set('fn.default_value','?', $data['fieldNumber_standard'])
             ->set('fn.regex','?',$data['fieldNumber_regularexpression'])
-            ->set('fn.comboboxvalue','?',$data['fieldNumber_regularexpressioncombo'])
+            ->set('fn.combobox_value','?',$data['fieldNumber_regularexpressioncombo'])
             ->where('fn.field_id = ?',$id)
             ->execute();
         return true;

@@ -9,7 +9,7 @@ class DocumentTemplateTable extends Doctrine_Table {
      * @return object FormTemplate
      */
     public static function instance() {
-        return Doctrine::getTable('DocumenttemplateTemplate');
+        return Doctrine::getTable('DocumentTemplate');
     }
 
 
@@ -21,10 +21,10 @@ class DocumentTemplateTable extends Doctrine_Table {
     public function getTotalSumOfDocumentTemplatesByFilter($filter) {
         return Doctrine_Query::create()
                 ->select('COUNT(*) AS anzahl')
-                ->from('DocumenttemplateVersion dtv')
-                ->leftJoin('dtv.DocumenttemplateTemplate dtt')
+                ->from('DocumentTemplateVersion dtv')
+                ->leftJoin('dtv.DocumentTemplate dtt')
                 ->where('dtt.deleted_at IS NULL')
-                ->andWhere('dtv.activeversion = ?', 1)
+                ->andWhere('dtv.active_version = ?', 1)
                 ->andWhere('dtt.name LIKE ?','%'.$filter.'%')
                 ->execute();
         
@@ -37,10 +37,10 @@ class DocumentTemplateTable extends Doctrine_Table {
     public function getTotalSumOfDocumentTemplates() {
         return Doctrine_Query::create()
                 ->select('COUNT(*) AS anzahl')
-                ->from('DocumenttemplateVersion dtv')
-                ->leftJoin('dtv.DocumenttemplateTemplate dtt')
+                ->from('DocumentTemplateVersion dtv')
+                ->leftJoin('dtv.DocumentTemplate dtt')
                 ->where('dtt.deleted_at IS NULL')
-                ->andWhere('dtv.activeversion = ?', 1)
+                ->andWhere('dtv.active_version = ?', 1)
                 ->execute();
     }
 
@@ -55,12 +55,12 @@ class DocumentTemplateTable extends Doctrine_Table {
      */
     public function getAllDocumentTemplates($limit, $offset) {
         $query =  Doctrine_Query::create()
-            ->select('dtt.*, count(dts.id) AS number, dtv.id as documenttemplate_id')
-            ->from('DocumenttemplateTemplate dtt')
-            ->leftJoin('dtt.DocumenttemplateVersion dtv')
-            ->leftJoin('dtv.DocumenttemplateSlot dts')
+            ->select('dtt.*, count(dts.id) AS number, dtv.id as document_template_id')
+            ->from('DocumentTemplate dtt')
+            ->leftJoin('dtt.DocumentTemplateVersion dtv')
+            ->leftJoin('dtv.DocumentTemplateSlot dts')
             ->where('dtt.deleted_at IS NULL')
-            ->andWhere('dtv.activeversion = ?', 1);
+            ->andWhere('dtv.active_version = ?', 1);
             if($limit != -1 AND $offset != -1) {
                     $query->limit($limit)
                     ->offset($offset);
@@ -79,12 +79,12 @@ class DocumentTemplateTable extends Doctrine_Table {
      */
     public function getAllDocumentTemplatesByFilter($limit, $offset, $filter){
         $query =  Doctrine_Query::create()
-            ->select('dtt.*, count(dts.id) AS number, dtv.id as documenttemplate_id')
-            ->from('DocumenttemplateTemplate dtt')
-            ->leftJoin('dtt.DocumenttemplateVersion dtv')
-            ->leftJoin('dtv.DocumenttemplateSlot dts')
+            ->select('dtt.*, count(dts.id) AS number, dtv.id as document_template_id')
+            ->from('DocumentTemplate dtt')
+            ->leftJoin('dtt.DocumentTemplateVersion dtv')
+            ->leftJoin('dtv.DocumentTemplateSlot dts')
             ->where('dtt.deleted_at IS NULL')
-            ->andWhere('dtv.activeversion = ?', 1)
+            ->andWhere('dtv.active_version = ?', 1)
             ->andWhere('dtt.name LIKE ?','%'.$filter.'%');
             if($limit != -1 AND $offset != -1) {
                     $query->limit($limit)
@@ -104,7 +104,7 @@ class DocumentTemplateTable extends Doctrine_Table {
      */
     public function deleteDocumentTemplateById($id) {
         Doctrine_Query::create()
-            ->update('DocumenttemplateTemplate dtt')
+            ->update('DocumentTemplate dtt')
             ->set('dtt.deleted_at','?', date('Y-m-d'))
             ->where('dtt.id = ?', $id)
             ->execute();
@@ -121,8 +121,8 @@ class DocumentTemplateTable extends Doctrine_Table {
     public function getDocumentTemplateById($id) {
         return Doctrine_Query::create()
             ->select('dtt.*')
-            ->from('DocumenttemplateTemplate dtt')
-            ->leftJoin('dtt.DocumenttemplateVersion dtv')
+            ->from('DocumentTemplate dtt')
+            ->leftJoin('dtt.DocumentTemplateVersion dtv')
             ->where('dtv.id = ?', $id)
             ->execute();
     }

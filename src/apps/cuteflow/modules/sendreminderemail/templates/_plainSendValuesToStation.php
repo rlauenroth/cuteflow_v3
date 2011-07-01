@@ -49,7 +49,7 @@ foreach($slots as $slot) {
             }
         }
         else if ($field['type'] == 'TEXTAREA'){
-            if($field['items']['contenttype'] == 'html') {
+            if($field['items']['content_type'] == 'html') {
                 echo strip_tags($field['items']['value']);
             }
             else {

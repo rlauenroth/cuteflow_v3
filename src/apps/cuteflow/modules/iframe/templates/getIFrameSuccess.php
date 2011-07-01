@@ -61,7 +61,7 @@
             else {
                 $color = '#FFFF99';
             }
-            echo '<input type="hidden" name="slot['.$slotcounter++.'][workflowslot_id]" value="'.$slot['workflowslot_id'].'"/>';
+            echo '<input type="hidden" name="slot['.$slotcounter++.'][workflow_slot_id]" value="'.$slot['workflow_slot_id'].'"/>';
             $fields = $slot['fields'];
             $leftString = '';
             $rightString = '';

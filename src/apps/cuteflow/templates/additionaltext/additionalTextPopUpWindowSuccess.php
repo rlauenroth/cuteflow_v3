@@ -51,7 +51,7 @@ cf.additionalTextPopUpWindow = function(){return {
 				success: function(objServerResponse){ 
 					var ServerResult = Ext.util.JSON.decode(objServerResponse.responseText);
 					Ext.getCmp('additionalTextPopUpWindow_titletextfield').setValue(ServerResult.result.title);
-					if (ServerResult.result.contenttype == 'plain') {
+					if (ServerResult.result.content_type == 'plain') {
 						Ext.getCmp('additionalTextPopUpWindow_textarea').setValue(ServerResult.result.content);
 						cf.additionalTextPopUpWindow.theHTMLFieldset.setVisible(false);
 						Ext.getCmp('additionalTextPopUpWindow_typecombobox').setValue('plain');
@@ -174,7 +174,7 @@ cf.additionalTextPopUpWindow = function(){return {
 				editable:false,
 				triggerAction: 'all',
 				foreSelection: true,
-				hiddenName : 'contenttype',
+				hiddenName : 'content_type',
 				id: 'additionalTextPopUpWindow_typecombobox',
 				mode: 'local',
 				value: 'plain',

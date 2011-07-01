@@ -68,7 +68,7 @@ cf.archiveWorkflow = function(){return {
 				fields: [
 					{name: '#'},
 					{name: 'id'},
-					{name: 'mailinglisttemplate_id'},
+					{name: 'mailinglist_template_id'},
 					{name: 'mailinglisttemplate'},
 					{name: 'sender_id'},
 					{name: 'sendername'},
@@ -79,8 +79,8 @@ cf.archiveWorkflow = function(){return {
 					{name: 'isstopped'},
 					{name: 'auth'},
 					{name: 'currentlyrunning'},
-					{name: 'versioncreated_at'},
-					{name: 'activeversion_id'},
+					{name: 'version_created_at'},
+					{name: 'active_version_id'},
 					{name: 'userdefined1'},
 					{name: 'userdefined2'}
 				]
@@ -160,20 +160,20 @@ cf.archiveWorkflow = function(){return {
 	
 	renderButton: function (data, cell, record, rowIndex, columnIndex, store, grid) {
 		var id = record.data['id'];
-		var activeversion_id = record.data['activeversion_id'];
+		var active_version_id = record.data['active_version_id'];
 		var isstopped = record.data['isstopped'];
 		
 		var rights = record.data['auth'];
 		
-		var btnDetails = cf.archiveWorkflow.createRemoveFromArchive.defer(10,this, [id, activeversion_id, rights.archiveworkflow]);
-		var btnDetails = cf.archiveWorkflow.createDetailsButton.defer(10,this, [id, activeversion_id, rights.detailsworkflow]);
-		var btnEdit1 = cf.archiveWorkflow.createDeleteButton.defer(10,this, [id, activeversion_id, rights.deleteworkflow]);
+		var btnDetails = cf.archiveWorkflow.createRemoveFromArchive.defer(10,this, [id, active_version_id, rights.archive_workflow]);
+		var btnDetails = cf.archiveWorkflow.createDetailsButton.defer(10,this, [id, active_version_id, rights.details_workflow]);
+		var btnEdit1 = cf.archiveWorkflow.createDeleteButton.defer(10,this, [id, active_version_id, rights.delete_workflow]);
 		return '<center><table><tr><td width="16"><div id="archiveoverview_delete'+ id +'"></div></td><td width="16"><div id="archiveoverview_details'+ id +'"></div></td><td width="16"><div id="archiveoverview_remove'+ id +'"></div></td></tr></table></center>';
 	},
 	
 	
 	
-	createDetailsButton: function (template_id, activeversion_id, right) {
+	createDetailsButton: function (template_id, active_version_id, right) {
 		var btn_copy = new Ext.form.Label({
 			renderTo: 'archiveoverview_details' + template_id,
 			html: '<span style="cursor:pointer;"><img src="/images/icons/zoom.png" /></span>',
@@ -182,7 +182,7 @@ cf.archiveWorkflow = function(){return {
 					c.getEl().on({
 						click: function(el){
 							if(right == 1) {
-								cf.workflowdetails.init(template_id, activeversion_id, false, true);
+								cf.workflowdetails.init(template_id, active_version_id, false, true);
 							}
 							else {
 								Ext.Msg.minWidth = 200;
@@ -197,7 +197,7 @@ cf.archiveWorkflow = function(){return {
 		
 	},
 	
-	createDeleteButton: function (template_id, activeversion_id, right) {
+	createDeleteButton: function (template_id, active_version_id, right) {
 		var btn_copy = new Ext.form.Label({
 			renderTo: 'archiveoverview_delete' + template_id,
 			html: '<span style="cursor:pointer;"><img src="/images/icons/delete.png" /></span>',
@@ -212,7 +212,7 @@ cf.archiveWorkflow = function(){return {
 								   buttons: Ext.Msg.YESNO,
 								   fn: function(btn, text) {
 										if(btn == 'yes') {
-											cf.workflowmanagementPanelCRUD.deleteWorkflow(template_id, activeversion_id);
+											cf.workflowmanagementPanelCRUD.deleteWorkflow(template_id, active_version_id);
 										}
 								   }
 								});
@@ -231,7 +231,7 @@ cf.archiveWorkflow = function(){return {
 	},
 	
 	
-	createRemoveFromArchive: function (template_id, activeversion_id, right) {
+	createRemoveFromArchive: function (template_id, active_version_id, right) {
 		var btn_copy = new Ext.form.Label({
 			html: '<span style="cursor:pointer;"><img src="/images/icons/database_refresh.png" /></span>',
 			renderTo: 'archiveoverview_remove' + template_id,
@@ -246,7 +246,7 @@ cf.archiveWorkflow = function(){return {
 								   buttons: Ext.Msg.YESNO,
 								   fn: function(btn, text) {
 										if(btn == 'yes') {
-											cf.archivePanelCRUD.removeFromArchive(template_id, activeversion_id);
+											cf.archivePanelCRUD.removeFromArchive(template_id, active_version_id);
 										}
 								   }
 								});

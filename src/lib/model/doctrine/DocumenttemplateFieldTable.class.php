@@ -9,7 +9,7 @@ class DocumentTemplateFieldTable extends Doctrine_Table {
      * @return object FormTemplate
      */
     public static function instance() {
-        return Doctrine::getTable('DocumenttemplateField');
+        return Doctrine::getTable('DocumentTemplateField');
     }
 
     /**
@@ -20,11 +20,9 @@ class DocumentTemplateFieldTable extends Doctrine_Table {
      */
     public function getAllFieldsBySlotId($id) {
         return Doctrine_Query::create()
-            ->select('dtf.*')
-            ->from('DocumenttemplateField dtf')
-            ->where('dtf.documenttemplateslot_id = ?', $id)
+            ->from('DocumentTemplateField dtf')
+            ->where('dtf.document_template_slot_id = ?', $id)
             ->orderBy('dtf.position asc')
-            ->execute();
-        
+            ->execute();        
     }
 }

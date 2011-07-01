@@ -14,14 +14,14 @@ abstract class BaseWorkflowSlotFieldComboboxFormFilter extends BaseFormFilterDoc
   {
     $this->setWidgets(array(
       'workflow_slot_field_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('WorkflowSlotField'), 'add_empty' => true)),
-      'field_combobox_id'      => new sfWidgetFormFilterInput(),
+      'field_combobox_id'      => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('FieldCombobox'), 'add_empty' => true)),
       'value'                  => new sfWidgetFormFilterInput(),
       'position'               => new sfWidgetFormFilterInput(),
     ));
 
     $this->setValidators(array(
       'workflow_slot_field_id' => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('WorkflowSlotField'), 'column' => 'id')),
-      'field_combobox_id'      => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'field_combobox_id'      => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('FieldCombobox'), 'column' => 'id')),
       'value'                  => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'position'               => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
     ));
@@ -45,7 +45,7 @@ abstract class BaseWorkflowSlotFieldComboboxFormFilter extends BaseFormFilterDoc
     return array(
       'id'                     => 'Number',
       'workflow_slot_field_id' => 'ForeignKey',
-      'field_combobox_id'      => 'Number',
+      'field_combobox_id'      => 'ForeignKey',
       'value'                  => 'Number',
       'position'               => 'Number',
     );

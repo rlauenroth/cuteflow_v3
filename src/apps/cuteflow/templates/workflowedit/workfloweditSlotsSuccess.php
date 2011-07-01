@@ -12,7 +12,7 @@ cf.workfloweditSlot = function(){return {
 		for(var a=0;a<data.length;a++) {
 			var slot = data[a];
 			var columnPanel = this.createColumnpanel(slot.isdisabled);
-			var fieldset = this.initFieldset(slot.slotname, slot.workflowslot_id);
+			var fieldset = this.initFieldset(slot.slotname, slot.workflow_slot_id);
 			
 			var leftPanel = this.createPanel();		
 			var rightPanel = this.createPanel();
@@ -26,35 +26,35 @@ cf.workfloweditSlot = function(){return {
 				}
 				switch (field.type) {
 					case "TEXTFIELD":
-						var label = this.createTextfield(field.workflowslotfield_id, field.fieldname, field.items.value, field.writeprotected, field.color, field.items.regex);
+						var label = this.createTextfield(field.workflow_slot_field_id, field.fieldname, field.items.value, field.write_protected, field.color, field.items.regex);
 						field.column == 'LEFT' ? leftPanel.add(label) : rightPanel.add(label);
 					    break;
 					case "CHECKBOX":
-						var label = this.createCheckbox(field.workflowslotfield_id,field.fieldname, field.items.value, field.writeprotected, field.color);
+						var label = this.createCheckbox(field.workflow_slot_field_id,field.fieldname, field.items.value, field.write_protected, field.color);
 						field.column == 'LEFT' ? leftPanel.add(label) : rightPanel.add(label);
 					    break;
 					case "NUMBER":
-						var label = this.createNumber(field.workflowslotfield_id, field.fieldname, field.items.value, field.writeprotected, field.color, field.items.regex,field.items.emptytext );
+						var label = this.createNumber(field.workflow_slot_field_id, field.fieldname, field.items.value, field.write_protected, field.color, field.items.regex,field.items.emptytext );
 						field.column == 'LEFT' ? leftPanel.add(label) : rightPanel.add(label);
 					    break;
 					case "TEXTAREA":
-						var label = this.createTextarea(field.workflowslotfield_id, field.fieldname, field.items.value, field.writeprotected, field.color,field.items.contenttype );
+						var label = this.createTextarea(field.workflow_slot_field_id, field.fieldname, field.items.value, field.write_protected, field.color,field.items.content_type );
 						field.column == 'LEFT' ? leftPanel.add(label) : rightPanel.add(label);
 					    break;
 					case "DATE":
-						var label = this.createDatefield(field.workflowslotfield_id, field.fieldname, field.items.value, field.writeprotected, field.color ,field.items.dateformat);
+						var label = this.createDatefield(field.workflow_slot_field_id, field.fieldname, field.items.value, field.write_protected, field.color ,field.items.date_format);
 						field.column == 'LEFT' ? leftPanel.add(label) : rightPanel.add(label);
 					    break;
 					case "RADIOGROUP":
-						var label = this.createRadiogroup(field.workflowslotfield_id, field.fieldname, field.items, field.writeprotected, field.color);
+						var label = this.createRadiogroup(field.workflow_slot_field_id, field.fieldname, field.items, field.write_protected, field.color);
 						field.column == 'LEFT' ? leftPanel.add(label) : rightPanel.add(label);
 					    break;
 	    			case "CHECKBOXGROUP":
-						var label = this.createCheckboxgroup(field.workflowslotfield_id, field.fieldname, field.items, field.writeprotected, field.color);
+						var label = this.createCheckboxgroup(field.workflow_slot_field_id, field.fieldname, field.items, field.write_protected, field.color);
 						field.column == 'LEFT' ? leftPanel.add(label) : rightPanel.add(label);
 					    break;
 	    			case "COMBOBOX":
-						var label = this.createCombobox(field.workflowslotfield_id, field.fieldname, field.items, field.writeprotected, field.color);
+						var label = this.createCombobox(field.workflow_slot_field_id, field.fieldname, field.items, field.write_protected, field.color);
 						field.column == 'LEFT' ? leftPanel.add(label) : rightPanel.add(label);
 					    break;
 	    			case "FILE":
@@ -79,9 +79,9 @@ cf.workfloweditSlot = function(){return {
 	},
 	
 	
-	createTextfield: function (id, name, value, writeprotected, color, regex) {
+	createTextfield: function (id, name, value, write_protected, color, regex) {
 		
-		var disabled = writeprotected == 1 ? true : false;
+		var disabled = write_protected == 1 ? true : false;
 		var textfield = new Ext.form.TextField({
 			fieldLabel: name,
 			disabled: disabled,
@@ -121,8 +121,8 @@ cf.workfloweditSlot = function(){return {
 		
 	},
 	
-	createCombobox: function (id, name, items, writeprotected, color) {
-		var disabled = writeprotected == 1 ? true : false;
+	createCombobox: function (id, name, items, write_protected, color) {
+		var disabled = write_protected == 1 ? true : false;
 		var combo =  new Ext.form.ComboBox({
 			fieldLabel: name,
 			valueField: 'value',
@@ -170,9 +170,9 @@ cf.workfloweditSlot = function(){return {
 	},
 	
 	
-	createRadiogroup: function (id, name, items, writeprotected, color) {
+	createRadiogroup: function (id, name, items, write_protected, color) {
 		var store = new Array();
-		var disabled = writeprotected == 1 ? true : false;
+		var disabled = write_protected == 1 ? true : false;
 		for(var a=0;a<items.length;a++){
 			var item = items[a];
 			var activeitem = item.value == 1 ? true : false;
@@ -198,9 +198,9 @@ cf.workfloweditSlot = function(){return {
 		return radiogroup;
 	},
 	
-	createCheckboxgroup: function (id, name, items, writeprotected, color) {
+	createCheckboxgroup: function (id, name, items, write_protected, color) {
 		var store = new Array();
-		var disabled = writeprotected == 1 ? true : false;
+		var disabled = write_protected == 1 ? true : false;
 		for(var a=0;a<items.length;a++){
 			var item = items[a];
 			var activeitem = item.value == 1 ? true : false;
@@ -226,13 +226,13 @@ cf.workfloweditSlot = function(){return {
 		return radiogroup;
 	},
 	
-	createDatefield: function (id, name, value, writeprotected, color, dateformat) {
-		var disabled = writeprotected == 1 ? true : false;
+	createDatefield: function (id, name, value, write_protected, color, date_format) {
+		var disabled = write_protected == 1 ? true : false;
 		var textfield = new Ext.form.DateField({
 			allowBlank:true,
 			id: 'DATE__' + id,
 			fieldLabel: name,
-			format: dateformat,
+			format: date_format,
 			editable: false,
 			disabled: disabled,
 			value: value,
@@ -244,9 +244,9 @@ cf.workfloweditSlot = function(){return {
 		return textfield;
 	},
 	
-	createTextarea: function (id, name, value, writeprotected, color, contenttype) {
-		var disabled = writeprotected == 1 ? true : false;
-		if(contenttype == 'plain') {
+	createTextarea: function (id, name, value, write_protected, color, content_type) {
+		var disabled = write_protected == 1 ? true : false;
+		if(content_type == 'plain') {
 			var textarea = new Ext.form.TextArea({
 				fieldLabel: name,
 				disabled: disabled,
@@ -274,9 +274,9 @@ cf.workfloweditSlot = function(){return {
 	},
 	
 	
-	createCheckbox: function (id, name, value, writeprotected, color) {
+	createCheckbox: function (id, name, value, write_protected, color) {
 		var checked = value == 1 ? true : false;
-		var disabled = writeprotected == 1 ? true : false;
+		var disabled = write_protected == 1 ? true : false;
 		var check = new Ext.form.Checkbox({
 			 fieldLabel: name,
 			 checked: checked,
@@ -295,8 +295,8 @@ cf.workfloweditSlot = function(){return {
 	
 
 
-	createNumber: function (id, name, value, writeprotected, color, regex, emptytext) {
-		var disabled = writeprotected == 1 ? true : false;
+	createNumber: function (id, name, value, write_protected, color, regex, emptytext) {
+		var disabled = write_protected == 1 ? true : false;
 		var textfield = new Ext.form.TextField({
 			fieldLabel: name,
 			disabled: disabled,

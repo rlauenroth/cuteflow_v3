@@ -10,7 +10,6 @@ class ThemeManagement {
 
 
     public function  __construct() {
-        sfLoader::loadHelpers('I18N');
     }
 
 

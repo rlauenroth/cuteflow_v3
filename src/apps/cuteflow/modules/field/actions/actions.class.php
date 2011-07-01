@@ -57,7 +57,7 @@ class fieldActions extends sfActions {
         $fieldObj = new Field();
         $fieldObj->setTitle($data['createFileWindow_fieldname']);
         $fieldObj->setType($data['createFileWindow_fieldtype']);
-        $fieldObj->setwriteprotected($data['createFileWindow_writeprotected']);
+        $fieldObj->setWriteProtected($data['createFileWindow_writeprotected']);
         $fieldObj->setColor($data['createFileWindow_color']);
         $fieldObj->save();
         $id = $fieldObj->getId();
@@ -68,7 +68,7 @@ class fieldActions extends sfActions {
                 $textfield = new FieldTextfield();
                 $textfield->setFieldId($id);
                 $textfield->setRegex($data['fieldTextfield_regularexpression']);
-                $textfield->setDefaultvalue($data['fieldTextfield_standard']);
+                $textfield->setDefaultValue($data['fieldTextfield_standard']);
                 $textfield->save();
                 break;
             case 'CHECKBOX':
@@ -77,16 +77,16 @@ class fieldActions extends sfActions {
             case 'NUMBER':
                 $numberfield = new FieldNumber();
                 $numberfield->setRegex($data['fieldNumber_regularexpression']);
-                $numberfield->setDefaultvalue($data['fieldNumber_standard']);
-                $numberfield->setComboboxvalue($data['fieldNumber_regularexpressioncombo']);
+                $numberfield->setDefaultValue($data['fieldNumber_standard']);
+                $numberfield->setComboboxValue($data['fieldNumber_regularexpressioncombo']);
                 $numberfield->setFieldId($id);
                 $numberfield->save();
                 break;
             case 'DATE':
                 $datefield = new FieldDate();
                 $datefield->setRegex($data['fieldDate_regularexpression']);
-                $datefield->setDateformat($data['fieldDate_format']);
-                $datefield->setDefaultvalue($data['fieldDate_date']);
+                $datefield->setDateFormat($data['fieldDate_format']);
+                $datefield->setDefaultValue($data['fieldDate_date']);
                 $datefield->setFieldId($id);
                 $datefield->save();
                 break;
@@ -94,7 +94,7 @@ class fieldActions extends sfActions {
                 $data['fieldTextarea_content'] = $data['fieldTextarea_contenttype'] == 'plain' ? $data['fieldTextarea_textarea']: $data['fieldTextarea_htmlarea'];
                 $textarea = new FieldTextarea();
                 $textarea->setContent($data['fieldTextarea_content']);
-                $textarea->setContenttype($data['fieldTextarea_contenttype']);
+                $textarea->setContentType($data['fieldTextarea_contenttype']);
                 $textarea->setFieldId($id);
                 $textarea->save();
                 break;

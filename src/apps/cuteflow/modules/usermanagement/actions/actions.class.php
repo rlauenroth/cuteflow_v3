@@ -157,9 +157,9 @@ class usermanagementActions extends sfActions {
         $data = $store->prepareUpdateData($request->getPostParameters());
         UserLoginTable::instance()->updateUser($data, $request->getParameter('id'));
         UserDataTable::instance()->updateUserFirstnameAndLastname($data, $request->getParameter('id'));
-        UserSettingTable::instance()->updateUserEmailformatAndEmailtype($data, $request->getParameter('id'));
+        UserSettingTable::instance()->updateUserEmailFormatAndEmailtype($data, $request->getParameter('id'));
         isset($data['userThirdTab_street']) ? UserDataTable::instance()->updateUserAdditinalData($data, $request->getParameter('id')) : '';
-        isset($data['userSecondTab_durationlength_type']) ? UserSettingTable::instance()->updateUserSettingDurationtypeAndDurationlength($data, $request->getParameter('id')) : '';
+        isset($data['userSecondTab_durationlength_type']) ? UserSettingTable::instance()->updateUserSettingDurationTypeAndDurationLength($data, $request->getParameter('id')) : '';
         isset($data['userFourthTab_itemsperpage']) ? UserSettingTable::instance()->updateUserSetting($data, $request->getParameter('id')) : '';
         isset($data['userSecondTab_durationlength_type']) ? $store->addUserAgent($data, $request->getParameter('id')) : '';
         isset($data['userFourthTab_itemsperpage']) ? UserWorkflowConfigurationTable::instance()->deleteSingleUserWorkflowConfigurattion($request->getParameter('id')) : '';
@@ -180,7 +180,7 @@ class usermanagementActions extends sfActions {
         $data = $request->getPostParameters();
         $data = $store->prepareCreateData($data, $result[0]);
         $user_id = $store->saveLoginDataTab($data);
-        UserSettingTable::instance()->updateUserSettingDurationtypeAndDurationlength($data, $user_id);
+        UserSettingTable::instance()->updateUserSettingDurationTypeAndDurationLength($data, $user_id);
         UserDataTable::instance()->updateUserAdditinalData($data,$user_id);
         UserSettingTable::instance()->updateUserSetting($data,$user_id);
         $store->addUserAgent($data, $user_id);

@@ -8,8 +8,8 @@ class WorkflowSetStation {
     }
 
 
-    public function getNextUser($workflowslot_id, $position) {
-        $user = WorkflowSlotUserTable::instance()->getUserBySlotIdAndPosition($workflowslot_id, $position)->toArray();
+    public function getNextUser($workflow_slot_id, $position) {
+        $user = WorkflowSlotUserTable::instance()->getUserBySlotIdAndPosition($workflow_slot_id, $position)->toArray();
         return $user;
     }
     
@@ -20,15 +20,15 @@ class WorkflowSetStation {
     }
 
 
-   public function calculateSlot($workflowslot_id) {
-       $currentSlot = WorkflowSlotTable::instance()->getSlotById($workflowslot_id)->toArray();
-       $nextSlot = $this->getNextSlot($currentSlot[0]['workflowversion_id'],$currentSlot[0]['position']+1);
+   public function calculateSlot($workflow_slot_id) {
+       $currentSlot = WorkflowSlotTable::instance()->getSlotById($workflow_slot_id)->toArray();
+       $nextSlot = $this->getNextSlot($currentSlot[0]['workflow_version_id'],$currentSlot[0]['position']+1);
        if(!empty($nextSlot)) {
            $this->calculateStation($nextSlot[0]['id'], 1);
        }
    }
 
-   public function calculateStation($workflowslot_id, $position) {
+   public function calculateStation($workflow_slot_id, $position) {
        
    }
     

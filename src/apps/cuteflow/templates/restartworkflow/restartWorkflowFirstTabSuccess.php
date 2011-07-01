@@ -368,7 +368,7 @@ cf.restartWorkflowFirstTab = function(){return {
 				select: {
 					fn:function(combo, value) {
 						var item = combo.store.findExact('value', combo.getValue());
-						if(item.data.contenttype == 'plain') {
+						if(item.data.content_type == 'plain') {
 							cf.restartWorkflowFirstTab.theTextarea.setVisible(true);
 							cf.restartWorkflowFirstTab.theHtmlarea.setVisible(false);
 							cf.restartWorkflowFirstTab.theTextarea.setSize({width: (cf.Layout.theRegionWest.getWidth() +  cf.Layout.theRegionCenter.getWidth()) / 2});
@@ -391,22 +391,22 @@ cf.restartWorkflowFirstTab = function(){return {
 				success: function(objServerResponse){ 
 					theJsonTreeData = Ext.util.JSON.decode(objServerResponse.responseText);
 					var defaultdata = -1;
-					var contenttype;
+					var content_type;
 					var content;
 					var data = theJsonTreeData.result;
 					for(var a=0;a<data.length;a++) {
 						var item = data[a];
-						var Rec = Ext.data.Record.create({name: 'value'},{name: 'contenttype'},{name: 'content'},{name: 'text'});
-						cf.restartWorkflowFirstTab.theAdditionaltextCombo.store.add(new Rec({value: item.id, contenttype: item.rawcontenttype,content: item.content, text: item.title}));
-						if(item.isactive == 1) {
-							contenttype = item.rawcontenttype;
+						var Rec = Ext.data.Record.create({name: 'value'},{name: 'content_type'},{name: 'content'},{name: 'text'});
+						cf.restartWorkflowFirstTab.theAdditionaltextCombo.store.add(new Rec({value: item.id, content_type: item.rawcontenttype,content: item.content, text: item.title}));
+						if(item.is_active == 1) {
+							content_type = item.rawcontenttype;
 							content = item.content;
 							defaultdata = item.id;
 						}
 					}
 					if(defaultdata != -1) {
 						cf.restartWorkflowFirstTab.theAdditionaltextCombo.setValue(defaultdata);
-						if(contenttype == 'plain') {
+						if(content_type == 'plain') {
 							cf.restartWorkflowFirstTab.theTextarea.setVisible(true);
 							cf.restartWorkflowFirstTab.theHtmlarea.setVisible(false);
 							cf.restartWorkflowFirstTab.theTextarea.setValue(content);

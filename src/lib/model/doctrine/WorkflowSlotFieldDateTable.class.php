@@ -14,7 +14,7 @@ class WorkflowSlotFieldDateTable extends Doctrine_Table {
         return Doctrine_Query::create()
             ->from('WorkflowSlotFieldDate wsfd')
             ->select('wsfd.*,')
-            ->where('wsfd.workflowslotfield_id = ?' ,$id)
+            ->where('wsfd.workflow_slot_field_id = ?' ,$id)
             ->execute();
     }
 
@@ -24,7 +24,7 @@ class WorkflowSlotFieldDateTable extends Doctrine_Table {
         Doctrine_Query::create()
             ->update('WorkflowSlotFieldDate wsfd')
             ->set('wsfd.value','?',$value)
-            ->where ('wsfd.workflowslotfield_id = ?',$id)
+            ->where ('wsfd.workflow_slot_field_id = ?',$id)
             ->execute();
     }
 

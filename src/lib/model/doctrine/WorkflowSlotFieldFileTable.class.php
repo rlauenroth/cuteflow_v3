@@ -13,7 +13,7 @@ class WorkflowSlotFieldFileTable extends Doctrine_Table {
         return Doctrine_Query::create()
             ->from('WorkflowSlotFieldFile wsff')
             ->select('wsff.*,')
-            ->where('wsff.workflowslotfield_id = ?' ,$id)
+            ->where('wsff.workflow_slot_field_id = ?' ,$id)
             ->execute();
     }
 

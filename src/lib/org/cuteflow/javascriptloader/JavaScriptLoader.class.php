@@ -26,7 +26,7 @@ class JavaScriptLoader {
     public function addNameSpaceFiles() {
         $result = array();
         $dir = sfConfig::get('sf_app_dir') . '/templates/namespace/';
-        $result[0] = $dir . 'main.js';
+        $result[0] = $dir . 'mainSuccess.php';
         $a = 1;
         foreach($this->files['template'] as $item) {
             $result[$a++] = $item;

@@ -11,7 +11,6 @@ class CredentialRolemanagement extends MenueCredential {
          * @param Doctrine_Collection $data_in, records from database
          */
 	public function __construct() {
-            sfLoader::loadHelpers('I18N');
             $this->moduleCounter = 0;
             $this->groupCounter = 0;
             $this->rightCounter = 0;

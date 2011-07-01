@@ -21,9 +21,9 @@ class FieldDateTable extends Doctrine_Table {
     public function updateFieldDateById($id, $data) {
         Doctrine_Query::create()
             ->update('FieldDate fd')
-            ->set('fd.defaultvalue','?', $data['fieldDate_date'])
+            ->set('fd.default_value','?', $data['fieldDate_date'])
             ->set('fd.regex','?',$data['fieldDate_regularexpression'])
-            ->set('fd.dateformat','?',$data['fieldDate_format'])
+            ->set('fd.date_format','?',$data['fieldDate_format'])
             ->where('fd.field_id = ?',$id)
             ->execute();
         return true;

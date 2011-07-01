@@ -32,11 +32,11 @@ cf.mailinglistPopUpWindow = function(){return {
 	* calls all necessary functions, to edit a  form
 	*@param int id, id is set
 	*/
-	initEdit: function (id, activeversion_id) {
+	initEdit: function (id, active_version_id) {
 		this.theLoadingMask = new Ext.LoadMask(Ext.getBody(), {msg:'<?php echo __('Loading Data...',null,'usermanagement'); ?>'});					
 		this.theLoadingMask.show();
-		cf.mailinglistFirstTab.init('<?php echo build_dynamic_javascript_url('mailinglist/LoadAuthorization')?>/id/'+activeversion_id,activeversion_id);
-		cf.mailinglistThirdTab.init('<?php echo build_dynamic_javascript_url('mailinglist/LoadAuthorization')?>/id/'+activeversion_id,id);
+		cf.mailinglistFirstTab.init('<?php echo build_dynamic_javascript_url('mailinglist/LoadAuthorization')?>/id/'+active_version_id,active_version_id);
+		cf.mailinglistThirdTab.init('<?php echo build_dynamic_javascript_url('mailinglist/LoadAuthorization')?>/id/'+active_version_id,id);
 		this.initTabPanel();
 		this.initWindow(id,'<?php echo __('Edit existing Mailing list',null,'mailinglist'); ?>');
 		this.theTabPanel.add(cf.mailinglistFirstTab.theFormPanel);
@@ -46,7 +46,7 @@ cf.mailinglistPopUpWindow = function(){return {
 		this.theMailinglistPopUpWindow.show();
 		this.theTabPanel.setActiveTab(1);
 		this.theTabPanel.setActiveTab(0);
-		this.addData(activeversion_id);
+		this.addData(active_version_id);
 		this.theLoadingMask.hide();
 		
 	},
@@ -62,18 +62,18 @@ cf.mailinglistPopUpWindow = function(){return {
 			url : '<?php echo build_dynamic_javascript_url('mailinglist/LoadSingleMailinglist')?>/id/' + id, 
 			success: function(objServerResponse){
 				theJsonTreeData = Ext.util.JSON.decode(objServerResponse.responseText);
-				cf.mailinglistSecondTab.init(theJsonTreeData.result.documenttemplate_name);
+				cf.mailinglistSecondTab.init(theJsonTreeData.result.document_template_name);
 				cf.mailinglistPopUpWindow.theTabPanel.add(cf.mailinglistSecondTab.thePanel);
 				
-				var Rec = Ext.data.Record.create({name: 'documenttemplate_id'},{name: 'name'});
-				Ext.getCmp('mailinglistFirstTab_documenttemplate_id').store.add(new Rec({documenttemplate_id: theJsonTreeData.result.documenttemplate_id, name: theJsonTreeData.result.name})); 
-				Ext.getCmp('mailinglistFirstTab_documenttemplate_id').setValue(theJsonTreeData.result.name);
-				Ext.getCmp('mailinglistFirstTab_nametextfield').setValue(theJsonTreeData.result.documenttemplate_name);
+				var Rec = Ext.data.Record.create({name: 'document_template_id'},{name: 'name'});
+				Ext.getCmp('mailinglistFirstTab_document_template_id').store.add(new Rec({document_template_id: theJsonTreeData.result.document_template_id, name: theJsonTreeData.result.name})); 
+				Ext.getCmp('mailinglistFirstTab_document_template_id').setValue(theJsonTreeData.result.name);
+				Ext.getCmp('mailinglistFirstTab_nametextfield').setValue(theJsonTreeData.result.document_template_name);
 				Ext.getCmp('mailinglistFirstTab_nametextfield').setDisabled(true);
-				Ext.getCmp('mailinglistFirstTab_documenttemplate_id').setDisabled(true);
+				Ext.getCmp('mailinglistFirstTab_document_template_id').setDisabled(true);
 				
 				
-				var sendToAll = theJsonTreeData.result.sendtoallslotsatonce == 1 ? true : false;
+				var sendToAll = theJsonTreeData.result.send_to_all_slots_at_once == 1 ? true : false;
 				Ext.getCmp('mailinglistFirstTab_sendtoallslots').setValue(sendToAll);
 				
 				

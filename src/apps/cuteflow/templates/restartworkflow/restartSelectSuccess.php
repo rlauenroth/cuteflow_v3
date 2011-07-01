@@ -23,15 +23,15 @@ cf.restartSelectStation = function(){return {
 
 	initStore: function () {
 		var reader = new Ext.data.ArrayReader({}, [
-			{name: 'workflowslotuser_id'},
+			{name: 'workflow_slot_user_id'},
 			{name: 'user_id'},
 			{name: 'slotgroup'},
 			{name: 'plainusername'},
 			{name: 'username'},
-			{name: 'workflowslot_id'},
+			{name: 'workflow_slot_id'},
 			{name: 'slotposition'},
 			{name: 'userposition'},
-			{name: 'workflowtemplate_id'},
+			{name: 'workflow_template_id'},
 			{name: 'slotname'},
 			{name: 'action'}
 		]);
@@ -86,29 +86,29 @@ cf.restartSelectStation = function(){return {
 				var uniqueId = cf.restartSelectStation.theUniqueId++;
 				
 				var Rec = Ext.data.Record.create(
-					{name: 'workflowslotuser_id'},
+					{name: 'workflow_slot_user_id'},
 					{name: 'user_id'},
 					{name: 'slotgroup'},
 					{name: 'plainusername'},
 					{name: 'slotposition'},
 					{name: 'userposition'},
 					{name: 'username'},
-					{name: 'workflowslot_id'},
-					{name: 'workflowtemplate_id'},
+					{name: 'workflow_slot_id'},
+					{name: 'workflow_template_id'},
 					{name: 'slotname'},
 					{name: 'action'}
 				);	
 	
 				cf.restartSelectStation.theGrid.store.add(new Rec({
-					workflowslotuser_id: user.workflowslotuser_id, 
+					workflow_slot_user_id: user.workflow_slot_user_id, 
 					user_id: user.user_id,
 					plainusername: user.plainusername,
 					slotgroup: user.slotgroup, 
 					slotposition: user.slotposition,
 					userposition: user.userposition,
 					username: user.username, 
-					workflowslot_id: user.workflowslot_id, 
-					workflowtemplate_id: user.workflowtemplate_id, 
+					workflow_slot_id: user.workflow_slot_id, 
+					workflow_template_id: user.workflow_template_id, 
 					slotname: user.slotname, 
 					action: '<center><table><tr><td width="16"><div id="selectNewStationForRestart'+ uniqueId +'"></div></td></tr></table></center>'
 				}));

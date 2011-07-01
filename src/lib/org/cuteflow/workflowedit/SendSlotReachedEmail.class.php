@@ -12,10 +12,8 @@ class SendSlotReachedEmail extends EmailSettings {
      * @param int $nextSlotId , SlotId of the next slot
      */
     public function  __construct($currentWorklfowSlotId, $nextWorkflowSlotId, $workflowtemplateId, $workflowversionId) { 
-        sfLoader::loadHelpers('EndAction');
         $this->setWorkflowTemplateSettings($workflowtemplateId);
         if($this->checkState() == 1) {
-            sfLoader::loadHelpers('Partial');
             $this->workflowVersionId = $workflowversionId;
             $this->setCurrentSlot($currentWorklfowSlotId);
             $this->setNextSlot($nextWorkflowSlotId);
@@ -27,7 +25,7 @@ class SendSlotReachedEmail extends EmailSettings {
 
 
     public function checkState() {
-        $data = getEndAction($this->workflowTemplateSettings['endaction']);
+        $data = getEndAction($this->workflowTemplateSettings['end_action']);
         if($data[1] == 1) {
             return 1;
         }
@@ -42,13 +40,13 @@ class SendSlotReachedEmail extends EmailSettings {
 
 
     public function setCurrentSlot($currentWorkflowSlotId) {
-        $slotData = DocumenttemplateSlotTable::instance()->getSlotByWorkflowSlotId($currentWorkflowSlotId)->toArray();
+        $slotData = DocumentTemplateSlotTable::instance()->getSlotByWorkflowSlotId($currentWorkflowSlotId)->toArray();
         $this->currentSlot = $slotData[0];
     }
 
 
     public function setNextSlot($nextWorkflowSlotId) {
-        $slotData = DocumenttemplateSlotTable::instance()->getSlotByWorkflowSlotId($nextWorkflowSlotId)->toArray();
+        $slotData = DocumentTemplateSlotTable::instance()->getSlotByWorkflowSlotId($nextWorkflowSlotId)->toArray();
         $this->nextSlot = $slotData[0];
     }
 
@@ -70,17 +68,17 @@ class SendSlotReachedEmail extends EmailSettings {
         $content['nextSlot'][2] = sfContext::getInstance()->getI18N()->__('has been reached' ,null,'slotreachedemail');
         $subject = sfContext::getInstance()->getI18N()->__('CuteFlow: slot' ,null,'slotreachedemail') . ' ' . $this->nextSlot['name'] . ' ' . sfContext::getInstance()->getI18N()->__('reached' ,null,'slotreachedemail');
         $linkTo = sfContext::getInstance()->getI18N()->__('Direct link to workflow' ,null,'slotreachedemail');
-        $this->setSender($this->userSettings->userSettings['systemreplyaddress']);
+        $this->setSender($this->userSettings->userSettings['system_reply_address']);
         $this->setReceiver(array ($this->userSettings->userData['email'] => $this->userSettings->userData['firstname'] . ' ' . $this->userSettings->userData['lastname']));
         $this->setSubject($subject);
-        $this->setContentType('text/' . $this->userSettings->userSettings['emailformat']);
+        $this->setContentType('text/' . $this->userSettings->userSettings['email_format']);
         $bodyData = array('text' => $content,
                           'userid' => $this->userSettings->userData['user_id'],
                           'workflowverion' => $this->workflowVersionId,
                           'workflow' => $this->workflowTemplateSettings['id'],
                           'linkto'  => $linkTo
                   );
-        $this->setBody(get_partial('workflowdetail/' . $this->userSettings->userSettings['emailformat'] . 'SendSlotReached', $bodyData));
+        $this->setBody(get_partial('workflowdetail/' . $this->userSettings->userSettings['email_format'] . 'SendSlotReached', $bodyData));
         $this->sendEmail();
     }
 

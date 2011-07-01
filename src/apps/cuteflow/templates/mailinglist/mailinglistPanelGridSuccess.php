@@ -52,9 +52,9 @@ cf.mailinglistPanelGrid = function(){return {
 					{name: 'id'},
 					{name: 'name'},
 					{name: 'formtemplate_id'},
-					{name: 'activeversion'},
+					{name: 'active_version'},
 					{name: 'formtemplate_name'},
-					{name: 'isactive'}
+					{name: 'is_active'}
 				]
 		});
 	},
@@ -159,7 +159,7 @@ cf.mailinglistPanelGrid = function(){return {
 	
 	/** button renderer for edit and delete **/
 	renderAction: function (data, cell, record, rowIndex, columnIndex, store, grid) {
-		cf.mailinglistPanelGrid.createEditButton.defer(500,this, [record.data['id'], record.data['activeversion']]);
+		cf.mailinglistPanelGrid.createEditButton.defer(500,this, [record.data['id'], record.data['active_version']]);
 		cf.mailinglistPanelGrid.createDeleteButton.defer(500,this, [record.data['id']]);
 		cf.mailinglistPanelGrid.createVersionButton.defer(500,this, [record.data['id']]);
 		cf.mailinglistPanelGrid.createAdaptButton.defer(500,this, [record.data['id']]);
@@ -223,7 +223,7 @@ cf.mailinglistPanelGrid = function(){return {
 	*
 	*@param int id, id of the record
 	*/
-	createEditButton: function (id, activeversion_id) {
+	createEditButton: function (id, active_version_id) {
 		var btn_edit = new Ext.form.Label({
 			renderTo: 'mailinglist_edit' + id,
 			html: '<span style="cursor:pointer;"><img src="/images/icons/group_edit.png" /></span>',
@@ -233,7 +233,7 @@ cf.mailinglistPanelGrid = function(){return {
 					  c.getEl().on({
 						click: function(el){
 							if (c.disabled == false) {
-								cf.mailinglistPopUpWindow.initEdit(id, activeversion_id);
+								cf.mailinglistPopUpWindow.initEdit(id, active_version_id);
 							}
 						},
 					scope: c
@@ -279,7 +279,7 @@ cf.mailinglistPanelGrid = function(){return {
 	
 	/** button renderer for edit and delete **/
 	renderRadiobox: function (data, cell, record, rowIndex, columnIndex, store, grid) {
-		cf.mailinglistPanelGrid.createRadiobox.defer(500,this, [record.data['id'], record.data['isactive']]);
+		cf.mailinglistPanelGrid.createRadiobox.defer(500,this, [record.data['id'], record.data['is_active']]);
 		return '<center><table><tr><td width="16"><div id="mailinglist_radiobox'+ record.data['id'] +'"></div></td></tr></table></center>';
 	},
 	
@@ -287,10 +287,10 @@ cf.mailinglistPanelGrid = function(){return {
 	* create radiobox to activate item
 	*
 	*@param int id, id of the record
-	*@param boolean isactive
+	*@param boolean is_active
 	*/
-	createRadiobox: function (id, isactive) {
-		var check = isactive == 1 ? true : false;
+	createRadiobox: function (id, is_active) {
+		var check = is_active == 1 ? true : false;
 		var radio = new Ext.form.Radio({
 			renderTo: 'mailinglist_radiobox' + id,
 			name: 'mailinglist_radioboxGrid_radioStandard',

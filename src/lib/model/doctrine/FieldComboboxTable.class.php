@@ -35,7 +35,7 @@ class FieldComboboxTable extends Doctrine_Table {
     public function setComboboxToNullById($id) {
         Doctrine_Query::create()
             ->update('FieldCombobox fcb')
-            ->set('fcb.isactive','?',0)
+            ->set('fcb.is_active','?',0)
             ->where('fcb.field_id = ?', $id)
             ->execute();
         return true;

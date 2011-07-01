@@ -36,7 +36,7 @@ class FieldCheckboxgroupTable extends Doctrine_Table {
     public function setCheckboxgroupToNullById($id) {
         Doctrine_Query::create()
             ->update('FieldCheckboxgroup fcbg')
-            ->set('fcbg.isactive','?',0)
+            ->set('fcbg.is_active','?',0)
             ->where('fcbg.field_id = ?', $id)
             ->execute();
         return true;

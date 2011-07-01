@@ -15,13 +15,12 @@ class MailinglistTemplateTable extends Doctrine_Table {
 
     public function getAllowedMailinglistTemplates($userId) {
         return Doctrine_Query::create()
-            ->select('mlt.*')
             ->from('MailinglistTemplate mlt')
             ->leftJoin('mlt.MailinglistVersion mlv')
             ->leftJoin('mlv.MailinglistAllowedSender mlas')
             ->where ('mlt.deleted_at IS NULL')
             ->andWhere('mlas.user_id = ?', $userId)
-            ->andWhere('mlv.activeversion = ?', 1)
+            ->andWhere('mlv.active_version = ?', 1)
             ->orderBy('mlt.id DESC')
             ->groupBy('mlt.id')
             ->execute();
@@ -58,7 +57,7 @@ class MailinglistTemplateTable extends Doctrine_Table {
             ->leftJoin('mlt.MailinglistVersion mlv')
             ->where ('mlt.deleted_at IS NULL')
             ->andWhere('mlt.name LIKE ?','%'.$filter.'%')
-            ->andWhere('mlv.activeversion = ?', 1);
+            ->andWhere('mlv.active_version = ?', 1);
             if($limit != -1 AND $offset != -1) {
                 $query->limit($limit)
                       ->offset($offset);
@@ -93,11 +92,10 @@ class MailinglistTemplateTable extends Doctrine_Table {
      */
     public function getAllMailinglistTemplates($limit, $offset) {
         $query = Doctrine_Query::create()
-                ->select('mlt.*')
                 ->from('MailinglistTemplate mlt')
                 ->leftJoin('mlt.MailinglistVersion mlv')
                 ->where ('mlt.deleted_at IS NULL')
-                ->andWhere('mlv.activeversion = ?', 1);
+                ->andWhere('mlv.active_version = ?', 1);
 		if($limit != -1 AND $offset != -1) {
                     $query->limit($limit)
                           ->offset($offset);
@@ -117,7 +115,7 @@ class MailinglistTemplateTable extends Doctrine_Table {
      */
     public function getMailinglistByVersionId($id) {
         return Doctrine_Query::create()
-                    ->select('mlt.*, mlv.sendtoallslotsatonce')
+                    ->select('mlt.*, mlv.send_to_all_slots_at_once')
                     ->from('MailinglistTemplate mlt')
                     ->leftJoin('mlt.MailinglistVersion mlv')
                     ->where('mlv.id = ?', $id)
@@ -128,10 +126,9 @@ class MailinglistTemplateTable extends Doctrine_Table {
 
     public function getMailinglistByVersionTemplateId($id) {
         return Doctrine_Query::create()
-                    ->select('mlt.*')
                     ->from('MailinglistTemplate mlt')
                     ->leftJoin('mlt.MailinglistVersion mlv')
-                    ->where('mlv.mailinglisttemplate_id = ?', $id)
+                    ->where('mlv.mailinglist_template_id = ?', $id)
                     ->execute();
 
     }
@@ -144,7 +141,7 @@ class MailinglistTemplateTable extends Doctrine_Table {
     public function setAllTemplatesDisabledById() {
         Doctrine_Query::create()
             ->update('MailinglistTemplate mlt')
-            ->set('mlt.isactive','?', 0)
+            ->set('mlt.is_active','?', 0)
             ->execute();
         return true;
     }
@@ -158,7 +155,7 @@ class MailinglistTemplateTable extends Doctrine_Table {
     public function activateTemplateById($id) {
         Doctrine_Query::create()
             ->update('MailinglistTemplate mlt')
-            ->set('mlt.isactive','?', 1)
+            ->set('mlt.is_active','?', 1)
             ->where('mlt.id = ?', $id)
             ->execute();
         return true;

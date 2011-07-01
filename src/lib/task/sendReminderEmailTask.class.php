@@ -59,7 +59,7 @@ EOF;
                 $data = $sendMail->prepareData($openStations);
                 $stillOpenWorkflows[$a]['workflow_id'] = $workflow['id'];
                 $stillOpenWorkflows[$a]['name'] = $workflow['name'];
-                $stillOpenWorkflows[$a]['workflowversion_id'] = $workflow['WorkflowVersion']['id'];
+                $stillOpenWorkflows[$a]['workflow_version_id'] = $workflow['WorkflowVersion']['id'];
                 $stillOpenWorkflows[$a++]['users'] = $data;
             }
             $stillOpenWorkflows = $sendMail->sortByUser($stillOpenWorkflows);

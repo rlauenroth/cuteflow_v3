@@ -19,7 +19,6 @@ class loginActions extends sfActions
     public function executeIndex(sfWebRequest $request)
     {
         $this->getUser()->setAuthenticated(false);
-        sfLoader::loadHelpers('Url');
         $this->getUser()->setCulture(Language::loadDefaultLanguage());
         $tm = new ThemeManagement();
         $systemTheme = UserConfigurationTable::instance()->getUserConfiguration()->toArray();

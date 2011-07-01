@@ -27,7 +27,7 @@ class CreateSubstitute {
      */
     public function checkSubstitute() {
         if($this->process['hasSubstitute'] == 0) { // no substitute for current process is set
-            $writePermission = $this->checkDecissionStateOfSubstitute($this->process['inprogresssince']);
+            $writePermission = $this->checkDecissionStateOfSubstitute($this->process['in_progress_since']);
             if($writePermission == true){
                 $this->setNewUserAgent($this->process['useragents'][0], $this->process['useragenttime']*2,0);
             }
@@ -36,10 +36,10 @@ class CreateSubstitute {
             $this->getNumberOfCronjobSubstitutes(); // check if the substitute is set by cronjob, and out of the substitute list of the user
             // deaktivate the substitute, which is not set from a cronjob
             if($this->numberCronjobOfSubstitutes == 0) { // no substitute is set by the cronjob.
-                $writePermission = $this->checkDecissionStateOfSubstitute($this->process['inprogresssince']);
+                $writePermission = $this->checkDecissionStateOfSubstitute($this->process['in_progress_since']);
                 if($writePermission == true){
-                    $this->disableUserAgent($this->process['workflowprocess_id'], 1);
-                    $this->disableUserAgent($this->process['workflowprocess_id'], 0);
+                    $this->disableUserAgent($this->process['workflow_process_id'], 1);
+                    $this->disableUserAgent($this->process['workflow_process_id'], 0);
                     $this->setNewUserAgent($this->process['useragents'][0], $this->process['useragenttime']*2,0);
                 }
             }
@@ -52,10 +52,10 @@ class CreateSubstitute {
                 }
                 $nextUserAgent = $this->getNextUserAgent($mountOfUserAgents); // check if theres a next useragent
                 if(is_array($nextUserAgent) == true) {
-                    if($this->currentTime > ($this->process['inprogresssince']+$minUserProcessTime)) {
+                    if($this->currentTime > ($this->process['in_progress_since']+$minUserProcessTime)) {
                 
-                        $this->disableUserAgent($this->process['workflowprocess_id'], 1);
-                        $this->disableUserAgent($this->process['workflowprocess_id'], 0);
+                        $this->disableUserAgent($this->process['workflow_process_id'], 1);
+                        $this->disableUserAgent($this->process['workflow_process_id'], 0);
                         $this->setNewUserAgent($nextUserAgent, ($minUserProcessTime+$this->process['useragenttime']),$mountOfUserAgents);
                     }
                 }
@@ -103,57 +103,57 @@ class CreateSubstitute {
     public function setNewUserAgent(array $userAgent, $sumUseragenttime, $userAgentOffset) {
         
         if($this->checkSubObj->cronJobSetting == 1){
-            if($this->currentTime > ($sumUseragenttime + $this->process['inprogresssince'])) {
-                $decissionstate = 'USERAGENTSET';
+            if($this->currentTime > ($sumUseragenttime + $this->process['in_progress_since'])) {
+                $decission_state = 'USERAGENTSET';
                 $userAgentOffset++;
                 $nextUserAgent = $this->getNextUserAgent($userAgentOffset);
                 if(is_array($nextUserAgent) == true) { // a useragent was found
                     $sumUseragenttime = $sumUseragenttime + $this->process['useragenttime'];
                     WorkflowProcessUserTable::instance()->setProcessToUseragentSet($this->process['id']);
                     $processObj = new WorkflowProcessUser();
-                    $processObj->setWorkflowprocessId($this->process['workflowprocess_id']);
-                    $processObj->setWorkflowslotuserId($this->process['workflowslotuser_id']);
-                    $processObj->setUserId($userAgent['useragent_id']);
-                    $processObj->setInprogresssince(time());
-                    $processObj->setDateofdecission(time());
-                    $processObj->setDecissionstate('USERAGENTSET');
+                    $processObj->setWorkflowProcessId($this->process['workflow_process_id']);
+                    $processObj->setWorkflowSlotUserId($this->process['workflow_slot_user_id']);
+                    $processObj->setUserId($userAgent['user_agent_id']);
+                    $processObj->setInProgressSince(time());
+                    $processObj->setDateOfDecission(time());
+                    $processObj->setDecissionState('USERAGENTSET');
                     $processObj->setUseragentsetbycronjob(1);
-                    $processObj->setIsuseragentof($this->process['id']);
+                    $processObj->setIsUserAgentOf($this->process['id']);
                     $processObj->setResendet(0);
                     $processObj->save();
                     $this->setNewUserAgent($nextUserAgent, $sumUseragenttime, $userAgentOffset);
                 }
                 else { // last Useragent in list is selected
-                    $decissionstate = 'WAITING';
+                    $decission_state = 'WAITING';
                 }
             }
             else {
-                $decissionstate = 'WAITING';
+                $decission_state = 'WAITING';
             }
         }
         else {
-            $decissionstate = 'WAITING';
+            $decission_state = 'WAITING';
         }
 
-        if($decissionstate == 'WAITING') {
+        if($decission_state == 'WAITING') {
             WorkflowProcessUserTable::instance()->setProcessToUseragentSet($this->process['id']);
             $processObj = new WorkflowProcessUser();
-            $processObj->setWorkflowprocessId($this->process['workflowprocess_id']);
-            $processObj->setWorkflowslotuserId($this->process['workflowslotuser_id']);
-            $processObj->setUserId($userAgent['useragent_id']);
-            $processObj->setInprogresssince(time());
-            $processObj->setDateofdecission(time());
-            $processObj->setDecissionstate('WAITING');
+            $processObj->setWorkflowProcessId($this->process['workflow_process_id']);
+            $processObj->setWorkflowSlotUserId($this->process['workflow_slot_user_id']);
+            $processObj->setUserId($userAgent['user_agent_id']);
+            $processObj->setInProgressSince(time());
+            $processObj->setDateOfDecission(time());
+            $processObj->setDecissionState('WAITING');
             $processObj->setUseragentsetbycronjob(1);
-            $processObj->setIsuseragentof($this->process['id']);
+            $processObj->setIsUserAgentOf($this->process['id']);
             $processObj->setResendet(0);
             $processObj->save();
             // get Additional Data, to send an email
             $workflowSettings = WorkflowProcessTable::instance()->getWorkflowProcessById($this->process['id']);
-            $workflowVersionTable = WorkflowVersionTable::instance()->getWorkflowVersionById($workflowSettings[0]->getWorkflowversionId())->toArray();
+            $workflowVersionTable = WorkflowVersionTable::instance()->getWorkflowVersionById($workflowSettings[0]->getWorkflowVersionId())->toArray();
 
             // sendmail
-            $mailObj = new PrepareStationEmail($workflowVersionTable[0]['id'], $workflowVersionTable[0]['workflowtemplate_id'], $userAgent['useragent_id'], $this->checkSubObj->context, $this->checkSubObj->serverUrl);
+            $mailObj = new PrepareStationEmail($workflowVersionTable[0]['id'], $workflowVersionTable[0]['workflow_template_id'], $userAgent['user_agent_id'], $this->checkSubObj->context, $this->checkSubObj->serverUrl);
         }
     
     }

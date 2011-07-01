@@ -16,7 +16,7 @@ abstract class BaseDocumentTemplateSlotForm extends BaseFormDoctrine
   {
     $this->setWidgets(array(
       'id'                           => new sfWidgetFormInputHidden(),
-      'document_template_version_id' => new sfWidgetFormInputText(),
+      'document_template_version_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('DocumentTemplateVersion'), 'add_empty' => true)),
       'name'                         => new sfWidgetFormInputText(),
       'send_to_all_receivers'        => new sfWidgetFormInputText(),
       'position'                     => new sfWidgetFormInputText(),
@@ -24,7 +24,7 @@ abstract class BaseDocumentTemplateSlotForm extends BaseFormDoctrine
 
     $this->setValidators(array(
       'id'                           => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'document_template_version_id' => new sfValidatorInteger(array('required' => false)),
+      'document_template_version_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('DocumentTemplateVersion'), 'required' => false)),
       'name'                         => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'send_to_all_receivers'        => new sfValidatorInteger(array('required' => false)),
       'position'                     => new sfValidatorInteger(array('required' => false)),

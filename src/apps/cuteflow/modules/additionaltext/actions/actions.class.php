@@ -32,12 +32,12 @@ class additionaltextActions extends sfActions {
      */
     public function executeSaveText(sfWebRequest $request) {
         $data = $request->getPostParameters();
-        $data['content'] = $data['contenttype'] == 'plain' ? $data['content_textarea'] : $data['content_htmleditor']; // set Content type of selected editor
+        $data['content'] = $data['content_type'] == 'plain' ? $data['content_textarea'] : $data['content_htmleditor']; // set Content type of selected editor
         $textObj = new AdditionalText();
         $textObj->setTitle($data['title']);
         $textObj->setContent($data['content']);
-        $textObj->setContenttype($data['contenttype']);
-        $textObj->setIsactive(0);
+        $textObj->setContentType($data['content_type']);
+        $textObj->setIsActive(0);
         $textObj->save();
         $this->renderText('{success:true}');
         return sfView::NONE;
@@ -73,7 +73,7 @@ class additionaltextActions extends sfActions {
      */
     public function executeUpdateText(sfWebRequest $request) {
         $data = $request->getPostParameters();
-        $data['content'] = $data['contenttype'] == 'plain' ? $data['content_textarea'] : $data['content_htmleditor'];        
+        $data['content'] = $data['content_type'] == 'plain' ? $data['content_textarea'] : $data['content_htmleditor'];        
         $result = AdditionalTextTable::instance()->updateText($data,$request->getParameter('id'));
         $this->renderText('{success:true}');
         return sfView::NONE;
@@ -100,8 +100,8 @@ class additionaltextActions extends sfActions {
         $textObj = new AdditionalText();
         $textObj->setTitle('## ' . $result[0]['title']);
         $textObj->setContent($result[0]['content']);
-        $textObj->setContenttype($result[0]['contenttype']);
-        $textObj->setIsactive(0);
+        $textObj->setContentType($result[0]['content_type']);
+        $textObj->setIsActive(0);
         $textObj->save();
         return sfView::NONE;
     }

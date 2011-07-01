@@ -21,7 +21,6 @@ class FieldTable extends Doctrine_Table {
     public function getAllFields() {
         return Doctrine_Query::create()
             ->from('Field f')
-            ->select('f.*')
             ->orderBy('f.id DESC')
             ->where('f.deleted_at IS NULL')
             ->execute();
@@ -48,7 +47,6 @@ class FieldTable extends Doctrine_Table {
     public function getFieldById($id) {
         return Doctrine_Query::create()
             ->from('Field f')
-            ->select('f.*')
             ->where('f.deleted_at IS NULL')
             ->andWhere('f.id = ?', $id)
             ->execute();
@@ -64,7 +62,7 @@ class FieldTable extends Doctrine_Table {
         Doctrine_Query::create()
             ->update('Field f')
             ->set('f.color','?', $data['createFileWindow_color'])
-            ->set('f.writeprotected','?',$data['createFileWindow_writeprotected'])
+            ->set('f.write_protected','?',$data['createFileWindow_writeprotected'])
             ->set('f.title','?',$data['createFileWindow_fieldname'])
             ->where('f.id = ?',$id)
             ->execute();

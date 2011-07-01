@@ -13,12 +13,12 @@ abstract class BaseWorkflowSlotFieldTextareaFormFilter extends BaseFormFilterDoc
   public function setup()
   {
     $this->setWidgets(array(
-      'workflow_slot_field_id' => new sfWidgetFormFilterInput(),
+      'workflow_slot_field_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('WorkflowSlotField'), 'add_empty' => true)),
       'value'                  => new sfWidgetFormFilterInput(),
     ));
 
     $this->setValidators(array(
-      'workflow_slot_field_id' => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'workflow_slot_field_id' => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('WorkflowSlotField'), 'column' => 'id')),
       'value'                  => new sfValidatorPass(array('required' => false)),
     ));
 
@@ -40,7 +40,7 @@ abstract class BaseWorkflowSlotFieldTextareaFormFilter extends BaseFormFilterDoc
   {
     return array(
       'id'                     => 'Number',
-      'workflow_slot_field_id' => 'Number',
+      'workflow_slot_field_id' => 'ForeignKey',
       'value'                  => 'Text',
     );
   }

@@ -8,7 +8,6 @@ class MenueSetting extends MenueCredential {
     
 
     public function __construct() {
-        sfLoader::loadHelpers('I18N');
     }
 
 

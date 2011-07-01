@@ -8,7 +8,7 @@ class AddText {
 
 
     public function  __construct() {
-         sfLoader::loadHelpers('I18N');
+
     }
 
     /**
@@ -24,10 +24,10 @@ class AddText {
         foreach($data as $item) {
             $result[$a]['#'] = $a+1;
             $result[$a]['title'] = $item->getTitle();
-            $result[$a]['contenttype'] = $context->getI18N()->__($item->getContenttype(),null,'additionaltext');
-            $result[$a]['rawcontenttype'] = $item->getContenttype();
+            $result[$a]['content_type'] = $context->getI18N()->__($item->getContentType(),null,'additionaltext');
+            $result[$a]['rawcontenttype'] = $item->getContentType();
             $result[$a]['content'] = $item->getContent();
-            $result[$a]['isactive'] = $item->getIsactive();
+            $result[$a]['is_active'] = $item->getIsActive();
             $result[$a++]['id'] = $item->getId();
         }
         return $result;

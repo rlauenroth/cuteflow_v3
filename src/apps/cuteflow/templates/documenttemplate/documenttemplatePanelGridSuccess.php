@@ -53,7 +53,7 @@ cf.documenttemplatePanelGrid = function(){return {
 					{name: '#'},
 					{name: 'id'},
 					{name: 'name'},
-					{name: 'documenttemplate_id'},
+					{name: 'document_template_id'},
 					{name: 'number'}
 				]
 		});
@@ -161,18 +161,18 @@ cf.documenttemplatePanelGrid = function(){return {
 	
 	/** button renderer for edit,delete and version button **/
 	renderAction: function (data, cell, record, rowIndex, columnIndex, store, grid) {
-		cf.documenttemplatePanelGrid.createEditButton.defer(500,this, [record.data['id'],record.data['documenttemplate_id']]);
+		cf.documenttemplatePanelGrid.createEditButton.defer(500,this, [record.data['id'],record.data['document_template_id']]);
 		cf.documenttemplatePanelGrid.createDeleteButton.defer(500,this, [record.data['id']]);
-		cf.documenttemplatePanelGrid.createVersionButton.defer(500,this, [record.data['id'],record.data['documenttemplate_id']]);
+		cf.documenttemplatePanelGrid.createVersionButton.defer(500,this, [record.data['id'],record.data['document_template_id']]);
 		return '<center><table><tr><td width="16"><div id="documenttemplate_edit'+ record.data['id'] +'"></div></td><td width="16"><div id="documenttemplate_version'+ record.data['id'] +'"></div></td><td width="16"><div id="documenttemplate_delete'+ record.data['id'] +'"></div></td></tr></table></center>';
 	},
 	/**
 	* version button
 	*
 	*@param int id, id of the record
-	*@param int documenttemplate_id, document id
+	*@param int document_template_id, document id
 	*/
-	createVersionButton: function (id, documenttemplate_id) {
+	createVersionButton: function (id, document_template_id) {
 		var btn_edit = new Ext.form.Label({
 			renderTo: 'documenttemplate_version' + id,
 			html: '<span style="cursor:pointer;"><img src="/images/icons/clock.png" /></span>',
@@ -182,7 +182,7 @@ cf.documenttemplatePanelGrid = function(){return {
 					  c.getEl().on({
 						click: function(el){
 							if (c.disabled == false) {
-								cf.documenttemplateVersionPopUp.init(id, documenttemplate_id);
+								cf.documenttemplateVersionPopUp.init(id, document_template_id);
 							}
 						},
 					scope: c
@@ -196,9 +196,9 @@ cf.documenttemplatePanelGrid = function(){return {
 	* edit button
 	*
 	*@param int id, id of the record
-	*@param int documenttemplate_id, document id
+	*@param int document_template_id, document id
 	*/
-	createEditButton: function (id, documenttemplate_id) {
+	createEditButton: function (id, document_template_id) {
 		var btn_edit = new Ext.form.Label({
 			renderTo: 'documenttemplate_edit' + id,
 			html: '<span style="cursor:pointer;"><img src="/images/icons/table_edit.png" /></span>',
@@ -208,7 +208,7 @@ cf.documenttemplatePanelGrid = function(){return {
 					  c.getEl().on({
 						click: function(el){
 							if (c.disabled == false) {
-								cf.documenttemplatePopUpWindow.initEditDocumenttemplate(documenttemplate_id);
+								cf.documenttemplatePopUpWindow.initEditDocumenttemplate(document_template_id);
 							}
 						},
 					scope: c

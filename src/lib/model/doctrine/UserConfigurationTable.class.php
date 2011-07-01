@@ -43,8 +43,8 @@ class UserConfigurationTable extends Doctrine_Table {
             ->set('uc.password', '?', $data['userTab_defaultpassword'])
             ->set('uc.email_format', '?', $data['userTab_emailformat'])
             ->set('uc.email_type', '?', $data['userTab_emailtype'])
-            ->set('uc.circulationdefaultsortcolumn', '?', $data['userTab_circulationdefaultsortcolumn'])
-            ->set('uc.circulationdefaultsortdirection', '?', $data['userTab_circulationdefaultsortdirection'])
+            ->set('uc.circulation_default_sort_column', '?', $data['userTab_circulationdefaultsortcolumn'])
+            ->set('uc.circulation_default_sort_direction', '?', $data['userTab_circulationdefaultsortdirection'])
             ->set('uc.role_id', '?', $data['userTab_userrole'])
             ->where('uc.id = ?',1)
             ->execute();

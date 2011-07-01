@@ -18,12 +18,6 @@ class WorkflowEdit {
 
 
     public function loadHelper() {
-        sfLoader::loadHelpers('Date');
-        sfLoader::loadHelpers('Url');
-        sfLoader::loadHelpers('CalculateDate');
-        sfLoader::loadHelpers('ColorBuilder');
-        sfLoader::loadHelpers('I18N');
-        sfLoader::loadHelpers('Icon');
     }
 
 
@@ -55,8 +49,8 @@ class WorkflowEdit {
         $a = 0;
         $slots = WorkflowSlotTable::instance()->getSlotByVersionId($version_id);
         foreach($slots as $slot) {
-            $slotname = $slot->getDocumenttemplateSlot()->toArray();
-            $result[$a]['workflowslot_id'] = $slot->getId();
+            $slotname = $slot->getDocumentTemplateSlot()->toArray();
+            $result[$a]['workflow_slot_id'] = $slot->getId();
             $result[$a]['slot_id'] = $slot->getSlotId();
             $result[$a]['version_id'] = $slot->getId();
             $result[$a]['slotname'] = $slotname[0]['name'];
@@ -69,9 +63,9 @@ class WorkflowEdit {
         return $mergedResult;
     }
 
-    private function checkSlotVisability($workflowslot_id) {
+    private function checkSlotVisability($workflow_slot_id) {
         $activeUser = array();
-        $activeUser = WorkflowProcessUserTable::instance()->getActiveProcessUserForWorkflowSlot($workflowslot_id,$this->user)->toArray();
+        $activeUser = WorkflowProcessUserTable::instance()->getActiveProcessUserForWorkflowSlot($workflow_slot_id,$this->user)->toArray();
         if(empty($activeUser) == true) {
             return 1;
         }
@@ -92,8 +86,8 @@ class WorkflowEdit {
         $column = 'LEFT';
         foreach($fields as $field) {
             $docField = $field->getField()->toArray();
-            $result[$a]['workflowslotfield_id'] = $field->getId();
-            $result[$a]['workflowslot_id'] = $field->getWorkflowslotId();
+            $result[$a]['workflow_slot_field_id'] = $field->getId();
+            $result[$a]['workflow_slot_id'] = $field->getWorkflowSlotId();
             $result[$a]['fieldname'] = $docField[0]['title'];
             $result[$a]['type'] = $docField[0]['type'];
             if($column == 'LEFT') {
@@ -104,7 +98,7 @@ class WorkflowEdit {
                 $column = 'LEFT';
                 $result[$a]['column'] = 'RIGHT';
             }
-            $result[$a]['writeprotected'] = $docField[0]['writeprotected'];
+            $result[$a]['write_protected'] = $docField[0]['write_protected'];
             $result[$a]['color'] = $docField[0]['color'];
             $result[$a]['items'] = $workflowDetail->getFieldItems($field,$docField[0]['type'], $this->context, $versionid);
             $a++;

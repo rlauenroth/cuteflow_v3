@@ -61,14 +61,14 @@ cf.fieldTextfield = function(){return {
 	
 	/** add data to fieldset when in editmode **/
 	addData: function (data) {
-		Ext.getCmp('fieldTextfield_standard_id').setValue(data.defaultvalue);
+		Ext.getCmp('fieldTextfield_standard_id').setValue(data.default_value);
 		Ext.getCmp('fieldTextfield_regularexpression').setValue(data.regex);
-		if(data.defaultvalue != '{%DATE_SENDING%}' && data.defaultvalue != '{%TIME%}' && data.defaultvalue != '{%CIRCULATION_TITLE%}' && data.defaultvalue != '{%CIRCULATION_ID%}' && data.defaultvalue != '') {
+		if(data.default_value != '{%DATE_SENDING%}' && data.default_value != '{%TIME%}' && data.default_value != '{%CIRCULATION_TITLE%}' && data.default_value != '{%CIRCULATION_ID%}' && data.default_value != '') {
 		    var store = Ext.getCmp('fieldTextfield_standard_id').store;
 			var Record = store.recordType;
 			var r = new Record({
-				id: data.defaultvalue,
-				text: data.defaultvalue
+				id: data.default_value,
+				text: data.default_value
 			});
 			store.insert(1,r);
 			

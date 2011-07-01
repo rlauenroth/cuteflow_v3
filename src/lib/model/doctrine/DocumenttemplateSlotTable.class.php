@@ -9,7 +9,7 @@ class DocumentTemplateSlotTable extends Doctrine_Table {
      * @return object FormTemplate
      */
     public static function instance() {
-        return Doctrine::getTable('DocumenttemplateSlot');
+        return Doctrine::getTable('DocumentTemplateSlot');
     }
 
 
@@ -20,9 +20,8 @@ class DocumentTemplateSlotTable extends Doctrine_Table {
      */
     public function getSlotByDocumentTemplateId($id) {
         return Doctrine_Query::create()
-            ->select('dts.*')
-            ->from('DocumenttemplateSlot dts')
-            ->where('dts.documenttemplateversion_id = ?', $id)
+            ->from('DocumentTemplateSlot dts')
+            ->where('dts.document_template_version_id = ?', $id)
             ->orderBy('dts.position asc')
             ->execute();
     }
@@ -34,19 +33,17 @@ class DocumentTemplateSlotTable extends Doctrine_Table {
      */
     public function getSlotById($slot_id) {
         return Doctrine_Query::create()
-            ->select('dts.*')
-            ->from('DocumenttemplateSlot dts')
+            ->from('DocumentTemplateSlot dts')
             ->where('dts.id = ?', $slot_id)
             ->execute();
     }
 
 
-    public function getSlotByWorkflowSlotId($workflowslot_id) {
+    public function getSlotByWorkflowSlotId($workflow_slot_id) {
         return Doctrine_Query::create()
-            ->select('dts.*')
-            ->from('DocumenttemplateSlot dts')
+            ->from('DocumentTemplateSlot dts')
             ->leftJoin('dts.WorkflowSlot wfs')
-            ->where('wfs.id = ?', $workflowslot_id)
+            ->where('wfs.id = ?', $workflow_slot_id)
             ->execute();
         
 

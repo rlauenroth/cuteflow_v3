@@ -24,8 +24,8 @@ cf.additionalTextGrid = function(){return {
 				fields: [
 					{name: '#'},
 					{name: 'id'},
-					{name: 'contenttype'},
-					{name: 'isactive'},
+					{name: 'content_type'},
+					{name: 'is_active'},
 					{name: 'title'}
 				]
 		});
@@ -36,8 +36,8 @@ cf.additionalTextGrid = function(){return {
 		this.theTextCM  =  new Ext.grid.ColumnModel([
 			{header: "#", width: 50, sortable: false, dataIndex: '#', css : "text-align : left;font-size:12px;align:center;"},
 			{header: "<?php echo __('Title',null,'additionaltext'); ?>", width: 380, sortable: false, dataIndex: 'title', css : "text-align : left;font-size:12px;align:center;"},
-			{header: "<?php echo __('Content Type',null,'additionaltext'); ?>", width: 80, sortable: false, dataIndex: 'contenttype', css : "text-align : left;font-size:12px;align:center;"},
-			{header: "<?php echo __('Standard',null,'additionaltext'); ?>", width: 80, sortable: true, dataIndex: 'isactive', css : "text-align : left;font-size:12px;align:center;", renderer: cf.additionalTextGrid.renderRadiogroup},
+			{header: "<?php echo __('Content Type',null,'additionaltext'); ?>", width: 80, sortable: false, dataIndex: 'content_type', css : "text-align : left;font-size:12px;align:center;"},
+			{header: "<?php echo __('Standard',null,'additionaltext'); ?>", width: 80, sortable: true, dataIndex: 'is_active', css : "text-align : left;font-size:12px;align:center;", renderer: cf.additionalTextGrid.renderRadiogroup},
 			{header: "<div ext:qtip=\"<table><tr><td><img src='/images/icons/script_code_red.png' />&nbsp;&nbsp;</td><td><?php echo __('Copy Text',null,'additionaltext'); ?></td></tr><tr><td><img src='/images/icons/script_edit.png' />&nbsp;&nbsp;</td><td><?php echo __('Edit Text',null,'additionaltext'); ?></td></tr><tr><td><img src='/images/icons/script_delete.png' />&nbsp;&nbsp;</td><td><?php echo __('Remove Text',null,'additionaltext'); ?></td></tr></table>\" ext:qwidth=\"200\"><?php echo __('Action',null,'additionaltext'); ?></div>", width: 80, sortable: true, dataIndex: 'id', css : "text-align : left;font-size:12px;align:center;", renderer: cf.additionalTextGrid.renderButtons }
 		]);
 	},
@@ -88,7 +88,7 @@ cf.additionalTextGrid = function(){return {
 				value: 'title',
 				store: new Ext.data.SimpleStore({
 					 fields:['id','text'],
-       				 data:[['title', '<?php echo __('Title',null,'additionaltext'); ?>'],['contenttype', '<?php echo __('Content Type',null,'additionaltext'); ?>']]
+       				 data:[['title', '<?php echo __('Title',null,'additionaltext'); ?>'],['content_type', '<?php echo __('Content Type',null,'additionaltext'); ?>']]
    				}),
  				valueField:'id',
 				displayField:'text',
@@ -114,8 +114,8 @@ cf.additionalTextGrid = function(){return {
 	/** renders radiobutton to grid **/
 	renderRadiogroup: function (data, cell, record, rowIndex, columnIndex, store, grid) {
 		var id = record.data['id'];
-		var isactive = record.data['isactive'];
-		var radio = cf.additionalTextGrid.createRadiobutton.defer(1,this, [id,isactive]);
+		var is_active = record.data['is_active'];
+		var radio = cf.additionalTextGrid.createRadiobutton.defer(1,this, [id,is_active]);
 		return '<center><table><tr><td><div id="radioboxAdditionalText_'+ id + '"></div></td></tr></table>';
 	},
 	
@@ -124,10 +124,10 @@ cf.additionalTextGrid = function(){return {
 	* create radio button
 	*
 	* @param int id, id of the record, 
-	* @param boolean isactive, true/false if record is standard
+	* @param boolean is_active, true/false if record is standard
 	*/
-	createRadiobutton: function (id,isactive) {
-		if (isactive == 1) {
+	createRadiobutton: function (id,is_active) {
+		if (is_active == 1) {
 			var check = true;
 		}
 		else {

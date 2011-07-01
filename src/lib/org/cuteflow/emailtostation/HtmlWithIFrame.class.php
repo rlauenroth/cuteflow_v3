@@ -36,10 +36,10 @@ class HtmlWithIFrame extends EmailSettings {
 
 
 
-        $this->setSender($this->data->userSettings->userSettings['systemreplyaddress']);
+        $this->setSender($this->data->userSettings->userSettings['system_reply_address']);
         $this->setReceiver(array ($this->data->userSettings->userData['email'] => $this->data->userSettings->userData['firstname'] . ' ' . $this->data->userSettings->userData['lastname']));
         $this->setSubject($subject);
-        $this->setContentType('text/' . $this->data->userSettings->userSettings['emailformat']);
+        $this->setContentType('text/' . $this->data->userSettings->userSettings['email_format']);
         $bodyData = array('text' => $content,
                           'userid' => $this->data->userSettings->userData['user_id'],
                           'workflowverion' => $this->data->versionId,

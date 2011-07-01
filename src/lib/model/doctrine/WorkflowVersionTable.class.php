@@ -16,18 +16,16 @@ class WorkflowVersionTable extends Doctrine_Table {
     public function getWorkflowsToStart($currenttime) {
         return Doctrine_Query::create()
             ->from('WorkflowVersion wfv')
-            ->select('wfv.*,')
-            ->where('wfv.workflowisstarted = ?','0')
-            ->andWhere('wfv.startworkflow_at <= ?', $currenttime)
+            ->where('wfv.workflow_is_started = ?','0')
+            ->andWhere('wfv.start_workflow_at <= ?', $currenttime)
             ->execute();
     }
 
 
 
-    public function getFieldByWorkflowversionIdAndFieldId($fieldId, $versionId) {
+    public function getFieldByWorkflowVersionIdAndFieldId($fieldId, $versionId) {
         return Doctrine_Query::create()
             ->from('WorkflowVersion wfv')
-            ->select('wfv.*')
             ->leftJoin('wfv.WorkflowSlot wfs')
             ->leftJoin('wfs.WorkflowSlotField wfsf')
             ->where('wfsf.field_id = ?', $fieldId)
@@ -40,7 +38,7 @@ class WorkflowVersionTable extends Doctrine_Table {
         return Doctrine_Query::create()
             ->from('WorkflowVersion wfv')
             ->select('wfv.*,')
-            ->where('wfv.workflowtemplate_id = ?' ,$workflow_id)
+            ->where('wfv.workflow_template_id = ?' ,$workflow_id)
             ->orderBy('wfv.version DESC')
             ->execute();
     }
@@ -49,8 +47,7 @@ class WorkflowVersionTable extends Doctrine_Table {
     public function getAllVersionRevisionByWorkflowId($workflow_id) {
         return Doctrine_Query::create()
             ->from('WorkflowVersion wfv')
-            ->select('wfv.*,')
-            ->where('wfv.workflowtemplate_id = ?' ,$workflow_id)
+            ->where('wfv.workflow_template_id = ?' ,$workflow_id)
             ->orderBy('wfv.id DESC')
             ->execute();
     }
@@ -67,8 +64,8 @@ class WorkflowVersionTable extends Doctrine_Table {
     public function startWorkflow($id) {
         Doctrine_Query::create()
             ->update('WorkflowVersion wfv')
-            ->set('wfv.workflowisstarted','?',1)
-            ->set('wfv.startworkflow_at','?', time())
+            ->set('wfv.workflow_is_started','?',1)
+            ->set('wfv.start_workflow_at','?', time())
             ->where('wfv.id = ?', $id)
             ->execute();
     }
@@ -86,7 +83,7 @@ class WorkflowVersionTable extends Doctrine_Table {
         return Doctrine_Query::create()
             ->from('WorkflowVersion wfv')
             ->select('wfv.*,')
-            ->where('wfv.workflowtemplate_id = ?' ,$id)
+            ->where('wfv.workflow_template_id = ?' ,$id)
             ->orderBy('wfv.version ASC')
             ->execute();
     }
@@ -95,7 +92,7 @@ class WorkflowVersionTable extends Doctrine_Table {
     public function startWorkflowInFuture($versionid) {
         Doctrine_Query::create()
             ->update('WorkflowVersion wfv')
-            ->set('wfv.workflowisstarted','?',1)
+            ->set('wfv.workflow_is_started','?',1)
             ->where('wfv.id = ?', $versionid)
             ->execute();
     }
@@ -104,7 +101,7 @@ class WorkflowVersionTable extends Doctrine_Table {
     public function setVersionInactive($id) {
         Doctrine_Query::create()
             ->update('WorkflowVersion wfv')
-            ->set('wfv.activeversion','?',0)
+            ->set('wfv.active_version','?',0)
             ->where('wfv.id = ?', $id)
             ->execute();
     }

@@ -51,7 +51,7 @@ cf.workflowdetailsValue = function(){return {
 						fielditem.column == 'LEFT' ? leftPanel.add(label) : rightPanel.add(label);
 						break;
 					case "TEXTAREA":
-						var label = this.createTextarea(fielditem.title, fielditem.items.value, fielditem.items.contenttype);
+						var label = this.createTextarea(fielditem.title, fielditem.items.value, fielditem.items.content_type);
 						fielditem.column == 'LEFT' ? leftPanel.add(label) : rightPanel.add(label);
 					    break;
 					case "RADIOGROUP":
@@ -174,8 +174,8 @@ cf.workflowdetailsValue = function(){return {
 	},
 	
 	
-	createTextarea: function (name, value, contenttype) {
-		if(contenttype == 'plain') {
+	createTextarea: function (name, value, content_type) {
+		if(content_type == 'plain') {
 			var textarea = new Ext.form.TextArea({
 				fieldLabel: name,
 				width: ((cf.Layout.theRegionWest.getWidth() +  cf.Layout.theRegionCenter.getWidth() - 180) / 2)-200,

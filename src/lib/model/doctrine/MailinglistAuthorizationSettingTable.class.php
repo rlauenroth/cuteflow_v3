@@ -22,11 +22,11 @@ class MailinglistAuthorizationSettingTable extends Doctrine_Table {
     public function setAuthorizationToNullById($id) {
         Doctrine_Query::create()
             ->update('MailinglistAuthorizationSetting mas')
-            ->set('mas.deleteworkflow','?',0)
-            ->set('mas.archiveworkflow','?',0)
-            ->set('mas.stopneworkflow','?',0)
-            ->set('mas.detailsworkflow','?',0)
-            ->where('mas.mailinglisttemplate_id = ?', $id)
+            ->set('mas.delete_workflow','?',0)
+            ->set('mas.archive_workflow','?',0)
+            ->set('mas.stop_new_workflow','?',0)
+            ->set('mas.details_workflow','?',0)
+            ->where('mas.mailinglist_template_id = ?', $id)
             ->execute();
         return true;
     }
@@ -42,7 +42,7 @@ class MailinglistAuthorizationSettingTable extends Doctrine_Table {
         Doctrine_Query::create()
             ->update('MailinglistAuthorizationSetting mas')
             ->set('mas.'.$column,'?', 1)
-            ->where ('mas.mailinglistversion_id = ?',$id)
+            ->where ('mas.mailinglist_version_id = ?',$id)
             ->andWhere('mas.type = ?', $value)
             ->execute();
         return true;
@@ -55,9 +55,8 @@ class MailinglistAuthorizationSettingTable extends Doctrine_Table {
      */
     public function getAuthorizationById($id) {
         return Doctrine_Query::create()
-            ->select('mlas.*')
             ->from('MailinglistAuthorizationSetting mlas')
-            ->where ('mlas.mailinglistversion_id = ?',$id)
+            ->where ('mlas.mailinglist_version_id = ?',$id)
             ->execute();
 
     }
@@ -65,10 +64,9 @@ class MailinglistAuthorizationSettingTable extends Doctrine_Table {
 
     public function getSettingsByType($name, $mailinglistVersionId) {
         return Doctrine_Query::create()
-            ->select('mlas.*')
             ->from('MailinglistAuthorizationSetting mlas')
             ->where ('mlas.type = ?',$name)
-            ->andWhere('mlas.mailinglistversion_id = ?', $mailinglistVersionId)
+            ->andWhere('mlas.mailinglist_version_id = ?', $mailinglistVersionId)
             ->execute();
     }
 

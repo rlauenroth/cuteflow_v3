@@ -24,7 +24,7 @@ class MailinglistAllowedSenderTable extends Doctrine_Table {
                ->from('MailinglistAllowedSender mlas')
                ->leftJoin('mlas.UserLogin ul')
                ->leftJoin('ul.UserData ud')
-               ->where('mlas.mailinglistversion_id = ?', $id)
+               ->where('mlas.mailinglist_version_id = ?', $id)
                ->orderBy('mlas.position asc')
                ->groupBy('mlas.id')
                ->execute();
@@ -49,7 +49,7 @@ class MailinglistAllowedSenderTable extends Doctrine_Table {
         return Doctrine_Query::create()
                ->select('mlas.*')
                ->from('MailinglistAllowedSender mlas')
-               ->where('mlas.mailinglistversion_id = ?', $versionId)
+               ->where('mlas.mailinglist_version_id = ?', $versionId)
                ->andWhere('mlas.user_id = ?', $userId)
                ->orderBy('mlas.position asc')
                ->execute();

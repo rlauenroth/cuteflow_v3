@@ -367,8 +367,8 @@ cf.userTab = function(){return {
 		
 		Ext.getCmp('userTab_itemsperpage_id').setValue(data.displayed_item);
 		Ext.getCmp('userTab_refreshtime_id').setValue(data.refresh_time);
-		Ext.getCmp('userTab_circulationdefaultsortcolumn_id').setValue(data.circulationdefaultsortcolumn);
-		Ext.getCmp('userTab_circulationdefaultsortdirection_id').setValue(data.circulationdefaultsortdirection);
+		Ext.getCmp('userTab_circulationdefaultsortcolumn_id').setValue(data.circulation_default_sort_column);
+		Ext.getCmp('userTab_circulationdefaultsortdirection_id').setValue(data.circulation_default_sort_direction);
 		Ext.getCmp('userTab_markyellow').setValue(data.markyellow);
 		Ext.getCmp('userTab_markorange').setValue(data.markorange);
 		Ext.getCmp('userTab_markred').setValue(data.markred);

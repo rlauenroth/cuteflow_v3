@@ -7,13 +7,13 @@ class SendReminderEmail extends EmailSettings {
         $sf_i18n->setCulture($userSettings->userSettings['language']);
 
         $content['text'] = $controller->getI18N()->__('You need to complete the following workflows' ,null,'sendreminderemail');
-        $this->setSender($userSettings->userSettings['systemreplyaddress']);
+        $this->setSender($userSettings->userSettings['system_reply_address']);
         $this->setReceiver(array ($userSettings->userData['email'] => $userSettings->userData['firstname'] . ' ' . $userSettings->userData['lastname']));
         $subject = $controller->getI18N()->__('CuteFlow: open workflows' ,null,'sendreminderemail');
         $worfklowname = $controller->getI18N()->__('Workflowname' ,null,'sendreminderemail');
         $linkTo = $controller->getI18N()->__('Direct link to workflow' ,null,'sendreminderemail');
         $this->setSubject($subject);
-        $this->setContentType('text/' . $userSettings->userSettings['emailformat']);
+        $this->setContentType('text/' . $userSettings->userSettings['email_format']);
         $bodyData = array('text' => $content['text'], 
                           'workflow' => $openWorkflows['workflows'],
                           'workflowname' => $worfklowname,
@@ -22,7 +22,7 @@ class SendReminderEmail extends EmailSettings {
                           'linkto' => $linkTo
                           );
         
-        $this->setBody(get_partial('sendreminderemail/' . $userSettings->userSettings['emailformat'], $bodyData));
+        $this->setBody(get_partial('sendreminderemail/' . $userSettings->userSettings['email_format'], $bodyData));
         $this->sendEmail();
     }
 }

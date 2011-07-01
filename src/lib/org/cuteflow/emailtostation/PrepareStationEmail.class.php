@@ -78,7 +78,7 @@ class PrepareStationEmail {
 
     public function makeDecission() {
         $userSettings = $this->userSettings->userSettings;
-        if($userSettings['emailformat'] == 'plain') {
+        if($userSettings['email_format'] == 'plain') {
             $sendMail = new PlainHtmlWithValues($this);
         }
         else {

@@ -276,17 +276,17 @@ cf.fieldCombobox = function(){return {
 			var row = data.items[a];
 			var grid = cf.fieldCombobox.theComboboxGrid;
 		    var Record = grid.getStore().recordType;
-		    if(row.isactive == 0) {
-		    	row.isactive = false;
+		    if(row.is_active == 0) {
+		    	row.is_active = false;
 		    }
 		    else {
-		    	row.isactive = true;
+		    	row.is_active = true;
 		    }
 			var r = new Record({
 				value: row.value,
 				unique_id: cf.fieldCombobox.theUniqueId++,
 				databaseId: row.id,
-				checked : row.isactive
+				checked : row.is_active
 			});
 			grid.store.add(r);
 		}

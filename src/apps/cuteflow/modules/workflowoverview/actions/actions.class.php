@@ -44,8 +44,8 @@ class workflowoverviewActions extends sfActions {
         $data = WorkflowProcessUserTable::instance()->getWaitingStationToStopByUser($request->getParameter('versionid'));
         foreach($data as $itemToChange) {
                 $pdoObj = Doctrine::getTable('WorkflowProcessUser')->find($itemToChange->getId());
-                $pdoObj->setDecissionstate('STOPPEDBYADMIN');
-                $pdoObj->setDateofdecission(time());
+                $pdoObj->setDecissionState('STOPPEDBYADMIN');
+                $pdoObj->setDateOfDecission(time());
                 $pdoObj->save();
         }
         return sfView::NONE;
@@ -65,8 +65,8 @@ class workflowoverviewActions extends sfActions {
         $data = WorkflowProcessUserTable::instance()->getWaitingStationToStopByUser($request->getParameter('versionid'));
         foreach($data as $itemToChange) {
                 $pdoObj = Doctrine::getTable('WorkflowProcessUser')->find($itemToChange->getId());
-                $pdoObj->setDecissionstate('DELETED');
-                $pdoObj->setDateofdecission(time());
+                $pdoObj->setDecissionState('DELETED');
+                $pdoObj->setDateOfDecission(time());
                 $pdoObj->save();
         }
 
@@ -87,8 +87,8 @@ class workflowoverviewActions extends sfActions {
         $data = WorkflowProcessUserTable::instance()->getWaitingStationToStopByUser($request->getParameter('versionid'));
         foreach($data as $itemToChange) {
                 $pdoObj = Doctrine::getTable('WorkflowProcessUser')->find($itemToChange->getId());
-                $pdoObj->setDecissionstate('ARCHIVED');
-                $pdoObj->setDateofdecission(time());
+                $pdoObj->setDecissionState('ARCHIVED');
+                $pdoObj->setDateOfDecission(time());
                 $pdoObj->save();
         }
         return sfView::NONE;
@@ -103,8 +103,8 @@ class workflowoverviewActions extends sfActions {
     public function executeStartWorkflow(sfWebRequest $request) {
         WorkflowVersionTable::instance()->startWorkflow($request->getParameter('versionid'));
         $workflowVersion = WorkflowTemplateTable::instance()->getWorkflowTemplateByVersionId($request->getParameter('versionid'));
-        $template = MailinglistVersionTable::instance()->getSingleVersionById($workflowVersion[0]->getMailinglisttemplateversionId())->toArray();
-        if($template[0]['sendtoallslotsatonce'] == 1) {
+        $template = MailinglistVersionTable::instance()->getSingleVersionById($workflowVersion[0]->getMailinglistTemplateVersionId())->toArray();
+        if($template[0]['send_to_all_slots_at_once'] == 1) {
             $calc = new CreateWorkflow($request->getParameter('versionid'));
             $calc->addAllSlots();
         }

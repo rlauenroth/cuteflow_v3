@@ -13,8 +13,7 @@ class WorkflowSlotFieldTable extends Doctrine_Table {
     public function getWorkflowSlotFieldBySlotId($id) {
         return Doctrine_Query::create()
             ->from('WorkflowSlotField wsf')
-            ->select('wsf.*,')
-            ->where('wsf.workflowslot_id = ?' ,$id)
+            ->where('wsf.workflow_slot_id = ?' ,$id)
             ->orderBy('wsf.position ASC')
             ->execute();
     }
@@ -24,7 +23,7 @@ class WorkflowSlotFieldTable extends Doctrine_Table {
         return Doctrine_Query::create()
             ->from('WorkflowSlotField wsf')
             ->select('wsf.*,wsft.*')
-            ->where('wsf.workflowslot_id = ?' ,$id)
+            ->where('wsf.workflow_slot_id = ?' ,$id)
             ->orderBy('wsf.position ASC')
             ->execute();
     }
@@ -35,7 +34,7 @@ class WorkflowSlotFieldTable extends Doctrine_Table {
         return Doctrine_Query::create()
             ->from('WorkflowSlotField wsf')
             ->select('wsf.*')
-            ->where('wsf.workflowslot_id = ?' ,$slotid)
+            ->where('wsf.workflow_slot_id = ?' ,$slotid)
             ->andWhere('wsf.field_id = ?', $fieldid)
             ->orderBy('wsf.position ASC')
             ->execute();

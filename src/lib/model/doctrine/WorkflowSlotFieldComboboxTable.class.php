@@ -14,7 +14,7 @@ class WorkflowSlotFieldComboboxTable extends Doctrine_Table {
         return Doctrine_Query::create()
             ->from('WorkflowSlotFieldCombobox wsfc')
             ->select('wsfc.*,')
-            ->where('wsfc.workflowslotfield_id = ?' ,$id)
+            ->where('wsfc.workflow_slot_field_id = ?' ,$id)
             ->orderBy('wsfc.position ASC')
             ->execute();
     }
@@ -41,7 +41,7 @@ class WorkflowSlotFieldComboboxTable extends Doctrine_Table {
         Doctrine_Query::create()
             ->update('WorkflowSlotFieldCombobox wsfcb')
             ->set('wsfcb.value','?', 0)
-            ->where ('wsfcb.workflowslotfield_id = ?',$wfsId)
+            ->where ('wsfcb.workflow_slot_field_id = ?',$wfsId)
             ->execute();
 
     }

@@ -138,9 +138,9 @@ cf.fieldDate = function(){return {
 	},
 	/** add data to all fieldsets when in editmode **/
 	addData: function (data) {
-		Ext.getCmp('fieldDate_format_id').setValue(data.dateformat);
-		Ext.getCmp('fieldDate_date').format = data.dateformat;
-		Ext.getCmp('fieldDate_date').setValue(data.defaultvalue);
+		Ext.getCmp('fieldDate_format_id').setValue(data.date_format);
+		Ext.getCmp('fieldDate_date').format = data.date_format;
+		Ext.getCmp('fieldDate_date').setValue(data.default_value);
 		Ext.getCmp('fieldDate_regularexpression').setValue(data.regex);
 	}
 	

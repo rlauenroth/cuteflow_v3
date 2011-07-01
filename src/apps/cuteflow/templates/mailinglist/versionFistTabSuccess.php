@@ -41,9 +41,9 @@ cf.mailinglistVersionFirstTab = function(){return {
 			fields: [
 				{name: '#'},
 				{name: 'id'},
-				{name: 'mailinglisttemplate_id'},
+				{name: 'mailinglist_template_id'},
 				{name: 'name'},
-				{name: 'activeversion'},
+				{name: 'active_version'},
 				{name: 'created_at'}
 			]
 		});	
@@ -56,7 +56,7 @@ cf.mailinglistVersionFirstTab = function(){return {
 			{header: "#", width: 50, sortable: true, dataIndex: '#', css : "text-align : left;font-size:12px;align:center;"},
 			{header: "<?php echo __('Name',null,'mailinglist'); ?>", width: 280, sortable: false, dataIndex: 'name', css : "text-align : left;font-size:12px;align:center;"},
 			{header: "<?php echo __('created at',null,'mailinglist'); ?>", width: 130, sortable: false, dataIndex: 'created_at', css : "text-align:center;font-size:12px;align:center;"},
-			{header: "<?php echo __('currently active',null,'mailinglist'); ?>", width: 120, sortable: false, dataIndex: 'activeversion', css : "text-align:center;font-size:12px;align:center;"},
+			{header: "<?php echo __('currently active',null,'mailinglist'); ?>", width: 120, sortable: false, dataIndex: 'active_version', css : "text-align:center;font-size:12px;align:center;"},
 			{header: "<div ext:qtip=\"<table><tr><td><img src='/images/icons/clock_go.png' />&nbsp;&nbsp;</td><td><?php echo __('Activate Mailinglist template',null,'mailinglist'); ?></td></tr><tr><td><img src='/images/icons/zoom.png' />&nbsp;&nbsp;</td><td><?php echo __('Show Mailinglist template version',null,'mailinglist'); ?></td></tr></table>\" ext:qwidth=\"230\"><?php echo __('Action',null,'mailinglist'); ?></div>", width: 80, sortable: false, dataIndex: 'action', css : "text-align : left;font-size:12px;align:center;" ,renderer: this.renderAction}
 		]);
 	},
@@ -66,8 +66,8 @@ cf.mailinglistVersionFirstTab = function(){return {
 	
 	/** button renderer for activate and show **/
 	renderAction: function (data, cell, record, rowIndex, columnIndex, store, grid) {
-		cf.mailinglistVersionFirstTab.createActivateButton.defer(500,this, [record.data['id'],record.data['mailinglisttemplate_id']]);
-		cf.mailinglistVersionFirstTab.createShowButton.defer(500,this, [record.data['#'],record.data['id'],record.data['created_at'],record.data['mailinglisttemplate_id']]);
+		cf.mailinglistVersionFirstTab.createActivateButton.defer(500,this, [record.data['id'],record.data['mailinglist_template_id']]);
+		cf.mailinglistVersionFirstTab.createShowButton.defer(500,this, [record.data['#'],record.data['id'],record.data['created_at'],record.data['mailinglist_template_id']]);
 		return '<center><table><tr><td width="16"><div id="mailinglisttemplateversion_activate'+ record.data['id'] +'"></div></td><td width="16"><div id="mailinglisttemplateversion_show'+ record.data['id'] +'"></div></td></tr></table></center>';
 	},
 	
@@ -75,9 +75,9 @@ cf.mailinglistVersionFirstTab = function(){return {
 	* activate button
 	*
 	*@param int id, id of the record
-	*@param int mailinglisttemplate_id, template id
+	*@param int mailinglist_template_id, template id
 	*/
-	createActivateButton: function (id, mailinglisttemplate_id) {
+	createActivateButton: function (id, mailinglist_template_id) {
 		var btn_edit = new Ext.form.Label({
 			renderTo: 'mailinglisttemplateversion_activate' + id,
 			html: '<span style="cursor:pointer;"><img src="/images/icons/clock_go.png" /></span>',
@@ -94,7 +94,7 @@ cf.mailinglistVersionFirstTab = function(){return {
 										cf.mailinglistCRUD.theLoadingMask = new Ext.LoadMask(cf.mailinglistVersionPopUp.theVersionWindow.body, {msg:'<?php echo __('Updating Data...',null,'mailinglist'); ?>'});					
 										cf.mailinglistCRUD.theLoadingMask.show();
 										Ext.Ajax.request({  
-											url : '<?php echo build_dynamic_javascript_url('mailinglist/ActivateMailinglist')?>/id/' + id + '/mailinglistid/' + mailinglisttemplate_id, 
+											url : '<?php echo build_dynamic_javascript_url('mailinglist/ActivateMailinglist')?>/id/' + id + '/mailinglistid/' + mailinglist_template_id, 
 											success: function(objServerResponse){
 												cf.mailinglistVersionPopUp.theVersionWindow.hide();
 												cf.mailinglistVersionPopUp.theVersionWindow.destroy();

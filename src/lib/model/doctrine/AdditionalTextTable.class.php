@@ -37,11 +37,11 @@ class AdditionalTextTable extends Doctrine_Table {
     public function setActive($id) {
         Doctrine_Query::create()
             ->update('AdditionalText at')
-            ->set('at.isactive','?',0)
+            ->set('at.is_active','?',0)
             ->execute();
         Doctrine_Query::create()
             ->update('AdditionalText at')
-            ->set('at.isactive','?',1)
+            ->set('at.is_active','?',1)
             ->where('at.id = ?', $id)
             ->execute();
 
@@ -74,7 +74,7 @@ class AdditionalTextTable extends Doctrine_Table {
         Doctrine_Query::create()
             ->update('AdditionalText at')
             ->set('at.title','?',$data['title'])
-            ->set('at.contenttype','?',$data['contenttype'])
+            ->set('at.content_type','?',$data['content_type'])
             ->set('at.content','?',$data['content'])
             ->where('at.id = ?', $id)
             ->execute();

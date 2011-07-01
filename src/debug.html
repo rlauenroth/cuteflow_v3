@@ -1,0 +1,612 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Doctrine_Query_Exception: Unknown column documenttemplateversion_id</title>
+  <style type="text/css">
+  body { margin: 0; padding: 20px; margin-top: 20px; background-color: #eee }
+  body, td, th { font: 11px Verdana, Arial, sans-serif; color: #333 }
+  a { color: #333 }
+  h1 { margin: 0 0 0 10px; padding: 10px 0 10px 0; font-weight: bold; font-size: 120% }
+  h2 { margin: 0; padding: 5px 0; font-size: 110% }
+  ul { padding-left: 20px; list-style: decimal }
+  ul li { padding-bottom: 5px; margin: 0 }
+  ol { font-family: monospace; white-space: pre; list-style-position: inside; margin: 0; padding: 10px 0 }
+  ol li { margin: -5px; padding: 0 }
+  ol .selected { font-weight: bold; background-color: #ddd; padding: 2px 0 }
+  table.vars { padding: 0; margin: 0; border: 1px solid #999; background-color: #fff; }
+  table.vars th { padding: 2px; background-color: #ddd; font-weight: bold }
+  table.vars td  { padding: 2px; font-family: monospace; white-space: pre }
+  p.error { padding: 10px; background-color: #f00; font-weight: bold; text-align: center; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; }
+  p.error a { color: #fff }
+  #main { padding: 30px 40px; border: 1px solid #ddd; background-color: #fff; text-align:left; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; min-width: 770px; max-width: 770px }
+  #message { padding: 10px; margin-bottom: 10px; background-color: #eee; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; }
+  a.file_link { text-decoration: none; }
+  a.file_link:hover { text-decoration: underline; }
+  .code, #sf_settings, #sf_request, #sf_response, #sf_user, #sf_globals { overflow: auto; }
+  </style>
+  <script type="text/javascript">
+  function toggle(id)
+  {
+    el = document.getElementById(id); el.style.display = el.style.display == 'none' ? 'block' : 'none';
+  }
+  </script>
+</head>
+<body>
+  <center><div id="main">
+  <div style="float: right"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAZCAYAAAAiwE4nAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEfklEQVRIx7VUa0wUVxT+Znd2FxZk0YKACAtaGwEDUhUTBTEIItmKYk3UNqalD7StMSQ1JKatP5omTYyx0VRrjPERX7XWAG2t9GVi3drU2h+gi4BCWV67lOe6O/uYmXtPf0BRrMBK6UlObmbON9935p6HQEQI1o7uXeSy1dsjHn2Xlpr0oKzililoEiIKymvOr9q+pzyZZN894moHcbWDZN892lOeTN9fKHgrWB5NsInZ7joOrtv4JgR2F4r0AxTpRwisEes2bsNtW+eBYHmCEqw8kVsp6oy6jMUFYIoTxFUQqWBqNzIWr4aoC9NVnlxZNSWC1mqLsa6ubd36zbug+m3gXBlypoCYAuavx4Ytu1Fbay+2VluME/GJEwHsnT3WpLlzhbi4Z6D46gBosP/gVQDA669kIzJSRWxcApLnPie0dw3cALBw0k1z5dyKrIqyWHL1/Eye7n3kcX5MH75fRAAIAJUUZ5Cnez9JPYfI1XuDKsriqOZcbtakm6alte/yqsIi6LVt4KobxAIAqSPxwUEJxAPgqgcG0YH8NS+gxT5wZVI1/PrU0q1O54OoFfmvQZZsIBYA5zIy0maOYFZmJ4GYAuIyZG8jcvLfgMPhmnHlbG7pUws2NfUeWVvyMpj3d3DVB84C4MyPxNkP+8I0TQRn/qGY6gP316J4w6uob3AceirBzw9nnBD1RmN65nLIUhOIBUBcBjEZ5viQEZx5thFcdQ+50o+A5w7SM5dBFHWhFz5bdOpJ3MLjq63mdHrIr7f6PaXbPtBGht4DUwYAQXikyVTkb/gKtbYBNFpzYYoY3egarR6D7jCcPmtly5ZEh6/ZWucfdyycPep3ycmJ2phoAzx9ziERLoMzN4hJAICI8KEkp4VxcCaP+p4zGdHTw2FOiNB2OTzfAMgf80qrjmem1zf256zf9B6kvmvgqgeqrw2qvx1cGQRxBcQV5GRFIGepaeT5cfdJXbAUPY+79z15l47MWzDmH7a3P/g2Ly9X4O6LkKUWEPeOMbwMpnANiClPDkOBXteL3OXxQnNL72UA5n/V8NLR9Bdrb/ddLN+5VvD23wTA8d9MgNH0LD759DrS5oeUbN7RWjXqSu//OXi8sCBFkN11IFJAxMZ0e4cP12+6xsUQqZC9nShclYTWtsDJUTU8cyDlsE7URqTMC4Eiu8fN+/JVF7I3NuGlna2wlDaPi1VkN1LnR0GvF00n95kPAICm+tgcQ9N9V5ll9Tz4JSem2vySE5bCFDS3+t+uPjbHIA64dF/MioU2aoYGXndgQgJLngnWL0PR1iUje0n4hHimBhA1XYA5IVz8q1eu0oSGqCc6HV4ihAIQgso6MV4flNhDUR/iYqbBI1GqZtM7zVUzZ4p3rl5rQIgxesqvVCsa0O8y4Lc/nGp8rLhcBIA7Df7C7hlKe2ZGojYmZsGUCsqygvOnf6FZsbrtm3bY+wUigiAIC/funlXR0RXYgv/BzAmGn979qGvXyOALghAJQAtAB0A/fIrDY6MNurj/LBqADW8OFYACQB4+2d80or7Ra0ZtxAAAAABJRU5ErkJggg==" /></div>
+  <h1>500 | Internal Server Error | Doctrine_Query_Exception</h1>
+  <h2 id="message">Unknown column documenttemplateversion_id</h2>
+  <h2>stack trace</h2>
+  <ul><li>at <strong></strong>()<br />in <em>SF_ROOT_DIR\lib\vendor\symfony\plugins\sfDoctrinePlugin\lib\vendor\doctrine\Doctrine\Query.php</em> line 752 <a href="#" onclick="toggle('trace_0'); return false;">...</a><br /><ul class="code" id="trace_0" style="display: block"><ol start="749"><li>
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;check&nbsp;column&nbsp;existence
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">if&nbsp;(&nbsp;!&nbsp;</span><span style="color: #0000BB">$def</span><span style="color: #007700">)&nbsp;{
+</li>
+<li class="selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: #0000BB">Doctrine_Query_Exception</span><span style="color: #007700">(</span><span style="color: #DD0000">'Unknown&nbsp;column&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$field</span><span style="color: #007700">);
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+</li>
+<li>
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(isset(</span><span style="color: #0000BB">$def</span><span style="color: #007700">[</span><span style="color: #DD0000">'owner'</span><span style="color: #007700">]))&nbsp;{
+</li></ol></ul></li><li>at <strong>Doctrine_Query->parseClause</strong>('dts.documenttemplateversion_id')<br />in <em>SF_ROOT_DIR\lib\vendor\symfony\plugins\sfDoctrinePlugin\lib\vendor\doctrine\Doctrine\Query\Where.php</em> line 110 <a href="#" onclick="toggle('trace_1'); return false;">...</a><br /><ul class="code" id="trace_1" style="display: none"><ol start="107"><li>&nbsp;&nbsp;&nbsp;&nbsp;protected&nbsp;function&nbsp;</span><span style="color: #0000BB">_buildSql</span><span style="color: #007700">(</span><span style="color: #0000BB">$leftExpr</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$operator</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$rightExpr</span><span style="color: #007700">)
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;{
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$leftExprOriginal&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$leftExpr</span><span style="color: #007700">;
+</li>
+<li class="selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$leftExpr&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">parseClause</span><span style="color: #007700">(</span><span style="color: #0000BB">$leftExpr</span><span style="color: #007700">);
+</li>
+<li>
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;BETWEEN&nbsp;operation
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">if&nbsp;(</span><span style="color: #DD0000">'BETWEEN'&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">strtoupper</span><span style="color: #007700">(</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #0000BB">$operator</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">7</span><span style="color: #007700">)))&nbsp;{
+</li></ol></ul></li><li>at <strong>Doctrine_Query_Where->_buildSql</strong>('dts.documenttemplateversion_id', '=', '?')<br />in <em>SF_ROOT_DIR\lib\vendor\symfony\plugins\sfDoctrinePlugin\lib\vendor\doctrine\Doctrine\Query\Where.php</em> line 98 <a href="#" onclick="toggle('trace_2'); return false;">...</a><br /><ul class="code" id="trace_2" style="display: none"><ol start="95"><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+</li>
+<li>
+</li>
+<li class="selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$sql&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_buildSql</span><span style="color: #007700">(</span><span style="color: #0000BB">$leftExpr</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$operator</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$rightExpr</span><span style="color: #007700">);
+</li>
+<li>
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$sql</span><span style="color: #007700">;
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{
+</li></ol></ul></li><li>at <strong>Doctrine_Query_Where->load</strong>('dts.documenttemplateversion_id = ?')<br />in <em>SF_ROOT_DIR\lib\vendor\symfony\plugins\sfDoctrinePlugin\lib\vendor\doctrine\Doctrine\Query\Condition.php</em> line 92 <a href="#" onclick="toggle('trace_3'); return false;">...</a><br /><ul class="code" id="trace_3" style="display: none"><ol start="89"><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">strtoupper</span><span style="color: #007700">(</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #0000BB">$parts</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">4</span><span style="color: #007700">))&nbsp;===&nbsp;</span><span style="color: #DD0000">'NOT&nbsp;'</span><span style="color: #007700">)&nbsp;{
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$r&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'NOT&nbsp;('</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">parse</span><span style="color: #007700">(</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #0000BB">$parts</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">4</span><span style="color: #007700">)).</span><span style="color: #DD0000">')'</span><span style="color: #007700">;
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{
+</li>
+<li class="selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">load</span><span style="color: #007700">(</span><span style="color: #0000BB">$parts</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]);
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+</li></ol></ul></li><li>at <strong>Doctrine_Query_Condition->parse</strong>('dts.documenttemplateversion_id = ?')<br />in <em>SF_ROOT_DIR\lib\vendor\symfony\plugins\sfDoctrinePlugin\lib\vendor\doctrine\Doctrine\Query\Abstract.php</em> line 2084 <a href="#" onclick="toggle('trace_4'); return false;">...</a><br /><ul class="code" id="trace_4" style="display: none"><ol start="2081"><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">is_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$queryParts</span><span style="color: #007700">)&nbsp;&amp;&amp;&nbsp;!&nbsp;empty(</span><span style="color: #0000BB">$queryParts</span><span style="color: #007700">))&nbsp;{
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreach&nbsp;(</span><span style="color: #0000BB">$queryParts&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$queryPart</span><span style="color: #007700">)&nbsp;{
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$parser&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_getParser</span><span style="color: #007700">(</span><span style="color: #0000BB">$queryPartName</span><span style="color: #007700">);
+</li>
+<li class="selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$sql&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$parser</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">parse</span><span style="color: #007700">(</span><span style="color: #0000BB">$queryPart</span><span style="color: #007700">);
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(isset(</span><span style="color: #0000BB">$sql</span><span style="color: #007700">))&nbsp;{
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">$queryPartName&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #DD0000">'limit'&nbsp;</span><span style="color: #007700">||&nbsp;</span><span style="color: #0000BB">$queryPartName&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #DD0000">'offset'</span><span style="color: #007700">)&nbsp;{
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setSqlQueryPart</span><span style="color: #007700">(</span><span style="color: #0000BB">$queryPartName</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$sql</span><span style="color: #007700">);
+</li></ol></ul></li><li>at <strong>Doctrine_Query_Abstract->_processDqlQueryPart</strong>('where', <em>array</em>('dts.documenttemplateversion_id = ?'))<br />in <em>SF_ROOT_DIR\lib\vendor\symfony\plugins\sfDoctrinePlugin\lib\vendor\doctrine\Doctrine\Query.php</em> line 1183 <a href="#" onclick="toggle('trace_5'); return false;">...</a><br /><ul class="code" id="trace_5" style="display: none"><ol start="1180"><li>
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;FIX&nbsp;#1667:&nbsp;_sqlParts&nbsp;are&nbsp;cleaned&nbsp;inside&nbsp;_processDqlQueryPart.
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">$queryPartName&nbsp;</span><span style="color: #007700">!=&nbsp;</span><span style="color: #DD0000">'forUpdate'</span><span style="color: #007700">)&nbsp;{
+</li>
+<li class="selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_processDqlQueryPart</span><span style="color: #007700">(</span><span style="color: #0000BB">$queryPartName</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$queryParts</span><span style="color: #007700">);
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+</li>
+<li>
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;We&nbsp;need&nbsp;to&nbsp;define&nbsp;the&nbsp;root&nbsp;alias
+</li></ol></ul></li><li>at <strong>Doctrine_Query->buildSqlQuery</strong>(1)<br />in <em>SF_ROOT_DIR\lib\vendor\symfony\plugins\sfDoctrinePlugin\lib\vendor\doctrine\Doctrine\Query.php</em> line 1149 <a href="#" onclick="toggle('trace_6'); return false;">...</a><br /><ul class="code" id="trace_6" style="display: none"><ol start="1146"><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Return&nbsp;compiled&nbsp;SQL
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_sql</span><span style="color: #007700">;
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+</li>
+<li class="selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">buildSqlQuery</span><span style="color: #007700">(</span><span style="color: #0000BB">$limitSubquery</span><span style="color: #007700">);
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;}
+</li>
+<li>
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">/**
+</li></ol></ul></li><li>at <strong>Doctrine_Query->getSqlQuery</strong>(<em>array</em>())<br />in <em>SF_ROOT_DIR\lib\vendor\symfony\plugins\sfDoctrinePlugin\lib\vendor\doctrine\Doctrine\Query\Abstract.php</em> line 965 <a href="#" onclick="toggle('trace_7'); return false;">...</a><br /><ul class="code" id="trace_7" style="display: none"><ol start="962"><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{
+</li>
+<li class="selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$query&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getSqlQuery</span><span style="color: #007700">(</span><span style="color: #0000BB">$params</span><span style="color: #007700">);
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$query&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_view</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getSelectSql</span><span style="color: #007700">();
+</li></ol></ul></li><li>at <strong>Doctrine_Query_Abstract->_execute</strong>(<em>array</em>())<br />in <em>SF_ROOT_DIR\lib\vendor\symfony\plugins\sfDoctrinePlugin\lib\vendor\doctrine\Doctrine\Query\Abstract.php</em> line 1033 <a href="#" onclick="toggle('trace_8'); return false;">...</a><br /><ul class="code" id="trace_8" style="display: none"><ol start="1030"><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_constructQueryFromCache</span><span style="color: #007700">(</span><span style="color: #0000BB">$cached</span><span style="color: #007700">);
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{
+</li>
+<li class="selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$stmt&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$params</span><span style="color: #007700">);
+</li>
+<li>
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">is_integer</span><span style="color: #007700">(</span><span style="color: #0000BB">$stmt</span><span style="color: #007700">))&nbsp;{
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$stmt</span><span style="color: #007700">;
+</li></ol></ul></li><li>at <strong>Doctrine_Query_Abstract->execute</strong>()<br />in <em>SF_ROOT_DIR\lib\model\doctrine\DocumenttemplateSlotTable.class.php</em> line 27 <a href="#" onclick="toggle('trace_9'); return false;">...</a><br /><ul class="code" id="trace_9" style="display: none"><ol start="24"><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt;</span><span style="color: #0000BB">from</span><span style="color: #007700">(</span><span style="color: #DD0000">'DocumenttemplateSlot&nbsp;dts'</span><span style="color: #007700">)
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt;</span><span style="color: #0000BB">where</span><span style="color: #007700">(</span><span style="color: #DD0000">'dts.documenttemplateversion_id&nbsp;=&nbsp;?'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$id</span><span style="color: #007700">)
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt;</span><span style="color: #0000BB">orderBy</span><span style="color: #007700">(</span><span style="color: #DD0000">'dts.position&nbsp;asc'</span><span style="color: #007700">)
+</li>
+<li class="selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">();
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;}
+</li>
+<li>
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">/**
+</li></ol></ul></li><li>at <strong>DocumentTemplateSlotTable->getSlotByDocumentTemplateId</strong>('')<br />in <em>SF_ROOT_DIR\lib\model\doctrine\DocumentTemplate.class.php</em> line 59 <a href="#" onclick="toggle('trace_10'); return false;">...</a><br /><ul class="code" id="trace_10" style="display: none"><ol start="56"><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;array&nbsp;$result
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">buildSlots</span><span style="color: #007700">(</span><span style="color: #0000BB">$template_id</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$type</span><span style="color: #007700">)&nbsp;{
+</li>
+<li class="selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$slots&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">DocumenttemplateSlotTable</span><span style="color: #007700">::</span><span style="color: #0000BB">instance</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">getSlotByDocumentTemplateId</span><span style="color: #007700">(</span><span style="color: #0000BB">$template_id</span><span style="color: #007700">);
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;array();
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreach&nbsp;(</span><span style="color: #0000BB">$slots&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$slot</span><span style="color: #007700">)&nbsp;{
+</li></ol></ul></li><li>at <strong>DocumentTemplate->buildSlots</strong>('', 'FIELDS')<br />in <em>SF_ROOT_DIR\lib\model\doctrine\DocumentTemplate.class.php</em> line 48 <a href="#" onclick="toggle('trace_11'); return false;">...</a><br /><ul class="code" id="trace_11" style="display: none"><ol start="45"><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">[</span><span style="color: #DD0000">'id'</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">$slots</span><span style="color: #007700">[</span><span style="color: #DD0000">'id'</span><span style="color: #007700">];
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">[</span><span style="color: #DD0000">'active_version_id'</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">$id</span><span style="color: #007700">;
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//$result['documenttemplate_id']&nbsp;=&nbsp;$slots['documenttemplate_id'];
+</li>
+<li class="selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">[</span><span style="color: #DD0000">'slots'</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">buildSlots</span><span style="color: #007700">(</span><span style="color: #0000BB">$id</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$type</span><span style="color: #007700">);
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">;
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;}
+</li>
+<li>
+</li></ol></ul></li><li>at <strong>DocumentTemplate->buildSingleDocumenttemplates</strong>(<em>object</em>('Doctrine_Collection'), '', 'FIELDS')<br />in <em>SF_ROOT_DIR\apps\cuteflow\modules\documenttemplate\actions\actions.class.php</em> line 115 <a href="#" onclick="toggle('trace_12'); return false;">...</a><br /><ul class="code" id="trace_12" style="display: none"><ol start="112"><li>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">executeLoadSingleDocumenttemplate</span><span style="color: #007700">(</span><span style="color: #0000BB">sfWebRequest&nbsp;$request</span><span style="color: #007700">)&nbsp;{
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$docObj&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Documenttemplate</span><span style="color: #007700">();
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$data&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">DocumentTemplateTable</span><span style="color: #007700">::</span><span style="color: #0000BB">instance</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">getDocumentTemplateById</span><span style="color: #007700">(</span><span style="color: #0000BB">$request</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getParameter</span><span style="color: #007700">(</span><span style="color: #DD0000">'id'</span><span style="color: #007700">));
+</li>
+<li class="selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$json_result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$docObj</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">buildSingleDocumenttemplates</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$request</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getParameter</span><span style="color: #007700">(</span><span style="color: #DD0000">'id'</span><span style="color: #007700">),&nbsp;</span><span style="color: #DD0000">'FIELDS'</span><span style="color: #007700">);
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">renderText</span><span style="color: #007700">(</span><span style="color: #DD0000">'({"result":'</span><span style="color: #007700">.</span><span style="color: #0000BB">json_encode</span><span style="color: #007700">(</span><span style="color: #0000BB">$json_result</span><span style="color: #007700">).</span><span style="color: #DD0000">'})'</span><span style="color: #007700">);
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">sfView</span><span style="color: #007700">::</span><span style="color: #0000BB">NONE</span><span style="color: #007700">;
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;}
+</li></ol></ul></li><li>at <strong>documenttemplateActions->executeLoadSingleDocumenttemplate</strong>(<em>object</em>('sfWebRequest'))<br />in <em>SF_ROOT_DIR\lib\vendor\symfony\action\sfActions.class.php</em> line 60 <a href="#" onclick="toggle('trace_13'); return false;">...</a><br /><ul class="code" id="trace_13" style="display: none"><ol start="57"><li>&nbsp;&nbsp;&nbsp;&nbsp;}
+</li>
+<li>
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;run&nbsp;action
+</li>
+<li class="selected">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">$actionToRun</span><span style="color: #007700">(</span><span style="color: #0000BB">$request</span><span style="color: #007700">);
+</li>
+<li>&nbsp;&nbsp;}
+</li>
+<li>}
+</li>
+<li></span>
+</span>
+</code></li></ol></ul></li><li>at <strong>sfActions->execute</strong>(<em>object</em>('sfWebRequest'))<br />in <em>SF_ROOT_DIR\lib\vendor\symfony\filter\sfExecutionFilter.class.php</em> line 92 <a href="#" onclick="toggle('trace_14'); return false;">...</a><br /><ul class="code" id="trace_14" style="display: none"><ol start="89"><li>&nbsp;&nbsp;{
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;execute&nbsp;the&nbsp;action
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$actionInstance</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">preExecute</span><span style="color: #007700">();
+</li>
+<li class="selected">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$viewName&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$actionInstance</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">context</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getRequest</span><span style="color: #007700">());
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$actionInstance</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">postExecute</span><span style="color: #007700">();
+</li>
+<li>
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">null&nbsp;</span><span style="color: #007700">===&nbsp;</span><span style="color: #0000BB">$viewName&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #0000BB">sfView</span><span style="color: #007700">::</span><span style="color: #0000BB">SUCCESS&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">$viewName</span><span style="color: #007700">;
+</li></ol></ul></li><li>at <strong>sfExecutionFilter->executeAction</strong>(<em>object</em>('documenttemplateActions'))<br />in <em>SF_ROOT_DIR\lib\vendor\symfony\filter\sfExecutionFilter.class.php</em> line 78 <a href="#" onclick="toggle('trace_15'); return false;">...</a><br /><ul class="code" id="trace_15" style="display: none"><ol start="75"><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;}
+</li>
+<li>
+</li>
+<li class="selected">&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">executeAction</span><span style="color: #007700">(</span><span style="color: #0000BB">$actionInstance</span><span style="color: #007700">);
+</li>
+<li>&nbsp;&nbsp;}
+</li>
+<li>
+</li>
+<li>&nbsp;&nbsp;</span><span style="color: #FF8000">/**
+</li></ol></ul></li><li>at <strong>sfExecutionFilter->handleAction</strong>(<em>object</em>('sfFilterChain'), <em>object</em>('documenttemplateActions'))<br />in <em>SF_ROOT_DIR\lib\vendor\symfony\filter\sfExecutionFilter.class.php</em> line 53 <a href="#" onclick="toggle('trace_16'); return false;">...</a><br /><ul class="code" id="trace_16" style="display: none"><ol start="50"><li>&nbsp;&nbsp;&nbsp;&nbsp;}
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;else
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;{
+</li>
+<li class="selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$viewName&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">handleAction</span><span style="color: #007700">(</span><span style="color: #0000BB">$filterChain</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$actionInstance</span><span style="color: #007700">);
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">handleView</span><span style="color: #007700">(</span><span style="color: #0000BB">$filterChain</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$actionInstance</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$viewName</span><span style="color: #007700">);
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;}
+</li>
+<li>&nbsp;&nbsp;}
+</li></ol></ul></li><li>at <strong>sfExecutionFilter->execute</strong>(<em>object</em>('sfFilterChain'))<br />in <em>SF_ROOT_DIR\lib\vendor\symfony\filter\sfFilterChain.class.php</em> line 53 <a href="#" onclick="toggle('trace_17'); return false;">...</a><br /><ul class="code" id="trace_17" style="display: none"><ol start="50"><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+</li>
+<li>
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;execute&nbsp;the&nbsp;next&nbsp;filter
+</li>
+<li class="selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">chain</span><span style="color: #007700">[</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">index</span><span style="color: #007700">]-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">);
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;}
+</li>
+<li>&nbsp;&nbsp;}
+</li>
+<li>
+</li></ol></ul></li><li>at <strong>sfFilterChain->execute</strong>()<br />in <em>SF_ROOT_DIR\lib\vendor\symfony\filter\sfCommonFilter.class.php</em> line 29 <a href="#" onclick="toggle('trace_18'); return false;">...</a><br /><ul class="code" id="trace_18" style="display: none"><ol start="26"><li>&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$filterChain</span><span style="color: #007700">)
+</li>
+<li>&nbsp;&nbsp;{
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;execute&nbsp;next&nbsp;filter
+</li>
+<li class="selected">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$filterChain</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">();
+</li>
+<li>
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;execute&nbsp;this&nbsp;filter&nbsp;only&nbsp;once
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$response&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">context</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getResponse</span><span style="color: #007700">();
+</li></ol></ul></li><li>at <strong>sfCommonFilter->execute</strong>(<em>object</em>('sfFilterChain'))<br />in <em>SF_ROOT_DIR\lib\vendor\symfony\filter\sfFilterChain.class.php</em> line 53 <a href="#" onclick="toggle('trace_19'); return false;">...</a><br /><ul class="code" id="trace_19" style="display: none"><ol start="50"><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+</li>
+<li>
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;execute&nbsp;the&nbsp;next&nbsp;filter
+</li>
+<li class="selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">chain</span><span style="color: #007700">[</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">index</span><span style="color: #007700">]-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">);
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;}
+</li>
+<li>&nbsp;&nbsp;}
+</li>
+<li>
+</li></ol></ul></li><li>at <strong>sfFilterChain->execute</strong>()<br />in <em>SF_ROOT_DIR\lib\filter\org\cuteflow\useractionFilter.class.php</em> line 20 <a href="#" onclick="toggle('trace_20'); return false;">...</a><br /><ul class="code" id="trace_20" style="display: none"><ol start="17"><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt;</span><span style="color: #0000BB">where</span><span style="color: #007700">(</span><span style="color: #DD0000">'ud.user_id&nbsp;=&nbsp;?'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$user_id</span><span style="color: #007700">)
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">();
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+</li>
+<li class="selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$filterChain</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">();
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;}
+</li>
+<li>
+</li>
+<li>}
+</li></ol></ul></li><li>at <strong>useractionFilter->execute</strong>(<em>object</em>('sfFilterChain'))<br />in <em>SF_ROOT_DIR\lib\vendor\symfony\filter\sfFilterChain.class.php</em> line 53 <a href="#" onclick="toggle('trace_21'); return false;">...</a><br /><ul class="code" id="trace_21" style="display: none"><ol start="50"><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+</li>
+<li>
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;execute&nbsp;the&nbsp;next&nbsp;filter
+</li>
+<li class="selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">chain</span><span style="color: #007700">[</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">index</span><span style="color: #007700">]-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">);
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;}
+</li>
+<li>&nbsp;&nbsp;}
+</li>
+<li>
+</li></ol></ul></li><li>at <strong>sfFilterChain->execute</strong>()<br />in <em>SF_ROOT_DIR\lib\vendor\symfony\filter\sfRenderingFilter.class.php</em> line 33 <a href="#" onclick="toggle('trace_22'); return false;">...</a><br /><ul class="code" id="trace_22" style="display: none"><ol start="30"><li>&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$filterChain</span><span style="color: #007700">)
+</li>
+<li>&nbsp;&nbsp;{
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;execute&nbsp;next&nbsp;filter
+</li>
+<li class="selected">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$filterChain</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">();
+</li>
+<li>
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;get&nbsp;response&nbsp;object
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$response&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">context</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getResponse</span><span style="color: #007700">();
+</li></ol></ul></li><li>at <strong>sfRenderingFilter->execute</strong>(<em>object</em>('sfFilterChain'))<br />in <em>SF_ROOT_DIR\lib\vendor\symfony\filter\sfFilterChain.class.php</em> line 53 <a href="#" onclick="toggle('trace_23'); return false;">...</a><br /><ul class="code" id="trace_23" style="display: none"><ol start="50"><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+</li>
+<li>
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;execute&nbsp;the&nbsp;next&nbsp;filter
+</li>
+<li class="selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">chain</span><span style="color: #007700">[</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">index</span><span style="color: #007700">]-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">);
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;}
+</li>
+<li>&nbsp;&nbsp;}
+</li>
+<li>
+</li></ol></ul></li><li>at <strong>sfFilterChain->execute</strong>()<br />in <em>SF_ROOT_DIR\lib\vendor\symfony\controller\sfController.class.php</em> line 244 <a href="#" onclick="toggle('trace_24'); return false;">...</a><br /><ul class="code" id="trace_24" style="display: none"><ol start="241"><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+</li>
+<li>
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;process&nbsp;the&nbsp;filter&nbsp;chain
+</li>
+<li class="selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$filterChain</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">();
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;}
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;else
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;{
+</li></ol></ul></li><li>at <strong>sfController->forward</strong>('documenttemplate', 'LoadSingleDocumenttemplate')<br />in <em>SF_ROOT_DIR\lib\vendor\symfony\controller\sfFrontWebController.class.php</em> line 48 <a href="#" onclick="toggle('trace_25'); return false;">...</a><br /><ul class="code" id="trace_25" style="display: none"><ol start="45"><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+</li>
+<li>
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;make&nbsp;the&nbsp;first&nbsp;request
+</li>
+<li class="selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">forward</span><span style="color: #007700">(</span><span style="color: #0000BB">$moduleName</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$actionName</span><span style="color: #007700">);
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;}
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;catch&nbsp;(</span><span style="color: #0000BB">sfException&nbsp;$e</span><span style="color: #007700">)
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;{
+</li></ol></ul></li><li>at <strong>sfFrontWebController->dispatch</strong>()<br />in <em>SF_ROOT_DIR\lib\vendor\symfony\util\sfContext.class.php</em> line 170 <a href="#" onclick="toggle('trace_26'); return false;">...</a><br /><ul class="code" id="trace_26" style="display: none"><ol start="167"><li>&nbsp;&nbsp;&nbsp;*/
+</li>
+<li>&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">dispatch</span><span style="color: #007700">()
+</li>
+<li>&nbsp;&nbsp;{
+</li>
+<li class="selected">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getController</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">dispatch</span><span style="color: #007700">();
+</li>
+<li>&nbsp;&nbsp;}
+</li>
+<li>
+</li>
+<li>&nbsp;&nbsp;</span><span style="color: #FF8000">/**
+</li></ol></ul></li><li>at <strong>sfContext->dispatch</strong>()<br />in <em>SF_ROOT_DIR\web\index.php</em> line 7 <a href="#" onclick="toggle('trace_27'); return false;">...</a><br /><ul class="code" id="trace_27" style="display: none"><ol start="4"><li></span><span style="color: #007700">require_once(</span><span style="color: #0000BB">dirname</span><span style="color: #007700">(</span><span style="color: #0000BB">__FILE__</span><span style="color: #007700">).</span><span style="color: #DD0000">'/../config/ProjectConfiguration.class.php'</span><span style="color: #007700">);
+</li>
+<li>
+</li>
+<li></span><span style="color: #0000BB">$configuration&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ProjectConfiguration</span><span style="color: #007700">::</span><span style="color: #0000BB">getApplicationConfiguration</span><span style="color: #007700">(</span><span style="color: #DD0000">'cuteflow'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'prod'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">);
+</li>
+<li class="selected"></span><span style="color: #0000BB">sfContext</span><span style="color: #007700">::</span><span style="color: #0000BB">createInstance</span><span style="color: #007700">(</span><span style="color: #0000BB">$configuration</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">dispatch</span><span style="color: #007700">();
+</li>
+<li></span>
+</span>
+</code></li></ol></ul></li></ul>
+
+  <h2>symfony settings <a href="#" onclick="toggle('sf_settings'); return false;">...</a></h2>
+  <div id="sf_settings" style="display: none"><pre>mod_documenttemplate_enabled: true
+mod_documenttemplate_is_internal: false
+mod_documenttemplate_view_class: sfPHP
+sf_admin_module_web_dir: /sfDoctrinePlugin
+sf_admin_web_dir: /sf/sf_admin
+sf_app: cuteflow
+sf_app_base_cache_dir: &#039;D:\xampp\htdocs\cuteflow_v3\src\cache\cuteflow&#039;
+sf_app_cache_dir: &#039;D:\xampp\htdocs\cuteflow_v3\src\cache\cuteflow\prod&#039;
+sf_app_config_dir: &#039;D:\xampp\htdocs\cuteflow_v3\src\apps\cuteflow\config&#039;
+sf_app_dir: &#039;D:\xampp\htdocs\cuteflow_v3\src\apps\cuteflow&#039;
+sf_app_i18n_dir: &#039;D:\xampp\htdocs\cuteflow_v3\src\apps\cuteflow\i18n&#039;
+sf_app_lib_dir: &#039;D:\xampp\htdocs\cuteflow_v3\src\apps\cuteflow\lib&#039;
+sf_app_module_dir: &#039;D:\xampp\htdocs\cuteflow_v3\src\apps\cuteflow\modules&#039;
+sf_app_template_dir: &#039;D:\xampp\htdocs\cuteflow_v3\src\apps\cuteflow\templates&#039;
+sf_apps_dir: &#039;D:\xampp\htdocs\cuteflow_v3\src\apps&#039;
+sf_cache: false
+sf_cache_dir: &#039;D:\xampp\htdocs\cuteflow_v3\src\cache&#039;
+sf_calendar_web_dir: /sf/calendar
+sf_charset: utf-8
+sf_check_lock: false
+sf_compressed: false
+sf_config_cache_dir: &#039;D:\xampp\htdocs\cuteflow_v3\src\cache\cuteflow\prod\config&#039;
+sf_config_dir: &#039;D:\xampp\htdocs\cuteflow_v3\src\config&#039;
+sf_csrf_secret: false
+sf_data_dir: &#039;D:\xampp\htdocs\cuteflow_v3\src\data&#039;
+sf_debug: true
+sf_default_culture: en
+sf_doctrine_dir: &#039;D:\xampp\htdocs\cuteflow_v3\src\lib\vendor\symfony\plugins\sfDoctrinePlugin\lib\vendor\doctrine&#039;
+sf_enabled_modules:
+  - default
+sf_environment: prod
+sf_error_404_action: error404
+sf_error_404_module: default
+sf_error_reporting: 341
+sf_escaping_method: ESC_SPECIALCHARS
+sf_escaping_strategy: false
+sf_etag: true
+sf_file_link_format: null
+sf_i18n: true
+sf_i18n_cache_dir: &#039;D:\xampp\htdocs\cuteflow_v3\src\cache\cuteflow\prod\i18n&#039;
+sf_lazy_cache_key: on
+sf_lib_dir: &#039;D:\xampp\htdocs\cuteflow_v3\src\lib&#039;
+sf_log_dir: &#039;D:\xampp\htdocs\cuteflow_v3\src\log&#039;
+sf_logging_enabled: false
+sf_login_action: login
+sf_login_module: default
+sf_module_cache_dir: &#039;D:\xampp\htdocs\cuteflow_v3\src\cache\cuteflow\prod\modules&#039;
+sf_module_disabled_action: disabled
+sf_module_disabled_module: default
+sf_no_script_name: true
+sf_orm: doctrine
+sf_plugins_dir: &#039;D:\xampp\htdocs\cuteflow_v3\src\plugins&#039;
+sf_prototype_web_dir: /sfProtoculousPlugin
+sf_rich_text_js_dir: js/tiny_mce
+sf_root_dir: &#039;D:\xampp\htdocs\cuteflow_v3\src&#039;
+sf_secure_action: secure
+sf_secure_module: default
+sf_standard_helpers:
+  - I18N
+  - Date
+  - Number
+  - JavascriptUrl
+  - Asset
+sf_symfony_lib_dir: &#039;D:\xampp\htdocs\cuteflow_v3\src\lib\vendor\symfony&#039;
+sf_template_cache_dir: &#039;D:\xampp\htdocs\cuteflow_v3\src\cache\cuteflow\prod\template&#039;
+sf_test_cache_dir: &#039;D:\xampp\htdocs\cuteflow_v3\src\cache\cuteflow\prod\test&#039;
+sf_test_dir: &#039;D:\xampp\htdocs\cuteflow_v3\src\test&#039;
+sf_upload_dir: &#039;D:\xampp\htdocs\cuteflow_v3\src\web\uploads&#039;
+sf_use_database: true
+sf_validation_error_class: form_error
+sf_validation_error_id_prefix: error_for_
+sf_validation_error_prefix: &#039; &amp;darr;&amp;nbsp;&#039;
+sf_validation_error_suffix: &#039; &amp;nbsp;&amp;darr;&#039;
+sf_web_debug: false
+sf_web_debug_web_dir: /sf/sf_web_debug
+sf_web_dir: &#039;D:\xampp\htdocs\cuteflow_v3\src\web&#039;
+</pre></div>
+
+  <h2>request <a href="#" onclick="toggle('sf_request'); return false;">...</a></h2>
+  <div id="sf_request" style="display: none"><pre>options:
+  path_info_key: PATH_INFO
+  path_info_array: SERVER
+  http_port: null
+  https_port: null
+  default_format: null
+  logging: &#039;&#039;
+  relative_url_root: null
+  formats: { txt: text/plain, js: [application/javascript, application/x-javascript, text/javascript], css: text/css, json: [application/json, application/x-json], xml: [text/xml, application/xml, application/x-xml], rdf: application/rdf+xml, atom: application/atom+xml }
+  no_script_name: true
+parameterHolder:
+  _dc: &#039;1308758174935&#039;
+  action: LoadSingleDocumenttemplate
+  id: &#039;&#039;
+  module: documenttemplate
+attributeHolder:
+  sf_route: &#039;sfRoute Object()&#039;
+</pre></div>
+
+  <h2>response <a href="#" onclick="toggle('sf_response'); return false;">...</a></h2>
+  <div id="sf_response" style="display: none"><pre>status:
+  code: 500
+  text: &#039;Internal Server Error&#039;
+options:
+  http_protocol: HTTP/1.1
+  logging: &#039;&#039;
+  charset: utf-8
+  send_http_headers: true
+  content_type: &#039;text/html; charset=utf-8&#039;
+cookies: {  }
+httpHeaders:
+  Content-Type: &#039;text/html; charset=utf-8&#039;
+javascripts: {  }
+stylesheets: {  }
+metas: {  }
+httpMetas: {  }
+</pre></div>
+
+  <h2>user <a href="#" onclick="toggle('sf_user'); return false;">...</a></h2>
+  <div id="sf_user" style="display: none"><pre>options:
+  auto_shutdown: false
+  culture: null
+  default_culture: en
+  use_flash: true
+  logging: &#039;&#039;
+  timeout: 1800
+attributeHolder:
+  symfony/user/sfUser/attributes: { credential: { administration_usermanagement_showModule: &#039;false&#039;, administration_usermanagement_editUser: &#039;false&#039;, administration_usermanagement_removeUser: &#039;false&#039;, administration_usermanagement_addUser: &#039;false&#039;, administration_userrolemanagement_showModule: &#039;false&#039;, administration_myprofile_showModule: &#039;false&#039;, administration_myprofile_changeRole: &#039;false&#039;, administration_sendmessage_showModule: &#039;false&#039;, administration_menuesetting_showModule: &#039;false&#039;, management_additionaltext_showModule: &#039;false&#039;, administration_systemsetting_showModule: &#039;false&#039;, administration_myprofile_changeUseragent: &#039;false&#039;, management_field_showModule: &#039;false&#039;, administration_usermanagement_addLdap: &#039;false&#039;, management_documenttemplate_showModule: &#039;false&#039;, management_documenttemplate_addDocumenttemplate: &#039;false&#039;, management_documenttemplate_editDocumenttemplate: &#039;false&#039;, management_documenttemplate_deleteDocumenttemplate: &#039;false&#039;, administration_usermanagement_showDeleted: &#039;false&#039;, workflow_workflowmanagement_showModule: &#039;false&#039;, workflow_workflowmanagement_sendWorkflow: &#039;false&#039;, management_mailinglist_showModule: &#039;false&#039;, management_mailinglist_editMailinglist: &#039;false&#039;, management_mailinglist_deleteMailinglist: &#039;false&#039;, management_mailinglist_addMailinglist: &#039;false&#039;, management_documenttemplate_editVersion: &#039;false&#039;, workflow_todo_showModule: &#039;false&#039;, workflow_archive_showModule: &#039;false&#039; }, env: &#039;&#039;, id: &#039;1&#039;, userSettings: { user_id: &#039;1&#039;, language: de_DE, mark_yellow: &#039;7&#039;, mark_red: &#039;12&#039;, mark_orange: &#039;10&#039;, refresh_time: &#039;180&#039;, displayed_item: &#039;25&#039;, duration_type: MINUTES, duration_length: &#039;1&#039;, email_format: html, email_type: VALUES, circulation_default_sort_column: NAME, circulation_default_sort_direction: ASC, theme: DEFAULT, firstlogin: &#039;0&#039; }, userWorkflowSettings: [{ column_text: NAME, hidden: &#039;false&#039;, field_id: -1, text: NAME, store: name, width: &#039;140&#039; }, { column_text: STATION, hidden: &#039;false&#039;, field_id: -1, text: STATION, store: currentstation, width: &#039;180&#039; }, { column_text: DAYS, hidden: &#039;false&#039;, field_id: -1, text: DAYS, store: stationrunning, width: &#039;130&#039; }, { column_text: START, hidden: &#039;false&#039;, field_id: -1, text: START, store: versioncreated_at, width: &#039;120&#039; }, { column_text: SENDER, hidden: &#039;true&#039;, field_id: -1, text: SENDER, store: sendername, width: &#039;200&#039; }, { column_text: TOTALTIME, hidden: &#039;true&#039;, field_id: -1, text: TOTALTIME, store: currentlyrunning, width: &#039;80&#039; }, { column_text: MAILINGLIST, hidden: &#039;true&#039;, field_id: -1, text: MAILINGLIST, store: mailinglisttemplate, width: &#039;150&#039; }], userrole: &#039;1&#039; }
+culture: de_DE
+authenticated: true
+credentials: {  }
+lastRequest: 1308758176
+</pre></div>
+
+  <h2>global vars <a href="#" onclick="toggle('sf_globals'); return false;">...</a></h2>
+  <div id="sf_globals" style="display: none"><pre>cookie:
+  symfony: gpdeenaedtevoj8pe9qsti1447
+env: {  }
+files: {  }
+get:
+  _dc: &#039;1308758174935&#039;
+post: {  }
+server:
+  COMSPEC: &#039;C:\Windows\system32\cmd.exe&#039;
+  DOCUMENT_ROOT: &#039;D:/xampp/htdocs/cuteflow_v3/src/web&#039;
+  GATEWAY_INTERFACE: CGI/1.1
+  HTTP_ACCEPT: &#039;text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#039;
+  HTTP_ACCEPT_CHARSET: &#039;ISO-8859-1,utf-8;q=0.7,*;q=0.7&#039;
+  HTTP_ACCEPT_ENCODING: &#039;gzip, deflate&#039;
+  HTTP_ACCEPT_LANGUAGE: &#039;de-de,de;q=0.8,en-us;q=0.5,en;q=0.3&#039;
+  HTTP_CONNECTION: keep-alive
+  HTTP_COOKIE: symfony=gpdeenaedtevoj8pe9qsti1447
+  HTTP_HOST: localhost
+  HTTP_KEEP_ALIVE: &#039;115&#039;
+  HTTP_REFERER: &#039;http://localhost/layout/index&#039;
+  HTTP_USER_AGENT: &#039;Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0.1) Gecko/20100101 Firefox/4.0.1 FirePHP/0.5&#039;
+  HTTP_X_INSIGHT: activate
+  HTTP_X_REQUESTED_WITH: XMLHttpRequest
+  MIBDIRS: &#039;D:/xampp/php/extras/mibs&#039;
+  MYSQL_HOME: \xampp\mysql\bin
+  OPENSSL_CONF: &#039;D:/xampp/apache/bin/openssl.cnf&#039;
+  PATH: &#039;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\TortoiseSVN\bin;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\Git\cmd;C:\Program Files (x86)\Git\bin;C:\Program Files\TortoiseGit\bin;C:\Python27\Scripts;C:\Program Files\Mercurial\;C:\Program Files\TortoiseHg\;D:\xampp\php\;C:\Program Files (x86)\QuickTime\QTSystem\;&#039;
+  PATHEXT: .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+  PHPRC: \xampp\php
+  PHP_PEAR_SYSCONF_DIR: \xampp\php
+  PHP_SELF: /index.php
+  QUERY_STRING: _dc=1308758174935
+  REDIRECT_MIBDIRS: &#039;D:/xampp/php/extras/mibs&#039;
+  REDIRECT_MYSQL_HOME: \xampp\mysql\bin
+  REDIRECT_OPENSSL_CONF: &#039;D:/xampp/apache/bin/openssl.cnf&#039;
+  REDIRECT_PHPRC: \xampp\php
+  REDIRECT_PHP_PEAR_SYSCONF_DIR: \xampp\php
+  REDIRECT_QUERY_STRING: _dc=1308758174935
+  REDIRECT_STATUS: &#039;200&#039;
+  REDIRECT_TMP: \xampp\tmp
+  REDIRECT_URL: /documenttemplate/LoadSingleDocumenttemplate/id/
+  REMOTE_ADDR: 127.0.0.1
+  REMOTE_PORT: &#039;57721&#039;
+  REQUEST_METHOD: GET
+  REQUEST_TIME: 1308758176
+  REQUEST_URI: &#039;/documenttemplate/LoadSingleDocumenttemplate/id/?_dc=1308758174935&#039;
+  SCRIPT_FILENAME: &#039;D:/xampp/htdocs/cuteflow_v3/src/web/index.php&#039;
+  SCRIPT_NAME: /index.php
+  SERVER_ADDR: 127.0.0.1
+  SERVER_ADMIN: postmaster@localhost
+  SERVER_NAME: localhost
+  SERVER_PORT: &#039;80&#039;
+  SERVER_PROTOCOL: HTTP/1.1
+  SERVER_SIGNATURE: &quot;&lt;address&gt;Apache/2.2.17 (Win32) mod_ssl/2.2.17 OpenSSL/0.9.8o PHP/5.3.4 mod_perl/2.0.4 Perl/v5.10.1 Server at localhost Port 80&lt;/address&gt;\n&quot;
+  SERVER_SOFTWARE: &#039;Apache/2.2.17 (Win32) mod_ssl/2.2.17 OpenSSL/0.9.8o PHP/5.3.4 mod_perl/2.0.4 Perl/v5.10.1&#039;
+  SystemRoot: &#039;C:\Windows&#039;
+  TMP: \xampp\tmp
+  WINDIR: &#039;C:\Windows&#039;
+session:
+  symfony/user/sfUser/attributes: { symfony/user/sfUser/attributes: { id: &#039;1&#039;, userrole: &#039;1&#039;, env: &#039;&#039;, userSettings: { user_id: &#039;1&#039;, language: de_DE, mark_yellow: &#039;7&#039;, mark_red: &#039;12&#039;, mark_orange: &#039;10&#039;, refresh_time: &#039;180&#039;, displayed_item: &#039;25&#039;, duration_type: MINUTES, duration_length: &#039;1&#039;, email_format: html, email_type: VALUES, circulation_default_sort_column: NAME, circulation_default_sort_direction: ASC, theme: DEFAULT, firstlogin: &#039;0&#039; }, userWorkflowSettings: [{ column_text: NAME, hidden: &#039;false&#039;, field_id: -1, text: NAME, store: name, width: &#039;140&#039; }, { column_text: STATION, hidden: &#039;false&#039;, field_id: -1, text: STATION, store: currentstation, width: &#039;180&#039; }, { column_text: DAYS, hidden: &#039;false&#039;, field_id: -1, text: DAYS, store: stationrunning, width: &#039;130&#039; }, { column_text: START, hidden: &#039;false&#039;, field_id: -1, text: START, store: versioncreated_at, width: &#039;120&#039; }, { column_text: SENDER, hidden: &#039;true&#039;, field_id: -1, text: SENDER, store: sendername, width: &#039;200&#039; }, { column_text: TOTALTIME, hidden: &#039;true&#039;, field_id: -1, text: TOTALTIME, store: currentlyrunning, width: &#039;80&#039; }, { column_text: MAILINGLIST, hidden: &#039;true&#039;, field_id: -1, text: MAILINGLIST, store: mailinglisttemplate, width: &#039;150&#039; }], credential: { administration_usermanagement_showModule: &#039;false&#039;, administration_usermanagement_editUser: &#039;false&#039;, administration_usermanagement_removeUser: &#039;false&#039;, administration_usermanagement_addUser: &#039;false&#039;, administration_userrolemanagement_showModule: &#039;false&#039;, administration_myprofile_showModule: &#039;false&#039;, administration_myprofile_changeRole: &#039;false&#039;, administration_sendmessage_showModule: &#039;false&#039;, administration_menuesetting_showModule: &#039;false&#039;, management_additionaltext_showModule: &#039;false&#039;, administration_systemsetting_showModule: &#039;false&#039;, administration_myprofile_changeUseragent: &#039;false&#039;, management_field_showModule: &#039;false&#039;, administration_usermanagement_addLdap: &#039;false&#039;, management_documenttemplate_showModule: &#039;false&#039;, management_documenttemplate_addDocumenttemplate: &#039;false&#039;, management_documenttemplate_editDocumenttemplate: &#039;false&#039;, management_documenttemplate_deleteDocumenttemplate: &#039;false&#039;, administration_usermanagement_showDeleted: &#039;false&#039;, workflow_workflowmanagement_showModule: &#039;false&#039;, workflow_workflowmanagement_sendWorkflow: &#039;false&#039;, management_mailinglist_showModule: &#039;false&#039;, management_mailinglist_editMailinglist: &#039;false&#039;, management_mailinglist_deleteMailinglist: &#039;false&#039;, management_mailinglist_addMailinglist: &#039;false&#039;, management_documenttemplate_editVersion: &#039;false&#039;, workflow_todo_showModule: &#039;false&#039;, workflow_archive_showModule: &#039;false&#039; } } }
+  symfony/user/sfUser/authenticated: true
+  symfony/user/sfUser/credentials: {  }
+  symfony/user/sfUser/culture: de_DE
+  symfony/user/sfUser/lastRequest: 1308758176
+</pre></div>
+
+  <p id="footer">
+    symfony v.1.3.11 - php 5.3.5<br />
+    for help resolving this issue, please visit <a href="http://www.symfony-project.org/">http://www.symfony-project.org/</a>.
+  </p>
+  </div></center>
+</body>
+</html>

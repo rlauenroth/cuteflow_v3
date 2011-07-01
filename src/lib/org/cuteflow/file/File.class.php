@@ -25,7 +25,7 @@ class File {
      *
      * @param String $file, filename
      */
-    public function getContenttype($file) {
+    public function getContentType($file) {
         $data = array();
         $data = explode('.', $file);
         $type =  strtolower($data[count($data)-1]);

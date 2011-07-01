@@ -22,7 +22,7 @@ class FieldTextfieldTable extends Doctrine_Table {
     public function updateFieldTextfieldById($id, $data) {
         Doctrine_Query::create()
             ->update('FieldTextfield ftf')
-            ->set('ftf.defaultvalue','?', $data['fieldTextfield_standard'])
+            ->set('ftf.default_value','?', $data['fieldTextfield_standard'])
             ->set('ftf.regex','?',$data['fieldTextfield_regularexpression'])
             ->where('ftf.field_id = ?',$id)
             ->execute();

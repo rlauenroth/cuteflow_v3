@@ -10,18 +10,17 @@
  */
 class documenttemplateActions extends sfActions {
 
-
-
     /**
      * Load all Fields for second tab in popup window when creating /editing documenttemplate
      * @param sfWebRequest $request
      * @return <type>
      */
     public function executeLoadAllFields(sfWebRequest $request) {
+
         $fieldObj = new FieldClass();
         $result = FieldTable::instance()->getAllFields();
         $json_result = $fieldObj->buildField($result, $this->getContext());
-        $this->renderText('({"result":'.json_encode($json_result).'})');
+        $this->renderText('({"result":' . json_encode($json_result) . '})');
         return sfView::NONE;
     }
 
@@ -33,7 +32,7 @@ class documenttemplateActions extends sfActions {
     public function executeSaveDocumenttemplate(sfWebRequest $request) {
         $docObj = new Documenttemplate();
         $data = $request->getPostParameters();
-        $docTemplate = new DocumenttemplateTemplate();
+        $docTemplate = new DocumentTemplate();
         $docTemplate->setName($data['documenttemplatePopUpFirstTab_fieldname']);
         $docTemplate->save();
         $template_id = $docTemplate->getId();
@@ -44,7 +43,6 @@ class documenttemplateActions extends sfActions {
         return sfView::NONE;
     }
 
-
     /**
      * Update a documenttemplate, and create a new version
      * @param sfWebRequest $request
@@ -53,31 +51,31 @@ class documenttemplateActions extends sfActions {
     public function executeUpdateDocumenttemplate(sfWebRequest $request) {
         $docObj = new Documenttemplate();
         $data = $request->getPostParameters();
-        DocumenttemplateVersionTable::instance()->setTemplateInactiveById($request->getParameter('id')); // set old template inactive
-        $template_array = DocumenttemplateVersionTable::instance()->getDocumentTemplateId($request->getParameter('id'))->toArray(); // get old template
-        $template_id = $template_array[0]['documenttemplate_id'];
-        $version = $template_array[0]['version']+1;// create the nexte version of the template
+        DocumentTemplateVersionTable::instance()->setTemplateInactiveById($request->getParameter('id')); // set old template inactive
+        $template_array = DocumentTemplateVersionTable::instance()->getDocumentTemplateId($request->getParameter('id'))->toArray(); // get old template
+        $template_id = $template_array[0]['document_template_id'];
+        $version = $template_array[0]['version'] + 1; // create the nexte version of the template
         $version_id = $docObj->storeVersion($template_id, $version); // write new version
         $slots = $data['slot'];
         $docObj->storeData($slots, $version_id); // store slots
         $this->renderText('{success:true}');
         return sfView::NONE;
     }
+
     /**
      * Load all Documenttemplates for datagrid
      * @param sfWebRequest $request
      * @return <type>
      */
     public function executeLoadAllDocumenttemplates(sfWebRequest $request) {
-        $docObj = new Documenttemplate();
+        $docObj = new DocumentTemplate();
         $limit = $this->getUser()->getAttribute('userSettings');
-        $anz = DocumenttemplateTemplateTable::instance()->getTotalSumOfDocumentTemplates();
-        $data = DocumenttemplateTemplateTable::instance()->getAllDocumentTemplates($request->getParameter('limit',$limit['displayed_item']),$request->getParameter('start',0))->toArray();
+        $anz = DocumentTemplateTable::instance()->getTotalSumOfDocumentTemplates();
+        $data = DocumentTemplateTable::instance()->getAllDocumentTemplates($request->getParameter('limit', $limit['displayed_item']), $request->getParameter('start', 0))->toArray();
         $json_result = $docObj->buildAllDocumenttemplates($data);
-        $this->renderText('({"total":"'.$anz[0]->getAnzahl().'","result":'.json_encode($json_result).'})');
+        $this->renderText('({"total":"' . $anz[0]->getAnzahl() . '","result":' . json_encode($json_result) . '})');
         return sfView::NONE;
     }
-
 
     /**
      * Load all documenttemplates by ajaxfilter
@@ -87,10 +85,10 @@ class documenttemplateActions extends sfActions {
     public function executeLoadAllDocumenttemplatesByFilter(sfWebRequest $request) {
         $docObj = new Documenttemplate();
         $limit = $this->getUser()->getAttribute('userSettings');
-        $anz = DocumenttemplateTemplateTable::instance()->getTotalSumOfDocumentTemplatesByFilter($request->getParameter('name'));
-        $data = DocumenttemplateTemplateTable::instance()->getAllDocumentTemplatesByFilter($request->getParameter('limit',$limit['displayed_item']),$request->getParameter('start',0),$request->getParameter('name'))->toArray();
+        $anz = DocumentTemplateTable::instance()->getTotalSumOfDocumentTemplatesByFilter($request->getParameter('name'));
+        $data = DocumentTemplateTable::instance()->getAllDocumentTemplatesByFilter($request->getParameter('limit', $limit['displayed_item']), $request->getParameter('start', 0), $request->getParameter('name'))->toArray();
         $json_result = $docObj->buildAllDocumenttemplates($data);
-        $this->renderText('({"total":"'.$anz[0]->getAnzahl().'","result":'.json_encode($json_result).'})');
+        $this->renderText('({"total":"' . $anz[0]->getAnzahl() . '","result":' . json_encode($json_result) . '})');
         return sfView::NONE;
     }
 
@@ -100,7 +98,7 @@ class documenttemplateActions extends sfActions {
      * @return <type>
      */
     public function executeDeleteDocumenttemplate(sfWebRequest $request) {
-        DocumenttemplateTemplateTable::instance()->deleteDocumentTemplateById($request->getParameter('id'));
+        DocumentTemplateTable::instance()->deleteDocumentTemplateById($request->getParameter('id'));
         return sfView::NONE;
     }
 
@@ -110,13 +108,12 @@ class documenttemplateActions extends sfActions {
      * @return <type>
      */
     public function executeLoadSingleDocumenttemplate(sfWebRequest $request) {
-        $docObj = new Documenttemplate();
-        $data = DocumenttemplateTemplateTable::instance()->getDocumentTemplateById($request->getParameter('id'));
+        $docObj = new DocumentTemplate();
+        $data = DocumentTemplateTable::instance()->getDocumentTemplateById($request->getParameter('id'));
         $json_result = $docObj->buildSingleDocumenttemplates($data, $request->getParameter('id'), 'FIELDS');
-        $this->renderText('({"result":'.json_encode($json_result).'})');
+        $this->renderText('({"result":' . json_encode($json_result) . '})');
         return sfView::NONE;
     }
-
 
     /**
      * Load all versions of an template, for the popwindow
@@ -125,12 +122,11 @@ class documenttemplateActions extends sfActions {
      */
     public function executeLoadAllVersion(sfWebRequest $request) {
         $docObj = new Documenttemplate();
-        $data = DocumenttemplateVersionTable::instance()->getAllVersionByTemplateId($request->getParameter('id'));
+        $data = DocumentTemplateVersionTable::instance()->getAllVersionByTemplateId($request->getParameter('id'));
         $json_result = $docObj->buildAllVersion($data, $this->getUser()->getCulture(), $this->getContext());
-        $this->renderText('({"result":'.json_encode($json_result).'})');
+        $this->renderText('({"result":' . json_encode($json_result) . '})');
         return sfView::NONE;
     }
-
 
     /**
      * Activates a documenttemplate
@@ -140,17 +136,9 @@ class documenttemplateActions extends sfActions {
     public function executeActivateDocumenttemplate(sfWebRequest $request) {
         $document_id = $request->getParameter('documenttemplateid');
         $id = $request->getParameter('id');
-        DocumenttemplateVersionTable::instance()->setAllTemplateInactiveByTemplateId($document_id); // set template inactive
-        DocumenttemplateVersionTable::instance()->setTemplateActiveById($id); // set new template active
+        DocumentTemplateVersionTable::instance()->setAllTemplateInactiveByTemplateId($document_id); // set template inactive
+        DocumentTemplateVersionTable::instance()->setTemplateActiveById($id); // set new template active
         return sfView::NONE;
     }
-
-
-
-
-
-
-
-
 
 }

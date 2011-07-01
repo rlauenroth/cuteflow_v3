@@ -94,10 +94,10 @@ cf.fieldTextarea = function(){return {
 	},
 	/** add data when in editmode **/
 	addData: function (data) {
-		Ext.getCmp('fieldTextarea_contenttype_id').setValue(data.contenttype);
+		Ext.getCmp('fieldTextarea_contenttype_id').setValue(data.content_type);
 		Ext.getCmp('fieldTextarea_htmlarea').setValue(data.content);
 		Ext.getCmp('fieldTextarea_textarea').setValue(data.content);
-		if(data.contenttype == 'html') {
+		if(data.content_type == 'html') {
 			Ext.getCmp('fieldTextarea_htmlarea').setVisible(true);
 			Ext.getCmp('fieldTextarea_textarea').setVisible(false);
 		}

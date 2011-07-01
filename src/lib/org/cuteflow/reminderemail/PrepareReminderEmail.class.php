@@ -52,7 +52,7 @@ class PrepareReminderEmail {
                     $arrayToCheck[$a] = $user['user_id'];
                     $result[$a]['user_id'] = $user['user_id'];
                     $result[$a]['workflows'][$b]['workflow_id'] = $workflow['workflow_id'];
-                    $result[$a]['workflows'][$b]['workflowversion_id'] = $workflow['workflowversion_id'];
+                    $result[$a]['workflows'][$b]['workflow_version_id'] = $workflow['workflow_version_id'];
                     $result[$a]['workflows'][$b]['name'] = $workflow['name'];
                     $a++;
                 }
@@ -62,14 +62,14 @@ class PrepareReminderEmail {
                         $arrayToCheck[$a] = $user['user_id'];
                         $result[$a]['user_id'] = $user['user_id'];
                         $result[$a]['workflows'][$b]['workflow_id'] = $workflow['workflow_id'];
-                        $result[$a]['workflows'][$b]['workflowversion_id'] = $workflow['workflowversion_id'];
+                        $result[$a]['workflows'][$b]['workflow_version_id'] = $workflow['workflow_version_id'];
                         $result[$a]['workflows'][$b]['name'] = $workflow['name'];
                         $a++;
                     }
                     else {
                         $b++;
                         $result[$needle]['workflows'][$b]['workflow_id'] = $workflow['workflow_id'];
-                        $result[$needle]['workflows'][$b]['workflowversion_id'] = $workflow['workflowversion_id'];
+                        $result[$needle]['workflows'][$b]['workflow_version_id'] = $workflow['workflow_version_id'];
                         $result[$needle]['workflows'][$b]['name'] = $workflow['name'];
                     }
                 }

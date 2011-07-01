@@ -28,24 +28,24 @@ class SaveWorkflow {
      */
     public function getNextStation(array $slots, $userId, $versionId) {
         foreach($slots as $slot) {
-            $wfProcessData = WorkflowProcessUserTable::instance()->getActiveProcessUserForWorkflowSlot($slot['workflowslot_id'],$userId)->toArray();
-            $toChange = WorkflowProcessUserTable::instance()->getWaitingStation($slot['workflowslot_id'],$userId);
+            $wfProcessData = WorkflowProcessUserTable::instance()->getActiveProcessUserForWorkflowSlot($slot['workflow_slot_id'],$userId)->toArray();
+            $toChange = WorkflowProcessUserTable::instance()->getWaitingStation($slot['workflow_slot_id'],$userId);
             foreach($toChange as $itemToChange) {
                 $pdoObj = Doctrine::getTable('WorkflowProcessUser')->find($itemToChange->getId());
-                $pdoObj->setDecissionstate('DONE');
-                $pdoObj->setDateofdecission(time());
+                $pdoObj->setDecissionState('DONE');
+                $pdoObj->setDateOfDecission(time());
                 $pdoObj->save();
             }
             $versionId = $versionId;
-            $wfSlotId = $slot['workflowslot_id'];
-            $wsUserId = $wfProcessData[0]['workflowslotuser_id'];
+            $wfSlotId = $slot['workflow_slot_id'];
+            $wsUserId = $wfProcessData[0]['workflow_slot_user_id'];
             $checkWorkflow = new CreateNextStation($versionId,$wfSlotId,$wsUserId, $this);
         }
         $workflowVersion = WorkflowTemplateTable::instance()->getWorkflowTemplateByVersionId($versionId);
-        $workflowData = MailinglistVersionTable::instance()->getSingleVersionById($workflowVersion[0]->getMailinglisttemplateversionId())->toArray();
+        $workflowData = MailinglistVersionTable::instance()->getSingleVersionById($workflowVersion[0]->getMailinglistTemplateVersionId())->toArray();
 
 
-        if($workflowData[0]['sendtoallslotsatonce'] == 1) {
+        if($workflowData[0]['send_to_all_slots_at_once'] == 1) {
             $slots = WorkflowSlotTable::instance()->getSlotByVersionId($versionId);
             $isCompleted = true;
             foreach($slots as $slot) {
@@ -54,7 +54,7 @@ class SaveWorkflow {
                     $processUsers = WorkflowProcessUserTable::instance()->getProcessUserByWorkflowSlotUserId($user->getId());
                     foreach($processUsers as $singleUser) {
                         $userArray = $singleUser->toArray();
-                        if($userArray['decissionstate'] == 'WAITING') {
+                        if($userArray['decission_state'] == 'WAITING') {
                             $isCompleted = false;
                         }
                     }
@@ -82,8 +82,8 @@ class SaveWorkflow {
         $workflowToStop = WorkflowProcessUserTable::instance()->getWaitingStationToStopByUser($versionId);
         foreach($workflowToStop as $itemToChange) {
             $pdoObj = Doctrine::getTable('WorkflowProcessUser')->find($itemToChange->getId());
-            $pdoObj->setDecissionstate('STOPPEDBYUSER');
-            $pdoObj->setDateofdecission(time());
+            $pdoObj->setDecissionState('STOPPEDBYUSER');
+            $pdoObj->setDateOfDecission(time());
             $pdoObj->save();
         }
         return true;

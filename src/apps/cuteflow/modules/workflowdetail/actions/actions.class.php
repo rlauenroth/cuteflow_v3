@@ -42,14 +42,12 @@ class workflowdetailActions extends sfActions
      * @return <type>
      */
     public function executeResendEmail(sfWebRequest $request) {
-        sfLoader::loadHelpers('Url');
-        sfLoader::loadHelpers('Partial');
         $serverUrl = str_replace('/layout', '', url_for('layout/index',true));
         $context = sfContext::getInstance();
         $versionId = $request->getParameter('versionid');
         $user_id = $request->getParameter('userid');
         $workflow = WorkflowVersionTable::instance()->getWorkflowVersionById($versionId)->toArray();
-        $test = new PrepareStationEmail($versionId, $workflow[0]['workflowtemplate_id'], $user_id, $context, $serverUrl);
+        $test = new PrepareStationEmail($versionId, $workflow[0]['workflow_template_id'], $user_id, $context, $serverUrl);
         return sfView::NONE;
     }
 
@@ -82,7 +80,6 @@ class workflowdetailActions extends sfActions
      * @return <type>
      */
     public function executeSkipStation(sfWebRequest $request) {
-        sfLoader::loadHelpers('Url');
         WorkflowProcessUserTable::instance()->skipStation($request->getParameter('workflowprocessuserid'));
         $context = sfContext::getInstance();
         $context->getConfiguration()->loadHelpers('Partial', 'I18N', 'Url', 'Date', 'CalculateDate', 'ColorBuilder', 'Icon', 'EndAction');
@@ -133,28 +130,27 @@ class workflowdetailActions extends sfActions
      * @return <type>
      */
     public function executeSetUseragent(sfWebRequest $request) {
-        sfLoader::loadHelpers('Url');
-        $useragent_id = $request->getParameter('userid');
-        $workflowprocess_id = $request->getParameter('workflowprocessuserid');
+        $user_agent_id = $request->getParameter('userid');
+        $workflow_process_id = $request->getParameter('workflowprocessuserid');
         $version_id = $request->getParameter('versionid');
-        $currentVersion = WorkflowProcessUserTable::instance()->getProcessById($workflowprocess_id)->toArray();
+        $currentVersion = WorkflowProcessUserTable::instance()->getProcessById($workflow_process_id)->toArray();
         $workflowId = WorkflowVersionTable::instance()->getWorkflowVersionById($version_id)->toArray();
         $context = sfContext::getInstance();
         $context->getConfiguration()->loadHelpers('Partial', 'I18N', 'Url', 'Date', 'CalculateDate', 'ColorBuilder', 'Icon', 'EndAction');
 
         $processObj = new WorkflowProcessUser();
-        $processObj->setWorkflowprocessId($currentVersion[0]['workflowprocess_id']);
-        $processObj->setWorkflowslotuserId($currentVersion[0]['workflowslotuser_id']);
-        $processObj->setUserId($useragent_id);
-        $processObj->setInprogresssince(time());
-        $processObj->setDecissionstate('WAITING');
+        $processObj->setWorkflowProcessId($currentVersion[0]['workflow_process_id']);
+        $processObj->setWorkflowSlotUserId($currentVersion[0]['workflow_slot_user_id']);
+        $processObj->setUserId($user_agent_id);
+        $processObj->setInProgressSince(time());
+        $processObj->setDecissionState('WAITING');
         $processObj->setUseragentsetbycronjob(0);
-        $processObj->setIsuseragentof($workflowprocess_id);
+        $processObj->setIsUserAgentOf($workflow_process_id);
         $processObj->setResendet(0);
         $processObj->save();
-        WorkflowProcessUserTable::instance()->setProcessToUseragentSet($workflowprocess_id);
+        WorkflowProcessUserTable::instance()->setProcessToUseragentSet($workflow_process_id);
 
-        $mailObj = new PrepareStationEmail($version_id, $workflowId[0]['workflowtemplate_id'], $useragent_id, $context,str_replace('/layout', '', url_for('layout/index',true)));
+        $mailObj = new PrepareStationEmail($version_id, $workflowId[0]['workflow_template_id'], $user_agent_id, $context,str_replace('/layout', '', url_for('layout/index',true)));
 
 
         $detailsObj = new WorkflowDetail();
@@ -175,7 +171,6 @@ class workflowdetailActions extends sfActions
      * @return <type>
      */
     public function executeSetNewStation(sfWebRequest $request) {
-        sfLoader::loadHelpers('Url');
         $context = sfContext::getInstance();
         $context->getConfiguration()->loadHelpers('Partial', 'I18N', 'Url', 'Date', 'CalculateDate', 'ColorBuilder', 'Icon', 'EndAction');
         $calc = new SetStation($request->getParameter('versionid'),$request->getParameter('newworkflowuserslotid'), $request->getParameter('currentworkflowuserslotid'), $request->getParameter('direction'), $context, str_replace('/layout', '', url_for('layout/index',true)));

@@ -60,10 +60,10 @@ cf.mailinglistThirdTab = function(){return {
 					{name: 'type'},
 					{name: 'id'},
 					{name: 'raw_type'},
-					{name: 'deleteworkflow'},
-					{name: 'archiveworkflow'},
-					{name: 'stopneworkflow'},
-					{name: 'detailsworkflow'}
+					{name: 'delete_workflow'},
+					{name: 'archive_workflow'},
+					{name: 'stop_new_workflow'},
+					{name: 'details_workflow'}
 				]
 		});
 		
@@ -74,10 +74,10 @@ cf.mailinglistThirdTab = function(){return {
 	initAuthCM: function () {
 		this.theAuthorizationCM  =  new Ext.grid.ColumnModel([
 			{header: "<?php echo __('Action',null,'mailinglist'); ?>",  width: 200, sortable: false, dataIndex: 'type', css : "text-align :left; font-size:12px;"},
-			{header: "<?php echo __('delete workflow',null,'mailinglist'); ?>",  width: 100, sortable: false, dataIndex: 'deleteworkflow', css : "text-align :left; font-size:12px;", renderer: cf.mailinglistThirdTab.renderDeleteCheckbox},
-			{header: "<?php echo __('archive workflow',null,'mailinglist'); ?>",  width: 120, sortable: false, dataIndex: 'archiveworkflow', css : "text-align :left; font-size:12px;", renderer: cf.mailinglistThirdTab.renderArchiveCheckbox},
-			{header: "<?php echo __('stop/new workflow',null,'mailinglist'); ?>",  width: 120, sortable: false, dataIndex: 'stopneworkflow', css : "text-align :left; font-size:12px;", renderer: cf.mailinglistThirdTab.renderStopNewCheckbox},
-			{header: "<?php echo __('show workflow details',null,'mailinglist'); ?>",  width: 130, sortable: false, dataIndex: 'detailsworkflow', css : "text-align :left; font-size:12px;", renderer: cf.mailinglistThirdTab.renderShowCheckbox}
+			{header: "<?php echo __('delete workflow',null,'mailinglist'); ?>",  width: 100, sortable: false, dataIndex: 'delete_workflow', css : "text-align :left; font-size:12px;", renderer: cf.mailinglistThirdTab.renderDeleteCheckbox},
+			{header: "<?php echo __('archive workflow',null,'mailinglist'); ?>",  width: 120, sortable: false, dataIndex: 'archive_workflow', css : "text-align :left; font-size:12px;", renderer: cf.mailinglistThirdTab.renderArchiveCheckbox},
+			{header: "<?php echo __('stop/new workflow',null,'mailinglist'); ?>",  width: 120, sortable: false, dataIndex: 'stop_new_workflow', css : "text-align :left; font-size:12px;", renderer: cf.mailinglistThirdTab.renderStopNewCheckbox},
+			{header: "<?php echo __('show workflow details',null,'mailinglist'); ?>",  width: 130, sortable: false, dataIndex: 'details_workflow', css : "text-align :left; font-size:12px;", renderer: cf.mailinglistThirdTab.renderShowCheckbox}
 		]);	
 	},
 	
@@ -106,22 +106,22 @@ cf.mailinglistThirdTab = function(){return {
 	/** render checkbox to grid **/
 	renderDeleteCheckbox: function (data, cell, record, rowIndex, columnIndex, store, grid) {
 		var id = record.data['raw_type'];
-		cf.mailinglistThirdTab.createCheckbox.defer(1500,this, [id, 'mailinglistFirstTabCheckboxDelete_'+ id, 'deleteworkflow', record.data['deleteworkflow']]);
+		cf.mailinglistThirdTab.createCheckbox.defer(1500,this, [id, 'mailinglistFirstTabCheckboxDelete_'+ id, 'delete_workflow', record.data['delete_workflow']]);
 		return '<center><table><tr><td><div id="mailinglistFirstTabCheckboxDelete_'+ id +'"></div></td></tr></table></center>';
 	},
 	renderArchiveCheckbox: function (data, cell, record, rowIndex, columnIndex, store, grid) {
 		var id = record.data['raw_type'];
-		cf.mailinglistThirdTab.createCheckbox.defer(1500,this, [id, 'mailinglistFirstTabCheckboxArchive_'+ id, 'archiveworkflow', record.data['archiveworkflow']]);
+		cf.mailinglistThirdTab.createCheckbox.defer(1500,this, [id, 'mailinglistFirstTabCheckboxArchive_'+ id, 'archive_workflow', record.data['archive_workflow']]);
 		return '<center><table><tr><td><div id="mailinglistFirstTabCheckboxArchive_'+ id +'"></div></td></tr></table></center>';
 	},
 	renderStopNewCheckbox: function (data, cell, record, rowIndex, columnIndex, store, grid) {
 		var id = record.data['raw_type'];
-		cf.mailinglistThirdTab.createCheckbox.defer(1500,this, [id, 'mailinglistFirstTabCheckboxStopNew_'+ id, 'stopneworkflow', record.data['stopneworkflow']]);
+		cf.mailinglistThirdTab.createCheckbox.defer(1500,this, [id, 'mailinglistFirstTabCheckboxStopNew_'+ id, 'stop_new_workflow', record.data['stop_new_workflow']]);
 		return '<center><table><tr><td><div id="mailinglistFirstTabCheckboxStopNew_'+ id +'"></div></td></tr></table></center>';
 	},
 	renderShowCheckbox: function (data, cell, record, rowIndex, columnIndex, store, grid) {
 		var id = record.data['raw_type'];
-		cf.mailinglistThirdTab.createCheckbox.defer(1500,this, [id, 'mailinglistFirstTabCheckboxShow_'+ id, 'detailsworkflow', record.data['detailsworkflow']]);
+		cf.mailinglistThirdTab.createCheckbox.defer(1500,this, [id, 'mailinglistFirstTabCheckboxShow_'+ id, 'details_workflow', record.data['details_workflow']]);
 		return '<center><table><tr><td><div id="mailinglistFirstTabCheckboxShow_'+ id +'"></div></td></tr></table></center>';
 	},
 	

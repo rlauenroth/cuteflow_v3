@@ -22,7 +22,7 @@ class BuildIFrameEmail {
             $disabled = 'disabled';
         }
         else {
-            $disabled = $field['writeprotected'] == 1 ? 'disabled' : '';
+            $disabled = $field['write_protected'] == 1 ? 'disabled' : '';
         }
         
         $theField = '';

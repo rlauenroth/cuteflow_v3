@@ -15,7 +15,7 @@ class WorkflowSlotFieldNumberTable extends Doctrine_Table {
         return Doctrine_Query::create()
             ->from('WorkflowSlotFieldNumber wsfn')
             ->select('wsfn.*,')
-            ->where('wsfn.workflowslotfield_id = ?' ,$id)
+            ->where('wsfn.workflow_slot_field_id = ?' ,$id)
             ->execute();
     }
 
@@ -24,7 +24,7 @@ class WorkflowSlotFieldNumberTable extends Doctrine_Table {
         Doctrine_Query::create()
             ->update('WorkflowSlotFieldNumber wsfn')
             ->set('wsfn.value','?',$value)
-            ->where ('wsfn.workflowslotfield_id = ?',$id)
+            ->where ('wsfn.workflow_slot_field_id = ?',$id)
             ->execute();
     }
 

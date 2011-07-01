@@ -2,7 +2,7 @@
 cf.management_mailinglist = function(){return {
 	
 	isInitialized 	                 : false,
-	theFormPanel             		 : false,
+	theFormPanel             	 : false,
 	
 	
 	/** init grid and window **/

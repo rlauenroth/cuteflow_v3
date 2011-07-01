@@ -13,17 +13,17 @@ abstract class BaseFieldComboboxFormFilter extends BaseFormFilterDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'field_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Field'), 'add_empty' => true)),
-      'value'    => new sfWidgetFormFilterInput(),
-      'isactive' => new sfWidgetFormFilterInput(),
-      'position' => new sfWidgetFormFilterInput(),
+      'field_id'  => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Field'), 'add_empty' => true)),
+      'value'     => new sfWidgetFormFilterInput(),
+      'is_active' => new sfWidgetFormFilterInput(),
+      'position'  => new sfWidgetFormFilterInput(),
     ));
 
     $this->setValidators(array(
-      'field_id' => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Field'), 'column' => 'id')),
-      'value'    => new sfValidatorPass(array('required' => false)),
-      'isactive' => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
-      'position' => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'field_id'  => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Field'), 'column' => 'id')),
+      'value'     => new sfValidatorPass(array('required' => false)),
+      'is_active' => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'position'  => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
     ));
 
     $this->widgetSchema->setNameFormat('field_combobox_filters[%s]');
@@ -43,11 +43,11 @@ abstract class BaseFieldComboboxFormFilter extends BaseFormFilterDoctrine
   public function getFields()
   {
     return array(
-      'id'       => 'Number',
-      'field_id' => 'ForeignKey',
-      'value'    => 'Text',
-      'isactive' => 'Number',
-      'position' => 'Number',
+      'id'        => 'Number',
+      'field_id'  => 'ForeignKey',
+      'value'     => 'Text',
+      'is_active' => 'Number',
+      'position'  => 'Number',
     );
   }
 }

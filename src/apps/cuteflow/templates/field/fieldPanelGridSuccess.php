@@ -82,7 +82,7 @@ cf.fieldPanelGrid = function(){return {
 			mode: 'local',
 			store: new Ext.data.SimpleStore({
 					 fields:['id','text'],
-       				 data:[['title', '<?php echo __('Title',null,'field'); ?>'],['type', '<?php echo __('Field type',null,'field'); ?>'],['writeprotected', '<?php echo __('Write protected',null,'field'); ?>']]
+       				 data:[['title', '<?php echo __('Title',null,'field'); ?>'],['type', '<?php echo __('Field type',null,'field'); ?>'],['write_protected', '<?php echo __('Write protected',null,'field'); ?>']]
 			}),
 			triggerAction: 'all',
 			selectOnFocus:true,
@@ -93,7 +93,7 @@ cf.fieldPanelGrid = function(){return {
 			listeners: {
 				select: {
 					fn:function(combo, value) {
-						if(combo.getValue() == 'title' || combo.getValue() == 'writeprotected') {
+						if(combo.getValue() == 'title' || combo.getValue() == 'write_protected') {
 							cf.fieldPanelGrid.theSearchbarTextfield.setVisible(true);
 							cf.fieldPanelGrid.theSearchbarCombobox.setVisible(false);
 							cf.fieldPanelGrid.theSearchbarTextfield.setValue();
@@ -117,7 +117,7 @@ cf.fieldPanelGrid = function(){return {
 			{header: "#", width: 50, sortable: true, dataIndex: '#', css : "text-align : left;font-size:12px;align:center;"},
 			{header: "<?php echo __('Title',null,'field'); ?>", width: 280, sortable: false, dataIndex: 'title', css : "text-align : left;font-size:12px;align:center;"},
 			{header: "<?php echo __('Field type',null,'field'); ?>", width: 150, sortable: false, dataIndex: 'type', css : "text-align:left;font-size:12px;align:center;"},
-			{header: "<?php echo __('Write protected',null,'field'); ?>", width: 150, sortable: false, dataIndex: 'writeprotected', css : "text-align:left;font-size:12px;align:center;"},
+			{header: "<?php echo __('Write protected',null,'field'); ?>", width: 150, sortable: false, dataIndex: 'write_protected', css : "text-align:left;font-size:12px;align:center;"},
 			{header: "<div ext:qtip=\"<table><tr><td><img src='/images/icons/application_form_edit.png' />&nbsp;&nbsp;</td><td><?php echo __('Edit Field',null,'field'); ?></td></tr><tr><td><img src='/images/icons/application_form_delete.png' />&nbsp;&nbsp;</td><td><?php echo __('Delete field',null,'field'); ?></td></tr></table>\" ext:qwidth=\"200\"><?php echo __('Action',null,'field'); ?></div>", width: 80, sortable: false, dataIndex: 'action', css : "text-align : left;font-size:12px;align:center;" ,renderer: this.renderAction }
 		]);
 	},
@@ -133,7 +133,7 @@ cf.fieldPanelGrid = function(){return {
 					{name: 'id'},
 					{name: 'title'},
 					{name: 'type'},
-					{name: 'writeprotected'}
+					{name: 'write_protected'}
 				]
 		});
 		

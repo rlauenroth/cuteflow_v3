@@ -35,7 +35,7 @@ class FieldRadiogroupTable extends Doctrine_Table {
     public function setRadiogroupToNullById($id) {
         Doctrine_Query::create()
             ->update('FieldRadiogroup frg')
-            ->set('frg.isactive','?',0)
+            ->set('frg.is_active','?',0)
             ->where('frg.field_id = ?', $id)
             ->execute();
         return true;

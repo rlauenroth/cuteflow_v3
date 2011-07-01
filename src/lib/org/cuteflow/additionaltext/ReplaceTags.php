@@ -19,12 +19,9 @@ class ReplaceTags {
      * @param sfContext $context , context object
      */
     public function __construct($versionId, $text, $culture, $context = false) {
-        if($context == false) {
-            sfLoader::loadHelpers('Date');
-        }
-        else {
-            $context->getConfiguration()->loadHelpers('Date');
-        }
+        
+        require_once sfConfig::get('sf_root_dir') . '/lib/vendor/symfony/helper/DateHelper.php';   
+        
         $this->setWorkflow($versionId);
         $this->setWorkflowVersion($versionId);
         $this->culture = $culture;
@@ -59,7 +56,7 @@ class ReplaceTags {
         $text = str_replace('{%SENDER_USERNAME%}', $this->theSender->userData['username'], $text);
         $text = str_replace('{%SENDER_FULLNAME%}', $this->theSender->userData['firstname'] . ' ' . $this->theSender->userData['lastname'], $text);
         $text = str_replace('{%TIME%}', format_date(time(), 'g', $this->culture), $text);
-        $text = str_replace('{%DATE_SENDING%}', format_date($this->workflowVersion['startworkflow_at'], 'g', $this->culture), $text);
+        $text = str_replace('{%DATE_SENDING%}', format_date($this->workflowVersion['start_workflow_at'], 'g', $this->culture), $text);
         return $text;
     }
 

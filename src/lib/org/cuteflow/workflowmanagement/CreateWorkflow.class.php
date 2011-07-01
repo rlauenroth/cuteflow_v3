@@ -45,7 +45,7 @@ class CreateWorkflow{
      */
     public function setWorkflowId() {
         $workflow = WorkflowVersionTable::instance()->getWorkflowVersionById($this->version_id)->toArray();
-        $this->workflow_id = $workflow[0]['workflowtemplate_id'];
+        $this->workflow_id = $workflow[0]['workflow_template_id'];
     }
 
     /**

@@ -40,9 +40,9 @@ cf.documenttemplateVersionFirstTab = function(){return {
 			fields: [
 				{name: '#'},
 				{name: 'id'},
-				{name: 'documenttemplate_id'},
+				{name: 'document_template_id'},
 				{name: 'name'},
-				{name: 'activeversion'},
+				{name: 'active_version'},
 				{name: 'created_at'}
 			]
 		});	
@@ -54,7 +54,7 @@ cf.documenttemplateVersionFirstTab = function(){return {
 			{header: "#", width: 50, sortable: true, dataIndex: '#', css : "text-align : left;font-size:12px;align:center;"},
 			{header: "<?php echo __('Name',null,'documenttemplate'); ?>", width: 280, sortable: false, dataIndex: 'name', css : "text-align : left;font-size:12px;align:center;"},
 			{header: "<?php echo __('created at',null,'documenttemplate'); ?>", width: 130, sortable: false, dataIndex: 'created_at', css : "text-align:center;font-size:12px;align:center;"},
-			{header: "<?php echo __('currently active',null,'documenttemplate'); ?>", width: 120, sortable: false, dataIndex: 'activeversion', css : "text-align:center;font-size:12px;align:center;"},
+			{header: "<?php echo __('currently active',null,'documenttemplate'); ?>", width: 120, sortable: false, dataIndex: 'active_version', css : "text-align:center;font-size:12px;align:center;"},
 			{header: "<div ext:qtip=\"<table><tr><td><img src='/images/icons/clock_go.png' />&nbsp;&nbsp;</td><td><?php echo __('Activate Document template',null,'documenttemplate'); ?></td></tr><tr><td><img src='/images/icons/zoom.png' />&nbsp;&nbsp;</td><td><?php echo __('Show Document template version',null,'documenttemplate'); ?></td></tr></table>\" ext:qwidth=\"230\"><?php echo __('Action',null,'documenttemplate'); ?></div>", width: 80, sortable: false, dataIndex: 'action', css : "text-align : left;font-size:12px;align:center;" ,renderer: this.renderAction}
 		]);
 	},
@@ -64,8 +64,8 @@ cf.documenttemplateVersionFirstTab = function(){return {
 	
 	/** button renderer for show and activate **/
 	renderAction: function (data, cell, record, rowIndex, columnIndex, store, grid) {
-		cf.documenttemplateVersionFirstTab.createActivateButton.defer(500,this, [record.data['id'],record.data['documenttemplate_id']]);
-		cf.documenttemplateVersionFirstTab.createShowButton.defer(500,this, [record.data['#'],record.data['id'],record.data['created_at'],record.data['documenttemplate_id']]);
+		cf.documenttemplateVersionFirstTab.createActivateButton.defer(500,this, [record.data['id'],record.data['document_template_id']]);
+		cf.documenttemplateVersionFirstTab.createShowButton.defer(500,this, [record.data['#'],record.data['id'],record.data['created_at'],record.data['document_template_id']]);
 		return '<center><table><tr><td width="16"><div id="documenttemplateversion_activate'+ record.data['id'] +'"></div></td><td width="16"><div id="documenttemplateversion_show'+ record.data['id'] +'"></div></td></tr></table></center>';
 	},
 	
@@ -73,9 +73,9 @@ cf.documenttemplateVersionFirstTab = function(){return {
 	* activate button
 	*
 	*@param int id, id of the record
-	*@param int documenttemplate_id, id of template
+	*@param int document_template_id, id of template
 	*/
-	createActivateButton: function (id, documenttemplate_id) {
+	createActivateButton: function (id, document_template_id) {
 		var btn_edit = new Ext.form.Label({
 			renderTo: 'documenttemplateversion_activate' + id,
 			html: '<span style="cursor:pointer;"><img src="/images/icons/clock_go.png" /></span>',
@@ -92,7 +92,7 @@ cf.documenttemplateVersionFirstTab = function(){return {
 										cf.documenttemplateVersionFirstTab.theLoadingMask = new Ext.LoadMask(cf.documenttemplateVersionPopUp.theVersionWindow.body, {msg:'<?php echo __('Updating Data...',null,'documenttemplate'); ?>'});					
 										cf.documenttemplateVersionFirstTab.theLoadingMask.show();
 										Ext.Ajax.request({  
-											url : '<?php echo build_dynamic_javascript_url('documenttemplate/ActivateDocumenttemplate')?>/id/' + id + '/documenttemplateid/' + documenttemplate_id, 
+											url : '<?php echo build_dynamic_javascript_url('documenttemplate/ActivateDocumenttemplate')?>/id/' + id + '/documenttemplateid/' + document_template_id, 
 											success: function(objServerResponse){
 												cf.documenttemplateVersionPopUp.theVersionWindow.hide();
 												cf.documenttemplateVersionPopUp.theVersionWindow.destroy();

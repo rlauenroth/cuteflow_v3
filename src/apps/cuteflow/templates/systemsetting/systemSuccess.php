@@ -16,7 +16,7 @@ cf.systemSettingCRUD = function(){return {
 		for(var a=0;a<grid.store.getCount();a++) {
 			var row = grid.getStore().getAt(a);
 			var hiddenfield = new Ext.form.Field({
-				autoCreate : {tag:'input', type: 'hidden', name: 'worklfow['+row.data.column+']', value:row.data.isactive, width: 0}			
+				autoCreate : {tag:'input', type: 'hidden', name: 'worklfow['+row.data.column+']', value:row.data.is_active, width: 0}			
 			});
 			cf.systemSettingCRUD.theHiddenPanel.add(hiddenfield);
 		}

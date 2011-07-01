@@ -60,10 +60,10 @@ class AuthorizationConfigurationTable extends Doctrine_Table {
     public function setAuthorizationConfigurationToNull() {
         Doctrine_Query::create()
             ->update('AuthorizationConfiguration ac')
-            ->set('ac.deleteworkflow','?', 0)
-            ->set('ac.archiveworkflow','?', 0)
-            ->set('ac.stopneworkflow','?', 0)
-            ->set('ac.detailsworkflow','?', 0)
+            ->set('ac.delete_workflow','?', 0)
+            ->set('ac.archive_workflow','?', 0)
+            ->set('ac.stop_new_workflow','?', 0)
+            ->set('ac.details_workflow','?', 0)
             ->execute();
         return true;
     }

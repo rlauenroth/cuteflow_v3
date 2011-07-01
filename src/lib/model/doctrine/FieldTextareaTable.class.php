@@ -21,7 +21,7 @@ class FieldTextareaTable extends Doctrine_Table {
     public function updateFieldTextareaById($id, $data) {
         Doctrine_Query::create()
             ->update('FieldTextarea fta')
-            ->set('fta.contenttype','?', $data['fieldTextarea_contenttype'])
+            ->set('fta.content_type','?', $data['fieldTextarea_contenttype'])
             ->set('fta.content','?',$data['fieldTextarea_content'])
             ->where('fta.field_id = ?',$id)
             ->execute();

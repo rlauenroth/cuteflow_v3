@@ -6,7 +6,6 @@ class SendWorkflowCompleted extends EmailSettings {
     public $version;
 
     public function __construct(array $workflowtemplate, $workflowversionid) {
-        sfLoader::loadHelpers('Partial');
         $this->workflowtemplate = $workflowtemplate;
         $this->version = $workflowversionid;
         $this->setUserSettings($workflowtemplate['sender_id']);
@@ -31,17 +30,17 @@ class SendWorkflowCompleted extends EmailSettings {
         $subject = sfContext::getInstance()->getI18N()->__('CuteFlow: Workflow' ,null,'workflowcompletedemail') . ' ' . $this->workflowtemplate['name'] . ' ' . sfContext::getInstance()->getI18N()->__('has been completed' ,null,'workflowcompletedemail');
 
         
-        $this->setSender($this->userSettings->userSettings['systemreplyaddress']);
+        $this->setSender($this->userSettings->userSettings['system_reply_address']);
         $this->setReceiver(array ($this->userSettings->userData['email'] => $this->userSettings->userData['firstname'] . ' ' . $this->userSettings->userData['lastname']));
         $this->setSubject($subject);
-        $this->setContentType('text/' . $this->userSettings->userSettings['emailformat']);
+        $this->setContentType('text/' . $this->userSettings->userSettings['email_format']);
         $bodyData = array('text' => $content,
                           'userid' => $this->userSettings->userData['user_id'],
                           'workflowverion' => $this->version,
                           'workflow' => $this->workflowtemplate['id'],
                           'linkto'  => $linkTo
                   );
-        $this->setBody(get_partial('workflowedit/' . $this->userSettings->userSettings['emailformat'] . 'WorkflowCompleted', $bodyData));
+        $this->setBody(get_partial('workflowedit/' . $this->userSettings->userSettings['email_format'] . 'WorkflowCompleted', $bodyData));
         $this->sendEmail();
     }
 

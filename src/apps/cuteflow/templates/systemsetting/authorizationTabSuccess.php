@@ -2,11 +2,11 @@ cf.authorizationTab = function(){return {
 	
 	
 	theAuthorizationFieldset			:false,
-	theAuthorizationTab					:false,
-	theAuthorizationCM					:false,
+	theAuthorizationTab				:false,
+	theAuthorizationCM				:false,
 	theAuthorizationStore				:false,
 	theAuthorizationGrid				:false,
-	theHiddenPanel						:false,
+	theHiddenPanel					:false,
 	
 	
 	init: function () {
@@ -45,10 +45,10 @@ cf.authorizationTab = function(){return {
 	initCM: function () {
 		this.theAuthorizationCM  =  new Ext.grid.ColumnModel([
 			{header: "<?php echo __('Action',null,'systemsetting'); ?>",  width: 200, sortable: false, dataIndex: 'type', css : "text-align :left; font-size:12px;"},
-			{header: "<?php echo __('delete workflow',null,'systemsetting'); ?>",  width: 100, sortable: false, dataIndex: 'deleteworkflow', css : "text-align :left; font-size:12px;", renderer: cf.authorizationTab.renderDeleteCheckbox},
-			{header: "<?php echo __('archive workflow',null,'systemsetting'); ?>",  width: 120, sortable: false, dataIndex: 'archiveworkflow', css : "text-align :left; font-size:12px;", renderer: cf.authorizationTab.renderArchiveCheckbox},
-			{header: "<?php echo __('stop/new workflow',null,'systemsetting'); ?>",  width: 120, sortable: false, dataIndex: 'stopneworkflow', css : "text-align :left; font-size:12px;", renderer: cf.authorizationTab.renderStopNewCheckbox},
-			{header: "<?php echo __('show workflow details',null,'systemsetting'); ?>",  width: 130, sortable: false, dataIndex: 'detailsworkflow', css : "text-align :left; font-size:12px;", renderer: cf.authorizationTab.renderShowCheckbox}
+			{header: "<?php echo __('delete workflow',null,'systemsetting'); ?>",  width: 100, sortable: false, dataIndex: 'delete_workflow', css : "text-align :left; font-size:12px;", renderer: cf.authorizationTab.renderDeleteCheckbox},
+			{header: "<?php echo __('archive workflow',null,'systemsetting'); ?>",  width: 120, sortable: false, dataIndex: 'archive_workflow', css : "text-align :left; font-size:12px;", renderer: cf.authorizationTab.renderArchiveCheckbox},
+			{header: "<?php echo __('stop/new workflow',null,'systemsetting'); ?>",  width: 120, sortable: false, dataIndex: 'stop_new_workflow', css : "text-align :left; font-size:12px;", renderer: cf.authorizationTab.renderStopNewCheckbox},
+			{header: "<?php echo __('show workflow details',null,'systemsetting'); ?>",  width: 130, sortable: false, dataIndex: 'details_workflow', css : "text-align :left; font-size:12px;", renderer: cf.authorizationTab.renderShowCheckbox}
 		]);	
 	},
 	
@@ -59,10 +59,10 @@ cf.authorizationTab = function(){return {
 				fields: [
 					{name: 'type'},
 					{name: 'id'},
-					{name: 'deleteworkflow'},
-					{name: 'archiveworkflow'},
-					{name: 'stopneworkflow'},
-					{name: 'detailsworkflow'}
+					{name: 'delete_workflow'},
+					{name: 'archive_workflow'},
+					{name: 'stop_new_workflow'},
+					{name: 'details_workflow'}
 				]
 		});
 		cf.authorizationTab.theAuthorizationStore.load();
@@ -100,22 +100,22 @@ cf.authorizationTab = function(){return {
 		/** render checkbox to grid **/
 	renderDeleteCheckbox: function (data, cell, record, rowIndex, columnIndex, store, grid) {
 		var id = record.data['id'];
-		cf.authorizationTab.createCheckbox.defer(500,this, [id, 'authorizationCheckboxDelete_'+ id, 'deleteworkflow', record.data['deleteworkflow']]);
+		cf.authorizationTab.createCheckbox.defer(500,this, [id, 'authorizationCheckboxDelete_'+ id, 'delete_workflow', record.data['delete_workflow']]);
 		return '<center><table><tr><td><div id="authorizationCheckboxDelete_'+ id +'"></div></td></tr></table></center>';
 	},
 	renderArchiveCheckbox: function (data, cell, record, rowIndex, columnIndex, store, grid) {
 		var id = record.data['id'];
-		cf.authorizationTab.createCheckbox.defer(500,this, [id, 'authorizationCheckboxArchive_'+ id, 'archiveworkflow', record.data['archiveworkflow']]);
+		cf.authorizationTab.createCheckbox.defer(500,this, [id, 'authorizationCheckboxArchive_'+ id, 'archive_workflow', record.data['archive_workflow']]);
 		return '<center><table><tr><td><div id="authorizationCheckboxArchive_'+ id +'"></div></td></tr></table></center>';
 	},
 	renderStopNewCheckbox: function (data, cell, record, rowIndex, columnIndex, store, grid) {
 		var id = record.data['id'];
-		cf.authorizationTab.createCheckbox.defer(500,this, [id, 'authorizationCheckboxStopNew_'+ id, 'stopneworkflow', record.data['stopneworkflow']]);
+		cf.authorizationTab.createCheckbox.defer(500,this, [id, 'authorizationCheckboxStopNew_'+ id, 'stop_new_workflow', record.data['stop_new_workflow']]);
 		return '<center><table><tr><td><div id="authorizationCheckboxStopNew_'+ id +'"></div></td></tr></table></center>';
 	},
 	renderShowCheckbox: function (data, cell, record, rowIndex, columnIndex, store, grid) {
 		var id = record.data['id'];
-		cf.authorizationTab.createCheckbox.defer(500,this, [id, 'authorizationCheckboxShow_'+ id, 'detailsworkflow', record.data['detailsworkflow']]);
+		cf.authorizationTab.createCheckbox.defer(500,this, [id, 'authorizationCheckboxShow_'+ id, 'details_workflow', record.data['details_workflow']]);
 		return '<center><table><tr><td><div id="authorizationCheckboxShow_'+ id +'"></div></td></tr></table></center>';
 	},
 	

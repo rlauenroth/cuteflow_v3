@@ -47,13 +47,13 @@ EOF;
         $serverUrl = $options['setenvironment'] == '' ? $serverUrl = $options['host'] : $serverUrl = $options['host'] . '/' . $options['setenvironment'];
         $workflows = WorkflowVersionTable::instance()->getWorkflowsToStart(time())->toArray();
         foreach($workflows as $workflow) {
-            $sender = WorkflowTemplateTable::instance()->getWorkflowTemplateById($workflow['workflowtemplate_id'])->toArray();
+            $sender = WorkflowTemplateTable::instance()->getWorkflowTemplateById($workflow['workflow_template_id'])->toArray();
             $userSettings = new UserMailSettings($sender[0]['sender_id']);
             $sendMail = new SendStartWorkflowEmail($userSettings, $context, $workflow, $sender, $serverUrl);
             $workflowTemplate = WorkflowTemplateTable::instance()->getWorkflowTemplateByVersionId($workflow['id']);
             WorkflowVersionTable::instance()->startWorkflowInFuture($workflow['id']);
             $sendToAllSlotsAtOnce = $workflowTemplate[0]->getMailinglistVersion()->toArray();
-            if($sendToAllSlotsAtOnce[0]['sendtoallslotsatonce'] == 1) {
+            if($sendToAllSlotsAtOnce[0]['send_to_all_slots_at_once'] == 1) {
                 $calc = new CreateWorkflow($workflow['id']);
                 $calc->setServerUrl($serverUrl);
                 $calc->setContext($context);

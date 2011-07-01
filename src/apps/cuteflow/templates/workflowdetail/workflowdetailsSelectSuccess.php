@@ -71,31 +71,31 @@ cf.workflowdetailsSelectStation = function(){return {
 					var uniqueId = cf.workflowdetailsSelectStation.theUniqueId++;
 					
 					var Rec = Ext.data.Record.create(
-						{name: 'workflowslotuser_id'},
+						{name: 'workflow_slot_user_id'},
 						{name: 'user_id'},
 						{name: 'slotgroup'},
 						{name: 'plainusername'},
 						{name: 'username'},
-						{name: 'sendtoallreceivers'},
-						{name: 'workflowslot_id'},
-						{name: 'workflowtemplate_id'},
+						{name: 'send_to_all_receivers'},
+						{name: 'workflow_slot_id'},
+						{name: 'workflow_template_id'},
 						{name: 'slotname'},
 						{name: 'action'}
 					);	
 		
 					cf.workflowdetailsSelectStation.theGrid.store.add(new Rec({
-						workflowslotuser_id: user.workflowslotuser_id, 
+						workflow_slot_user_id: user.workflow_slot_user_id, 
 						user_id: user.user_id,
 						plainusername: user.plainusername,
 						slotgroup: user.slotgroup, 
-						sendtoallreceivers: user.sendtoallreceivers, 
+						send_to_all_receivers: user.send_to_all_receivers, 
 						username: user.username, 
-						workflowslot_id: user.workflowslot_id, 
-						workflowtemplate_id: user.workflowtemplate_id, 
+						workflow_slot_id: user.workflow_slot_id, 
+						workflow_template_id: user.workflow_template_id, 
 						slotname: user.slotname, 
 						action: '<center><table><tr><td width="16"><div id="selectNewStation'+ uniqueId +'"></div></td></tr></table></center>'
 					}));
-					cf.workflowdetailsSelectStation.createSetStationButton.defer(10,this, [uniqueId, user.workflowslotuser_id, cf.workflowdetailsSelectStation.theTemplateVersion, user.slotgroup, user.sendtoallreceivers]);
+					cf.workflowdetailsSelectStation.createSetStationButton.defer(10,this, [uniqueId, user.workflow_slot_user_id, cf.workflowdetailsSelectStation.theTemplateVersion, user.slotgroup, user.send_to_all_receivers]);
 					
 				}
 				cf.workflowdetailsSelectStation.theLoadingMask.hide();
@@ -115,9 +115,9 @@ cf.workflowdetailsSelectStation = function(){return {
 			{name: 'receivedat'},
 			{name: 'plainusername'},
 			{name: 'statusinwords'},
-			{name: 'workflowslot_id'},
+			{name: 'workflow_slot_id'},
 			{name: 'status'},
-			{name: 'isuseragentof'},
+			{name: 'is_user_agent_of'},
 			{name: 'duration'},
 			{name: 'slotgroup'},
 			{name: 'version_id'},
@@ -130,7 +130,7 @@ cf.workflowdetailsSelectStation = function(){return {
 	},
 
 	
-	createSetStationButton: function (uniqueId, workflowslotuser_id, theTemplateId,slotgroup, sendtoallreceivers) {
+	createSetStationButton: function (uniqueId, workflow_slot_user_id, theTemplateId,slotgroup, send_to_all_receivers) {
 		var btn_edit = new Ext.form.Label({
 			renderTo: 'selectNewStation' + uniqueId,
 			html: '<span style="cursor:pointer;"><img src="/images/icons/user_go.png" /></span>',
@@ -138,7 +138,7 @@ cf.workflowdetailsSelectStation = function(){return {
 				render: function(c){
 					  c.getEl().on({
 						click: function(el){
-							if(sendtoallreceivers == 1) {
+							if(send_to_all_receivers == 1) {
 								Ext.Msg.minWidth = 300;
 								Ext.Msg.show({
 								   title:'<?php echo __('Notice',null,'workflowmanagement'); ?>',
@@ -146,19 +146,19 @@ cf.workflowdetailsSelectStation = function(){return {
 								   buttons: Ext.Msg.YESNO,
 								   fn: function(btn, text) {
 										if(btn == 'yes') {
-											if(workflowslotuser_id == cf.workflowdetailsSelectStation.theWorkflowSlotUserId) {
+											if(workflow_slot_user_id == cf.workflowdetailsSelectStation.theWorkflowSlotUserId) {
 												Ext.Msg.minWidth = 200;
 												Ext.MessageBox.alert('<?php echo __('Notice',null,'workflowmanagement'); ?>', '<?php echo __('Same station selected',null,'workflowmanagement'); ?>!');
 											}
 											else {
 												var move;
-												if(workflowslotuser_id < cf.workflowdetailsSelectStation.theWorkflowSlotUserId) {
+												if(workflow_slot_user_id < cf.workflowdetailsSelectStation.theWorkflowSlotUserId) {
 													move = 'DOWN';
 												}
 												else {
 													move = 'UP';
 												}
-												cf.workflowdetailsCRUD.setNewStation(theTemplateId,workflowslotuser_id, cf.workflowdetailsSelectStation.theWorkflowSlotUserId, move);
+												cf.workflowdetailsCRUD.setNewStation(theTemplateId,workflow_slot_user_id, cf.workflowdetailsSelectStation.theWorkflowSlotUserId, move);
 										   }
 										}
 								   }
@@ -166,19 +166,19 @@ cf.workflowdetailsSelectStation = function(){return {
 								
 							}
 							else {
-								if(workflowslotuser_id == cf.workflowdetailsSelectStation.theWorkflowSlotUserId) {
+								if(workflow_slot_user_id == cf.workflowdetailsSelectStation.theWorkflowSlotUserId) {
 									Ext.Msg.minWidth = 200;
 									Ext.MessageBox.alert('<?php echo __('Notice',null,'workflowmanagement'); ?>', '<?php echo __('Same station selected!',null,'workflowmanagement'); ?>!');
 								}
 								else {
 									var move;
-									if(workflowslotuser_id < cf.workflowdetailsSelectStation.theWorkflowSlotUserId) {
+									if(workflow_slot_user_id < cf.workflowdetailsSelectStation.theWorkflowSlotUserId) {
 										move = 'DOWN';
 									}
 									else {
 										move = 'UP';
 									}
-									cf.workflowdetailsCRUD.setNewStation(theTemplateId,workflowslotuser_id, cf.workflowdetailsSelectStation.theWorkflowSlotUserId, move);
+									cf.workflowdetailsCRUD.setNewStation(theTemplateId,workflow_slot_user_id, cf.workflowdetailsSelectStation.theWorkflowSlotUserId, move);
 							   }
 							}
 

@@ -16,12 +16,7 @@ class WorkflowDetail {
     }
 
     public function loadHelper() {
-        sfLoader::loadHelpers('Date');
-        sfLoader::loadHelpers('CalculateDate');
-        sfLoader::loadHelpers('ColorBuilder');
-        sfLoader::loadHelpers('I18N');
-        sfLoader::loadHelpers('Url');
-        sfLoader::loadHelpers('Icon');
+
     }
 
     
@@ -50,9 +45,9 @@ class WorkflowDetail {
      */
     public function buildHeadLine(Doctrine_Collection $data) {
         $result = array();
-        $workflowtemplate = WorkflowTemplateTable::instance()->getWorkflowTemplateById($data[0]->getWorkflowtemplateId());
+        $workflowtemplate = WorkflowTemplateTable::instance()->getWorkflowTemplateById($data[0]->getWorkflowTemplateId());
         $mailinglist = $workflowtemplate[0]->getMailinglistVersion()->toArray();
-        $mailinglist = MailinglistTemplateTable::instance()->getMailinglistActiveById($mailinglist[0]['mailinglisttemplate_id'])->toArray();
+        $mailinglist = MailinglistTemplateTable::instance()->getMailinglistActiveById($mailinglist[0]['mailinglist_template_id'])->toArray();
         
         $workflowtemplate = $workflowtemplate->toArray();
         $user = UserLoginTable::instance()->findActiveUserById($workflowtemplate[0]['sender_id']);
@@ -62,7 +57,7 @@ class WorkflowDetail {
         $result['versionid'] = $data[0]->getId();
         $result['mailinglist'] = $mailinglist[0]['name'];
         $result['mailinglist_id'] = $workflowtemplate[0]['id'];
-        $result['workflowtemplateid'] = $data[0]->getWorkflowtemplateId();
+        $result['workflowtemplateid'] = $data[0]->getWorkflowTemplateId();
         
         $textReplace = new ReplaceTags($data[0]->getId(), $data[0]->getContent(), $this->culture, $this->context);
         $newText = $textReplace->getText();
@@ -70,19 +65,19 @@ class WorkflowDetail {
         $result['created_at'] = format_date($data[0]->getCreatedAt(), 'g', $this->culture);
         $result['sender_id'] = $workflowtemplate[0]['sender_id'];
         $result['sender'] = $userdata->getFirstname() . ' ' . $userdata->getLastname() . ' <i>('.$user[0]->getUsername().')</i>';
-        $result['version'] = $this->getVersion($data[0]->getWorkflowtemplateId());
+        $result['version'] = $this->getVersion($data[0]->getWorkflowTemplateId());
         return $result;
     }
 
-    public function getVersion($workflowtemplate_id) {
-        $allVersions = WorkflowVersionTable::instance()->getAllVersionRevisionByWorkflowId($workflowtemplate_id);
+    public function getVersion($workflow_template_id) {
+        $allVersions = WorkflowVersionTable::instance()->getAllVersionRevisionByWorkflowId($workflow_template_id);
         $result = array();
         $a = 0;
         $counter = count($allVersions);
         foreach($allVersions as $version) {
             $result[$a]['versionid'] = $version->getId();
             $result[$a]['version'] = $version->getVersion();
-            $result[$a]['activeversion'] = $version->getActiveversion();
+            $result[$a]['active_version'] = $version->getActiveVersion();
             $result[$a++]['text'] = '#' . $counter . ' - ' . format_date($version->getCreatedAt(), 'g', $this->culture);
             $counter--;
         }
@@ -102,23 +97,23 @@ class WorkflowDetail {
         $slots = WorkflowSlotTable::instance()->getSlotByVersionId($data[0]->getId());
 
         $workflowVersion = WorkflowTemplateTable::instance()->getWorkflowTemplateByVersionId($templateversion_id);
-        $template = MailinglistVersionTable::instance()->getSingleVersionById($workflowVersion[0]->getMailinglisttemplateversionId())->toArray();
+        $template = MailinglistVersionTable::instance()->getSingleVersionById($workflowVersion[0]->getMailinglistTemplateVersionId())->toArray();
 
         foreach($slots as $slot) {
-            $documenttemplateslot = $slot->getDocumenttemplateSlot()->toArray();
+            $documenttemplateslot = $slot->getDocumentTemplateSlot()->toArray();
             $result[$a]['slotname'] = $documenttemplateslot[0]['name'];
-            $result[$a]['senttoallatonce'] = $template[0]['sendtoallslotsatonce'];
-            $result[$a]['workflowslot_id'] = $slot->getId();
-            $result[$a]['sendtoallreceivers'] = $documenttemplateslot[0]['sendtoallreceivers'];
+            $result[$a]['senttoallatonce'] = $template[0]['send_to_all_slots_at_once'];
+            $result[$a]['workflow_slot_id'] = $slot->getId();
+            $result[$a]['send_to_all_receivers'] = $documenttemplateslot[0]['send_to_all_receivers'];
             $result[$a]['slot_id'] = $documenttemplateslot[0]['id'];
-            $result[$a++]['user'] = $this->getUser($slot->getId(), $data[0]->getWorkflowtemplateId(), $documenttemplateslot[0]['name'], $a, $templateversion_id);
+            $result[$a++]['user'] = $this->getUser($slot->getId(), $data[0]->getWorkflowTemplateId(), $documenttemplateslot[0]['name'], $a, $templateversion_id);
         }
         $returnData = $this->mergeArray($result);
         return $returnData;
     }
 
 
-    public function getUser($slot_id, $workflowtemplate_id, $slotname, $slotcounter, $templateversion_id) {
+    public function getUser($slot_id, $workflow_template_id, $slotname, $slotcounter, $templateversion_id) {
         $users = WorkflowSlotUserTable::instance()->getUserBySlotId($slot_id);
         $result = array();
         $a = 0;
@@ -147,20 +142,20 @@ class WorkflowDetail {
         $processUsers = WorkflowProcessUserTable::instance()->getProcessUserByWorkflowSlotUserId($user->getId());
         foreach($processUsers as $processUser) {
             $result[$a] = $processUser->toArray();
-            $result[$a]['received'] = format_date($result[$a]['inprogresssince'], 'g', $this->culture);
+            $result[$a]['received'] = format_date($result[$a]['in_progress_since'], 'g', $this->culture);
             $result[$a]['decission_id'] = $result[$a]['id'];
             $result[$a]['endreasion'] = '';
-            $result[$a]['useragent_id'] = $result[$a]['user_id'];
-            $result[$a]['isuseragentof'] = $result[$a]['isuseragentof'];
+            $result[$a]['user_agent_id'] = $result[$a]['user_id'];
+            $result[$a]['is_user_agent_of'] = $result[$a]['is_user_agent_of'];
             $usersettings = $this->user->getAttribute('userSettings');
-            $inProgress = createDayOutOfDateSince(date('Y-m-d', $result[$a]['inprogresssince']));
+            $inProgress = createDayOutOfDateSince(date('Y-m-d', $result[$a]['in_progress_since']));
             $inProgress = addColor($inProgress, $usersettings['markred'],$usersettings['markorange'],$usersettings['markyellow']);
-            $result[$a]['inprogresssince'] = '<table><tr><td width="20">' . $inProgress . ' </td><td>' . $this->context->getI18N()->__('Days' ,null,'workflowmanagement') . '</td></tr></table>';
-            $result[$a]['decissioninwords'] = '<table><tr><td>'.AddStateIcon($result[$a]['decissionstate']).'</td><td>' . $this->context->getI18N()->__($result[$a]['decissionstate'],null,'workflowmanagement') . '</td></tr></table>';
-            if($result[$a]['decissionstate'] == 'STOPPEDBYADMIN') {
-                $result[$a]['inprogresssince'] = '-';
+            $result[$a]['in_progress_since'] = '<table><tr><td width="20">' . $inProgress . ' </td><td>' . $this->context->getI18N()->__('Days' ,null,'workflowmanagement') . '</td></tr></table>';
+            $result[$a]['decissioninwords'] = '<table><tr><td>'.AddStateIcon($result[$a]['decission_state']).'</td><td>' . $this->context->getI18N()->__($result[$a]['decission_state'],null,'workflowmanagement') . '</td></tr></table>';
+            if($result[$a]['decission_state'] == 'STOPPEDBYADMIN') {
+                $result[$a]['in_progress_since'] = '-';
             }
-            elseif($result[$a]['decissionstate'] == 'STOPPEDBYUSER') {
+            elseif($result[$a]['decission_state'] == 'STOPPEDBYUSER') {
                 $endReasion = WorkflowVersionTable::instance()->getWorkflowVersionById($templateversion_id);
                 $result[$a]['endreasion'] = $endReasion[0]->getEndreason();
             }
@@ -178,8 +173,8 @@ class WorkflowDetail {
         $usercounter = 0;
         for($a=0;$a<count($data);$a++) {
             $result[$a]['slotname'] = $data[$a]['slotname'];
-            $result[$a]['workflowslot_id'] = $data[$a]['workflowslot_id'];
-            $result[$a]['sendtoallreceivers'] = $data[$a]['sendtoallreceivers'];
+            $result[$a]['workflow_slot_id'] = $data[$a]['workflow_slot_id'];
+            $result[$a]['send_to_all_receivers'] = $data[$a]['send_to_all_receivers'];
             $result[$a]['senttoallatonce'] = $data[$a]['senttoallatonce'];
             $result[$a]['slot_id'] = $data[$a]['slot_id'];
             for($b=0;$b<count($data[$a]['user']);$b++) {
@@ -196,20 +191,20 @@ class WorkflowDetail {
                         $result[$a]['user'][$usercounter]['slotgroup'] = $userData['slotgroup'];
                         $result[$a]['user'][$usercounter]['templateversion_id'] = $userData['templateversion_id'];
 
-                        $result[$a]['user'][$usercounter]['useragent_id'] = $decission['useragent_id'];
-                        $result[$a]['user'][$usercounter]['isuseragentof'] = $decission['isuseragentof'];
-                        $result[$a]['user'][$usercounter]['workflowprocess_id'] = $decission['workflowprocess_id'];
-                        $result[$a]['user'][$usercounter]['workflowslotuser_id'] = $decission['workflowslotuser_id'];
-                        $result[$a]['user'][$usercounter]['inprogresssince'] = $decission['inprogresssince'];
-                        $result[$a]['user'][$usercounter]['decissionstate'] = $decission['decissionstate'];
-                        $result[$a]['user'][$usercounter]['dateofdecission'] = $decission['dateofdecission'];
-                        $result[$a]['user'][$usercounter]['isuseragentof'] = $decission['isuseragentof'];
+                        $result[$a]['user'][$usercounter]['user_agent_id'] = $decission['user_agent_id'];
+                        $result[$a]['user'][$usercounter]['is_user_agent_of'] = $decission['is_user_agent_of'];
+                        $result[$a]['user'][$usercounter]['workflow_process_id'] = $decission['workflow_process_id'];
+                        $result[$a]['user'][$usercounter]['workflow_slot_user_id'] = $decission['workflow_slot_user_id'];
+                        $result[$a]['user'][$usercounter]['in_progress_since'] = $decission['in_progress_since'];
+                        $result[$a]['user'][$usercounter]['decission_state'] = $decission['decission_state'];
+                        $result[$a]['user'][$usercounter]['date_of_decission'] = $decission['date_of_decission'];
+                        $result[$a]['user'][$usercounter]['is_user_agent_of'] = $decission['is_user_agent_of'];
                         $result[$a]['user'][$usercounter]['received'] = $decission['received'];
                         $result[$a]['user'][$usercounter]['decission_id'] = $decission['decission_id'];
                         $result[$a]['user'][$usercounter]['endreasion'] = $decission['endreasion'];
                         $result[$a]['user'][$usercounter]['decissioninwords'] = $decission['decissioninwords'];
-                        if($result[$a]['user'][$usercounter]['isuseragentof'] != '') {
-                            $userAgent = UserLoginTable::instance()->findActiveUserById($result[$a]['user'][$usercounter]['useragent_id'])->toArray();
+                        if($result[$a]['user'][$usercounter]['is_user_agent_of'] != '') {
+                            $userAgent = UserLoginTable::instance()->findActiveUserById($result[$a]['user'][$usercounter]['user_agent_id'])->toArray();
                             $result[$a]['user'][$usercounter]['username'] = '<table><tr><td width="16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/images/icons/user_go.png" /></td><td>' . $userAgent[0]['username'] . '</td></tr></table>';
                         }
                         $usercounter++;
@@ -223,14 +218,14 @@ class WorkflowDetail {
                     $result[$a]['user'][$usercounter]['slotgroup'] = $userData['slotgroup'];
                     $result[$a]['user'][$usercounter]['templateversion_id'] = $userData['templateversion_id'];
 
-                    $result[$a]['user'][$usercounter]['useragent_id'] = '';
-                    $result[$a]['user'][$usercounter]['isuseragentof'] = '';
-                    $result[$a]['user'][$usercounter]['workflowprocess_id'] = '';
-                    $result[$a]['user'][$usercounter]['workflowslotuser_id'] = '';
-                    $result[$a]['user'][$usercounter]['inprogresssince'] = '';
-                    $result[$a]['user'][$usercounter]['decissionstate'] = '';
-                    $result[$a]['user'][$usercounter]['dateofdecission'] = '';
-                    $result[$a]['user'][$usercounter]['isuseragentof'] = '';
+                    $result[$a]['user'][$usercounter]['user_agent_id'] = '';
+                    $result[$a]['user'][$usercounter]['is_user_agent_of'] = '';
+                    $result[$a]['user'][$usercounter]['workflow_process_id'] = '';
+                    $result[$a]['user'][$usercounter]['workflow_slot_user_id'] = '';
+                    $result[$a]['user'][$usercounter]['in_progress_since'] = '';
+                    $result[$a]['user'][$usercounter]['decission_state'] = '';
+                    $result[$a]['user'][$usercounter]['date_of_decission'] = '';
+                    $result[$a]['user'][$usercounter]['is_user_agent_of'] = '';
                     $result[$a]['user'][$usercounter]['received'] = '';
                     $result[$a]['user'][$usercounter]['decission_id'] = '';
                     $result[$a]['user'][$usercounter]['endreasion'] = '';
@@ -253,10 +248,10 @@ class WorkflowDetail {
         $a = 0;
         foreach($slots as $slot) {
             $slotArray = $slot->toArray();
-            $result[$a]['workflowslot_id'] = $slotArray['id'];
+            $result[$a]['workflow_slot_id'] = $slotArray['id'];
             $result[$a]['slot_id'] = $slotArray['slot_id'];
             $result[$a]['position'] = $slotArray['position'];
-            $result[$a]['slotname'] = $slotArray['DocumenttemplateSlot'][0]['name'];
+            $result[$a]['slotname'] = $slotArray['DocumentTemplateSlot'][0]['name'];
             $result[$a++]['fields'] = $this->getFields($slotArray['id'], $versionid);
         }
         #print_r ($result);die;
@@ -272,8 +267,8 @@ class WorkflowDetail {
         $column = 'LEFT';
         foreach($fields as $field) {
             $documentField = $field->getField()->toArray();
-            $result[$a]['workflowslotfield_id'] = $field->getId();
-            $result[$a]['workflowslot_id'] = $field->getWorkflowslotId();
+            $result[$a]['workflow_slot_field_id'] = $field->getId();
+            $result[$a]['workflow_slot_id'] = $field->getWorkflowSlotId();
             $result[$a]['field_id'] = $field->getFieldId();
             $result[$a]['title'] = $documentField[0]['title'];
             $result[$a]['type'] = $documentField[0]['type'];
@@ -316,8 +311,8 @@ class WorkflowDetail {
             case 'NUMBER':
                 $items = WorkflowSlotFieldNumberTable::instance()->getAllItemsByWorkflowFieldId($field->getId())->toArray();
                 $fieldData = FieldNumberTable::instance()->getNumberByFieldId($field->getFieldId())->toArray();
-                if($fieldData[0]['comboboxvalue'] != 'EMPTY') {
-                    $result['emptytext'] = $context->getI18N()->__($fieldData[0]['comboboxvalue'] ,null,'field');
+                if($fieldData[0]['combobox_value'] != 'EMPTY') {
+                    $result['emptytext'] = $context->getI18N()->__($fieldData[0]['combobox_value'] ,null,'field');
                 }
                 else {
                     $result['emptytext'] = $fieldData[0]['regex'];
@@ -330,7 +325,7 @@ class WorkflowDetail {
                 $items = WorkflowSlotFieldDateTable::instance()->getAllItemsByWorkflowFieldId($field->getId())->toArray();
                 $format = FieldDateTable::instance()->getDateByFieldId($field->getFieldId())->toArray();
                 $result['value'] = $items[0]['value'];
-                $result['dateformat'] = $format[0]['dateformat'];
+                $result['date_format'] = $format[0]['date_format'];
                 $result['regex'] = $format[0]['regex'];
                 $result['id'] = $items[0]['id'];
                 break;
@@ -362,7 +357,7 @@ class WorkflowDetail {
             case 'COMBOBOX':
                 $items = WorkflowSlotFieldComboboxTable::instance()->getAllItemsByWorkflowFieldId($field->getId());
                 foreach($items as $item) {
-                    $name = FieldComboboxTable::instance()->getComboboxItemById($item->getFieldcomboboxId())->toArray();
+                    $name = FieldComboboxTable::instance()->getComboboxItemById($item->getFieldComboboxId())->toArray();
                     $result[$a]['value'] = $item->getValue();
                     $result[$a]['id'] = $item->getId();
                     $result[$a++]['name'] = $name[0]['value'];
@@ -372,13 +367,13 @@ class WorkflowDetail {
 
                 $file = WorkflowSlotFieldFileTable::instance()->getAllItemsByWorkflowFieldId($field->getId())->toArray();
                 $workflowtemplate = WorkflowVersionTable::instance()->getWorkflowVersionById($versionid)->toArray();
-                $result['filepath'] = sfConfig::get('sf_upload_dir') . '/' . $workflowtemplate[0]['workflowtemplate_id'] . '/' . $versionid . '/' . $file[0]['hashname'] ;
+                $result['filepath'] = sfConfig::get('sf_upload_dir') . '/' . $workflowtemplate[0]['workflow_template_id'] . '/' . $versionid . '/' . $file[0]['hashname'] ;
                 $result['hashname'] = $file[0]['hashname'];
                 $result['filename'] = $file[0]['filename'];
                 $url = $this->serverUrl . '/file/ShowAttachment';
                 $plainUrl = $this->serverUrl . '/file/ShowAttachment';
-                $url .= '/workflowid/' .  $workflowtemplate[0]['workflowtemplate_id'] . '/versionid/' . $versionid. '/attachmentid/' . $file[0]['id'] . '/file/1';
-                $plainUrl .= '/workflowid/' .  $workflowtemplate[0]['workflowtemplate_id'] . '/versionid/' . $versionid. '/attachmentid/' . $file[0]['id'] . '/file/1';
+                $url .= '/workflowid/' .  $workflowtemplate[0]['workflow_template_id'] . '/versionid/' . $versionid. '/attachmentid/' . $file[0]['id'] . '/file/1';
+                $plainUrl .= '/workflowid/' .  $workflowtemplate[0]['workflow_template_id'] . '/versionid/' . $versionid. '/attachmentid/' . $file[0]['id'] . '/file/1';
                 $result['plainurl'] = $plainUrl;
                 $result['url'] = $url;
                 $result['link'] = '<a href="'.$url.'" target="_blank">'.$result['filename'].'</a>';
@@ -392,11 +387,11 @@ class WorkflowDetail {
         $result = array();
         $a = 0;
         foreach($files as $file) {
-            $result[$a]['filepath'] = sfConfig::get('sf_upload_dir') . '/' . $file['workflowtemplate_id'] . '/' . $file['workflowversion_id'] . '/' . $file['hashname'] ;
+            $result[$a]['filepath'] = sfConfig::get('sf_upload_dir') . '/' . $file['workflow_template_id'] . '/' . $file['workflow_version_id'] . '/' . $file['hashname'] ;
             $result[$a]['hashname'] = $file['hashname'];
             $result[$a]['filename'] = $file['filename'];
             $url = $this->serverUrl . '/file/ShowAttachment';
-            $url .= '/workflowid/' .  $file['workflowtemplate_id'] . '/versionid/' . $file['workflowversion_id'] . '/attachmentid/' . $file['id'] . '/file/0';
+            $url .= '/workflowid/' .  $file['workflow_template_id'] . '/versionid/' . $file['workflow_version_id'] . '/attachmentid/' . $file['id'] . '/file/0';
             $result[$a]['link'] = '<a href="'.$url.'" target="_blank">'.$result[$a]['filename'].'</a>';
             $a++;
         }

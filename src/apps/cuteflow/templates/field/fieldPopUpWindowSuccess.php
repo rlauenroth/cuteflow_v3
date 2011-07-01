@@ -69,7 +69,7 @@ cf.createFileWindow = function(){return {
 				Ext.getCmp('createFileWindow_fieldname').setValue(data.result.title);
 				Ext.getCmp('createFileWindow_fieldtype_id').setValue(data.result.type);
 				Ext.getCmp('createFileWindow_color').setValue(data.result.color);
-				Ext.getCmp('createFileWindow_writeprotected').setValue(data.result.writeprotected);
+				Ext.getCmp('createFileWindow_writeprotected').setValue(data.result.write_protected);
 				
 				switch (data.result.type) {
 					case "TEXTFIELD":

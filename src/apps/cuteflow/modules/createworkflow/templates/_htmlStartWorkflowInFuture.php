@@ -4,7 +4,7 @@
         <table width="823">
             <tr>
                 <?php
-                    $url = $serverPath . '/layout/linklogins/versionid/'.$workflow['id'].'/workflowid/'.$workflow['workflowtemplate_id'] . '/userid/'.$userid.'/window/follow';
+                    $url = $serverPath . '/layout/linklogins/versionid/'.$workflow['id'].'/workflowid/'.$workflow['workflow_template_id'] . '/userid/'.$userid.'/window/follow';
                 ?>
                 <td width="587" height="35" style="background-color:#CCC;font-size:16px;font-family:Tahoma, Geneva, sans-serif;">&nbsp;<?php echo $text?> <a href="<?php echo $url; ?>" target="_blank"><b><?php echo $linkto?></b></a></td>
             </tr>

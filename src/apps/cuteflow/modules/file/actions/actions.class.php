@@ -33,7 +33,7 @@ class fileActions extends sfActions {
         $file = new File();
 
         $filecontent = $file->getFileContent($filepath); // open file and get content
-        $contenttyoe = $file->getContenttype($attachment[0]['hashname']);
+        $contenttyoe = $file->getContentType($attachment[0]['hashname']);
 
         $response = $this->getResponse();
         $response->clearHttpHeaders();

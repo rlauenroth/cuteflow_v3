@@ -4,7 +4,6 @@ class FieldClass {
 
 
     public function  __construct() {
-        sfLoader::loadHelpers('I18N');
     }
 
 
@@ -23,8 +22,8 @@ class FieldClass {
             $result[$a]['id'] = $item->getId();
             $result[$a]['title'] = $item->getTitle();
             $result[$a]['type'] = $context->getI18N()->__($item->getType(),null,'field');
-            $write = $item->getWriteprotected() == 1 ? 'yes' : 'no';
-            $result[$a++]['writeprotected'] = $context->getI18N()->__($write,null,'field');
+            $write = $item->getWriteProtected() == 1 ? 'yes' : 'no';
+            $result[$a++]['write_protected'] = $context->getI18N()->__($write,null,'field');
         }
         return $result;
     }
@@ -52,7 +51,7 @@ class FieldClass {
             $result['id'] = $item->getId();
             $result['title'] = $item->getTitle();
             $result['type'] = $item->getType();
-            $result['writeprotected'] = $item->getWriteprotected();
+            $result['write_protected'] = $item->getWriteProtected();
             $result['color'] = $item->getColor();
         }
         return $result;
@@ -98,7 +97,7 @@ class FieldClass {
             $number = $item->getFieldNumber();
             $result['defaultvalue'] = $number[0]->getDefaultvalue();
             $result['regex'] = $number[0]->getRegex();
-            $result['comboboxvalue'] = $number[0]->getComboboxvalue();
+            $result['combobox_value'] = $number[0]->getComboboxValue();
         }
         return $result;
     }
@@ -114,7 +113,7 @@ class FieldClass {
         foreach($data as $item) {
             $date = $item->getFieldDate();
             $result['regex'] = $date[0]->getRegex();
-            $result['dateformat'] = $date[0]->getDateformat();
+            $result['date_format'] = $date[0]->getDateFormat();
         }
         return $result;
     }
@@ -130,7 +129,7 @@ class FieldClass {
         foreach($data as $item) {
             $textarea = $item->getFieldTextarea();
             $result['content'] = $textarea[0]->getContent();
-            $result['contenttype'] = $textarea[0]->getContenttype();
+            $result['content_type'] = $textarea[0]->getContentType();
         }
         return $result;
     }
@@ -209,7 +208,7 @@ class FieldClass {
             $result[$a]['id'] = $item->getId();
             $result[$a]['field_id'] = $item->getFieldId();
             $result[$a]['value'] = $item->getValue();
-            $result[$a++]['isactive'] = $item->getIsactive();
+            $result[$a++]['is_active'] = $item->getIsActive();
         }
         return $result;
     }
@@ -231,7 +230,7 @@ class FieldClass {
         foreach($records as $item) {
             $radiogroup = $item['databseId'] == '' ? new FieldRadiogroup() : Doctrine::getTable('FieldRadiogroup')->find($item['databseId']);
             $radiogroup->setValue($item['value']);
-            $radiogroup->setIsactive($item['checked']);
+            $radiogroup->setIsActive($item['checked']);
             $radiogroup->setFieldId($id);
             $radiogroup->setPosition($position++);
             $radiogroup->save();
@@ -254,7 +253,7 @@ class FieldClass {
         foreach($records as $item) {
             $checkboxgroup = $item['databseId'] == '' ? new FieldCheckboxgroup() : Doctrine::getTable('FieldCheckboxgroup')->find($item['databseId']);
             $checkboxgroup->setValue($item['value']);
-            $checkboxgroup->setIsactive($item['checked']);
+            $checkboxgroup->setIsActive($item['checked']);
             $checkboxgroup->setFieldId($id);
             $checkboxgroup->setPosition($position++);
             $checkboxgroup->save();
@@ -277,7 +276,7 @@ class FieldClass {
         foreach($records as $item) {
             $combobox = $item['databseId'] == '' ? new FieldCombobox() : Doctrine::getTable('FieldCombobox')->find($item['databseId']);
             $combobox->setValue($item['value']);
-            $combobox->setIsactive($item['checked']);
+            $combobox->setIsActive($item['checked']);
             $combobox->setFieldId($id);
             $combobox->setPosition($position++);
             $combobox->save();

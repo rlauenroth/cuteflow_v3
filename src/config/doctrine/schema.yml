@@ -228,7 +228,7 @@ FieldTextfield:
   columns:
     field_id: { type: integer, length: 20 }
     regex: {type: string(255) }
-    defaul_tvalue: {type: string(255) }
+    default_value: {type: string(255) }
   relations:
     Field: { class: Field, local: field_id, foreign: id, foreignType: many, type: one }
 
@@ -273,11 +273,11 @@ FieldCombobox:
     id: { type: integer, length: 20, primary: true, autoincrement: true }
     field_id: { type: integer, length: 20 }
     value: {type: string(255) }
-    isactive: { type: integer, length: 3 }
+    is_active: { type: integer, length: 3 }
     position: { type: integer, length: 3 }
   relations:
     Field: { class: Field, local: field_id, foreign: id, foreignType: many, type: one }
-    WorkflowSlotFieldCombobox: { class: WorkflowSlotFieldCombobox, local: id, foreign: fieldcombobox_id, foreignType: many, type: one }
+    WorkflowSlotFieldCombobox: { class: WorkflowSlotFieldCombobox, local: id, foreign: field_combobox_id, foreignType: many, type: one }
 
 FieldCheckboxgroup:
   tableName: cf_field_checkbox_group
@@ -318,7 +318,7 @@ DocumentTemplate:
   columns:
     name: { type: string(255) }
   relations:
-    DocumenttemplateVersion: { class: DocumentVersion, local: id, foreign: document_template_id, foreignType: many, type: one }
+    DocumentTemplateVersion: { class: DocumentTemplateVersion, local: id, foreign: document_template_id, foreignType: many, type: one }
     MailinglistTemplate: { class: MailinglistTemplate, local: id, foreign: document_template_id, foreignType: many, type: one }
   actAs: [SoftDelete, Timestampable]
 
@@ -329,7 +329,7 @@ DocumentTemplateVersion:
     version: { type: integer, length: 3 }
     active_version: { type: integer, length: 3 }
   relations:
-    DocumenttemplateSlot: { class: DocumenttemplateSlot, local: id, foreign: document_template_version_id, foreignType: many, type: one }
+    DocumentTemplateSlot: { class: DocumentTemplateSlot, local: id, foreign: document_template_version_id, foreignType: many, type: one }
     MailinglistVersion: { class: MailinglistVersion, local: id, foreign: document_template_version_id, foreignType: many, type: one }
     WorkflowTemplate: { class: WorkflowTemplate, local: id, foreign: document_template_version_id, foreignType: many, type: one }
   actAs: [Timestampable]
@@ -495,7 +495,7 @@ WorkflowSlotField:
     WorkflowSlotFieldCheckbox: { class: WorkflowSlotFieldCheckbox, local: id, foreign: workflow_slot_field_id, foreignType: many, type: one }
     WorkflowSlotFieldNumber: { class: WorkflowSlotFieldNumber, local: id, foreign: workflow_slot_field_id, foreignType: many, type: one }
     WorkflowSlotFieldDate: { class: WorkflowSlotFieldDate, local: id, foreign: workflow_slot_field_id, foreignType: many, type: one }
-    WorkflowSlotFieldTextarea: { class: WorkflowSlotFieldTextarea, local: id, foreign: workflowslotfield_id, foreignType: many, type: one }
+    WorkflowSlotFieldTextarea: { class: WorkflowSlotFieldTextarea, local: id, foreign: workflow_slot_field_id, foreignType: many, type: one }
     WorkflowSlotFieldRadiogroup: { class: WorkflowSlotFieldRadiogroup, local: id, foreign: workflow_slot_field_id, foreignType: many, type: one }
     WorkflowSlotFieldCombobox: { class: WorkflowSlotFieldCombobox, local: id, foreign: workflow_slot_field_id, foreignType: many, type: one }
     WorkflowSlotFieldCheckboxgroup: { class: WorkflowSlotFieldCheckboxgroup, local: id, foreign: workflow_slot_field_id, foreignType: many, type: one }
