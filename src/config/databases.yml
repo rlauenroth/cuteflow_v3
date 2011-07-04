@@ -1,7 +1,0 @@
-all:
-  doctrine:
-    class: sfDoctrineDatabase
-    param:
-      dsn: mysql:host=mysqlprod.rotex.de;dbname=cuteflow_v3
-      username: cuteflow_v3
-      password: iusdamn31&&817!%

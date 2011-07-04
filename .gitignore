@@ -1,4 +1,7 @@
 src/cache/*
 nbproject
 src/lib/model/doctrine/base/*
+src/lib/model/form/base/*
+src/lib/model/filter/base/*
 src/config/installed
+src/config/databases.yml
