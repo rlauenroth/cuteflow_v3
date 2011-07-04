@@ -83,7 +83,7 @@ class layoutActions extends sfActions {
 
         $settings = AuthenticationConfigurationTable::instance()->getAuthenticationConfiguration()->toArray();
         $user_id = $request->getParameter('userid');
-        if ($settings[0]['allowdirectlogin'] == 1) { // allow direct login, without using login form
+        if ($settings[0]['allow_direct_login'] == 1) { // allow direct login, without using login form
             $userLogin = UserLoginTable::instance()->findUserById($user_id);
             $arr = $userLogin->toArray(); // load User Data
             if ($this->getUser()->isAuthenticated() == false) { // check if user is already logged in

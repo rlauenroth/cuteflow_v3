@@ -33,7 +33,7 @@ class AuthenticationConfigurationTable extends Doctrine_Table {
                     ->update('AuthenticationConfiguration ac')
                     ->set('ac.authentication_type', '?', $data['authentication_type'])
                     ->set('ac.first_login','?',isset($data['authentication_firstlogin']) ? $data['authentication_firstlogin'] : 0)
-                    ->set('ac.allowdirectlogin','?',isset($data['authentication_allowdirectlogin']) ? $data['authentication_allowdirectlogin'] : 0)
+                    ->set('ac.allow_direct_login','?',isset($data['authentication_allowdirectlogin']) ? $data['authentication_allowdirectlogin'] : 0)
                     ->where ('ac.id = ?',1)
                     ->execute();
         return true;
@@ -63,7 +63,7 @@ class AuthenticationConfigurationTable extends Doctrine_Table {
             ->set('ac.ldap_context', '?', $data['auth_ladp_context'])
             ->set('ac.first_login','?',isset($data['authentication_firstlogin']) ? $data['authentication_firstlogin'] : 0)
             ->set('ac.ldap_add_user','?',isset($data['auth_ladp_adduser']) ? $data['auth_ladp_adduser'] : 0)
-            ->set('ac.allowdirectlogin','?',isset($data['authentication_allowdirectlogin']) ? $data['authentication_allowdirectlogin'] : 0)
+            ->set('ac.allow_direct_login','?',isset($data['authentication_allowdirectlogin']) ? $data['authentication_allowdirectlogin'] : 0)
             ->where ('ac.id = ?',1)
             ->execute();
         return true;
@@ -82,7 +82,7 @@ class AuthenticationConfigurationTable extends Doctrine_Table {
                     ->set('ac.openidserver', '?', $data['auth_openid_server'])
                     ->set('ac.authentication_type', '?', $data['authentication_type'])
                     ->set('ac.first_login','?',isset($data['authentication_firstlogin']) ? $data['authentication_firstlogin'] : 0)
-                    ->set('ac.allowdirectlogin','?',isset($data['authentication_allowdirectlogin']) ? $data['authentication_allowdirectlogin'] : 0)
+                    ->set('ac.allow_direct_login','?',isset($data['authentication_allowdirectlogin']) ? $data['authentication_allowdirectlogin'] : 0)
                     ->where ('ac.id = ?',1)
                     ->execute();
         return true;
