@@ -14,7 +14,7 @@ class UserMailSettings {
 
 
     public function setData() {
-        $userSettings = UserSettingTable::instance()->getUserSettingById($this->user_id)->toArray();
+        $userSettings = UserSettingTable::getInstance()->getUserSettingById($this->user_id)->toArray();
         $replayAdress = EmailConfigurationTable::instance()->getEmailConfiguration()->toArray();
         $userLogin = UserLoginTable::instance()->findActiveUserById($this->user_id);
         $userData = UserDataTable::instance()->getUserDataByUserId($this->user_id)->toArray();

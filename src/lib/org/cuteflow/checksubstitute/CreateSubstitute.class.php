@@ -85,7 +85,8 @@ class CreateSubstitute {
      * @param boolean $flag, 1 to set cronjobprocesses disabled, 0 to set nonprocesses to disabled
      */
     public function disableUserAgent($wfProcessId, $flag) {
-        WorkflowProcessUserTable::instance()->setProcessToUseragentSetByCronjobAndByProcessId($wfProcessId, $flag);
+        WorkflowProcessUserTable::instance()
+                ->setProcessToUseragentSetByCronjobAndByProcessId($wfProcessId, $flag);
     }
 
 

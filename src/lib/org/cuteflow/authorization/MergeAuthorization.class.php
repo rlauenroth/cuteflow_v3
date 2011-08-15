@@ -2,11 +2,6 @@
 
 class MergeAuthorization {
 
-    public function  __construct() {
-
-    }
-
-
     /**
      *
      *  Function merges the rights for the mailinglist auth tab
@@ -19,13 +14,16 @@ class MergeAuthorization {
     public function mergeRoles(array $allRoles, array $defaultAuth, array $auth) {
         foreach($allRoles as $singleRole) {
             $write = true;
-            for($a=0;$a<count($auth);$a++) {
-                $exists = $auth[$a];
-                if($singleRole['description'] == $exists['type'] OR $singleRole['description'] == 'admin' OR $singleRole['description'] == 'sender' OR $singleRole['description'] == 'receiver') {
+            foreach($auth as $exists) {
+                if ($singleRole['description'] == $exists['type'] 
+                        || $singleRole['description'] == 'admin' 
+                        || $singleRole['description'] == 'sender' 
+                        || $singleRole['description'] == 'receiver') {
                     $write = false;
+                    break;
                 }
             }
-            if($write == true) {
+            if ($write) {
                 $lastArr = count($auth);
                 $auth[$lastArr]['type'] = $singleRole['description'];
                 $auth[$lastArr]['raw_type'] = $singleRole['description'];

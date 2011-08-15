@@ -35,7 +35,7 @@ class themeActions extends sfActions {
      */
     public function executeLoadUserTheme(sfWebRequest $request) {
         $tm = new ThemeManagement();
-        $defaultTheme = UserSettingTable::instance()->getUserSettingById($request->getParameter('id'))->toArray();
+        $defaultTheme = UserSettingTable::getInstance()->getUserSettingById($request->getParameter('id'))->toArray();
         $tm->setContext($this->getContext());
         $data = $tm->getThemes();
         $data = $tm->checkDefault($data, $defaultTheme[0]['theme']);

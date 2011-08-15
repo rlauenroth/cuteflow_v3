@@ -120,7 +120,7 @@ class WorkflowEdit {
         $return = array();
         $activeSlot = array();
         $inacitveSlot = array();
-        $systemSettings = SystemConfigurationTable::instance()->getSystemConfiguration()->toArray();
+        $systemSettings = SystemConfigurationTable::getInstance()->getSystemConfiguration()->toArray();
         $a = 0;
         $b = 0;
 

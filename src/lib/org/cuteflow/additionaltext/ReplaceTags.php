@@ -1,6 +1,7 @@
 <?php
 /**
  * Class replaces Spaceholder from Textfields and Additional Textes
+ * TODO rela: rename
  */
 class ReplaceTags {
 
@@ -17,6 +18,7 @@ class ReplaceTags {
      * @param String $text, the text to replace
      * @param String $culture, the language
      * @param sfContext $context , context object
+     * TODO rela: Code in getText() auslagern
      */
     public function __construct($versionId, $text, $culture, $context = false) {
         
@@ -34,13 +36,15 @@ class ReplaceTags {
     }
 
     public function setWorkflow($versionId) {
-        $data = WorkflowTemplateTable::instance()->getWorkflowTemplateByVersionId($versionId)->toArray();
-        $this->workflow = $data[0];
+        $this->workflow = WorkflowTemplateTable::instance()
+                ->getWorkflowTemplateByVersionId($versionId)
+                ->getFirst();
     }
 
     public function setWorkflowVersion($versionId) {
-        $data = WorkflowVersionTable::instance()->getWorkflowVersionById($versionId)->toArray();
-        $this->workflowVersion = $data[0];
+        $this->workflowVersion = WorkflowVersionTable::instance()
+                ->getWorkflowVersionById($versionId)
+                ->getFirst();
     }
 
     /**
@@ -49,7 +53,7 @@ class ReplaceTags {
      * @param string $text, text to replace
      * @return string $text, $text replaced
      */
-    public function replacePlaceholder($text) {
+    protected function replacePlaceholder($text) {
         $date = format_date(time(), 'g', $this->culture);
         $text = str_replace('{%CIRCULATION_TITLE%}', $this->workflow['name'], $text);
         $text = str_replace('{%CIRCULATION_ID%}', $this->workflow['id'], $text);
@@ -67,5 +71,3 @@ class ReplaceTags {
 
 }
 
-
-?>

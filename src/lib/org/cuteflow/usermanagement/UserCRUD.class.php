@@ -80,9 +80,9 @@ class UserCRUD {
         $data['userFourthTab_itemsperpage'] = isset($data['userFourthTab_itemsperpage']) ? $data['userFourthTab_itemsperpage'] : $defaultdata['displayed_item'];
         $data['userFourthTab_refreshtime'] = isset($data['userFourthTab_refreshtime']) ? $data['userFourthTab_refreshtime'] : $defaultdata['refresh_time'];
 
-        $data['userSecondTab_durationlength'] = isset($data['userSecondTab_durationlength']) ? $data['userSecondTab_durationlength'] : $defaultdata['durationlength'];
+        $data['userSecondTab_durationlength'] = isset($data['userSecondTab_durationlength']) ? $data['userSecondTab_durationlength'] : $defaultdata['duration_length'];
         $data['userSecondTab_durationlength_type'] = isset($data['userSecondTab_durationlength_type']) ? $data['userSecondTab_durationlength_type'] : $defaultdata['duration_type'];
-        $data['userSecondTab_durationlength'] = $data['userSecondTab_durationlength'] == '' ? $defaultdata['durationlength'] : $data['userSecondTab_durationlength'];
+        $data['userSecondTab_durationlength'] = $data['userSecondTab_durationlength'] == '' ? $defaultdata['duration_length'] : $data['userSecondTab_durationlength'];
         return $data;
     }
 

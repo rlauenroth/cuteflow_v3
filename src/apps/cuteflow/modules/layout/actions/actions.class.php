@@ -22,11 +22,11 @@ class layoutActions extends sfActions {
         /*
          * Load the userrole, userrigths, userSettings, userId, workflowSettings for the logged user and store to session
          */
-        $userSettings = UserSettingTable::instance()->getUserSettingById($this->getUser()->getAttribute('id'));
+        $userSettings = UserSettingTable::getInstance()->getUserSettingById($this->getUser()->getAttribute('id'));
         $userWorkflowSetting = UserWorkflowConfigurationTable::instance()->getSingleUserWorkflowConfigurattion($this->getUser()->getAttribute('id'))->toArray();
 
         $this->getUser()->setAttribute('userSettings', $userSettings[0]->toArray()); // set userSettings
-        $config = SystemConfigurationTable::instance()->getSystemConfiguration()->toArray();
+        $config = SystemConfigurationTable::getInstance()->getSystemConfiguration()->toArray();
         $this->getUser()->setAttribute('userWorkflowSettings', $loginObject->generateUserWorklowView($userWorkflowSetting, sfContext::getInstance())); // set workflowsettings
         $data = $this->getUser()->getAttribute('userWorkflowSettings');
         $credentials = CredentialTable::instance()->getAllCredentials();
@@ -51,7 +51,7 @@ class layoutActions extends sfActions {
      * @return <type>
      */
     public function executeChangeFirstLogin(sfWebRequest $request) {
-        UserSettingTable::instance()->setFirstLogin($this->getUser()->getAttribute('id'));
+        UserSettingTable::getInstance()->setFirstLogin($this->getUser()->getAttribute('id'));
         return sfView::NONE;
     }
 
@@ -88,7 +88,7 @@ class layoutActions extends sfActions {
             $arr = $userLogin->toArray(); // load User Data
             if ($this->getUser()->isAuthenticated() == false) { // check if user is already logged in
                 if (empty($arr) == false) { // a user has been found, -> user is not deleted
-                    $settings = UserSettingTable::instance()->getUserSettingById($user_id); // user is not logged in, set the settings
+                    $settings = UserSettingTable::getInstance()->getUserSettingById($user_id); // user is not logged in, set the settings
                     $this->getUser()->setAuthenticated(true);
                     $this->getUser()->setAttribute('id', $user_id);
                     $this->getUser()->setAttribute('userrole', $userLogin[0]->getRoleId());

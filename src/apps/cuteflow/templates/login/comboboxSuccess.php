@@ -30,7 +30,7 @@ cf.ComboBox = function(){return {
 			allowBlank: true,
 			forceSelection:true,
 			id:'language',
-			value: '<?php echo Language::buildDefaultLanguage(Language::loadDefaultLanguage());?>',
+			value: '<?php echo I18nUtil::buildDefaultLanguage(SystemConfigurationTable::getInstance()->loadDefaultLanguage());?>',
 			width: 225,
 			listeners: {
 				select: {
@@ -78,10 +78,7 @@ cf.ComboBox = function(){return {
 			autoload: true,
 			url: Ext.get('hidden_loadlanguage').dom.value,
 			root: 'result',
-			fields: [
-				{name: 'value'},
-				{name: 'text'}
-			]
+			fields: [{name: 'value'},{name: 'text'}]
 		});
 		cf.ComboBox.theComboStore.load();
 	}

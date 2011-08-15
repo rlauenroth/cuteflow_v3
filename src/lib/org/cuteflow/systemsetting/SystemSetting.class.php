@@ -18,7 +18,7 @@ class SystemSetting {
      * @return array $result
      */
     public static function getShowPositionInMail() {
-        $data = SystemConfigurationTable::instance()->getSystemConfiguration()->toArray();
+        $data = SystemConfigurationTable::getInstance()->getSystemConfiguration()->toArray();
         $result = array();
         if($data[0]['show_position_in_mail'] == 1) {
             $result['hidden'] = 'false';

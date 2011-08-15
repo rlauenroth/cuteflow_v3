@@ -77,7 +77,7 @@ cf.administration_myprofile = function(){return {
 					
 					
 					// second Tab, load Grid here
-					Ext.getCmp('userSecondTab_durationlength').setValue(data.result.durationlength);
+					Ext.getCmp('userSecondTab_durationlength').setValue(data.result.duration_length);
 					Ext.getCmp('userSecondTab_durationlength_type_id').setValue(data.result.duration_type);
 					
 					// third tab

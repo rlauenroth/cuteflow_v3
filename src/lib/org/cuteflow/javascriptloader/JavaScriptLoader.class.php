@@ -21,15 +21,14 @@ class JavaScriptLoader {
     }
 
     /**
-     * Add the Namsepace file main.js as first item to the array.!IMPORTANT!
+     * Add the Namespace file main.js as first item to the array.!IMPORTANT!
      */
     public function addNameSpaceFiles() {
         $result = array();
         $dir = sfConfig::get('sf_app_dir') . '/templates/namespace/';
-        $result[0] = $dir . 'mainSuccess.php';
-        $a = 1;
+        $result[] = $dir . 'mainSuccess.php';
         foreach($this->files['template'] as $item) {
-            $result[$a++] = $item;
+            $result[] = $item;
         }
         $this->files = $result;
     }

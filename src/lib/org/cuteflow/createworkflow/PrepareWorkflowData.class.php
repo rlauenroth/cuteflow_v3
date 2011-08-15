@@ -1,13 +1,7 @@
 <?php
 
-
-
-
 class PrepareWorkflowData {
 
-    public function  __construct() {
-
-    }
 
     /**
      * Set the startdate of the workflo, and set if the workflow will start at the moment
@@ -22,8 +16,6 @@ class PrepareWorkflowData {
             $result['workflow_is_started'] = 1;
         }
         else {
-            $dateStamp = array();
-            $timeStamp = array();
             if($time == '') {
                 $time = '08:00';
             }
@@ -129,4 +121,3 @@ class PrepareWorkflowData {
 
 
 }
-?>

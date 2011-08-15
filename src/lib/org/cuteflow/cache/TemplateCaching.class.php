@@ -4,14 +4,9 @@ class TemplateCaching {
 
     public $files;
 
-
-    public function __construct() {
-
-    }
-
-
     /**
      * Set the JS Files
+     * TODO rela: überflüssig?
      */
     public function setFiles() {
         $files = new JavaScriptLoader();
@@ -37,23 +32,24 @@ class TemplateCaching {
      * Return the last modified file
      *
      * @return string $lastModified, last modified file
+     * TODO rela: rename (getLastModifiedIrgendwas)
      */
     public function getLastModifiedFile() {
-        $files = new JavaScriptLoader();
-        $files->addNameSpaceFiles();
-        $filesArray = $files->getAllFiles();
+        $loader = new JavaScriptLoader();
+        $loader->addNameSpaceFiles();
+        $files = $loader->getAllFiles();
         $mod = array();
-        foreach($this->files as $file) {
+        foreach($files as $file) {
             $mod[] =  filemtime($file);
         }
-        uasort($mod, 'cmp');
-        $lastModified = end($mod);
-        return $lastModified;
+        asort($mod);
+        return end($mod);
     }
 
     /**
      *
      * @return String, '' if no file is cached, return timestamp of the latest cache
+     * 
      */
     public function getCurrentCacheStamp() {
         $dir = array_diff(scandir(sfConfig::get('sf_cache_dir') . '/javaScriptCache'), Array());
@@ -73,6 +69,7 @@ class TemplateCaching {
      *
      * @param String $lastModified, last modified file in timestampe
      * @param String acheStamp, created cache as timestamp
+     * TODO rela: loader einbauen
      * @return true
      */
     public function createCache($lastModified, $cacheStamp) {
@@ -87,7 +84,5 @@ class TemplateCaching {
         return true;
     }
 }
-    function cmp ($a, $b) {
-        return strcmp($a, $b);
-    }
-?>
+
+    

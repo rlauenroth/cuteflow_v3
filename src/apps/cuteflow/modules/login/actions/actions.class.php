@@ -19,9 +19,11 @@ class loginActions extends sfActions
     public function executeIndex(sfWebRequest $request)
     {
         $this->getUser()->setAuthenticated(false);
-        $this->getUser()->setCulture(Language::loadDefaultLanguage());
+        $this->getUser()->setCulture(SystemConfigurationTable::getInstance()->loadDefaultLanguage());
         $tm = new ThemeManagement();
-        $systemTheme = UserConfigurationTable::instance()->getUserConfiguration()->toArray();
+        $systemTheme = UserConfigurationTable::instance()
+                ->getUserConfiguration()
+                ->toArray();
         $this->theTheme = $systemTheme[0]['theme'];
 
         /*
@@ -33,6 +35,7 @@ class loginActions extends sfActions
         $this->window = $request->getParameter('window', -1);
         return sfView::SUCCESS;
     }
+
 
     /**
      * Action to login the user and set its role, and userid
@@ -59,6 +62,7 @@ class loginActions extends sfActions
         return sfView::NONE;
     }
 
+
     /**
      * Function loads new Language for the combobox on Login Page
      *
@@ -68,12 +72,12 @@ class loginActions extends sfActions
     public function executeLoadLanguage(sfWebRequest $request)
     {
         $result = array();
-        $langObject = new Language();
+        $langObject = new I18nUtil();
         $result = $langObject->extractLanguages($this->getRequest()->getLanguages());
-        $result = $langObject->buildLanguages($result);
         $this->renderText('({"result":' . json_encode($result) . '})');
         return sfView::NONE;
     }
+
 
     /**
      *
@@ -85,12 +89,13 @@ class loginActions extends sfActions
      */
     public function executeChangeLanguage(sfWebRequest $request)
     {
-        $language = new Language();
+        $language = new I18nUtil();
         $this->getUser()->setCulture($request->getParameter('language'));
         $result = $language->loadAjaxLanguage($this->getContext());
-        $default = Language::buildDefaultLanguage($this->getUser()->getCulture());
+        $default = I18nUtil::buildDefaultLanguage($this->getUser()->getCulture());
         $this->renderText('{"defaultValue":"' . $default . '","result":' . json_encode($result) . '}');
         return sfView::NONE;
     }
+
 
 }

@@ -46,7 +46,7 @@ EOF;
         $context->getConfiguration()->loadHelpers('Partial', 'I18N', 'Url', 'Date', 'CalculateDate', 'ColorBuilder', 'Icon', 'EndAction');
         $serverUrl = $options['setenvironment'] == '' ? $serverUrl = $options['host'] : $serverUrl = $options['host'] . '/' . $options['setenvironment'];
 
-        $system = SystemConfigurationTable::instance()->getSystemConfiguration()->toArray();
+        $system = SystemConfigurationTable::getInstance()->getSystemConfiguration()->toArray();
         if($system[0]['individual_cronjob'] == 1) {
             $systemConifg = new CheckSubstituteRun($context);
             if($systemConifg->checkRun($system[0]['cronjob_days'],$system[0]['cronjob_from'],$system[0]['cronjob_to']) == true) {

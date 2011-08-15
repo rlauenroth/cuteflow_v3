@@ -56,7 +56,7 @@ class PrepareStationEmail {
      * @return boolean
      */
     public function checkSendingRight() {
-        $wfSettings = SystemConfigurationTable::instance()->getSystemConfiguration()->toArray();
+        $wfSettings = SystemConfigurationTable::getInstance()->getSystemConfiguration()->toArray();
         if($wfSettings[0]['send_receiver_mail'] == 1) {
             return true;
         }

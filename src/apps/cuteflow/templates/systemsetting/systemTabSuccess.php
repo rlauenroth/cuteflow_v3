@@ -126,7 +126,7 @@ cf.systemTab = function(){return {
 				mode: 'local',
  				id: 'systemsetting_language_id',
  				hiddenName : 'systemsetting_language',
-				value: '<?php echo Language::buildDefaultLanguage(Language::loadDefaultLanguage());?>',
+				value: '<?php echo I18nUtil::buildDefaultLanguage(SystemConfigurationTable::getInstance()->loadDefaultLanguage());?>',
 				displayField:'text',
 				fieldLabel: '<?php echo __('Select language',null,'systemsetting'); ?>',
 				triggerAction: 'all',

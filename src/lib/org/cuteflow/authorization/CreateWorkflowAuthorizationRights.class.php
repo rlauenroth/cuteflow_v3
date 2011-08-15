@@ -1,32 +1,32 @@
 <?php
 
 /**
- * Function loads auth for a user, if he has right to load details or delete a workflow
+ * Function loads auth for a user, if he has right to load details or delete a workflow 
  */
-class CreateWorkflowAuthorizationRights {
+class CreateWorkflowAuthorizationRights
+{
 
     public $defaultRole;
     public $userroleName;
     public $userId;
 
-    public function  __construct() {
-        
-    }
-
     /**
      * Set the default role settings
      */
-    public function setDefaultRole() {
-        $roles = AuthorizationConfigurationTable::instance()->getAllRoles()->toArray();
+    public function setDefaultRole()
+    {
+        $roles = AuthorizationConfigurationTable::instance()->getAllRoles(1)->toArray();
         $this->defaultRole = $roles[0];
     }
+
 
     /**
      * Load the rolename for the logged user
      *
      * @param int $userId
      */
-    public function setUserRole($userId) {
+    public function setUserRole($userId)
+    {
         $role = RoleTable::instance()->getRoleByUserId($userId)->toArray();
         $this->userroleName = $role[0]['description'];
         $this->userId = $userId;
@@ -41,11 +41,13 @@ class CreateWorkflowAuthorizationRights {
      * @param int $workflowversionid, id of the workflowversion
      * @return array $result, array with the rights
      */
-    public function getRights($mailinglistVersionId, $workflowversionid) {
+    public function getRights($mailinglistVersionId, $workflowversionid)
+    {
         $roleCheck = $this->checkRole($mailinglistVersionId); // checks if the role of the user, is appearing in the mailinglist auth settings. if not, default settings are loaded
         $allowedSenderCheck = $this->checkAllowedSender($mailinglistVersionId);
         $sendingRight = $this->checkSendingRight($mailinglistVersionId);
         $receiver = $this->checkReceiver($workflowversionid, $mailinglistVersionId);
+
         $result['delete_workflow'] = $this->mergeRights($roleCheck, $allowedSenderCheck, $sendingRight, $receiver, 'delete_workflow');
         $result['archive_workflow'] = $this->mergeRights($roleCheck, $allowedSenderCheck, $sendingRight, $receiver, 'archive_workflow');
         $result['stop_new_workflow'] = $this->mergeRights($roleCheck, $allowedSenderCheck, $sendingRight, $receiver, 'stop_new_workflow');
@@ -63,28 +65,29 @@ class CreateWorkflowAuthorizationRights {
      * @param string $offset, offset can be delete, archive stopnew or detailsworkflow
      * @return <type>
      */
-    public function mergeRights(array $roles, array $allowedsender, array $sendingRight, array $receiver, $offset) {
+    public function mergeRights(array $roles, array $allowedsender, array $sendingRight, array $receiver, $offset)
+    {
         $result = array();
-        
-        $value = $roles[$offset];
-        if($allowedsender['allowedtosend'] == 1) {
-            if($value != 1) {
-                $value = $roles[$offset];
-            }
 
-        }
-        if($sendingRight['allowedtosend'] == 1) {
-            if($value != 1) {
+        $value = $roles[$offset];
+        if ($allowedsender['allowedtosend'] == 1) {
+            if ($value != 1) {
                 $value = $roles[$offset];
             }
         }
-        if($receiver['allowedtosend'] == 1) {
-            if($value != 1) {
+        if ($sendingRight['allowedtosend'] == 1) {
+            if ($value != 1) {
                 $value = $roles[$offset];
             }
         }
-       return $value;
+        if ($receiver['allowedtosend'] == 1) {
+            if ($value != 1) {
+                $value = $roles[$offset];
+            }
+        }
+        return $value;
     }
+
 
     /**
      *
@@ -94,18 +97,17 @@ class CreateWorkflowAuthorizationRights {
      * @param int $mailinglistVersionId, id of the mailinglist
      * @return boolean
      */
-    public function checkReceiver($workflowversionId, $mailinglistVersionId) {
+    public function checkReceiver($workflowversionId, $mailinglistVersionId)
+    {
         $receiver = WorkflowSlotUserTable::instance()->getUserByWorkflowVersionId($this->userId, $workflowversionId)->toArray();
-        if(empty($receiver) == true) {
+        if (empty($receiver) == true) {
             $result['allowedtosend'] = 0;
             return $result;
-        }
-        else {
+        } else {
             $sender = MailinglistAuthorizationSettingTable::instance()->getSettingsByType('receiver', $mailinglistVersionId)->toArray();
             $sender[0]['allowedtosend'] = 1;
             return $sender[0];
         }
-        
     }
 
 
@@ -116,21 +118,21 @@ class CreateWorkflowAuthorizationRights {
      * @param int $mailinglistVersionId
      * @return boolean
      */
-    public function checkSendingRight($mailinglistVersionId) {
-        
-        $credentialId = CredentialTable::instance()->getCredentialIdByRight('workflow','workflowmanagement','sendWorkflow')->toArray();
+    public function checkSendingRight($mailinglistVersionId)
+    {
+
+        $credentialId = CredentialTable::instance()->getCredentialIdByRight('workflow', 'workflowmanagement', 'sendWorkflow')->toArray();
         $rightCheck = RoleTable::instance()->getRoleByRightAndRoleName($credentialId[0]['id'], $this->userroleName)->toArray();
-        if(empty($rightCheck) == true) {
+        if (empty($rightCheck) == true) {
             $result['allowedtosend'] = 0;
             return $result;
-        }
-        else {
+        } else {
             $sender = MailinglistAuthorizationSettingTable::instance()->getSettingsByType('senderwithrights', $mailinglistVersionId)->toArray();
             $sender[0]['allowedtosend'] = 1;
             return $sender[0];
         }
-        
     }
+
 
     /**
      * Check if the user can use the mailinglist to create a workflow
@@ -138,13 +140,13 @@ class CreateWorkflowAuthorizationRights {
      * @param int $mailinglistVersionId
      * @return boolean
      */
-    public function checkAllowedSender($mailinglistVersionId) {
+    public function checkAllowedSender($mailinglistVersionId)
+    {
         $allowedsender = MailinglistAllowedSenderTable::instance()->getAllowedSenderByMailinglistIdAndUserId($this->userId, $mailinglistVersionId)->toArray();
-        if(empty($allowedsender) == true) {
+        if (empty($allowedsender) == true) {
             $result['allowedtosend'] = 0;
             return $result;
-        }
-        else {
+        } else {
             $sender = MailinglistAuthorizationSettingTable::instance()->getSettingsByType('allowedsender', $mailinglistVersionId)->toArray();
             $sender[0]['allowedtosend'] = 1;
             return $sender[0];
@@ -160,23 +162,15 @@ class CreateWorkflowAuthorizationRights {
      * @param <type> $mailinglistVersionId
      * @return <type>
      */
-    public function checkRole($mailinglistVersionId) {
+    public function checkRole($mailinglistVersionId)
+    {
         $rights = MailinglistAuthorizationSettingTable::instance()->getSettingsByType($this->userroleName, $mailinglistVersionId)->toArray();
-        if(empty($rights) == true) {
+        if (empty($rights) == true) {
             return $this->defaultRole;
-        }
-        else {
+        } else {
             return $rights[0];
         }
     }
 
 
-    
-
-
-
-
-
-
 }
-?>

@@ -23,7 +23,7 @@ class UserSettingClass {
      * @return boolean
      */
     public static function getFirstLogin() {
-        $result = UserSettingTable::instance()->getFirstLogin(sfContext::getInstance()->getUser()->getAttribute('id'))->toArray();
+        $result = UserSettingTable::getInstance()->getFirstLogin(sfContext::getInstance()->getUser()->getAttribute('id'))->toArray();
         return $result[0]['firstlogin'];
     }
 

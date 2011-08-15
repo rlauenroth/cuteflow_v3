@@ -21,7 +21,7 @@ class systemsettingActions extends sfActions {
         $systemObj = new SystemSetting();
         $email = EmailConfigurationTable::instance()->getEmailConfiguration()->toArray();
         $auth = AuthenticationConfigurationTable::instance()->getAuthenticationConfiguration()->toArray();
-        $system = SystemConfigurationTable::instance()->getSystemConfiguration()->toArray();
+        $system = SystemConfigurationTable::getInstance()->getSystemConfiguration()->toArray();
         $usersettings = UserConfigurationTable::instance()->getUserConfiguration()->toArray();
         $email[0]['smtpencryption'] =  $email[0]['smtpencryption'] == '' ? 'NONE' :  $email[0]['smtpencryption'];
         $userAgent = $systemObj->buildUserAgent($system, sfContext::getInstance());
@@ -58,7 +58,7 @@ class systemsettingActions extends sfActions {
         // save systemsetting
         if (isset($data['systemsetting_language'])) {
             $data = $sysObj->buildSystemSetting($data);
-            SystemConfigurationTable::instance()->updateSystemConfiguration($data);
+            SystemConfigurationTable::getInstance()->updateSystemConfiguration($data);
         }
 
         // store Email tab
@@ -90,14 +90,14 @@ class systemsettingActions extends sfActions {
         // store useragent settings tab
         if(isset($data['useragent_useragentsettings']) OR isset($data['useragent_useragentcreation'])) {
             $data = $sysObj->prepareUserAgentData($data);
-            SystemConfigurationTable::instance()->updateUserAgent($data);
+            SystemConfigurationTable::getInstance()->updateUserAgent($data);
         }
         else {
             $data['useragent_useragentsettings'] = 0;
             $data['useragent_useragentcreation'] = 0;
             $data['writeDays'] = 0;
         }
-        SystemConfigurationTable::instance()->updateUserAgent($data);
+        SystemConfigurationTable::getInstance()->updateUserAgent($data);
 
         // save worklfow config 
         WorkflowConfigurationTable::instance()->deleteSettings();
