@@ -68,7 +68,7 @@ class FieldClass {
         foreach($data as $item) {
             $textfield = $item->getFieldTextfield();
             $result['regex'] = $textfield[0]->getRegex();
-            $result['defaultvalue'] = $textfield[0]->getDefaultvalue();
+            $result['default_value'] = $textfield[0]->getDefaultValue();
         }
         return $result;
     }
