@@ -1,12 +1,12 @@
 /** class for pop, when changing order of menue items **/
 cf.administration_systemsetting = function(){return {
 	
-	theSystemSettingPanel				:false,
-	theFormPanel						:false,
-	isInitialized						:false,
-	theTabPanel							:false,
-	theMainPanel						:false,
-	theLoadingMask						:false,
+	theSystemSettingPanel: false,
+	theFormPanel: false,
+	isInitialized: false,
+	theTabPanel: false,
+	theMainPanel: false,
+	theLoadingMask: false,
 	
 	
 	/** 
@@ -73,14 +73,14 @@ cf.administration_systemsetting = function(){return {
 	initTabPanel: function () {
 		this.theTabPanel = new Ext.TabPanel({
 			activeTab: 0,
-			enableTabScroll:true,
+			enableTabScroll: true,
 			border: false,
-			deferredRender:true,
+			deferredRender: true,
 			frame: true,
 			layoutOnTabChange: true,
 			style: 'margin-top:5px;',
 			plain: false,
-			closable:false
+			closable: false
 		});	
 		
 	},
@@ -103,15 +103,14 @@ cf.administration_systemsetting = function(){return {
 			modal: true,
 			closable: true,
 			modal: true,
-			//width: 700,
-			//height: 700,
+			height: 600,
 			layout: 'fit',
 			autoScroll: false,
 			title: '<?php echo __('System Settings',null,'systemsetting'); ?>',
 			shadow: false,
 			minimizable: false,
 			draggable: false,
-			style:'margin-top:5px;margin-left:5px;',
+			style: 'margin-top:5px;margin-left:5px;',
 			border: true,
 			resizable: false,
 	        plain: false,

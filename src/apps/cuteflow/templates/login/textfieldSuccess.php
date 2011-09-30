@@ -6,11 +6,11 @@
 
 cf.Textfield = function(){return {
 	
-	theUsernameField   		: false,
+	theUsernameField   	: false,
 	theUserpasswordField	: false,
-	theHiddenField			: false,
-	thePanel				: false,
-	theHiddenURL			: false,
+	theHiddenField		: false,
+	thePanel		: false,
+	theHiddenURL		: false,
 	
 	/** Functions calls all necessary functions to init the login window **/
 	init: function(){
@@ -27,7 +27,7 @@ cf.Textfield = function(){return {
 			id: 'username',
 			fieldLabel: '<?php echo __('Username',null,'login'); ?>',
 			allowBlank: false,
-			style: 'margin-top:2px;',
+			style: 'margin-top:2px',
 			enableKeyEvents : true,
 			width: 225
 		});
@@ -64,8 +64,8 @@ cf.Textfield = function(){return {
 			fieldLabel: '<?php echo __('Password',null,'login'); ?>',
 			allowBlank: false,
 			inputType: 'password',
-			enableKeyEvents : true,
-			width: 225
+			enableKeyEvents: true,
+			width: 225                       
 		});
 		this.theUserpasswordField.on('keyup', function(field, event) {
 			if(event.getCharCode() == 13) {
@@ -79,7 +79,7 @@ cf.Textfield = function(){return {
 		this.thePanel = new Ext.FormPanel({
 			plain: false,
 			frame: true,
-			height: 'auto',
+			height: 100,
 			layout : 'fit',
 			buttonAlign: 'center',
 		    layout: 'form'

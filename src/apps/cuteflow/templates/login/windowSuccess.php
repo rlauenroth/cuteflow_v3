@@ -4,15 +4,16 @@
 * 
 */
 cf.Window = function(){return {
-	theWindow				: false,
-	theLoadingMask			: false,
+	theWindow: false,
+	theLoadingMask: false,
 
 	/** Function inits window, with 2 buttons and handles login functionality **/
 	init: function () {
 		this.theWindow = new Ext.Window({
-		width:370,
-		height:'auto',
+		width: 370,
+		height: 'auto',
 		frame: true,
+                
 		title: '<div style="float:left;"><img src="/images/icons/key.png" /></div><div>&nbsp;&nbsp;CuteFlow - <?php echo __('Login',null,'login') ?></div>',
 		closable: false,
 		draggable: true,
